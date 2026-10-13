@@ -94,7 +94,12 @@ describe('call context', () => {
     ).toBe(true);
     expect(
       callContext(
-        withConfig({ booking_mode: 'request_mode', calendar_id: undefined, appointment_types: [] }),
+        withConfig({
+          booking_mode: 'request_mode',
+          calendar_id: undefined,
+          appointment_types: [],
+          job_appointment_types: {},
+        }),
         MON_10AM,
       ).can_book_live,
     ).toBe(false);

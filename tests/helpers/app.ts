@@ -9,6 +9,7 @@ import { buildApp } from '../../src/app.js';
 import { loadConfigStore } from '../../src/clients/config-store.js';
 import { loadEnv, type Env } from '../../src/config/env.js';
 import { createLogger } from '../../src/observability/logger.js';
+import type { GhlClient } from '../../src/ghl/client.js';
 import { createMetrics } from '../../src/observability/metrics.js';
 import { createRedis } from '../../src/store/redis.js';
 
@@ -56,7 +57,12 @@ export interface TestApp {
 }
 
 export async function startTestApp(
-  options: { env?: Record<string, string>; now?: () => Date; logStream?: DestinationStream } = {},
+  options: {
+    env?: Record<string, string>;
+    now?: () => Date;
+    logStream?: DestinationStream;
+    ghl?: GhlClient;
+  } = {},
 ): Promise<TestApp> {
   const env = await testEnv(options.env);
   const redis = createRedis(env.REDIS_URL);
@@ -77,6 +83,7 @@ export async function startTestApp(
     configStore: await loadConfigStore(env.CLIENT_CONFIG_DIR),
     metrics: createMetrics(),
     now: options.now,
+    ghl: options.ghl,
   });
   await app.ready();
   return {

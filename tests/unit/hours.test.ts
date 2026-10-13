@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   isWithinSchedule,
+  parseUkTime,
   spokenDate,
   spokenTime,
   toLocalTime,
@@ -55,5 +56,46 @@ describe('working hours in Europe/London', () => {
     expect(spokenTime(new Date('2026-11-02T12:00:00Z'))).toBe('midday');
     expect(spokenTime(new Date('2026-11-02T09:00:00Z'))).toBe('9am');
     expect(spokenTime(new Date('2026-11-02T14:40:00Z'))).toBe('2:40pm');
+  });
+});
+
+describe('parseUkTime (GHL naive UK wall-clock times)', () => {
+  it('passes zoned ISO strings through unchanged', () => {
+    expect(parseUkTime('2026-10-13T13:00:00+01:00')).toBe(Date.parse('2026-10-13T12:00:00Z'));
+    expect(parseUkTime('2026-11-02T09:00:00.000Z')).toBe(Date.parse('2026-11-02T09:00:00Z'));
+  });
+
+  it('reads naive times as Europe/London, never the server timezone', () => {
+    expect(parseUkTime('2026-10-13 13:00:00')).toBe(Date.parse('2026-10-13T12:00:00Z')); // BST
+    expect(parseUkTime('2026-11-02 09:00:00')).toBe(Date.parse('2026-11-02T09:00:00Z')); // GMT
+    expect(parseUkTime('2026-11-02T09:00')).toBe(Date.parse('2026-11-02T09:00:00Z'));
+  });
+
+  it('handles both sides of the clocks going back (25 Oct 2026)', () => {
+    expect(parseUkTime('2026-10-24 09:00:00')).toBe(Date.parse('2026-10-24T08:00:00Z'));
+    expect(parseUkTime('2026-10-26 09:00:00')).toBe(Date.parse('2026-10-26T09:00:00Z'));
+    // 01:30 happens twice on 25 Oct: the first (BST) occurrence is used.
+    expect(parseUkTime('2026-10-25 01:30:00')).toBe(Date.parse('2026-10-25T00:30:00Z'));
+  });
+
+  it('resolves the skipped spring-forward hour forward (28 Mar 2027)', () => {
+    expect(parseUkTime('2027-03-28 01:30:00')).toBe(Date.parse('2027-03-28T00:30:00Z'));
+    expect(parseUkTime('2027-03-28 02:30:00')).toBe(Date.parse('2027-03-28T01:30:00Z'));
+  });
+
+  it('round-trips through toLocalTime for every hour across both clock changes', () => {
+    for (const day of ['2026-10-24', '2026-10-26', '2027-03-27', '2027-03-29']) {
+      for (let h = 0; h < 24; h++) {
+        const wall = `${day} ${String(h).padStart(2, '0')}:15:00`;
+        const local = toLocalTime(new Date(parseUkTime(wall)));
+        expect(local.date, wall).toBe(day);
+        expect(local.minutes, wall).toBe(h * 60 + 15);
+      }
+    }
+  });
+
+  it('returns NaN for garbage', () => {
+    expect(parseUkTime('tuesday')).toBeNaN();
+    expect(parseUkTime('')).toBeNaN();
   });
 });

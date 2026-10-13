@@ -64,6 +64,8 @@ export class IdempotencyStore {
     payloadHash: string,
     deadline: Deadline,
     execute: () => Promise<StoredResponse>,
+    /** Only results this returns true for are stored for replay; others release the key. */
+    cacheable: (response: StoredResponse) => boolean = () => true,
   ): Promise<IdempotencyResult> {
     const redisKey = `idem:${scope}:${key}`;
 
@@ -85,6 +87,10 @@ export class IdempotencyStore {
           // Release so a retry can execute; callers must make execute() safe to re-run.
           await this.redis.del(redisKey).catch(() => undefined);
           throw err;
+        }
+        if (!cacheable(response)) {
+          await this.redis.del(redisKey).catch(() => undefined);
+          return { ...response, replayed: false };
         }
         const done: Record = { state: 'done', hash: payloadHash, ...response };
         await this.redis.set(redisKey, JSON.stringify(done), 'EX', this.options.resultTtlSeconds);

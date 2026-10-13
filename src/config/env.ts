@@ -21,10 +21,17 @@ const envSchema = z.object({
   METRICS_TOKEN: z.string().min(32),
   CLIENT_CONFIG_DIR: z.string().default('config/clients'),
   ACTION_DEADLINE_MS: z.coerce.number().int().min(100).max(10_000).default(1800),
+  /** Reschedule/cancel need a read, a GHL write (~1.3 s measured) and a read-back. */
+  BOOKING_ACTION_DEADLINE_MS: z.coerce.number().int().min(500).max(10_000).default(4000),
   BODY_LIMIT_BYTES: z.coerce.number().int().min(1024).max(1_048_576).default(16_384),
   RATE_LIMIT_PER_MINUTE: z.coerce.number().int().min(1).default(600),
   MAX_EVENT_LOOP_DELAY_MS: z.coerce.number().int().min(10).default(250),
   SHUTDOWN_GRACE_MS: z.coerce.number().int().min(0).default(10_000),
+  /** JSON map locationId -> GHL Private Integration token (one per sub-account served). */
+  GHL_TOKENS: z.string().optional(),
+  /** Single-location fallback (local development). */
+  GHL_PRIVATE_TOKEN: z.string().optional(),
+  GHL_LOCATION_ID: z.string().optional(),
 });
 
 export type Env = z.infer<typeof envSchema>;

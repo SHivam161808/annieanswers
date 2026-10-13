@@ -1,5 +1,14 @@
 import type { FastifyInstance } from 'fastify';
+import type { Logger } from 'pino';
 import { z } from 'zod';
+import {
+  availableSlots,
+  cancelBooking,
+  findBooking,
+  rescheduleBooking,
+  type BookingActionResponse,
+  type BookingContext,
+} from '../actions/booking.js';
 import { callContext } from '../actions/call-context.js';
 import { escalation } from '../actions/escalation.js';
 import { checkServiceArea } from '../actions/service-area.js';
@@ -7,13 +16,28 @@ import type { ClientConfig, ConfigStore } from '../clients/config-store.js';
 import { AppError } from '../core/errors.js';
 import { ESCALATION_TRIGGERS } from '../domain/escalation.js';
 import type { Metrics } from '../observability/metrics.js';
-import { elapsedMs } from '../observability/timing.js';
+import { GhlCalendarAdapter } from '../booking/ghl-calendar-adapter.js';
+import type { GhlClient } from '../ghl/client.js';
+import { Deadline, elapsedMs } from '../observability/timing.js';
+import type { IdempotencyStore } from '../store/idempotency.js';
 import { extractEnvelope } from './ghl-envelope.js';
 
 export interface ActionDeps {
   configStore: ConfigStore;
   metrics: Metrics;
   now: () => Date;
+  actionDeadlineMs: number;
+  bookingDeadlineMs: number;
+  /** Absent when no GHL credentials are configured: booking actions then fall back to messages. */
+  ghl?: GhlClient | undefined;
+  idempotency: IdempotencyStore;
+}
+
+interface RunContext {
+  locationId: string;
+  callId: string | null;
+  deadline: Deadline;
+  log: Logger;
 }
 
 const escalationParams = z.object({ trigger: z.enum(ESCALATION_TRIGGERS) });
@@ -25,7 +49,8 @@ const escalationParams = z.object({ trigger: z.enum(ESCALATION_TRIGGERS) });
 export function registerActionRoutes(app: FastifyInstance, deps: ActionDeps): void {
   const handle = (
     action: string,
-    run: (client: ClientConfig, params: { [key: string]: unknown }) => unknown,
+    run: (client: ClientConfig, params: { [key: string]: unknown }, ctx: RunContext) => unknown,
+    deadlineMs: number = deps.actionDeadlineMs,
   ) => {
     // GET: GHL only passes response fields to the agent for GET actions (via selectedPaths).
     app.route({
@@ -55,7 +80,16 @@ export function registerActionRoutes(app: FastifyInstance, deps: ActionDeps): vo
           if (!client) {
             throw new AppError('config_unavailable', 'No configuration for this location');
           }
-          return reply.send(run(client, envelope.params));
+          const ctx: RunContext = {
+            locationId: envelope.locationId,
+            callId: envelope.callId,
+            deadline: new Deadline(deadlineMs),
+            log: request.log as unknown as Logger,
+          };
+          const body = await run(client, envelope.params, ctx);
+          const status = (body as { status?: unknown }).status;
+          if (typeof status === 'string') request.annie.outcome = status;
+          return reply.send(body);
         } catch (err) {
           result = err instanceof AppError ? err.code : 'internal_error';
           throw err;
@@ -80,4 +114,38 @@ export function registerActionRoutes(app: FastifyInstance, deps: ActionDeps): vo
     }
     return escalation(client, parsed.data.trigger, deps.now());
   });
+
+  const bookingCtx = (ctx: RunContext): BookingContext | null => {
+    if (!deps.ghl?.hasLocation(ctx.locationId)) return null;
+    return {
+      adapter: new GhlCalendarAdapter(deps.ghl, ctx.locationId, ctx.deadline, deps.now),
+      idempotency: deps.idempotency,
+      deadline: ctx.deadline,
+      callId: ctx.callId,
+      locationId: ctx.locationId,
+      log: ctx.log,
+      now: deps.now,
+    };
+  };
+
+  const noCredentials = (client: ClientConfig): BookingActionResponse => ({
+    status: 'unavailable',
+    instruction: `Do not say anything has changed. Take a message with the details and say ${client.config.owner_first_name} will confirm by text.`,
+  });
+
+  for (const [action, fn, deadlineMs] of [
+    ['find-booking', findBooking, deps.actionDeadlineMs],
+    ['available-slots', availableSlots, deps.actionDeadlineMs],
+    ['reschedule-booking', rescheduleBooking, deps.bookingDeadlineMs],
+    ['cancel-booking', cancelBooking, deps.bookingDeadlineMs],
+  ] as const) {
+    handle(
+      action,
+      (client, params, ctx) => {
+        const booking = bookingCtx(ctx);
+        return booking ? fn(client, params, booking) : noCredentials(client);
+      },
+      deadlineMs,
+    );
+  }
 }

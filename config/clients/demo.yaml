@@ -59,9 +59,14 @@ alert_sms_number: '+447700900123'
 callback_promise: Dave will ring you back within 2 hours during working hours.
 
 booking_mode: ghl_calendar
-calendar_id: DEMO_CALENDAR_ID
+calendar_id: BB92z8BhrIJWuQYTQ4j8
 appointment_types:
   - { code: assessment, duration_minutes: 60 }
   - { code: small_repair, duration_minutes: 90 }
+job_appointment_types:
+  leak_repair: small_repair
+  tap_toilet: small_repair
+  outside_tap: small_repair
+  bathroom_install: assessment
 min_booking_notice_minutes: 120
 cancellation_policy: We ask for 24 hours' notice to cancel, please.

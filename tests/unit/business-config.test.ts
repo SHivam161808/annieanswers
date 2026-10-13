@@ -85,7 +85,12 @@ describe('business configuration model', () => {
 
   it('allows request mode without a calendar', () => {
     expect(
-      issuesFor({ booking_mode: 'request_mode', calendar_id: undefined, appointment_types: [] }),
+      issuesFor({
+        booking_mode: 'request_mode',
+        calendar_id: undefined,
+        appointment_types: [],
+        job_appointment_types: {},
+      }),
     ).toEqual([]);
   });
 
@@ -112,5 +117,15 @@ describe('business configuration model', () => {
     expect(issuesFor({ transfer_number_backup: demo.transfer_number_primary }).join()).toContain(
       'transfer_number_backup',
     );
+  });
+
+  it('validates job -> appointment type mapping (T-501)', () => {
+    expect(issuesFor({ job_appointment_types: { leak_repair: 'assessment' } })).toEqual([]);
+    expect(issuesFor({ job_appointment_types: { leak_repair: 'full_day' } }).join()).toContain(
+      'job_appointment_types',
+    );
+    expect(
+      issuesFor({ job_appointment_types: { not_a_job: 'assessment' } }).length,
+    ).toBeGreaterThan(0);
   });
 });

@@ -31,7 +31,8 @@
     "demo:logs": "tail -n 0 -f build/logs/annie-api.log | pino-pretty --ignore pid,hostname,service,env,version --translateTime SYS:HH:MM:ss",
     "test:mutation": "stryker run",
     "test:fuzz": "vitest run tests/fuzz",
-    "test:load": "node load/actions-load.mjs"
+    "test:load": "node load/actions-load.mjs",
+    "ops:call-review": "tsx tools/ops/call-review.ts"
   },
   "dependencies": {
     "@fastify/rate-limit": "^11.2.0",

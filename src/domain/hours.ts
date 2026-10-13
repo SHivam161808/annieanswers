@@ -131,3 +131,44 @@ export function spokenClock(minutes: number): string {
   if (m === 45) return `quarter to ${next12}`;
   return `${h12}:${String(m).padStart(2, '0')}${h24 < 12 ? 'am' : 'pm'}`;
 }
+
+const ZONED = /([zZ]|[+-]\d{2}:?\d{2})$/;
+const NAIVE = /^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})(?::(\d{2}))?(?:\.\d+)?$/;
+
+/** Offset of Europe/London from UTC at an instant, in minutes (0 for GMT, 60 for BST). */
+function londonOffsetMinutes(instantMs: number): number {
+  const local = toLocalTime(new Date(instantMs));
+  const [y, m, d] = local.date.split('-').map(Number) as [number, number, number];
+  const wallAsUtc = Date.UTC(y, m - 1, d, Math.floor(local.minutes / 60), local.minutes % 60);
+  const flooredInstant = Math.floor(instantMs / 60_000) * 60_000;
+  return Math.round((wallAsUtc - flooredInstant) / 60_000);
+}
+
+/**
+ * Parses a GHL time. GHL returns ISO-with-offset on some endpoints and naive UK wall-clock time
+ * ("2026-10-13 13:00:00") on others (e.g. contact appointments). Naive times are interpreted in
+ * Europe/London, never in the server's own timezone. For the repeated hour when clocks go back,
+ * the first (BST) occurrence is used; a time in the skipped spring hour is moved forward.
+ * Returns epoch ms, or NaN if unparseable.
+ */
+export function parseUkTime(value: string): number {
+  if (typeof value !== 'string') return Number.NaN;
+  if (ZONED.test(value)) return Date.parse(value);
+  const m = NAIVE.exec(value.trim());
+  if (!m) return Number.NaN;
+  const [, y, mo, d, h, mi, s] = m;
+  const wallAsUtc = Date.UTC(
+    Number(y),
+    Number(mo) - 1,
+    Number(d),
+    Number(h),
+    Number(mi),
+    Number(s ?? 0),
+  );
+  // Try BST first (earlier instant), then GMT; keep the one whose London wall time matches.
+  for (const offset of [60, 0]) {
+    const candidate = wallAsUtc - offset * 60_000;
+    if (londonOffsetMinutes(candidate) === offset) return candidate;
+  }
+  return wallAsUtc - 60 * 60_000; // skipped hour (spring forward): resolve forward
+}

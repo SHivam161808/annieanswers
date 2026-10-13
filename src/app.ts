@@ -12,7 +12,9 @@ import type { Logger } from 'pino';
 import type { ConfigStore } from './clients/config-store.js';
 import type { Env } from './config/env.js';
 import { AppError, ERROR_CODES, type ErrorCode } from './core/errors.js';
+import type { GhlClient } from './ghl/client.js';
 import type { Metrics } from './observability/metrics.js';
+import { IdempotencyStore } from './store/idempotency.js';
 import { registerActionRoutes } from './routes/actions.js';
 import { extractEnvelope, type GhlEnvelope } from './routes/ghl-envelope.js';
 import { registerHealthRoutes } from './routes/health.js';
@@ -39,6 +41,8 @@ export interface AppDeps {
   configStore: ConfigStore;
   metrics: Metrics;
   now?: () => Date;
+  /** GHL API client; absent when no GHL credentials are configured. */
+  ghl?: GhlClient;
 }
 
 const CORRELATION_HEADER = 'x-correlation-id';
@@ -210,6 +214,10 @@ export async function buildApp(deps: AppDeps): Promise<FastifyInstance> {
     configStore: deps.configStore,
     metrics,
     now: deps.now ?? (() => new Date()),
+    actionDeadlineMs: env.ACTION_DEADLINE_MS,
+    bookingDeadlineMs: env.BOOKING_ACTION_DEADLINE_MS,
+    ghl: deps.ghl,
+    idempotency: new IdempotencyStore(deps.redis),
   });
 
   return app;

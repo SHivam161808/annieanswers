@@ -2,6 +2,8 @@
 
 Middleware, configuration and tooling for the GHL native Voice AI receptionist.
 Spec: `UK Trades AI Receptionist — V1 Build Plan` (PDF) and [claude.md](claude.md).
+**How to run everything (incl. plumber login): [docs/RUNNING.md](docs/RUNNING.md)**
+
 Plan: [docs/V1_IMPLEMENTATION_PLAN.md](docs/V1_IMPLEMENTATION_PLAN.md) · Decisions/API: [docs/architecture.md](docs/architecture.md)
 
 ## Run locally

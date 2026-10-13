@@ -4,6 +4,8 @@
  */
 import { readFile } from 'node:fs/promises';
 import { CONTACT_FIELDS } from '../../config/schema/contact-fields.js';
+import { normalisePostcode } from '../../src/domain/postcode.js';
+import { isInServiceArea, parseServiceArea } from '../../src/domain/service-area.js';
 import { buildCustomValues } from '../../src/prompt/custom-values.js';
 import { renderPrompt } from '../../src/prompt/render.js';
 import { loadPromptSources } from '../../src/prompt/sources.js';
@@ -15,7 +17,14 @@ const state = JSON.parse(await readFile(stateFile(), 'utf8')) as {
   calendarId: string;
   inboundNumber?: string;
 };
-const publicUrl = (await readFile('build/logs/public-url.txt', 'utf8')).trim();
+const publicUrl = (
+  process.env.MIDDLEWARE_URL ??
+  (await readFile('build/logs/public-url.txt', 'utf8').catch(() => ''))
+)
+  .trim()
+  .replace(/\/$/, '');
+if (!publicUrl)
+  throw new Error('Set MIDDLEWARE_URL (or build/logs/public-url.txt) to the middleware base URL');
 
 let failures = 0;
 const check = (name: string, ok: boolean, detail = '') => {
@@ -58,7 +67,16 @@ for (const script of sources.safetyScripts.values()) {
 check('UK number attached', Boolean(agent.body.inboundNumber), agent.body.inboundNumber ?? 'none');
 
 const names = new Set((agent.body.actions ?? []).map((a) => a.name));
-for (const name of ['call_context', 'check_service_area', 'escalation', 'book_appointment']) {
+for (const name of [
+  'call_context',
+  'check_service_area',
+  'escalation',
+  'book_appointment',
+  'find_booking',
+  'available_slots',
+  'reschedule_booking',
+  'cancel_booking',
+]) {
   check(`action ${name} present`, names.has(name));
 }
 for (const f of CONTACT_FIELDS)
@@ -79,6 +97,14 @@ for (const f of CONTACT_FIELDS)
 const cal = await get(`/calendars/${state.calendarId}`, '2021-04-15');
 check('demo calendar exists', cal.status === 200, `HTTP ${cal.status}`);
 
+// A postcode guaranteed outside this client's service area (picked from a fixed list).
+const outsideCandidates = ['M1 1AE', 'B33 8TH', 'G2 1DY', 'CF10 1EP', 'NE1 4ST', 'EX1 1AA'];
+const outside = outsideCandidates.find((pc) => {
+  const parsed = normalisePostcode(pc);
+  return parsed !== null && !isInServiceArea(parseServiceArea(config.service_area), parsed);
+});
+if (!outside) throw new Error('could not find an out-of-area test postcode for this client');
+
 const start = performance.now();
 const ready = await fetch(`${publicUrl}/readyz`, { signal: AbortSignal.timeout(5000) }).catch(
   () => null,
@@ -89,7 +115,7 @@ check(
   `${Math.round(performance.now() - start)} ms`,
 );
 const area = await fetch(
-  `${publicUrl}/v1/actions/check-service-area?location_id=${locationId}&postcode=M1+1AE`,
+  `${publicUrl}/v1/actions/check-service-area?location_id=${locationId}&postcode=${encodeURIComponent(outside)}`,
   {
     headers: { authorization: process.env.WEBHOOK_SECRETS!.split(',')[0]! },
     signal: AbortSignal.timeout(5000),
@@ -97,7 +123,7 @@ const area = await fetch(
 )
   .then((r) => r.json() as Promise<{ in_service_area?: boolean }>)
   .catch(() => ({}) as { in_service_area?: boolean });
-check('middleware says M1 1AE is NOT covered', area.in_service_area === false);
+check(`middleware says ${outside} is NOT covered`, area.in_service_area === false);
 
 console.log(`\n${failures === 0 ? 'ALL CHECKS PASSED' : `${failures} CHECK(S) FAILED`}`);
 process.exit(failures ? 1 : 0);

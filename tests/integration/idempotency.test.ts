@@ -204,3 +204,25 @@ describe('IdempotencyStore internals (pinned by mutation testing)', () => {
     expect(performance.now() - started).toBeLessThan(40);
   });
 });
+
+describe('IdempotencyStore cacheable results', () => {
+  it('does not store results the caller marks non-cacheable, so a retry executes again', async () => {
+    const store = new IdempotencyStore(redis);
+    const h = hashPayload({});
+    let runs = 0;
+    const exec = async () => ({
+      statusCode: 200,
+      body: { status: ++runs === 1 ? 'not_found' : 'cancelled' },
+    });
+    const onlyCancelled = (r: { body: unknown }) =>
+      (r.body as { status: string }).status === 'cancelled';
+    const first = await store.run('cancel', 'k1', h, new Deadline(1000), exec, onlyCancelled);
+    expect(first).toMatchObject({ body: { status: 'not_found' }, replayed: false });
+    expect(await redis.get('idem:cancel:k1')).toBeNull();
+    const second = await store.run('cancel', 'k1', h, new Deadline(1000), exec, onlyCancelled);
+    expect(second).toMatchObject({ body: { status: 'cancelled' }, replayed: false });
+    const third = await store.run('cancel', 'k1', h, new Deadline(1000), exec, onlyCancelled);
+    expect(third).toMatchObject({ body: { status: 'cancelled' }, replayed: true });
+    expect(runs).toBe(2);
+  });
+});

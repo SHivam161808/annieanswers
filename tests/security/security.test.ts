@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import { parse as parseYaml } from 'yaml';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import {
   DEMO_LOCATION,
@@ -7,6 +9,9 @@ import {
   type TestApp,
 } from '../helpers/app.js';
 
+const demoCalendarId = (
+  parseYaml(readFileSync('config/clients/demo.yaml', 'utf8')) as { calendar_id: string }
+).calendar_id;
 let t: TestApp;
 beforeAll(async () => {
   t = await startTestApp();
@@ -101,7 +106,7 @@ describe('security', () => {
     );
     for (const body of bodies) {
       expect(body).not.toContain('+4477');
-      expect(body).not.toContain('DEMO_CALENDAR_ID');
+      expect(body).not.toContain(demoCalendarId);
       expect(body).not.toContain('ghl_calendar');
       expect(body).not.toContain('transfer_rules');
     }

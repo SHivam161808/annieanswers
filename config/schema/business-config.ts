@@ -95,6 +95,12 @@ export const businessConfigSchema = z
     booking_mode: z.enum(BOOKING_MODES),
     calendar_id: z.string().min(1).max(64).optional(),
     appointment_types: z.array(appointmentType).default([]),
+    /**
+     * T-501: which appointment type each job type books as (unmapped jobs use the first type).
+     * GHL native booking uses one slot length per calendar, so different durations need one
+     * calendar per appointment type; the mapping is validated now and used by T4 adapters.
+     */
+    job_appointment_types: z.partialRecord(jobType, z.string()).default({}),
     min_booking_notice_minutes: z
       .number()
       .int()
@@ -190,6 +196,17 @@ export const businessConfigSchema = z
         });
       }
     });
+
+    const typeCodes = new Set(cfg.appointment_types.map((t) => t.code));
+    for (const [job, type] of Object.entries(cfg.job_appointment_types)) {
+      if (!typeCodes.has(type as string)) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['job_appointment_types', job],
+          message: `"${type}" is not one of appointment_types`,
+        });
+      }
+    }
 
     const codes = cfg.appointment_types.map((t) => t.code);
     if (new Set(codes).size !== codes.length) {

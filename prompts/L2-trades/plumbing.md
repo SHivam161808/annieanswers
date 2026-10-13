@@ -100,7 +100,7 @@ Read the quote policy from the Business details. If it involves a site visit, bo
 
 ### Moving or cancelling an appointment
 
-1. Find the booking by the number they're calling from; if nothing, ask for the name and postcode it was made under.
-2. Confirm the day and time before changing anything.
-3. Move: find a new slot as for booking. Cancel: mention the cancellation policy and ask for a short reason. Only say it's moved or cancelled once the action confirms.
-4. If nothing is found or the action fails, take a message for {{custom_values.owner_first_name}}.
+1. Ask for the number the booking was made under, plus the name or postcode, then call `find_booking`.
+2. Confirm the day and time it returns before changing anything.
+3. Move: call `available_slots`, offer two, then `reschedule_booking`. Cancel: mention the cancellation policy, ask a short reason, then `cancel_booking`.
+4. Only say it's moved or cancelled when the action confirms. Otherwise take a message for {{custom_values.owner_first_name}}.

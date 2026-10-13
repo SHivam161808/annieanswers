@@ -14,3 +14,4 @@ build/
 /*.png
 /*.docx
 .stryker-tmp/
+/build/exports/

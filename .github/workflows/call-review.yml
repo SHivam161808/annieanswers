@@ -1,0 +1,40 @@
+name: daily-call-review
+
+# T-1001 / T-1004: daily review of every call and team alerts (TECH_FAILURE, missing outcomes,
+# critical conversation failures, ABANDONED spikes, slow actions). Reports carry ids/codes only.
+on:
+  schedule:
+    - cron: '0 17 * * *' # 18:00 UK in BST (17:00 UTC); 17:00 UK in winter — adjust if needed
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: Hours to review
+        default: '24'
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Write env file from secrets
+        run: |
+          umask 077
+          {
+            echo "GHL_PRIVATE_TOKEN=${{ secrets.GHL_PRIVATE_TOKEN }}"
+            echo "GHL_LOCATION_ID=${{ secrets.GHL_LOCATION_ID }}"
+          } > .env
+      - name: Call review
+        env:
+          TEAM_ALERT_WEBHOOK_URL: ${{ secrets.TEAM_ALERT_WEBHOOK_URL }}
+        run: npx tsx tools/ops/call-review.ts --hours "${{ github.event.inputs.hours || '24' }}" --alert || [ $? -eq 2 ]
+      - uses: actions/upload-artifact@v4
+        with:
+          name: call-review
+          path: build/reports/
+          retention-days: 30

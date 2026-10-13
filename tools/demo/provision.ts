@@ -14,10 +14,9 @@ import { loadPromptSources } from '../../src/prompt/sources.js';
 import { clientForLocation, locationId, stateFile, token } from '../env.js';
 
 const BASE = 'https://services.leadconnectorhq.com';
-const LABEL = 'DEMO';
 
 const secret = process.env.WEBHOOK_SECRETS!.split(',')[0]!;
-const publicUrl = process.argv[2]?.replace(/\/$/, '');
+const publicUrl = (process.argv[2] ?? process.env.MIDDLEWARE_URL)?.replace(/\/$/, '');
 if (!token || !locationId || !secret || !publicUrl?.startsWith('https://')) {
   console.error('usage: npx tsx tools/demo/provision.ts https://<public-url>  (needs .env)');
   process.exit(2);
@@ -67,6 +66,9 @@ async function ghl<T>(method: string, path: string, version: string, body?: unkn
 const state = await loadState();
 const client = await clientForLocation();
 const cfg = client.config;
+// Name prefix for GHL assets: DEMO for demo clients, otherwise the product name.
+const LABEL =
+  process.env.ANNIE_LABEL ?? (cfg.client_id.startsWith('demo') ? 'DEMO' : 'AI Receptionist');
 const sources = await loadPromptSources(cfg.trade_module);
 const values = buildCustomValues(cfg);
 const rendered = renderPrompt(sources, 'rendered', values);
@@ -100,6 +102,11 @@ const calendarBody = {
   allowCancellation: true,
   openHours,
 };
+// The client config is the source of truth for the calendar. A calendar is only created when the
+// config has none; then its id must be written into the YAML (the middleware books against it).
+const configuredCalendar =
+  cfg.calendar_id && !/^[A-Z_]+$/.test(cfg.calendar_id) ? cfg.calendar_id : null;
+if (configuredCalendar) state.calendarId = configuredCalendar;
 if (state.calendarId) {
   await ghl('PUT', `/calendars/${state.calendarId}`, '2021-04-15', {
     ...calendarBody,
@@ -114,6 +121,13 @@ if (state.calendarId) {
   );
   state.calendarId = res.calendar.id;
   await saveState(state);
+}
+if (cfg.booking_mode !== 'request_mode' && state.calendarId !== cfg.calendar_id) {
+  console.error(
+    `\nACTION NEEDED: set calendar_id: ${state.calendarId} in the client YAML (config/clients/), ` +
+      'then validate and redeploy the middleware. Find/move/cancel booking will fail until then.',
+  );
+  process.exitCode = 1;
 }
 
 // 2. Custom values (L3). Names equal keys so the prompt placeholders resolve.
@@ -154,6 +168,8 @@ const agentBody = {
   sendUserIdleReminders: true,
   reminderAfterIdleTimeSeconds: 8,
   timezone: 'Europe/London',
+  // T-606: GHL writes its call summary as a note on the contact after every call.
+  saveCallSummaryAsNote: true,
 };
 if (state.agentId) {
   await ghl('PATCH', `/voice-ai/agents/${state.agentId}?locationId=${locationId}`, 'v3', {
@@ -218,6 +234,30 @@ const actions: Record<string, { actionType: string; actionParameters: unknown }>
     'After a safety script, for any urgent problem (P1 or P2), when the caller asks for the owner, makes a complaint, or when you are stuck, to get the escalation decision.',
     'Bear with me one moment.',
     ['action', 'safety_script_first', 'if_transfer_fails', 'booking_priority', 'instruction'],
+  ),
+  find_booking: customAction(
+    '/v1/actions/find-booking',
+    'When the caller wants to move, cancel or check an existing booking, once you have the phone number it was made under and their name or postcode.',
+    'Let me just find that booking.',
+    ['status', 'bookings', 'instruction'],
+  ),
+  available_slots: customAction(
+    '/v1/actions/available-slots',
+    'When moving a booking and you need free times to offer.',
+    'Let me just check the diary.',
+    ['status', 'slots', 'instruction'],
+  ),
+  reschedule_booking: customAction(
+    '/v1/actions/reschedule-booking',
+    'Only after the caller has confirmed which booking and chosen a new time from available_slots.',
+    'Bear with me while I move that.',
+    ['status', 'when', 'instruction'],
+  ),
+  cancel_booking: customAction(
+    '/v1/actions/cancel-booking',
+    'Only after the caller has confirmed which booking to cancel and given a short reason.',
+    'Bear with me while I cancel that.',
+    ['status', 'instruction'],
   ),
   book_appointment: {
     actionType: 'APPOINTMENT_BOOKING',

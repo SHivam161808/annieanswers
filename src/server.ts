@@ -2,6 +2,7 @@ import { buildApp } from './app.js';
 import { loadConfigStore } from './clients/config-store.js';
 import { loadEnv } from './config/env.js';
 import { createLogger } from './observability/logger.js';
+import { GhlClient, parseGhlTokens } from './ghl/client.js';
 import { createMetrics } from './observability/metrics.js';
 import { createRedis } from './store/redis.js';
 
@@ -20,7 +21,11 @@ async function main(): Promise<void> {
   redis.on('error', (err) => logger.warn({ error_code: err.name }, 'redis_error'));
   await redis.connect();
 
-  const app = await buildApp({ env, logger, redis, configStore, metrics: createMetrics() });
+  const metrics = createMetrics();
+  const tokens = parseGhlTokens(env);
+  const ghl = tokens.size ? new GhlClient({ tokens, metrics, log: logger }) : undefined;
+  logger.info({ ghl_locations: tokens.size }, 'ghl_client_configured');
+  const app = await buildApp({ env, logger, redis, configStore, metrics, ghl });
   await app.listen({ host: env.HOST, port: env.PORT });
 
   let shuttingDown = false;
@@ -34,6 +39,7 @@ async function main(): Promise<void> {
     }, env.SHUTDOWN_GRACE_MS);
     force.unref();
     await app.close(); // stops accepting, drains in-flight requests
+    await ghl?.close();
     await redis.quit().catch(() => redis.disconnect());
     logger.info('shutdown_complete');
     process.exit(0);

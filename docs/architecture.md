@@ -37,6 +37,13 @@ decision taken where the Build Plan or claude.md left room.
 | D26 | Every GHL write is confirmed by reading back; provisioning never PUTs an action it cannot read (would drop UI-added parameters). | GHL returned errors for writes that succeeded. |
 | D27 | Tests refuse an external Redis unless `TEST_REDIS_ALLOW_FLUSH=1`. | Tests flush databases; a developer's local Redis was hit once. |
 
+| D28 | Find / move / cancel bookings run in the middleware (`src/booking/`) on GHL's calendar API; creating a booking stays on GHL's native action. Booking is only revealed after phone + name-or-postcode verification; wrong details get the same answer as "not found". | GHL has no native reschedule/cancel action; Build Plan find_booking contract. |
+| D29 | A change is reported only after GHL confirms it: reschedule is confirmed by reading the appointment back (GHL's PUT response omits times); cancel by the returned status. Only confirmed changes are cached for replay; "slot taken"/"not found" stay retryable. | Never a false success; observed GHL behaviour. |
+| D30 | Reschedule/cancel get a 4 s budget (`BOOKING_ACTION_DEADLINE_MS`); reads keep 1.8 s. **Deviation from the 2 s target**: GHL's own update call takes ~1.3 s (measured), so read + write + read-back cannot fit 2 s. Covered by "bear with me while I move that". Re-measure from UK hosting. | Measured, documented trade-off. |
+| D31 | GHL returns naive UK wall-clock times on some endpoints (`"2026-10-13 13:00:00"`); all GHL times go through `parseUkTime` (Europe/London, DST-safe), never the server's timezone. | Live bug: bookings looked an hour off and were filtered out. |
+| D32 | GHL API client (`src/ghl/client.ts`): pooled, per-attempt timeout ≤ remaining deadline (whole ms), retries only idempotent methods, honours Retry-After, per-process circuit breaker; logs error name/code but never bodies or URLs. Multi-tenant tokens via `GHL_TOKENS` JSON. | Production resilience; observability without PII. |
+| D33 | Daily call review (`src/monitoring/`, `tools/ops/call-review.ts`) scores every real transcript with the same scorer as the scenario pack and alerts a team webhook; scheduled in GitHub Actions. Reports carry ids/codes/timings only. | T-1001/T-1004; one scoring standard. |
+
 ## Testing (as of 2026-10-12)
 
 | Suite                                   | What it proves                                                                                                                                                                           | Size                                             |
