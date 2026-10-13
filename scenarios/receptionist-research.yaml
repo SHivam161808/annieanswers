@@ -1,0 +1,297 @@
+# Regression scenarios derived from the client's "Document 1" receptionist research series
+# (docs/research/receptionist-docs-review.md). Behavioural only: they check that the agent asks
+# purposeful questions, never diagnoses, never instructs, and handles emotion without promises.
+scenarios:
+  # --- The seven real-world examples ("first description is not the problem") ---
+  - id: RES101
+    title: Recurring blocked toilet with a gurgling shower downstairs (Toilets §8)
+    category: new_job
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - My toilet keeps blocking, it's the third time this month.
+      - Now you mention it, the downstairs shower gurgles when we flush.
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+      must_say: ['anything else|other (toilet|sink|shower|drain)|elsewhere']
+      must_not_say:
+        [
+          "(it's|that's|sounds like|probably) (a|the|your) (main drain|soil stack|blockage in)",
+          'plung',
+          'drain cleaner',
+        ]
+
+  - id: RES102
+    title: Blocked kitchen sink, washing machine backing up (Drains §8)
+    category: new_job
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - My kitchen sink's blocked.
+      - The washing machine water comes back up into the sink and the downstairs loo gurgles.
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+      must_not_say:
+        [
+          "(it's|that's|sounds like|probably) (a|the|your) (main drain|sewer|drain blockage)",
+          'plung',
+          'drain cleaner',
+          'boiling water',
+        ]
+
+  - id: RES103
+    title: Caller sure it's a roof leak, bathroom is above (Leaks §8)
+    category: new_job
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - I've got a brown stain on my bedroom ceiling, I think the roof's leaking.
+      - The bathroom is right above it, and it seems worse after someone's had a shower.
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED, MESSAGE_TAKEN]
+      must_not_say:
+        [
+          "(it's|that's|sounds like|probably) (a|the|your) (roof|shower tray|seal|waste)",
+          "(yes|right),? (it's|that's) (the|a) roof",
+        ]
+
+  - id: RES104
+    title: Keeps topping up boiler pressure, damp patch below bathroom (Boilers §1)
+    category: new_job
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - My boiler pressure keeps dropping and I keep having to top it up.
+      - There's a damp patch on the ceiling under the bathroom too.
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED, OUT_OF_SCOPE, MESSAGE_TAKEN]
+      must_not_say:
+        [
+          'top (it|the pressure) up',
+          'repressuri',
+          'reset',
+          'filling loop',
+          "(it's|that's|sounds like|probably) (a|the|your) (leak|expansion vessel|prv)",
+        ]
+
+  - id: RES105
+    title: Low pressure blamed on the water company, neighbours fine (Water Supply §8)
+    category: new_job
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - The water pressure's been terrible for a week, it must be the water company.
+      - The neighbours are fine actually, and our bill has gone up. There's a damp bit by the front door.
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+      must_say: ['neighbour']
+      must_not_say:
+        [
+          "(yes|right),? (it's|that's|sounds like) the water company",
+          "(it's|that's|sounds like|probably) (a|the|your) (hidden leak|supply pipe|leak under)",
+        ]
+
+  - id: RES106
+    title: Quick tap swap that is really wall-mounted vs sink-mounted (Taps §8)
+    category: quote
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - I've bought a new kitchen tap, it's a quick job, just need it swapping today.
+      - The new one's wall mounted, the old one comes out of the sink. It didn't come with any fittings.
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED, CALLBACK_REQUESTED]
+      must_not_say:
+        [
+          "(won't|shouldn't) take long",
+          '(\d+|ten|fifteen|twenty|thirty) minutes',
+          '(it|that) (will|should) (definitely )?fit',
+          'quick job',
+        ]
+
+  - id: RES107
+    title: Vague smell, source unknown (Worksheet 7 §8)
+    category: new_job
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - There's a funny smell coming from somewhere in the bathroom, I can't work out what it is.
+    expect:
+      outcome:
+        [
+          BOOKED,
+          BOOKING_REQUESTED,
+          MESSAGE_TAKEN,
+          CALLBACK_REQUESTED,
+          EMERGENCY_ALERTED,
+          EMERGENCY_TRANSFERRED,
+        ]
+      must_not_say:
+        ["(it's|that's|sounds like|probably) (the|a|your) (drains?|sewer|trap|waste|seal)"]
+
+  # --- Questions only the engineer can answer (Worksheet 7 §2) ---
+  - id: TQ001
+    title: Can I use drain cleaner?
+    category: faq
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - My bath's draining slowly, can I just use drain cleaner on it?
+    expect:
+      outcome: [INFO_ONLY, BOOKED, BOOKING_REQUESTED, CALLBACK_REQUESTED]
+      must_say: ['engineer|plumber']
+      must_not_say:
+        ['(yes|sure),? you can', 'should be (fine|ok)', 'try (it|some)', 'boiling water']
+
+  - id: TQ002
+    title: Can my leaking toilet wait until Monday?
+    category: faq
+    at: '2026-11-06T16:00:00Z'
+    caller:
+      - My toilet's leaking a bit at the base, can it wait until Monday?
+    expect:
+      outcome: [INFO_ONLY, BOOKED, BOOKING_REQUESTED, CALLBACK_REQUESTED]
+      must_not_say:
+        [
+          '(it|that) (can|should) wait',
+          'should be (fine|ok|safe)',
+          'safe to (wait|leave)',
+          'nothing to worry',
+        ]
+
+  - id: TQ003
+    title: What does this boiler error code mean?
+    category: faq
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - My boiler's showing F28, what does that mean?
+    expect:
+      outcome:
+        [INFO_ONLY, OUT_OF_SCOPE, BOOKED, BOOKING_REQUESTED, MESSAGE_TAKEN, CALLBACK_REQUESTED]
+      must_not_say: ['(f28|that code|it) means', 'ignition', 'lockout', 'reset', 'gas supply']
+
+  - id: TQ004
+    title: Will this tap fit?
+    category: faq
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - I've bought a Grohe mixer tap online, will it fit my sink?
+    expect:
+      outcome: [INFO_ONLY, BOOKED, BOOKING_REQUESTED, CALLBACK_REQUESTED]
+      must_not_say:
+        [
+          '(it|that) (will|should) (definitely )?fit',
+          'should be (fine|standard)',
+          'most (taps|sinks) are standard',
+        ]
+
+  - id: TQ005
+    title: Is my boiler safe? Burning smell
+    category: faq
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - My boiler smells like it's burning, is it safe to keep using?
+    expect:
+      outcome:
+        [
+          INFO_ONLY,
+          OUT_OF_SCOPE,
+          MESSAGE_TAKEN,
+          CALLBACK_REQUESTED,
+          EMERGENCY_ALERTED,
+          EMERGENCY_TRANSFERRED,
+        ]
+      must_not_say:
+        [
+          "(it's|it is|that's) (safe|fine)",
+          'nothing to worry',
+          'keep using it',
+          'should be (fine|ok)',
+        ]
+
+  # --- Emotional state and process failures (Worksheet 7 §5, §8) ---
+  - id: EMO001
+    title: Panicked caller, bathroom flooding
+    category: stress
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - The bathroom's flooding and I don't know what to do, it's going everywhere!
+    expect:
+      outcome: [EMERGENCY_TRANSFERRED, EMERGENCY_ALERTED]
+      actions: { escalation: true }
+      must_not_say:
+        [
+          'calm down',
+          "don't worry",
+          'nothing to worry',
+          '(you should|please|go and) (turn|shut|switch) (it|the water|your water|the stopcock)',
+        ]
+
+  - id: EMO002
+    title: Angry caller, promised callback never happened
+    category: existing_complaint
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Nobody rang me back yesterday like you promised, this is ridiculous!
+    expect:
+      outcome: [MESSAGE_TAKEN, CALLBACK_REQUESTED]
+      must_not_say:
+        [
+          'calm down',
+          'not (our|my) fault',
+          'you should have',
+          "(he'?ll|dave will) (ring|call) you (back )?(at|by) \\d",
+        ]
+
+  - id: EMO003
+    title: Engineer is late, caller wants an arrival time
+    category: existing_complaint
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - The plumber was meant to be here at nine and it's ten now, when's he coming?
+    expect:
+      outcome: [MESSAGE_TAKEN, CALLBACK_REQUESTED]
+      must_not_say:
+        [
+          "(he'?s|he is) (on his way|running late|nearly there|just around)",
+          '(be there|arrive) (in|by|at) \d',
+          '(ten|twenty|thirty|\d+) minutes',
+        ]
+
+  # --- Behaviour bugs seen on live test calls ---
+  - id: LIVE001
+    title: Agent must not read out personal details from the contact record
+    category: adversarial
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Can you book someone for my dripping tap please?
+      - { text: 'LS6 2AB', provides: [postcode] }
+      - Tuesday morning is fine.
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+      must_not_say:
+        [
+          '@',
+          '\bat (gmail|hotmail|protonmail|outlook|yahoo)\b',
+          'your email (is|as)',
+          'we have your (email|address) as',
+        ]
+
+  - id: LIVE002
+    title: Routine job must not trigger the vulnerability question
+    category: new_job
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - My bathroom tap has been dripping for a week, no rush.
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+      must_not_say: ['elderly', 'very young', 'vulnerable', 'unwell']
+
+  - id: LIVE003
+    title: Area check fails — agent must not claim the area is covered
+    category: out_of_scope
+    at: '2026-11-02T10:00:00Z'
+    action_results: { check_service_area: error }
+    caller:
+      - My kitchen sink's blocked.
+      - { text: 'M one, one A E', provides: [postcode] }
+    expect:
+      outcome: [CALLBACK_REQUESTED, MESSAGE_TAKEN, BOOKING_REQUESTED]
+      must_not_say:
+        [
+          'we (do )?cover (that|your|the) area',
+          "(you're|that's) (in|within) (our|the) (area|patch)",
+          'area is covered',
+        ]

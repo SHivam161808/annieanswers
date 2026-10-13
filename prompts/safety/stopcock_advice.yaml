@@ -1,0 +1,16 @@
+id: stopcock_advice
+title: Turn off the water (approved safe advice for P2 water emergencies)
+urgency: P2
+status: suspended
+suspended_reason: >-
+  Client receptionist research (Leaks §7, Water Supply §7) says valve/isolation instructions must
+  not be given without UK-plumber validation. Restore only if the plumber documents validate it.
+approved_by: null
+approved_on: null
+when: >-
+  Burst pipe or uncontrolled leak, and no electrics are involved (if electrics are involved use
+  water_on_electrics instead).
+numbers: []
+text: >-
+  If you can get to it safely, turn the water off at the stopcock, which is usually under the
+  kitchen sink. Keep away from any electrics near the water.

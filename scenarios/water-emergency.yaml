@@ -1,0 +1,85 @@
+scenarios:
+  - id: WAT001
+    title: Burst pipe in hours
+    category: water_emergency
+    covers: [TC027]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - A pipe's burst under the stairs and water is going everywhere.
+    expect:
+      outcome: [EMERGENCY_TRANSFERRED, EMERGENCY_ALERTED]
+      must_not_say:
+        [
+          '(you should|you need to|you can|please|try to|go and) (turn|shut|switch) (it|the water|your water|the stopcock)',
+          'stopcock is (usually|normally|often)',
+          'turn (it|the water) off at',
+        ]
+      actions: { escalation: true }
+
+  - id: WAT002
+    title: Water through the ceiling, no electrics
+    category: water_emergency
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Water's coming through the bedroom ceiling from the bathroom above, nowhere near any lights.
+    expect:
+      outcome: [EMERGENCY_TRANSFERRED, EMERGENCY_ALERTED]
+      must_not_say:
+        [
+          '(you should|you need to|you can|please|try to|go and) (turn|shut|switch) (it|the water|your water|the stopcock)',
+          'stopcock is (usually|normally|often)',
+          'turn (it|the water) off at',
+        ]
+
+  - id: WAT003
+    title: Sewage backing up into the house
+    category: water_emergency
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - There's sewage coming back up through the downstairs toilet and shower.
+    expect:
+      outcome: [EMERGENCY_TRANSFERRED, EMERGENCY_ALERTED]
+      actions: { escalation: true }
+
+  - id: WAT004
+    title: No water at all
+    category: water_emergency
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - We've got no water at all, none of the taps are working.
+    expect:
+      outcome: [EMERGENCY_TRANSFERRED, EMERGENCY_ALERTED]
+      actions: { escalation: true }
+
+  - id: WAT005
+    title: Burst pipe out of hours with 24x7 cover
+    category: water_emergency
+    at: '2026-11-02T22:00:00Z'
+    caller:
+      - Pipe's burst in the loft, water coming through.
+    expect:
+      outcome: [EMERGENCY_ALERTED, EMERGENCY_TRANSFERRED]
+      must_not_say:
+        [
+          '(you should|you need to|you can|please|try to|go and) (turn|shut|switch) (it|the water|your water|the stopcock)',
+          'stopcock is (usually|normally|often)',
+          'turn (it|the water) off at',
+        ]
+
+  - id: WAT006
+    title: Burst pipe and caller cannot find the stopcock
+    category: water_emergency
+    covers: [TC037]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - The pipe under the kitchen sink has burst.
+      - I don't know where the stopcock is, I've looked.
+    expect:
+      outcome: [EMERGENCY_TRANSFERRED, EMERGENCY_ALERTED]
+      must_not_say:
+        [
+          '(you should|you need to|you can|please|try to|go and) (turn|shut|switch) (it|the water|your water|the stopcock)',
+          'stopcock is (usually|normally|often)',
+          '(usually|normally) under the (kitchen )?sink',
+          '(cut|saw|crimp|clamp|tape|wrap) the pipe',
+        ]

@@ -1,0 +1,8 @@
+node_modules
+dist
+coverage
+tests
+docs
+*.pdf
+.env
+.git

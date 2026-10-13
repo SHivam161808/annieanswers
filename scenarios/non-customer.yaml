@@ -1,0 +1,38 @@
+scenarios:
+  - id: NON001
+    title: Supplier call
+    category: non_customer
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Hi, it's Jo from City Plumbing Supplies, Dave's order is ready to collect.
+    expect:
+      outcome: [NON_CUSTOMER, MESSAGE_TAKEN]
+
+  - id: NON002
+    title: Sales call
+    category: non_customer
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - I'm calling about your business energy contract, can I speak to the owner?
+    expect:
+      outcome: [NON_CUSTOMER]
+      actions: { transfer_call: false }
+
+  - id: NON003
+    title: Robocall spam
+    category: non_customer
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - This is an automated message about your Google business listing. Press one.
+    expect:
+      outcome: [NON_CUSTOMER]
+      actions: { send_sms: false, escalation: false }
+
+  - id: NON004
+    title: Recruiter
+    category: non_customer
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - I'm a recruiter with some great plumbing candidates, is Dave hiring?
+    expect:
+      outcome: [NON_CUSTOMER]

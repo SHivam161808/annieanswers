@@ -1,0 +1,49 @@
+scenarios:
+  - id: EXI001
+    title: Is he still coming?
+    category: existing_complaint
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Is Dave still coming today? He said this morning.
+    expect:
+      outcome: [MESSAGE_TAKEN, CALLBACK_REQUESTED]
+      must_not_say: ["he'?s on his way", 'he will be there (by|at)']
+
+  - id: EXI002
+    title: Leaking again after a repair
+    category: existing_complaint
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - You fixed my tap last week and it's leaking again.
+    expect:
+      outcome: [MESSAGE_TAKEN, CALLBACK_REQUESTED, BOOKED, BOOKING_REQUESTED]
+
+  - id: EXI003
+    title: Complaint about work
+    category: existing_complaint
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - The bathroom wasn't finished properly and I'm not happy.
+    expect:
+      outcome: [MESSAGE_TAKEN]
+      actions: { escalation: true }
+
+  - id: EXI004
+    title: Asks for the owner in hours
+    category: existing_complaint
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Can I speak to Dave please?
+    expect:
+      outcome: [TRANSFERRED, MESSAGE_TAKEN]
+      actions: { escalation: true }
+
+  - id: EXI005
+    title: Asks for the owner out of hours
+    category: existing_complaint
+    at: '2026-11-02T22:00:00Z'
+    caller:
+      - Is Dave there? I need a word.
+    expect:
+      outcome: [CALLBACK_REQUESTED]
+      actions: { transfer_call: false }

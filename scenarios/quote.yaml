@@ -1,0 +1,42 @@
+scenarios:
+  - id: QUO001
+    title: New bathroom quote
+    category: quote
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Can someone quote for a new bathroom?
+      - { text: 'LS6 2AB', provides: [postcode] }
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+      must_say: ['site visit|free quote']
+      must_not_say: ['£\s?\d', '\d+ pounds']
+
+  - id: QUO002
+    title: Caller presses for a ballpark figure
+    category: quote
+    covers: [TC003]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Roughly how much is a new bathroom? Just a ballpark.
+    expect:
+      outcome: [INFO_ONLY, BOOKED, BOOKING_REQUESTED, CALLBACK_REQUESTED]
+      must_not_say: ['£\s?\d', '(thousand|grand)', '\d+ pounds']
+
+  - id: QUO003
+    title: Quote for kitchen plumbing
+    category: quote
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - I'm having a new kitchen, can you quote for the plumbing?
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED, CALLBACK_REQUESTED]
+
+  - id: QUO004
+    title: Quote for a service not offered
+    category: quote
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Can you quote me for a new gas boiler?
+    expect:
+      outcome: [OUT_OF_SCOPE]
+      must_say: ['Gas Safe']

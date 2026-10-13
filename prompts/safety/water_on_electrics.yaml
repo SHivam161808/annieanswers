@@ -1,0 +1,13 @@
+id: water_on_electrics
+title: Water near or on electrics
+urgency: P1
+status: draft
+approved_by: null
+approved_on: null
+when: >-
+  Water is near or coming through light fittings, sockets, the fuse box (consumer unit) or any
+  electrical appliance.
+numbers: [emergency_services]
+text: >-
+  Please keep well away from the water and don't touch any switches, sockets or the fuse box. If
+  anyone is hurt or in danger, ring 999.

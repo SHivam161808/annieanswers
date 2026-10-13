@@ -1,0 +1,67 @@
+# DEMO sub-account — fictional plumbing business used for sales demos and QA.
+# Phone numbers are Ofcom drama-reserved ranges (07700 900xxx) and never reach a real person.
+schema_version: 1
+client_id: demo-plumbing
+ghl_location_id: 9UQLq2DdUdH26L5IwhqH
+
+business_name: Smith & Sons Plumbing Ltd
+business_name_spoken: Smith and Sons
+agent_name: Sophie
+owner_first_name: Dave
+trade_module: plumbing
+
+services_offered:
+  - leak_repair
+  - burst_pipe
+  - blocked_drain
+  - blocked_toilet
+  - tap_toilet
+  - no_hot_water
+  - no_water
+  - cylinder_immersion
+  - outside_tap
+  - pipework
+  - bathroom_install
+services_not_offered:
+  - gas_boiler
+  - gas_appliance
+  - drain_cctv
+gas_safe_registered: false
+service_area:
+  - LS1-LS29
+  - WF1-WF3
+
+opening_hours:
+  mon: [{ open: '08:00', close: '17:30' }]
+  tue: [{ open: '08:00', close: '17:30' }]
+  wed: [{ open: '08:00', close: '17:30' }]
+  thu: [{ open: '08:00', close: '17:30' }]
+  fri: [{ open: '08:00', close: '17:30' }]
+  sat: [{ open: '09:00', close: '12:00' }]
+closed_dates:
+  - '2026-12-25'
+  - '2026-12-26'
+  - '2026-12-28'
+  - '2027-01-01'
+emergency_cover: 24x7
+
+pricing_statements:
+  - Call-out is 60 pounds including the first hour.
+quote_policy: Installs get a free quote after a site visit.
+payment_methods: [Card, Bank transfer]
+
+transfer_number_primary: '+447700900123'
+transfer_number_backup: '+447700900456'
+transfer_rules:
+  in_hours: [P1, P2, asks_for_owner]
+  out_of_hours: [P1]
+alert_sms_number: '+447700900123'
+callback_promise: Dave will ring you back within 2 hours during working hours.
+
+booking_mode: ghl_calendar
+calendar_id: DEMO_CALENDAR_ID
+appointment_types:
+  - { code: assessment, duration_minutes: 60 }
+  - { code: small_repair, duration_minutes: 90 }
+min_booking_notice_minutes: 120
+cancellation_policy: We ask for 24 hours' notice to cancel, please.

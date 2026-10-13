@@ -1,0 +1,19 @@
+# Emergency numbers the agent may speak. The ONLY phone numbers allowed in universal prompt layers
+# and the only numbers the conversation scorer accepts in agent speech (besides none).
+# verified_by_po must be set before release (Build Plan: "The PO verifies every number before Day 3").
+numbers:
+  - id: gas_emergency_gb
+    spoken: '0800 111 999'
+    digits: '0800111999'
+    service: National Gas Emergency Service (Great Britain)
+    verified_by_po: false
+  - id: gas_emergency_ni
+    spoken: '0800 002 001'
+    digits: '0800002001'
+    service: Northern Ireland Gas Emergency Service
+    verified_by_po: false
+  - id: emergency_services
+    spoken: '999'
+    digits: '999'
+    service: Police, fire, ambulance
+    verified_by_po: false

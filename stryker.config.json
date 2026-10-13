@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "testRunner": "vitest",
+  "vitest": { "configFile": "vitest.config.ts" },
+  "checkers": [],
+  "mutate": [
+    "src/domain/**/*.ts",
+    "src/core/**/*.ts",
+    "src/security/**/*.ts",
+    "src/store/idempotency.ts",
+    "src/routes/ghl-envelope.ts",
+    "src/actions/**/*.ts"
+  ],
+  "coverageAnalysis": "perTest",
+  "concurrency": 4,
+  "timeoutMS": 20000,
+  "reporters": ["clear-text", "progress", "html", "json"],
+  "htmlReporter": { "fileName": "build/mutation/index.html" },
+  "jsonReporter": { "fileName": "build/mutation/report.json" },
+  "thresholds": { "high": 95, "low": 90, "break": 90 },
+  "tempDirName": "build/.stryker-tmp"
+}

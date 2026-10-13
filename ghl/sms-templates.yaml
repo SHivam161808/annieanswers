@@ -1,0 +1,94 @@
+# SMS templates used by GHL workflows WF-02..WF-13. Source of truth: copy each body into the
+# matching workflow "Send SMS" step exactly. Build Plan SMS rules (enforced by tests/unit/sms.test.ts):
+# transactional only, business name first, 160 characters where possible (checked with realistic
+# merge values), no marketing (PECR). status: draft until the PO approves every template (T-010).
+templates:
+  - id: booking_confirm_customer
+    workflow: WF-02
+    to: customer
+    status: draft
+    body: "{{custom_values.business_name}}: you're booked for {{appointment.start_time}}. We'll text a reminder. Reply here if you need to change it."
+
+  - id: booking_confirm_owner
+    workflow: WF-02
+    to: owner
+    status: draft
+    body: '{{custom_values.business_name}} NEW BOOKING {{appointment.start_time}}: {{contact.first_name}}, {{contact.job_postcode}}. {{contact.ai_issue_summary}}'
+
+  - id: reminder_day_before
+    workflow: WF-03
+    to: customer
+    status: draft
+    body: '{{custom_values.business_name}}: reminder of your plumber visit tomorrow, {{appointment.start_time}}. Reply here if you need to change it.'
+
+  - id: reminder_morning
+    workflow: WF-03
+    to: customer
+    status: draft
+    body: "{{custom_values.business_name}}: we're coming today, {{appointment.start_time}}. Reply here if anything has changed."
+
+  - id: rescheduled_customer
+    workflow: WF-04
+    to: customer
+    status: draft
+    body: "{{custom_values.business_name}}: your visit has moved to {{appointment.start_time}}. Reply here if that doesn't suit."
+
+  - id: cancelled_customer
+    workflow: WF-04
+    to: customer
+    status: draft
+    body: '{{custom_values.business_name}}: your visit has been cancelled. Reply here or call us if you need us again.'
+
+  - id: rescheduled_cancelled_owner
+    workflow: WF-04
+    to: owner
+    status: draft
+    body: '{{custom_values.business_name}} BOOKING CHANGED ({{contact.ai_call_outcome}}): {{contact.first_name}}, {{contact.job_postcode}}. {{appointment.start_time}}'
+
+  - id: enquiry_alert_owner
+    workflow: WF-05
+    to: owner
+    status: draft
+    body: '{{custom_values.business_name}} {{contact.ai_call_outcome}} {{contact.ai_urgency}}: {{contact.first_name}}, {{contact.job_postcode}}. {{contact.ai_issue_summary}} Call {{contact.phone}}'
+
+  - id: emergency_alert_owner
+    workflow: WF-06
+    to: owner
+    status: draft
+    body: '{{custom_values.business_name}} URGENT {{contact.ai_urgency}}: {{contact.ai_issue_summary}} {{contact.job_postcode}}. Call {{contact.phone}} now.'
+
+  - id: request_mode_owner
+    workflow: WF-07
+    to: owner
+    status: draft
+    body: '{{custom_values.business_name}} BOOKING REQUEST: {{contact.first_name}}, {{contact.job_postcode}} wants {{contact.preferred_window}}. Reply YES to confirm or send another time.'
+
+  - id: request_mode_confirmed_customer
+    workflow: WF-07
+    to: customer
+    status: draft
+    body: "{{custom_values.business_name}}: confirmed, we'll see you {{contact.preferred_window}}. Reply here if you need to change it."
+
+  - id: request_mode_reminder_owner
+    workflow: WF-07
+    to: owner
+    status: draft
+    body: '{{custom_values.business_name}} REMINDER: booking request from {{contact.first_name}} ({{contact.job_postcode}}) still needs a reply. Reply YES or another time.'
+
+  - id: missed_transfer_owner
+    workflow: WF-09
+    to: owner
+    status: draft
+    body: '{{custom_values.business_name}} MISSED TRANSFER: {{contact.first_name}} tried to reach you. {{contact.ai_issue_summary}} Call {{contact.phone}}'
+
+  - id: missed_call_textback_customer
+    workflow: WF-11
+    to: customer
+    status: draft
+    body: "{{custom_values.business_name}}: sorry we missed your call. Reply with your postcode and what's happened and we'll get back to you."
+
+  - id: inbound_reply_forward_owner
+    workflow: WF-13
+    to: owner
+    status: draft
+    body: '{{custom_values.business_name}} TEXT FROM {{contact.first_name}} {{contact.phone}}: {{message.body}}'

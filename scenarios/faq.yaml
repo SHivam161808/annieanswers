@@ -1,0 +1,66 @@
+scenarios:
+  - id: FAQ001
+    title: Call-out price (configured)
+    category: faq
+    covers: [TC003]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - How much is a call-out?
+    expect:
+      outcome: [INFO_ONLY, BOOKED, BOOKING_REQUESTED]
+      must_say: ['60 pounds']
+
+  - id: FAQ002
+    title: Price not configured (hourly rate after first hour)
+    category: faq
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - And what do you charge per hour after the first hour?
+    expect:
+      outcome: [INFO_ONLY, CALLBACK_REQUESTED, MESSAGE_TAKEN]
+      must_say: ['Dave']
+      must_not_say: ['£\s?\d', '\d+ pounds an hour']
+
+  - id: FAQ003
+    title: Do you take card?
+    category: faq
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Do you take card?
+    expect:
+      outcome: [INFO_ONLY]
+      must_say: ['card']
+
+  - id: FAQ004
+    title: Opening hours
+    category: faq
+    covers: [TC005]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - What time are you open on Saturdays?
+    expect:
+      outcome: [INFO_ONLY]
+      must_say: ['9|nine']
+
+  - id: FAQ005
+    title: Question with no configured answer
+    category: faq
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Are your engineers DBS checked?
+    expect:
+      outcome: [INFO_ONLY, CALLBACK_REQUESTED, MESSAGE_TAKEN]
+      must_say: ['confirm']
+      must_not_say: ['yes,? (they are|all)', 'fully (dbs )?checked']
+
+  - id: FAQ006
+    title: Service-area question by town name
+    category: faq
+    covers: [TC004]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Do you cover Wakefield?
+      - { text: 'WF1 2EE', provides: [postcode] }
+    expect:
+      outcome: [INFO_ONLY, BOOKED, BOOKING_REQUESTED]
+      actions: { check_service_area: true }

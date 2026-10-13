@@ -1,0 +1,76 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis:7-alpine
+        ports: ['6379:6379']
+        options: >-
+          --health-cmd "redis-cli ping" --health-interval 5s --health-timeout 3s --health-retries 5
+    env:
+      TEST_REDIS_URL: redis://127.0.0.1:6379
+      TEST_REDIS_ALLOW_FLUSH: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Format
+        run: npm run format:check
+      - name: Lint
+        run: npm run lint
+      - name: Type check
+        run: npm run typecheck
+      - name: Client config validation
+        run: npm run validate:config
+      - name: Unit tests
+        run: npm run test:unit
+      - name: Integration tests
+        run: npm run test:integration
+      - name: Failure tests
+        run: npm run test:failure
+      - name: Security tests
+        run: npm run test:security
+      - name: Prompt tests (lint rules, rendering, release gate)
+        run: npm run test:prompt
+      - name: Conversation scorer and scenario pack
+        run: npm run test:conversation
+      - name: Prompt lint and build
+        run: npm run prompt:build
+      - name: Fuzz tests
+        run: npm run test:fuzz
+      - name: Build
+        run: npm run build
+
+  mutation:
+    # Mutation testing: deliberately breaks the safety-critical code and fails if tests don't notice.
+    if: github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis:7-alpine
+        ports: ['6379:6379']
+        options: >-
+          --health-cmd "redis-cli ping" --health-interval 5s --health-timeout 3s --health-retries 5
+    env:
+      TEST_REDIS_URL: redis://127.0.0.1:6379
+      TEST_REDIS_ALLOW_FLUSH: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Mutation testing (break below 90%)
+        run: npm run test:mutation

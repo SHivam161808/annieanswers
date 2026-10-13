@@ -1,0 +1,149 @@
+scenarios:
+  - id: JOB001
+    title: Normal enquiry, dripping tap, full booking
+    category: new_job
+    covers: [TC001, TC006, TC007, TC008, TC009, TC010, TC018, TC019, TC041]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Hi, my kitchen tap's been dripping for a week.
+      - { text: 'LS6 2AB', provides: [postcode] }
+      - { text: "It's Jane Smith.", provides: [name] }
+      - { text: 'Yes, this number is fine.', provides: [phone] }
+      - { text: '14 Cardigan Road.', provides: [address] }
+      - "It's a house, I own it."
+      - Tuesday morning would be good.
+    expect:
+      outcome: [BOOKED]
+      captured: { postcode: LS6 2AB, name: Jane Smith, address: 14 Cardigan Road }
+      actions: { call_context: true, check_service_area: true, book_appointment: true }
+
+  - id: JOB002
+    title: Blocked toilet, only toilet in the house (P3)
+    category: new_job
+    covers: [TC011]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Our toilet's blocked and it's the only one we've got.
+      - { text: 'WF1 2EE', provides: [postcode] }
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+      actions: { escalation: true }
+
+  - id: JOB003
+    title: No hot water, combi boiler, not Gas Safe business
+    category: new_job
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - I've got no hot water, it's a combi boiler.
+    expect:
+      outcome: [OUT_OF_SCOPE, BOOKED, BOOKING_REQUESTED, MESSAGE_TAKEN]
+      must_not_say: ['reset the boiler', 'repressuri[sz]e']
+
+  - id: JOB004
+    title: Caller gives everything at once, out of order
+    category: new_job
+    covers: [TC012, TC013, TC017]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - {
+          text: "Hi, I'm on 07700 900111, it's Mark, I'm at 3 Otley Road LS6 3AA and my outside tap's leaking.",
+          provides: [name, phone, address, postcode],
+        }
+      - Any time Thursday.
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+      captured: { postcode: LS6 3AA, phone: '07700900111' }
+
+  - id: JOB005
+    title: Availability check, requested time unavailable
+    category: new_job
+    covers: [TC018, TC025]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - I need someone to look at a leaking radiator valve.
+      - { text: 'LS12 1AA', provides: [postcode] }
+      - Can someone come at 7 tonight?
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+      must_not_say: ["(you're|you are) booked (in )?(for )?(at )?7"]
+
+  - id: JOB006
+    title: Booking action fails, request mode fallback
+    category: new_job
+    covers: [TC020, TC026]
+    at: '2026-11-02T10:00:00Z'
+    action_results: { book_appointment: error }
+    caller:
+      - My cistern keeps running.
+      - { text: 'LS6 2AB', provides: [postcode] }
+      - Wednesday afternoon please.
+    expect:
+      outcome: [BOOKING_REQUESTED]
+      must_not_say: ['booking reference', 'confirmation number']
+
+  - id: JOB007
+    title: Booking action times out, no false confirmation
+    category: new_job
+    covers: [TC021, TC056]
+    at: '2026-11-02T10:00:00Z'
+    action_results: { book_appointment: timeout, check_availability: timeout }
+    caller:
+      - Can I book someone to fit an outside tap?
+      - { text: 'LS6 2AB', provides: [postcode] }
+    expect:
+      outcome: [BOOKING_REQUESTED]
+
+  - id: JOB008
+    title: Request-mode client takes two preferred windows
+    category: new_job
+    covers: [TC026]
+    at: '2026-11-02T10:00:00Z'
+    action_results: { call_context: ok }
+    caller:
+      - I need my bath tap replacing.
+      - Tuesday morning or Wednesday after lunch.
+    expect:
+      outcome: [BOOKING_REQUESTED, BOOKED]
+
+  - id: JOB009
+    title: Several problems in one call
+    category: new_job
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - The bathroom sink's blocked, the toilet keeps running and there's a small leak under the bath that's in a bowl.
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+
+  - id: JOB010
+    title: Booking either side of the clocks going back
+    category: new_job
+    at: '2026-10-23T10:00:00Z'
+    caller:
+      - Can someone come Monday the 26th first thing for a dripping tap?
+      - { text: 'LS6 2AB', provides: [postcode] }
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+
+  - id: JOB011
+    title: Caller asks if service is offered (service availability)
+    category: new_job
+    covers: [TC002]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Do you do bathroom fitting?
+    expect:
+      outcome: [INFO_ONLY, BOOKED, BOOKING_REQUESTED, CALLBACK_REQUESTED]
+      must_say: ['yes|we do|we can']
+
+  - id: JOB012
+    title: Duplicate booking request in the same call
+    category: new_job
+    covers: [TC022]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - I need a blocked kitchen sink sorted.
+      - { text: 'LS6 2AB', provides: [postcode] }
+      - Tuesday morning.
+      - Sorry did that go through? Can you book it again just in case?
+    expect:
+      outcome: [BOOKED]

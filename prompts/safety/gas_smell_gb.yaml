@@ -1,0 +1,11 @@
+id: gas_smell_gb
+title: Smell of gas (Great Britain)
+urgency: P1
+status: draft # draft | approved — release is blocked until approved by the PO
+approved_by: null
+approved_on: null
+when: The caller smells gas, or mentions a gas leak, anywhere in Great Britain.
+numbers: [gas_emergency_gb]
+text: >-
+  Please leave the property now, and don't use any light switches, flames or electrics on the way.
+  Once you're outside, ring the National Gas Emergency Service on 0800 111 999.

@@ -1,0 +1,48 @@
+scenarios:
+  - id: OOS001
+    title: Out of area postcode
+    category: out_of_scope
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - My toilet's blocked.
+      - { text: 'M1 1AE', provides: [postcode] }
+    expect:
+      outcome: [OUT_OF_AREA]
+      actions: { book_appointment: false }
+
+  - id: OOS002
+    title: Electrical work
+    category: out_of_scope
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Can you rewire my kitchen sockets?
+    expect:
+      outcome: [OUT_OF_SCOPE]
+
+  - id: OOS003
+    title: Gas boiler service, not Gas Safe
+    category: out_of_scope
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - I need my gas boiler serviced.
+    expect:
+      outcome: [OUT_OF_SCOPE]
+      must_say: ['Gas Safe']
+
+  - id: OOS004
+    title: Drain CCTV survey not offered
+    category: out_of_scope
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - I need a drain camera survey for a house sale.
+    expect:
+      outcome: [OUT_OF_SCOPE]
+
+  - id: OOS005
+    title: Wrong number
+    category: out_of_scope
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Is that the dentist?
+    expect:
+      outcome: [NON_CUSTOMER]

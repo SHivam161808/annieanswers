@@ -1,0 +1,11 @@
+id: gas_smell_ni
+title: Smell of gas (Northern Ireland)
+urgency: P1
+status: draft
+approved_by: null
+approved_on: null
+when: The caller smells gas and is in Northern Ireland (postcode starting BT).
+numbers: [gas_emergency_ni]
+text: >-
+  Please leave the property now, and don't use any light switches, flames or electrics on the way.
+  Once you're outside, ring the Northern Ireland Gas Emergency Service on 0800 002 001.

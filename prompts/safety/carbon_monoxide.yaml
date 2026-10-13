@@ -1,0 +1,13 @@
+id: carbon_monoxide
+title: Carbon monoxide alarm or symptoms
+urgency: P1
+status: draft
+approved_by: null
+approved_on: null
+when: >-
+  A CO alarm is sounding, or anyone has headaches, dizziness, sickness or drowsiness that could be
+  carbon monoxide, especially near a boiler, fire or cooker.
+numbers: [gas_emergency_gb, emergency_services]
+text: >-
+  Please get everyone out into fresh air now and don't go back in. Ring the gas emergency line on
+  0800 111 999, and if anyone feels unwell, ring 999.

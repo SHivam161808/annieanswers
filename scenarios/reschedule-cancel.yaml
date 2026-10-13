@@ -1,0 +1,65 @@
+scenarios:
+  - id: RES001
+    title: Reschedule found by caller number
+    category: reschedule_cancel
+    covers: [TC023]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - I need to move Thursday's appointment.
+      - Friday morning instead please.
+    expect:
+      outcome: [RESCHEDULED]
+      actions: { find_appointment: true, reschedule_appointment: true }
+
+  - id: RES002
+    title: Reschedule, not found by number, verify by name and postcode
+    category: reschedule_cancel
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - I booked a plumber for Wednesday but need to change it.
+      - { text: "It's under Sarah Jones, LS6 2AB.", provides: [name, postcode] }
+      - Next Monday then.
+    expect:
+      outcome: [RESCHEDULED, MESSAGE_TAKEN]
+
+  - id: RES003
+    title: Cancellation with policy mentioned
+    category: reschedule_cancel
+    covers: [TC024]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - I need to cancel tomorrow's appointment, it's fixed itself.
+    expect:
+      outcome: [CANCELLED]
+      actions: { cancel_appointment: true }
+
+  - id: RES004
+    title: Cancel action fails, no false confirmation
+    category: reschedule_cancel
+    at: '2026-11-02T10:00:00Z'
+    action_results: { cancel_appointment: error }
+    caller:
+      - Can you cancel my appointment on Friday?
+    expect:
+      outcome: [MESSAGE_TAKEN, CALLBACK_REQUESTED]
+
+  - id: RES005
+    title: No booking found at all
+    category: reschedule_cancel
+    at: '2026-11-02T10:00:00Z'
+    action_results: { find_appointment: error }
+    caller:
+      - I want to move my booking.
+      - { text: 'Tom Brown, WF1 2EE', provides: [name, postcode] }
+    expect:
+      outcome: [MESSAGE_TAKEN, CALLBACK_REQUESTED]
+
+  - id: RES006
+    title: Reschedule to an unavailable time
+    category: reschedule_cancel
+    covers: [TC025]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Can I move Thursday's job to Sunday?
+    expect:
+      outcome: [RESCHEDULED, MESSAGE_TAKEN, CALLBACK_REQUESTED]

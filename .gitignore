@@ -1,0 +1,16 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+*.log
+build/
+
+# Personal and client documents dropped in the project root are never committed.
+/*.pdf
+/*.jpeg
+/*.jpg
+/*.png
+/*.docx
+.stryker-tmp/

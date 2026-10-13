@@ -1,0 +1,10 @@
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  test: {
+    include: ['tests/**/*.test.ts'],
+    globalSetup: ['tests/setup/redis-server.ts'],
+    testTimeout: 15_000,
+    pool: 'forks',
+  },
+});

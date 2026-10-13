@@ -1,0 +1,121 @@
+scenarios:
+  - id: STR001
+    title: Caller interrupts mid-question
+    category: stress
+    covers: [TC033, TC034]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - My shower's not draining.
+      - Sorry, sorry, it's actually the bath not the shower.
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+
+  - id: STR002
+    title: Caller gives postcode twice
+    category: stress
+    covers: [TC014, TC017]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - { text: 'Leaking tap at LS6 2AB.', provides: [postcode] }
+      - { text: "It's LS6 2AB like I said.", provides: [postcode] }
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+      captured: { postcode: LS6 2AB }
+
+  - id: STR003
+    title: Caller changes address
+    category: stress
+    covers: [TC015]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Blocked drain outside.
+      - { text: '12 Hyde Park Road, LS6 1AH', provides: [address, postcode] }
+      - {
+          text: "Oh no wait, it's my mum's house, 40 Kirkstall Lane, LS5 3BE",
+          provides: [address, postcode],
+        }
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+      captured: { postcode: LS5 3BE, address: 40 Kirkstall Lane }
+
+  - id: STR004
+    title: Caller changes job type
+    category: stress
+    covers: [TC016]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - The toilet's blocked.
+      - Actually it's cleared now, but the kitchen tap's dripping, can someone look at that?
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+      captured: { job_type: tap_toilet }
+
+  - id: STR005
+    title: Topic change and return
+    category: stress
+    covers: [TC035]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - My radiator's cold at the top.
+      - Before that, do you take card?
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED, INFO_ONLY]
+      must_say: ['card']
+
+  - id: STR006
+    title: Vague answers
+    category: stress
+    covers: [TC036, TC037]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - There's water somewhere.
+      - I don't know, it's just wet.
+      - I don't know.
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED, MESSAGE_TAKEN, CALLBACK_REQUESTED]
+
+  - id: STR007
+    title: Caller asks agent to repeat
+    category: stress
+    covers: [TC038]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Leaking pipe in the airing cupboard.
+      - Sorry, what did you say?
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+
+  - id: STR008
+    title: Silent caller
+    category: stress
+    covers: [TC039]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - '...'
+      - '...'
+    expect:
+      outcome: [ABANDONED]
+
+  - id: STR009
+    title: Caller hangs up mid-call
+    category: stress
+    covers: [TC040]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - { text: "Hi, my name's Paul, toilet's blocked—", provides: [name] }
+    expect:
+      outcome: [ABANDONED]
+
+  - id: STR010
+    title: Everything said at once, fast
+    category: stress
+    covers: [TC012, TC017]
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - {
+          text: "Right I'm Amy Clarke number's 07700 900222 postcode LS2 9JT flat 4 Park Square I rent it and the toilet's leaking at the base can someone come tomorrow.",
+          provides: [name, phone, postcode, address],
+        }
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+      captured: { name: Amy Clarke, postcode: LS2 9JT }
