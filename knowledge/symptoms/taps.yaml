@@ -1,0 +1,572 @@
+family: taps
+general_questions:
+  - Is it something you'd like repaired, replaced with the same thing, or something new fitted?
+  - Is it leaking or unusable right now, or still working for the moment?
+  - Where exactly is the problem, and has it been getting worse?
+
+presentations:
+  - id: tap-dripping-leaking
+    name: Tap dripping or leaking
+    keywords:
+      - dripping tap
+      - tap dripping
+      - drip
+      - won't stop dripping
+      - tap leaking
+      - leaking tap
+      - leak from the base
+      - base of the tap
+      - mixer tap
+      - kitchen tap
+      - basin tap
+      - bath tap
+      - faucet
+      - washer
+    ask_first:
+      - Is it dripping from the spout when the tap's turned off, or is water coming out around the base or handle?
+      - Does it keep dripping all the time, or only for a few seconds after you turn it off?
+      - Has it been getting worse, and is any water getting into the cupboard underneath?
+    may_explain:
+      - when: Spout keeps dripping steadily after the tap is fully turned off
+        say: A tap that keeps dripping when it's off can often be a worn washer or cartridge inside it, which is a common repair. The engineer will confirm what it is when they see it.
+      - when: Water appears around the base or handle while the tap is in use
+        say: Water around the base or handle can sometimes come from a worn seal inside the tap rather than the pipes. The engineer will find exactly where it's coming from.
+      - when: Drips for a few seconds after being turned off, then stops
+        say: A few drips straight after turning a tap off can sometimes just be water left in the spout, but if it's carrying on the engineer can take a look.
+    urgent_if:
+      - sign: Water near sockets, appliances or wiring
+        level: P1
+      - sign: Water flowing that the caller can't stop, or spreading across the floor
+        level: P2
+      - sign: Water collecting in the cupboard underneath but contained
+        level: P3
+    never:
+      - Diagnose the cause with certainty (e.g. "it's definitely just a washer")
+      - Say the tap can keep being used or that the leak can wait
+      - Tell the caller to dismantle, tighten, or adjust the tap or its valves
+      - Recommend specific parts or quote a repair time or price
+    engineer_notes:
+      - Which tap (kitchen, basin, bath), mixer or separate taps
+      - Where the water comes from (spout, base, handle, underneath)
+      - Constant drip or only after use; getting worse or not
+      - Any water in the cupboard or damage to surfaces
+      - Make or model if known
+      - Anything already tried
+    booking:
+      job_type: tap_toilet
+      visit: repair
+      default_urgency: P4
+      note: If water is reaching the cupboard or floor, treat it as the under-sink leak presentation.
+    source:
+      worksheet: Taps, fixtures & installations — R. Chua, 2026-10-21
+      section: Part 1 §1; Part 4
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: tap-stiff-loose-broken
+    name: Tap stiff, loose, broken or handle spinning
+    keywords:
+      - stiff tap
+      - tap is stiff
+      - hard to turn
+      - loose tap
+      - wobbly tap
+      - tap wobbles
+      - broken tap
+      - snapped
+      - handle spins
+      - spinning handle
+      - handle came off
+      - won't turn off
+      - won't turn on
+      - lever
+    ask_first:
+      - Is the tap stiff, loose and wobbly, broken, or does the handle just spin?
+      - Did it happen suddenly, or has it been getting worse over time?
+      - Can the water still be turned on and off at that tap?
+    may_explain:
+      - when: Tap has become stiff gradually, especially one not used much
+        say: A tap that gets stiff over time can often be down to limescale or wear inside it, which is common in hard-water areas. The engineer will confirm when they see it.
+      - when: Whole tap body moves or wobbles when used
+        say: A wobbly tap is often the fixing underneath the sink or basin working loose rather than the tap itself. The engineer will check how it's mounted.
+      - when: Handle turns round without turning the water on or off
+        say: When a handle just spins, one common reason is that the part linking the handle to the inside of the tap has worn. The engineer will confirm what's needed.
+    urgent_if:
+      - sign: Tap broken or stuck open and water is running that can't be stopped
+        level: P2
+      - sign: Water near sockets, appliances or wiring
+        level: P1
+      - sign: Tap can't be turned on and it's the only working cold tap in the kitchen
+        level: P3
+    never:
+      - Tell the caller to force, dismantle or remove the handle or tap
+      - Say what part has failed as a fact
+      - Recommend replacing versus repairing before the engineer has seen it
+      - Promise a repair time or outcome
+    engineer_notes:
+      - Which tap and what kind (mixer, pillar, lever, quarter-turn)
+      - Stiff, loose, broken or spinning; sudden or gradual
+      - Whether water can still be turned off at the tap
+      - Visible damage or anything broken off
+      - Make or model if known
+    booking:
+      job_type: tap_toilet
+      visit: repair
+      default_urgency: P4
+      note: Ask whether the caller wants it repaired or would rather have a new tap; if new, qualify as a replacement.
+    source:
+      worksheet: Taps, fixtures & installations — R. Chua, 2026-10-21
+      section: Part 1 §2; Part 4
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: tap-no-water
+    name: No water or no hot water from one tap
+    keywords:
+      - no water from the tap
+      - nothing coming out
+      - tap not working
+      - no water
+      - only cold
+      - no hot water from the tap
+      - hot tap not working
+      - after i fixed the tap
+      - after the repair
+      - trickle
+      - mixer tap
+      - faucet
+    ask_first:
+      - Are your other taps working normally?
+      - Is it no water at all from that tap, or just no hot, or just no cold?
+      - Did it start after any work on the tap or pipes, by you or someone else?
+    may_explain:
+      - when: Only one tap affected, others in the house working normally
+        say: If only one tap is affected, the cause is often something local to that tap or the pipe feeding it rather than the whole supply. The engineer will check that tap and its pipework.
+      - when: Started straight after the tap was repaired or replaced
+        say: When a tap stops straight after work on it, it may be something to do with how it was reconnected. The engineer will look at what was done.
+      - when: Hot missing at every tap in the house, cold fine
+        say: If there's no hot water at any tap, it may be the hot water supply itself, like the boiler or cylinder, rather than the taps.
+    urgent_if:
+      - sign: No water from any tap in the property
+        level: P2
+      - sign: No hot water at any tap in the property
+        level: P3
+      - sign: A recent DIY repair is now leaking as well
+        level: P3
+    never:
+      - Tell the caller to open, turn or check any isolation valve or stopcock
+      - Tell the caller to dismantle the tap
+      - State the cause, or blame previous work
+      - Promise a repair time or outcome
+    engineer_notes:
+      - Which tap or taps; hot, cold or both
+      - Whether other taps are fine
+      - When it started; any recent repair or DIY and what was done
+      - Mixer or separate taps; make or model if known
+      - Any leak since the work
+    booking:
+      job_type: tap_toilet
+      visit: assessment
+      default_urgency: P4
+      note: If no water anywhere in the house, use the supply family and job type no_water; if no hot water anywhere, no_hot_water.
+    source:
+      worksheet: Taps, fixtures & installations — R. Chua, 2026-10-21
+      section: Part 1 §3; Part 4
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: shower-hose-head
+    name: Shower hose, head or connection leaking
+    keywords:
+      - shower hose
+      - shower head
+      - showerhead
+      - shower leaking
+      - hose leaking
+      - spraying everywhere
+      - spraying
+      - split hose
+      - leaking at the connection
+      - shower riser
+      - mixer shower
+      - bath shower
+    ask_first:
+      - Where's the water coming from - along the hose, the shower head, or where they join?
+      - Does it only leak when the shower's running?
+      - Is the water staying in the bath or tray, or getting onto the floor?
+    may_explain:
+      - when: Leaking along the length of the hose
+        say: A leak along the hose itself often means the hose has split or worn, which is a common and usually straightforward repair. The engineer will confirm it.
+      - when: Leaking at the joint between hose and head, or hose and valve
+        say: A leak where the hose joins the head or valve can often be a worn washer or seal at that joint. The engineer will check exactly where it's coming from.
+      - when: Head spraying unevenly or in all directions
+        say: Uneven spray from a shower head can sometimes be limescale building up in the head, especially in hard-water areas. The engineer will take a look.
+    urgent_if:
+      - sign: Water getting onto the floor and through to a ceiling below
+        level: P2
+      - sign: Water near an electric shower unit, sockets, lights or an extractor fan
+        level: P1
+      - sign: Water leaking from the shower valve or wall even when the shower is off
+        level: P3
+    never:
+      - Tell the caller to unscrew, tighten or descale anything
+      - Diagnose a leak from the wall or valve as just the hose
+      - Recommend a specific replacement part
+      - Promise a repair time or outcome
+    engineer_notes:
+      - Exact location (hose, head, joint, valve, wall)
+      - Only when running or all the time
+      - Electric shower, mixer shower or bath-shower mixer; make if known
+      - Visible damage to the hose or head
+      - Water escaping the bath or tray, any damage below
+    booking:
+      job_type: tap_toilet
+      visit: repair
+      default_urgency: P4
+      note: Water from the wall or valve when the shower is off is a concealed leak - book as leak_repair, assessment.
+    source:
+      worksheet: Taps, fixtures & installations — R. Chua, 2026-10-21
+      section: Part 1 §4; Part 4
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: under-sink-active-leak
+    name: Leak under a sink or basin, cupboard getting wet
+    keywords:
+      - under the sink
+      - cupboard is wet
+      - cupboard getting wet
+      - leaking under the sink
+      - under the basin
+      - vanity unit
+      - water in the cupboard
+      - pipe under the sink
+      - waste pipe leaking
+      - trap leaking
+      - kitchen cupboard
+      - puddle
+    ask_first:
+      - Is it leaking right now, and is it all the time or only when the tap or sink is being used?
+      - Is the water staying in the cupboard, or spreading onto the floor or near any sockets or appliances?
+      - Can you see roughly where it's coming from - the tap above, the pipes underneath, or the waste?
+    may_explain:
+      - when: Leak only when the sink is emptied or tap run
+        say: If it only leaks when water goes down the sink, it can often be the waste pipe or trap underneath rather than the water supply. The engineer will confirm where it is.
+      - when: Leak continues even with nothing being used
+        say: A leak that carries on when nothing's in use may be on one of the supply pipes or connections under there. The engineer will find exactly where.
+    urgent_if:
+      - sign: Water near sockets, appliances such as a dishwasher, or wiring
+        level: P1
+      - sign: Water flowing that can't be stopped, or spreading across the floor or through a ceiling
+        level: P2
+      - sign: Leak contained, for example in a bowl or the cupboard
+        level: P3
+    never:
+      - Give any instruction about valves or the stopcock
+      - Say it can keep being used or that it can wait
+      - Ask lower-value installation questions before urgency is understood
+      - Diagnose the leak source as fact
+    engineer_notes:
+      - Ongoing or only when used; rate (drip, steady, pouring)
+      - Rough location (tap, supply pipes, waste, trap)
+      - Damage to cupboard, floor or ceiling below
+      - Any water near electrics or appliances
+      - Kitchen or bathroom; any appliance connected under the sink
+    booking:
+      job_type: leak_repair
+      visit: assessment
+      default_urgency: P3
+      note: null
+    source:
+      worksheet: Taps, fixtures & installations — R. Chua, 2026-10-21
+      section: Part 2 B; Part 3
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: like-for-like-replacement
+    name: Like-for-like replacement of a tap or fixture
+    keywords:
+      - new tap fitted
+      - replace my tap
+      - replace the tap
+      - already bought it
+      - bought a new tap
+      - swap
+      - like for like
+      - same as the old one
+      - quick job
+      - ten minutes
+      - replace the toilet
+      - new toilet
+      - new basin
+      - new sink
+      - toilet pan
+      - toilet seat
+    ask_first:
+      - Is the new one going in exactly the same place as the old one?
+      - Have you already got it, and if so do you know the make and model, and has it come with its fittings?
+      - Is there a date you need it done by?
+    may_explain:
+      - when: Caller says it's a quick or simple swap
+        say: A replacement that looks the same can sometimes need different connections or fixings, which is why the engineer comes to look at the job properly first.
+      - when: Customer is supplying the item
+        say: Having the make and model really helps, as fittings can vary between models even when they look similar.
+    urgent_if:
+      - sign: Old fixture is leaking now and water can't be stopped
+        level: P2
+      - sign: It's the only toilet and it's out of use
+        level: P3
+    never:
+      - Accept "quick job" or "ten minutes" as the job length
+      - Promise the item will fit or that it can be done in one visit
+      - Quote a price or time
+      - Tell the caller to fit or disconnect it themselves
+    engineer_notes:
+      - What is being replaced and where
+      - Same position or different (sink-mounted versus wall-mounted etc.)
+      - Who is supplying the item; make, model, fittings and instructions present
+      - Whether the old one is still connected and needs taking away
+      - Why it's being replaced (age, damage, leak, upgrade)
+      - Any deadline; access to under the sink or behind the fixture
+    booking:
+      job_type: tap_toilet
+      visit: assessment
+      default_urgency: P4
+      note: Ask who supplies the item and why it is being replaced; a toilet or basin swap can be bathroom_install.
+    source:
+      worksheet: Taps, fixtures & installations — R. Chua, 2026-10-21
+      section: Part 1 §5; Part 2 A; Part 6
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: new-position-install
+    name: New fixture in a new position or new pipework
+    keywords:
+      - new position
+      - different place
+      - somewhere different
+      - move the sink
+      - move the toilet
+      - new sink put in
+      - new toilet installed
+      - extra basin
+      - wall mounted
+      - new pipework
+      - utility room
+      - downstairs loo
+      - en suite
+      - give me a price
+    ask_first:
+      - Where would you like the new one to go, and is it replacing something or completely new?
+      - Is there already a water supply and a waste pipe near that spot?
+      - Has the item been bought yet, and is there a date you'd like it done by?
+    may_explain:
+      - when: Fixture going away from existing pipes
+        say: Putting something in a new spot can mean extending the water pipes and the waste, so the engineer will want to see the room before confirming what's involved.
+      - when: Toilet in a new position
+        say: A toilet in a new position often depends on how the waste can reach the soil pipe, which is one reason it needs looking at in person.
+    urgent_if: []
+    never:
+      - Say the move is possible or straightforward before the visit
+      - Confirm pipework, waste routes, cost or duration
+      - Tell the caller to start any preparation work on the pipes
+    engineer_notes:
+      - What fixture and where it is going
+      - Rough distance from existing supply and waste
+      - New or replacing; what is there now
+      - Floor type and floor level if known (e.g. upstairs, solid floor)
+      - Who supplies the item; make and model
+      - Plans or photos available; any deadline
+    booking:
+      job_type: pipework
+      visit: assessment
+      default_urgency: P4
+      note: Book a visit to look at the job; use bathroom_install or kitchen_plumbing if it is part of a wider fit.
+    source:
+      worksheet: Taps, fixtures & installations — R. Chua, 2026-10-21
+      section: Part 1 §6
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: replacement-after-damage
+    name: Replacement wanted after damage, a crack or a recurring fault
+    keywords:
+      - cracked sink
+      - cracked basin
+      - crack in the toilet
+      - cracked toilet
+      - cracked pan
+      - chipped
+      - rusty tap
+      - damaged
+      - keeps leaking
+      - leak keeps happening
+      - replace the sink
+      - replace the basin
+      - broken toilet
+    ask_first:
+      - What's made you want to replace it - is it cracked or damaged, or is there a problem like a leak?
+      - Is any water coming out of it or around it, and if so, when?
+      - Have you got a replacement already, or would you like us to supply one?
+    may_explain:
+      - when: Replacement requested because of a recurring leak
+        say: A leak that keeps coming back can sometimes be from a connection or seal rather than the fixture itself, so the engineer will find the source before deciding on a replacement.
+      - when: Customer supplying a similar-looking item
+        say: Even a similar model can have different sizes or connections, so the engineer will check it against what's there.
+    urgent_if:
+      - sign: Crack leaking water that can't be stopped or is spreading
+        level: P2
+      - sign: Cracked toilet pan leaking on every flush and it's the only toilet
+        level: P3
+      - sign: Water near sockets, appliances or wiring
+        level: P1
+    never:
+      - Comment on whether a cracked fixture is safe to use
+      - Agree that replacement is the fix before the cause of a leak is known
+      - Promise compatibility, a price or a time
+      - Encourage the caller to remove or replace it themselves
+    engineer_notes:
+      - Fixture, room and condition (crack, chip, rust, leak)
+      - Customer's stated reason for replacement in their words
+      - Where any water appears and when
+      - Replacement supplied or needed; make, model, size
+      - Whether removal and disposal of the old one is wanted
+    booking:
+      job_type: tap_toilet
+      visit: assessment
+      default_urgency: P4
+      note: If the real issue is a leak, record leak_repair. Ask if the old fixture needs taking away.
+    source:
+      worksheet: Taps, fixtures & installations — R. Chua, 2026-10-21
+      section: Part 1 §7; Part 2 C; Part 6
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: multiple-fixtures-planned
+    name: Several fixtures or planned installation work
+    keywords:
+      - several taps
+      - new taps
+      - two taps
+      - bathroom taps
+      - shower valve
+      - shower valves
+      - upstairs bathroom
+      - replace everything
+      - new bathroom
+      - bathroom suite
+      - upgrade
+      - refit
+      - faucets
+    ask_first:
+      - Which items need fitting or replacing, and which rooms are they in?
+      - Are they replacing what's there in the same positions, or going anywhere new?
+      - Have you bought them already, or would you like us to supply them?
+    may_explain:
+      - when: Several items or a shower valve involved
+        say: With several items, or anything like a shower valve that sits in the wall, the work can vary a lot, so the engineer will look at the job before confirming the plan.
+    urgent_if: []
+    never:
+      - Confirm the work can be done in one visit
+      - Promise costs, durations or compatibility
+      - Tell the caller to carry out any of the plumbing themselves
+    engineer_notes:
+      - Number and type of items, and rooms
+      - Same positions or any new ones; concealed or exposed shower valves
+      - Who supplies; makes, models; fittings and accessories on site
+      - Existing items' make and model if we are supplying
+      - Any deadline or other trades involved (tiler, electrician)
+    booking:
+      job_type: bathroom_install
+      visit: assessment
+      default_urgency: P4
+      note: Book a visit to look at the job; record kitchen_plumbing if the work is in the kitchen.
+    source:
+      worksheet: Taps, fixtures & installations — R. Chua, 2026-10-21
+      section: Part 1 §8
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: appliance-plumb-in
+    name: Washing machine or dishwasher to plumb in
+    keywords:
+      - washing machine
+      - dishwasher
+      - plumb in
+      - plumbed in
+      - plumbing in
+      - new washing machine
+      - new dishwasher
+      - replace my dishwasher
+      - washer dryer
+      - fridge freezer water
+      - appliance
+    ask_first:
+      - Is it replacing an appliance in the same spot, or going somewhere new?
+      - Do you know the make and model, and is it there at the property already?
+      - Is the old appliance still connected, and does it need disconnecting?
+    may_explain:
+      - when: New appliance going where an old one was
+        say: Swapping an appliance in the same spot can often use the connections already there, but the engineer will check they suit the new one.
+      - when: Appliance going in a new position
+        say: A new position may need a water supply and a waste adding, so the engineer will look at the job first.
+    urgent_if:
+      - sign: Old appliance leaking now with water near sockets or the appliance
+        level: P1
+      - sign: Old appliance leaking and the water can't be stopped
+        level: P2
+    never:
+      - Tell the caller to connect or disconnect the appliance or its hoses
+      - Promise the appliance will fit or the existing connections are suitable
+      - Give any electrical advice
+    engineer_notes:
+      - Appliance type, make and model
+      - Same position or new; existing supply and waste in place
+      - Old appliance still connected; removal wanted
+      - Delivered and on site
+    booking:
+      job_type: appliance_plumbing
+      visit: assessment
+      default_urgency: P4
+      note: Electrical connection is outside plumbing; note if a new socket may be needed.
+    source:
+      worksheet: Taps, fixtures & installations — R. Chua, 2026-10-21
+      section: Part 1 §5, §8 (examples only)
+      research_agrees: true
+    status: needs_review
+    reviewed_by: null
+
+flags:
+  - claim: 'Part 1 §1–§4, "What could the AI safely explain": only "the plumber will assess/inspect/check" for dripping taps, stiff or loose taps, no water from one tap and shower hose leaks.'
+    concern: Too cautious and inconsistent with the worksheet's own Part 4, which says these presentations can be given cautious probable explanations. Standard, tentative explanations (worn washer or cartridge, loose mounting, split hose, limescale) have been added.
+    severity: too_cautious
+  - claim: 'Part 1 §5 and §6, "What could the AI safely explain": the answer repeats the "information for the plumber" answer word for word.'
+    concern: No explanation content was supplied for like-for-like or new-position installations. The tentative explanations used (fittings vary between models; new positions may need supply and waste extending) are drawn from Part 5 §3 and §6 of the same worksheet, not from these sections.
+    severity: unsupported
+  - claim: 'Part 1 §7 and §8, "What could the AI safely explain": only that the request will be passed to the team.'
+    concern: Too cautious for installations. The worksheet itself says compatibility depends on dimensions and connections, not brand, which is a safe and useful thing to tell a caller.
+    severity: too_cautious
+  - claim: 'Part 3 Q4, "What actions should the AI never instruct": the answer repeats Q3 word for word ("stop using the fixture... a water shut-off valve should only be operated if readily accessible and safe to use without force or tools").'
+    concern: The question about what the AI must never instruct (dismantling, forcing, isolating, fitting) was not answered. Also, the shut-off valve advice is reasonable in principle, but it is isolation advice the client has not yet approved, so it is not served.
+    severity: unsafe
+  - claim: 'Part 2 B: "advise the customer to keep away from the affected area" when water is near electrics.'
+    concern: The intent is right, but it is free-form safety wording. The agent must use the approved water_on_electrics script only, so this wording is not served.
+    severity: unsupported
+  - claim: 'Customer examples use "faucet" (Part 1 §1, §3, §7, §8) and "toilet bowl" (§5, §7).'
+    concern: These are US terms. They are kept as caller keywords, but the agent should say "tap" and "toilet pan" or "toilet" back to UK callers.
+    severity: incorrect_uk
+  - claim: 'Part 1 §3 questions and causes include a "closed isolation valve" as a likely cause of no water from one tap.'
+    concern: This is plausible, but saying it to a caller invites them to start turning valves, which the client has not approved. It is kept for the engineer's notes only and not spoken.
+    severity: unsupported
+  - claim: 'Part 1 §6: "Do you have a plumbing plan or floor plan showing the new position?"'
+    concern: Domestic callers rarely have plumbing plans, so this is low-value as a first question. It is replaced by asking whether supply and waste are near the spot, with plans or photos noted if offered.
+    severity: unsupported

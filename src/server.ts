@@ -7,6 +7,7 @@ import { OwnerAlerts, parseAlertOverrides } from './alerts/owner-alerts.js';
 import { loadTemplates } from './alerts/templates.js';
 import { PostCallProcessor } from './jobs/post-call.js';
 import { loadLibrary } from './knowledge/library.js';
+import { loadSymptomLibrary } from './knowledge/symptoms.js';
 import { createMetrics } from './observability/metrics.js';
 import { createRedis } from './store/redis.js';
 
@@ -34,6 +35,11 @@ async function main(): Promise<void> {
     { knowledge_entries: knowledge.servedEntries, manufacturers: knowledge.manufacturers.size },
     'knowledge_loaded',
   );
+  const symptoms = await loadSymptomLibrary(env.SYMPTOMS_DIR);
+  logger.info(
+    { presentations: symptoms.servedPresentations, families: symptoms.families.size },
+    'symptoms_loaded',
+  );
   const templates = loadTemplates();
   const alerts = ghl
     ? new OwnerAlerts({
@@ -56,6 +62,7 @@ async function main(): Promise<void> {
     metrics,
     ghl,
     knowledge,
+    symptoms,
     alerts,
     templates,
     postCall,

@@ -1,0 +1,54 @@
+family: toilets
+general_questions:
+  - What happens when you flush it?
+presentations:
+  - id: toilet-running
+    name: Toilet keeps running
+    keywords: [keeps running, constantly running, running toilet, refilling, cistern]
+    ask_first:
+      - Is water running into the pan all the time, or only refilling now and then?
+      - Is any water coming out of the overflow pipe outside?
+    may_explain:
+      - when: water trickles into the pan
+        say: That can often be the flush valve not sealing properly, which is a common repair. The engineer will confirm when they see it.
+    urgent_if:
+      - { sign: water escaping onto the floor and can't be stopped, level: P2 }
+    never: [tell them to adjust the float or ballcock]
+    engineer_notes: [constant or intermittent, overflow outside, cistern type if known]
+    booking: { job_type: tap_toilet, visit: repair, default_urgency: P4 }
+    source: { worksheet: Toilets — fixture, section: Part 1 §2, research_agrees: true }
+    status: plumber_supplied
+  - id: toilet-blocked
+    name: Toilet blocked
+    keywords: [blocked toilet, toilet blocked, won't flush, water rises, blocked]
+    ask_first:
+      - Is it the only toilet in the house?
+    may_explain: []
+    urgent_if:
+      - { sign: sewage coming up inside, level: P2 }
+    never: [suggest a plunger or chemicals]
+    engineer_notes: [only toilet or not, other fixtures slow]
+    booking:
+      {
+        job_type: blocked_toilet,
+        visit: assessment,
+        default_urgency: P3,
+        note: Ask whether anything else drains slowly.,
+      }
+    source: { worksheet: Toilets — fixture, section: Part 1 §1, research_agrees: true }
+    status: plumber_supplied
+  - id: toilet-draft
+    name: Draft only
+    keywords: [wobbly, rocking]
+    ask_first: [Does it move when you sit on it?]
+    may_explain: []
+    urgent_if: []
+    never: [say it is safe]
+    engineer_notes: [movement]
+    booking: { job_type: tap_toilet, visit: assessment, default_urgency: P4 }
+    source: { worksheet: Toilets — fixture, section: Part 1 §6, research_agrees: false }
+    status: needs_review
+flags:
+  - claim: Pour boiling water down the toilet
+    concern: Can crack the pan.
+    severity: unsafe

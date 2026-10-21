@@ -1,0 +1,647 @@
+# Boiler, heating and hot-water symptom guidance. Source: R. Chua worksheet (2026-10-21) read
+# alongside the receptionist research (Boiler, Heating & Hot-Water; Behaviour). Worksheet claims
+# were checked against standard UK practice; questionable ones are in `flags` and not served.
+# Fault codes are handled by lookup_fault_code (knowledge/boilers), not here. Gas, CO and water on
+# electrics are handled by the L0 safety scripts, which always come first.
+family: boilers
+general_questions:
+  - Is it the heating, the hot water, or both that's not working?
+  - Is the boiler showing a code or a flashing light, and do you know what make it is?
+  - Have you noticed any smell of gas, burning, or any water leaking?
+presentations:
+  - id: smell-gas-burning-co
+    name: Gas smell, burning smell or carbon monoxide concern
+    keywords:
+      - smell gas
+      - smells of gas
+      - gas smell
+      - gas leak
+      - smell of gas
+      - burning smell
+      - smells like burning
+      - smell of burning
+      - burning
+      - smoke
+      - smoking
+      - sparks
+      - scorch marks
+      - carbon monoxide
+      - co alarm
+      - alarm going off
+      - headache
+      - dizzy
+      - foul smell
+      - funny smell
+      - fumes
+    ask_first:
+      - Is it a smell of gas, or more like burning or hot plastic?
+      - Is there any smoke, sparks or scorch marks on or near the boiler?
+      - Has a carbon monoxide alarm gone off, or has anyone felt dizzy, sick or had a headache?
+    may_explain: []
+    urgent_if:
+      - sign: Any smell of gas, or the caller mentions a gas leak (gas_smell_gb or gas_smell_ni script first)
+        level: P1
+      - sign: CO alarm sounding, or anyone dizzy, sick, drowsy or with a headache (carbon_monoxide script first)
+        level: P1
+      - sign: Smoke, sparks, flames or scorch marks on or near the boiler
+        level: P1
+      - sign: Hissing from the boiler or gas pipes together with any gas smell
+        level: P1
+    never:
+      - Never suggest a soap-and-water test or any way to find, trace or confirm a gas leak.
+      - Never ask about or mention a gas hose, pilot light, relighting, or closing a valve; say only the approved script.
+      - Never say an engineer or plumber will come to deal with a gas smell; the gas emergency service attends first.
+      - Never guess what the smell is or say it is probably nothing, dust burning off, or safe.
+      - Never continue routine booking questions before the safety script and P1 escalation.
+    engineer_notes:
+      - Exactly what the caller smelt or saw, in their words, and where it was strongest
+      - Whether the safety script was given and whether they said they had left or called the emergency line
+      - Any CO alarm activation or symptoms in anyone at the property
+      - Boiler make, model and age, if known
+      - Any recent work on the boiler, flue or gas supply
+    booking:
+      job_type: gas_boiler
+      visit: assessment
+      default_urgency: P2
+      note: Gas smell or CO is a safety-script call, not a routine booking. Burning smell without smoke is booked P2 as an assessment; gas work needs a Gas Safe registered engineer.
+    source:
+      worksheet: Boilers — R. Chua, 2026-10-21
+      section: Part 3 (Part 1 §8 not used)
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: no-hot-water-boiler
+    name: No hot water or hot water going hot and cold (boiler)
+    keywords:
+      - no hot water
+      - hot water not working
+      - hot water stopped
+      - water not hot
+      - only cold water
+      - lukewarm
+      - hot and cold
+      - goes cold
+      - runs cold
+      - intermittent hot water
+      - shower goes cold
+      - combi
+      - combi boiler
+      - heating works but no hot water
+      - electric shower
+    ask_first:
+      - Is it a combi boiler, or do you have a hot water cylinder in a cupboard?
+      - Is the heating still working, or is it just the hot water?
+      - Is it every hot tap and the shower, or just one of them?
+    may_explain:
+      - when: Combi boiler, heating works but no hot water at any tap
+        say: On a combi, when the heating works but the hot water doesn't, it can sometimes be the part that switches the boiler over to hot water. The engineer will confirm when they see it.
+      - when: Hot water keeps going hot then cold, from the boiler
+        say: Water that goes hot and cold can sometimes mean the boiler isn't controlling the temperature properly, but it can also be the tap or shower valve. The engineer will narrow that down.
+      - when: Only an electric shower is affected; the taps are hot
+        say: If the taps run hot and just the electric shower is affected, the problem may be with the shower unit itself rather than the boiler.
+    urgent_if:
+      - sign: Burning smell, sparks or scorch marks from the boiler or an electric shower
+        level: P1
+      - sign: Water leaking from the boiler or pipes and not contained
+        level: P2
+      - sign: Pipes, taps or the boiler unusually hot, steaming or boiling noises
+        level: P2
+    never:
+      - Never tell the caller to reset the boiler, change its settings or turn the water temperature up.
+      - Never tell the caller to touch or switch anything on an electric shower or its isolator.
+      - Never describe the system as a water heater or mention heating elements for a gas boiler.
+      - Never say what the faulty part is, or that it is minor.
+    engineer_notes:
+      - System type (combi, system or regular boiler with cylinder) and boiler make and model
+      - No hot water at all or intermittent, and whether heating still works
+      - Which outlets are affected (all hot taps, one tap, shower, electric shower)
+      - Any code, flashing light, pressure reading or unusual noise
+      - When it started, how often, and last service date
+    booking:
+      job_type: no_hot_water
+      visit: assessment
+      default_urgency: P3
+      note: If only an electric shower is affected, record as tap_toilet or other and note the shower make. Gas boiler work needs a Gas Safe registered engineer.
+    source:
+      worksheet: Boilers — R. Chua, 2026-10-21
+      section: Part 1 §1
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: hot-water-cylinder-immersion
+    name: No hot water from a cylinder or immersion heater
+    keywords:
+      - immersion
+      - immersion heater
+      - cylinder
+      - hot water cylinder
+      - hot water tank
+      - airing cupboard
+      - runs out of hot water
+      - hot water runs out
+      - not enough hot water
+      - immersion not working
+      - tank not heating
+    ask_first:
+      - Is the water heated by the boiler, an immersion heater, or both?
+      - Is there no hot water at all, or does it run out quickly?
+      - Have you noticed any leaking, burning smell or unusual noise from the cylinder?
+    may_explain:
+      - when: Water is heated by an immersion heater and there is none at all
+        say: When an immersion heater gives no hot water, one common reason is the heating element or its thermostat, which an engineer can test.
+      - when: Hot water runs out when several people use it
+        say: Running out when several people use it can sometimes just be the stored hot water being used up faster than it reheats, but the engineer will check the cylinder and how it's heated.
+      - when: Cylinder heated by the boiler, heating works but the cylinder stays cold
+        say: When the heating works but the cylinder stays cold, it can sometimes be the controls or a valve that sends heat to the cylinder. The engineer will confirm on the visit.
+    urgent_if:
+      - sign: Burning smell, sparks or scorch marks at the immersion heater or its switch
+        level: P1
+      - sign: Water leaking from the cylinder or its pipes and not contained
+        level: P2
+      - sign: Cylinder or pipes very hot, steaming, or loud boiling or banging from the cylinder
+        level: P2
+    never:
+      - Never tell the caller to switch the immersion on or off, reset it, or touch its switch or thermostat.
+      - Never tell the caller to drain or open anything on the cylinder.
+      - Never call it a water heater or a tank heater; use cylinder and immersion heater.
+    engineer_notes:
+      - How the water is heated (boiler, immersion, or both) and cylinder type if known (vented or unvented)
+      - No hot water at all, or runs out quickly
+      - Any leaks, burning smell or noises from the cylinder
+      - Age of cylinder and immersion if known, and any previous repairs
+    booking:
+      job_type: cylinder_immersion
+      visit: assessment
+      default_urgency: P3
+      note: Unvented cylinders need a G3-qualified engineer; note if the caller says it is unvented or pressurised.
+    source:
+      worksheet: Boilers — R. Chua, 2026-10-21
+      section: Part 1 §1
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: no-heating
+    name: No heating, or heating won't turn off
+    keywords:
+      - no heating
+      - heating not working
+      - heating won't come on
+      - heating not coming on
+      - all radiators cold
+      - radiators cold
+      - radiators not heating
+      - house is freezing
+      - heating won't turn off
+      - heating stays on
+      - heating on all the time
+      - thermostat
+      - programmer
+      - timer
+    ask_first:
+      - Is it the heating only, or is the hot water off as well?
+      - Is it all the radiators, or just some of them?
+      - Is the boiler showing any lights, a code, or a pressure reading?
+    may_explain:
+      - when: Hot water works but none of the radiators heat up
+        say: When the hot water works but the radiators stay cold, it can sometimes be the heating controls, a valve or the pump rather than the boiler itself. The engineer will confirm which.
+      - when: Heating won't switch off
+        say: Heating that won't switch off can often be a fault with the thermostat, the programmer or a valve that controls the heating, which an engineer can test.
+    urgent_if:
+      - sign: Burning smell, smoke or sparks from the boiler or controls
+        level: P1
+      - sign: Water leaking from the boiler or heating pipes and not contained
+        level: P2
+      - sign: Radiators, pipes or the boiler much hotter than normal, or boiling noises
+        level: P2
+    never:
+      - Never tell the caller to bleed radiators, adjust valves, drain the system or touch pipework.
+      - Never tell the caller to reset the boiler or change its settings.
+      - Never say the system just needs more time to heat up.
+      - Never say the problem is minor or name the faulty part.
+    engineer_notes:
+      - Heating only, or heating and hot water; all radiators or some
+      - System type and boiler make and model
+      - Any code, lights, pressure reading or noises
+      - Thermostat or programmer type, and any recent change to the settings
+      - When it started and last service date
+    booking:
+      job_type: radiator_heating
+      visit: assessment
+      default_urgency: P3
+      note: If the boiler itself appears not to be working, record as gas_boiler (Gas Safe registered engineer needed).
+    source:
+      worksheet: Boilers — R. Chua, 2026-10-21
+      section: Part 1 §2
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: radiator-cold-patches
+    name: One radiator cold, or cold at the top or bottom
+    keywords:
+      - one radiator
+      - radiator cold
+      - radiator not working
+      - radiator not heating up
+      - cold at the top
+      - cold at the bottom
+      - cold in the middle
+      - cold patch
+      - cold spots
+      - warm at the bottom
+      - hot at the bottom
+      - radiator valve
+      - trv
+    ask_first:
+      - Is it just the one radiator, or several?
+      - Is it cold all over, cold at the top, or cold at the bottom?
+      - Are the other radiators heating up normally?
+    may_explain:
+      - when: Radiator warm at the bottom but cold at the top
+        say: A radiator that's warm at the bottom but cold at the top can often be air trapped inside it. The engineer will confirm on the visit.
+      - when: Radiator cold at the bottom or in the middle
+        say: Cold patches at the bottom or middle of a radiator can sometimes be sludge building up inside the heating system.
+      - when: One radiator stays completely cold while the others work
+        say: When one radiator stays cold and the rest are fine, one common reason is its valve sticking. The engineer will check it when they come.
+    urgent_if:
+      - sign: Water leaking from the radiator or its valve and not contained
+        level: P2
+      - sign: Leak contained in a bowl or towel
+        level: P3
+    never:
+      - Never tell the caller to bleed the radiator, turn or tap the valve, or use a radiator key.
+      - Never say it definitely needs bleeding, flushing or a new valve.
+      - Never suggest topping up the boiler pressure.
+    engineer_notes:
+      - Which radiators and which rooms
+      - Temperature pattern (cold all over, top, bottom, middle)
+      - Whether the rest of the system works normally
+      - Any recent radiator or heating work, and anything the caller has already tried
+    booking:
+      job_type: radiator_heating
+      visit: assessment
+      default_urgency: P4
+      note: If several radiators are cold and one has cold patches, ask whether a system clean or flush has ever been done and note it.
+    source:
+      worksheet: Boilers — R. Chua, 2026-10-21
+      section: Part 1 §2
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: boiler-not-working
+    name: Boiler won't turn on, keeps switching off or display blank
+    keywords:
+      - boiler not working
+      - boiler won't turn on
+      - boiler won't come on
+      - boiler won't start
+      - boiler won't fire
+      - not firing up
+      - boiler keeps switching off
+      - keeps cutting out
+      - boiler cuts out
+      - display is blank
+      - blank display
+      - no lights on the boiler
+      - no power to the boiler
+      - boiler dead
+      - broken boiler
+      - trip switch
+      - tripped
+    ask_first:
+      - Is the boiler display completely blank, or is it on but not firing up?
+      - Is it showing a code or a flashing light?
+      - Is anything else in the house without power, or has a trip switch gone off?
+    may_explain:
+      - when: Display is blank and other things in the house have also lost power
+        say: If other things in the house have lost power too, the cause may be the electrical supply rather than the boiler itself.
+      - when: Boiler starts and then keeps switching itself off
+        say: A boiler that keeps switching itself off can sometimes be going into a safety lockout because it has detected a problem. The engineer will find out why.
+      - when: Caller mentions the pressure gauge reads low
+        say: Low pressure in the heating system can stop some boilers from running, but the engineer will want to find out why it's low.
+    urgent_if:
+      - sign: Burning smell, smoke, sparks or scorch marks
+        level: P1
+      - sign: Trip switch keeps going off when the boiler is on
+        level: P2
+      - sign: Water leaking from the boiler and not contained
+        level: P2
+    never:
+      - Never tell the caller to reset the boiler, or to keep switching a tripped trip switch back on.
+      - Never ask the caller to take covers off, look at wiring, or check fuses or gas settings.
+      - Never tell the caller to top up the pressure or operate any valve.
+      - Never name a failed component or promise a repair, part, time or cost.
+    engineer_notes:
+      - Blank, on but not firing, or starts then stops; how often
+      - Any code or flashing light, and pressure reading if mentioned
+      - Wider power loss or trip switch activity
+      - Heating, hot water or both affected
+      - Boiler make, model, fuel (gas, oil, electric) and age; last service; recent work
+      - What the caller has already tried (for example a reset), in their words
+    booking:
+      job_type: gas_boiler
+      visit: assessment
+      default_urgency: P3
+      note: If the caller gives a fault code, use lookup_fault_code first. Oil or electric boilers are not gas work; note the fuel. Gas boiler work needs a Gas Safe registered engineer.
+    source:
+      worksheet: Boilers — R. Chua, 2026-10-21
+      section: Part 1 §3, Part 2 C
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: boiler-fault-code
+    name: Error code or flashing light on the boiler
+    keywords:
+      - error code
+      - fault code
+      - code on the boiler
+      - flashing light
+      - red light
+      - light flashing
+      - warning light
+      - boiler display
+      - says error
+      - showing a code
+      - lockout
+      - locked out
+    ask_first:
+      - What make is the boiler, and what code or light is it showing?
+      - Is it still giving you heating and hot water, or has it stopped completely?
+      - Have you tried anything already, and has this code come up before?
+    may_explain:
+      - when: Code given but lookup_fault_code has no entry for it, or the make is unknown
+        say: The same code can mean different things on different boilers, so I'll note it exactly and the engineer will confirm what's causing it.
+    urgent_if:
+      - sign: Code appears with any gas smell, burning smell or CO alarm
+        level: P1
+      - sign: Code appears with water leaking from the boiler and not contained
+        level: P2
+    never:
+      - Never interpret a code from this library; use only what lookup_fault_code returns, as the manufacturer's meaning.
+      - Never guess the cause (low pressure, air, debris, a blocked filter) from the code alone.
+      - Never give instructions beyond manufacturer guidance returned by lookup_fault_code.
+      - Never tell the caller to keep resetting the boiler.
+    engineer_notes:
+      - Make, model and exact code or light pattern, as read out by the caller
+      - What lookup_fault_code returned and what the caller was told
+      - Heating, hot water or both affected
+      - What the caller has already tried, and whether the code has appeared before
+      - Last service date
+    booking:
+      job_type: gas_boiler
+      visit: assessment
+      default_urgency: P3
+      note: Use P4 if heating and hot water are still working normally. Gas boiler work needs a Gas Safe registered engineer.
+    source:
+      worksheet: Boilers — R. Chua, 2026-10-21
+      section: Part 1 §4
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: boiler-pressure-dropping
+    name: Boiler pressure low or keeps dropping
+    keywords:
+      - pressure
+      - low pressure
+      - boiler pressure
+      - pressure keeps dropping
+      - pressure dropping
+      - pressure is low
+      - losing pressure
+      - top it up
+      - topping it up
+      - topped it up
+      - keep topping up
+      - pressure gauge
+      - filling loop
+      - repressurise
+      - pressure too high
+    ask_first:
+      - What is the pressure gauge showing at the moment, if you know?
+      - Have you had to top it up, and how often?
+      - Have you noticed any drips, damp patches or water around the boiler, radiators or pipes, or dripping from a small pipe outside?
+    may_explain:
+      - when: Pressure keeps dropping and has been topped up more than once
+        say: Pressure that keeps dropping can mean water is escaping somewhere on the heating system, sometimes through a small leak or a valve, so the engineer will want to trace where it's going.
+      - when: Caller mentions a damp patch or drip as well as pressure loss
+        say: A damp patch alongside pressure loss can sometimes be connected, which is useful for the engineer to know before they come.
+    urgent_if:
+      - sign: Pressure loss with water actively leaking that is not contained
+        level: P2
+      - sign: Water near sockets, light fittings or the consumer unit (water_on_electrics script first)
+        level: P1
+      - sign: Boiler has stopped and there is no heating or hot water
+        level: P3
+    never:
+      - Never tell the caller to top up or repressurise the boiler or use the filling loop.
+      - Never say the pressure is low because of a leak, or name any cause as confirmed.
+      - Never mention mains water pressure, hard water or the circuit board as a cause of pressure loss.
+      - Never say it is fine to keep topping it up.
+    engineer_notes:
+      - Current gauge reading and how often it has been topped up, and by whom
+      - Any damp patches, drips, stains or water around the boiler, radiators or pipes
+      - Any dripping from the pressure relief pipe outside
+      - Whether the pressure rises a lot when the heating is on
+      - Codes, cutting out, and any recent radiator or heating work
+      - Boiler make, model and last service
+    booking:
+      job_type: radiator_heating
+      visit: assessment
+      default_urgency: P4
+      note: Use gas_boiler if the boiler has stopped or the caller reports a code (Gas Safe registered engineer needed). Repeated top-ups are never routine; capture the full history.
+    source:
+      worksheet: Boilers — R. Chua, 2026-10-21
+      section: Part 1 §5 (causes not used), Part 2 A
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: boiler-noises
+    name: Boiler or heating making unusual noises
+    keywords:
+      - noise
+      - noisy
+      - banging
+      - bang
+      - knocking
+      - whistling
+      - kettling
+      - sounds like a kettle
+      - rumbling
+      - gurgling
+      - humming
+      - hissing
+      - popping
+      - loud noise
+      - weird noise
+      - pipes banging
+    ask_first:
+      - What does the noise sound like, for example banging, whistling, rumbling, gurgling or hissing?
+      - Is it coming from the boiler itself, or from the pipes or radiators?
+      - Does it happen when the heating comes on, or when a tap is turned off?
+    may_explain:
+      - when: Rumbling, whistling or kettle-like noise from the boiler when it heats
+        say: A rumbling or kettle-like noise from a boiler can sometimes be limescale or sludge building up inside it, which the engineer would check.
+      - when: Banging in the pipes when a tap is turned off quickly
+        say: Banging in the pipes when a tap is turned off can often be what's called water hammer, which is usually to do with the pipework rather than the boiler.
+      - when: Gurgling from the boiler or radiators
+        say: Gurgling can sometimes be air in the heating system. The engineer will confirm when they see it.
+    urgent_if:
+      - sign: Hissing with any smell of gas (gas_smell script first)
+        level: P1
+      - sign: Loud bang from the boiler itself as it lights, or smoke or burning smell
+        level: P1
+      - sign: Hissing or dripping with water escaping and not contained
+        level: P2
+    never:
+      - Never say the noise is normal or nothing to worry about.
+      - Never explain noises as sediment in a tank or condensation on a burner.
+      - Never tell the caller to bleed radiators, turn the boiler off or on, or adjust anything.
+      - Never say the boiler is safe to keep using.
+    engineer_notes:
+      - Type of noise, in the caller's words, and where it comes from
+      - When it happens (heating on, hot water on, taps turned off) and whether constant
+      - When it started and whether it is getting worse
+      - Any code, pressure change, leak or smell at the same time
+      - Boiler make, model, age and last service
+    booking:
+      job_type: gas_boiler
+      visit: assessment
+      default_urgency: P4
+      note: If the noise is only in the pipes (water hammer) and not the boiler, record as pipework.
+    source:
+      worksheet: Boilers — R. Chua, 2026-10-21
+      section: Part 1 §6
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: boiler-leak
+    name: Water leaking from or around the boiler
+    keywords:
+      - boiler leaking
+      - leaking boiler
+      - water under the boiler
+      - water around the boiler
+      - dripping from the boiler
+      - boiler dripping
+      - puddle under the boiler
+      - overflow pipe
+      - pipe dripping outside
+      - pipe outside dripping
+      - condensate pipe
+      - damp patch
+    ask_first:
+      - Is the water coming from the boiler itself, the pipes underneath it, or a pipe outside?
+      - Is it a slow drip, or is water spreading?
+      - Is the water anywhere near sockets or anything electrical?
+    may_explain:
+      - when: Small copper pipe outside, near the boiler, is dripping
+        say: A small pipe dripping outside near the boiler can often be the pressure relief valve letting water out, which the engineer would want to check along with the system pressure.
+      - when: Water appears to be coming from inside the boiler
+        say: Water coming from inside the boiler itself may be an internal seal or part, and that needs a qualified engineer to look inside.
+      - when: Pressure has been dropping as well
+        say: A leak and dropping pressure can sometimes be connected, which is useful for the engineer to know.
+    urgent_if:
+      - sign: Water on or near the boiler's electrics, sockets or the consumer unit (water_on_electrics script first)
+        level: P1
+      - sign: Water spreading or coming through a ceiling, and not contained
+        level: P2
+      - sign: Slow drip contained in a bowl or towel
+        level: P3
+    never:
+      - Never tell the caller to open, drain or turn any valve, stopcock or drain-off point.
+      - Never tell the caller to take the boiler cover off or look inside it.
+      - Never say the leak is minor, or that the boiler is safe to keep using.
+      - Never refer to a sink cabinet, water heater or tank for a wall-mounted boiler.
+    engineer_notes:
+      - Where the water appears (inside the boiler, pipes underneath, pipe outside, condensate pipe)
+      - Drip or spreading, contained or not, and any water near electrics
+      - Pressure reading and whether it has been dropping or topped up
+      - Any code or the boiler stopping
+      - Boiler make, model, age and last service
+    booking:
+      job_type: leak_repair
+      visit: assessment
+      default_urgency: P3
+      note: If water is coming from inside a gas boiler, record as gas_boiler (Gas Safe registered engineer needed).
+    source:
+      worksheet: Boilers — R. Chua, 2026-10-21
+      section: Part 1 §7
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+flags:
+  - claim: '§1 no hot water: causes are a faulty heating element, faulty thermostat, wiring/power fault tripping the circuit breaker, and a damaged "upper or lower heating element" in the "water heater".'
+    concern: This is the US electric storage water-heater model. Most UK homes have a combi, or a system/regular boiler with a hot-water cylinder (often with an immersion heater as backup); electric showers are separate. Element and thermostat causes only fit an immersion heater, and the common combi and cylinder causes are not listed.
+    severity: incorrect_uk
+  - claim: '§1: "Popping or rumbling from the tank — possible sediment or mineral buildup."'
+    concern: US tank framing. The UK equivalent is "kettling" from limescale or sludge on the boiler heat exchanger. Not used as written.
+    severity: incorrect_uk
+  - claim: '§1 What could the AI safely explain: "The AI should not explain possible technical causes or offer technical advice."'
+    concern: Too cautious. Tentative, well-established explanations are safe and useful (for example the combi diverter, immersion element or thermostat, an electric shower being separate from the boiler), as long as the engineer confirms on the visit.
+    severity: too_cautious
+  - claim: '§2 What could the AI safely explain: "The AI should not explain possible radiator faults."'
+    concern: Too cautious. The worksheet itself lists trapped air (cold at the top) and sludge (cold at the bottom); these are textbook UK explanations that can be given tentatively without instructing the caller to bleed or adjust anything.
+    severity: too_cautious
+  - claim: '§3 What could the AI safely explain: the AI should not "interpret error codes".'
+    concern: Too cautious against our design. The agent may give the manufacturer's published meaning of a code through lookup_fault_code, while saying the engineer confirms the actual cause. It never diagnoses or instructs beyond the manufacturer's guidance.
+    severity: too_cautious
+  - claim: '§4 error codes: causes listed are "low boiler pressure", "a clogged boiler strainer", and "air in the system, sediment, or debris"; first question is "Have you read the maintenance manual and followed its instructions?"'
+    concern: These are generic guesses. A code's meaning depends on the make and model, and "strainer" is not normal UK boiler language. The manual question is fine for recording history but can sound like blame, so we ask what they've already tried. The agent gets the make and code and uses lookup_fault_code.
+    severity: unsupported
+  - claim: '§5 pressure dropping: causes are "a heavy buildup of minerals caused by hard water", "low water pressure", "a buildup of minerals inside the pipe or strainer"; likelihood answer is "the boiler''s motherboard may be old, worn out, or outdated".'
+    concern: Not correct for a sealed (pressurised) heating system. Mains water pressure, limescale and the circuit board do not make it lose pressure. The usual UK causes are a leak on the system, the pressure relief valve letting water out, the expansion vessel losing its charge, or an automatic air vent. Part 2 A (record history, do not assume a cause) is sound and is what we used.
+    severity: unsupported
+  - claim: '§5 "What could the AI safely explain" and "must NOT" answers refer to a "displayed code" and to having "read and followed the manual"; the engineer-information list repeats §3.'
+    concern: These appear to have been copied from §3 and §4 rather than written for pressure loss. We could not use them as pressure-specific guidance.
+    severity: unsupported
+  - claim: '§6 noises: "Popping noise, like popcorn: most likely caused by sediment deposits at the bottom of the tank."'
+    concern: US water-heater framing. A combi or wall-hung boiler has no tank. The UK equivalent is kettling from limescale or sludge in the heat exchanger.
+    severity: incorrect_uk
+  - claim: '§6 noises: "Crackling noise: may be caused by condensation dripping onto the hot burner."'
+    concern: No basis for this as a UK boiler fault description. Not used.
+    severity: unsupported
+  - claim: '§6 noises: "Loud humming or banging against the pipe: mostly associated with water hammer."'
+    concern: Partly right. Banging when a tap is turned off is typically water hammer, but humming is more often the pump or fan. We only use water hammer for pipe banging when taps are turned off.
+    severity: unsupported
+  - claim: '§6: "The receptionist can explain the different types of noises a customer may hear from a water heater and what those noises mean."'
+    concern: Overconfident, and "water heater" is US terminology. Noises can only be linked tentatively to possible causes. Hissing must also be checked against a gas smell (Part 3 lists hissing as a gas sign).
+    severity: unsupported
+  - claim: '§7 boiler leak: causes are "a drain valve may be only partly open", "the stopcocks may not be fully open, restricting the water flow", "the overflow pipe may be incorrectly aligned", "the thermostat may not be working properly".'
+    concern: Mostly unsupported. A partly closed stopcock restricts flow but does not cause a leak, and a thermostat does not leak. The usual UK causes are the pressure relief (discharge) pipe dripping outside, a condensate pipe joint, or an internal seal or component (engineer only). Water near the boiler's electrics needs the water_on_electrics script.
+    severity: unsupported
+  - claim: '§7: "a pipe connection may be misaligned and cause water to leak into the sink cabinet."'
+    concern: US under-sink water-heater framing. UK boilers are usually wall-mounted in a kitchen, airing cupboard or loft.
+    severity: incorrect_uk
+  - claim: '§7 must NOT: "must not tell the customer to drain the system themselves if they are not familiar with the system."'
+    concern: Implies a familiar customer could be told to drain it. The AI must never instruct anyone to drain or open any part of the system.
+    severity: unsafe
+  - claim: '§8 gas smell question: "Can you see any visible gas leak using a soap-and-water test? ... before the valve or after the valve?"'
+    concern: Dangerous. It asks the caller to stay near and trace a gas leak. The UK procedure is to leave, avoid switches and flames, and ring the National Gas Emergency Service on 0800 111 999 (NI 0800 002 001).
+    severity: unsafe
+  - claim: '§8: "Could you close the valve before the plumber arrives?" and "Closing the valve is the immediate action a customer can take before the plumber arrives."'
+    concern: Unsafe framing. Gas emergencies are attended by the gas emergency service, then a Gas Safe registered engineer, not a plumber. Our approved script says only leave and call the emergency line. Turning off at the meter is in national guidance but not in our approved script.
+    severity: unsafe
+  - claim: '§8: "Does the gas smell spread throughout the house, or is it only near the hose connection?" / "Do you see any visible cuts on the gas hose?" / cause "a gas leak from the hose".'
+    concern: Asks the caller to inspect gas fittings, which is tracing a leak. "Gas hose" is US or appliance language; UK boilers are fed by rigid pipework. Not used.
+    severity: unsafe
+  - claim: '§8 causes: "The pilot light might be out" and "the igniter may not be working, and the pilot light may also be out".'
+    concern: Modern UK boilers do not have a standing pilot light (only some older boilers and back boilers do). Mentioning pilot lights invites relighting attempts. A gas smell must never be explained.
+    severity: incorrect_uk
+  - claim: '§8 cause: "The heating may be operating without water in the tank."'
+    concern: US water-heater "dry fire" concept. It is not a cause of a gas smell and does not apply to UK combi or system boilers.
+    severity: incorrect_uk
+  - claim: '§8 and Part 2 B: "Shut off the main gas valve only if it is safe to do so ... wait for the plumber or emergency service to attend"; "A gas leak may be urgent if it has not been shut off at the valve."'
+    concern: A gas smell is always an emergency, whether or not the supply is off. The agent says only the approved script (leave, no switches or flames, call 0800 111 999) and escalates P1. Any meter-valve wording must be added to the approved script by the client first. §8 also has no carbon monoxide handling (Part 3 covers it).
+    severity: unsafe
+  - claim: 'Part 4: "Only the customer''s visible symptoms and reported observations can be explained. Hidden mechanisms and underlying causes cannot be reliably explained."'
+    concern: Too cautious against the client's brief. Tentative "this can sometimes be..." explanations of common causes are safe when the engineer confirms on the visit. The worksheet's own example of a misleading statement ("the pressure is low because of a leak") is misleading only because it is stated as fact.
+    severity: too_cautious

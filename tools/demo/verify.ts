@@ -77,6 +77,7 @@ for (const name of [
   'reschedule_booking',
   'cancel_booking',
   'lookup_fault_code',
+  'symptom_guidance',
 ]) {
   check(`action ${name} present`, names.has(name));
 }

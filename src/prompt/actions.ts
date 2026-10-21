@@ -11,6 +11,7 @@ export const AGENT_ACTIONS = {
   reschedule_booking: { kind: 'custom', route: '/v1/actions/reschedule-booking' },
   cancel_booking: { kind: 'custom', route: '/v1/actions/cancel-booking' },
   lookup_fault_code: { kind: 'custom', route: '/v1/actions/lookup-fault-code' },
+  symptom_guidance: { kind: 'custom', route: '/v1/actions/symptom-guidance' },
 } as const;
 
 export type AgentActionName = keyof typeof AGENT_ACTIONS;

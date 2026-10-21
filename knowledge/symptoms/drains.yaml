@@ -1,0 +1,508 @@
+family: drains
+general_questions:
+  - Which drain is it, and is it slow, not draining at all, or coming back up?
+  - Is anything else slow, gurgling or backing up, like the toilet, the bath or the washing machine?
+  - Have you tried anything already, like a drain cleaner?
+
+presentations:
+  - id: slow-single-fixture
+    name: One sink, bath or shower slow or blocked
+    keywords:
+      - slow
+      - draining slowly
+      - won't drain
+      - wont drain
+      - not draining
+      - water just sits there
+      - sink blocked
+      - blocked sink
+      - kitchen sink
+      - basin
+      - bath
+      - shower tray
+      - fills up around my feet
+      - plughole
+      - waste pipe
+      - trap
+      - u-bend
+    ask_first:
+      - Is it just that one, or is anything else slow or gurgling, like the toilet or another sink?
+      - Has it been getting slower for a while, or did it stop draining suddenly?
+      - Does it go down eventually, or is it not draining at all?
+    may_explain:
+      - when: only one sink, bath or shower is affected and it has got slower over time
+        say: When only the one is affected and it has got slower gradually, one common reason is a build-up in the trap or waste pipe just under it. The engineer will confirm when they see it.
+      - when: only one fixture affected and it stopped suddenly
+        say: A sudden stop on just one sink or bath can often be something caught in the trap or waste pipe close to it, rather than the main drain. The engineer will confirm on the visit.
+    urgent_if:
+      - sign: water is near sockets, a cooker, the washing machine or other electrics
+        level: P1
+      - sign: dirty or sewage-type water is coming up inside
+        level: P2
+      - sign: water is spilling onto the floor and can't be stopped
+        level: P2
+      - sign: water comes up in another sink, bath, shower or toilet when this one is used
+        level: P3
+    never:
+      - Never confirm a blockage, a vent fault or a faulty waste disposal unit over the phone.
+      - Never suggest a plunger, drain rods, chemicals, boiling water or taking the trap or pipework apart.
+      - Never ask the caller to reach into the drain or switch a waste disposal unit on or off.
+      - Never promise the job is quick, or give a price or arrival time beyond the booking result.
+    engineer_notes:
+      - Which fixture, and slow or not draining at all
+      - Gradual or sudden, and when it started
+      - Whether any other fixture drains slowly, gurgles or backs up
+      - Anything dropped or put down it
+      - Anything tried, including any product used (name it)
+      - Any smell, noise or previous work on that drain
+    booking:
+      job_type: blocked_drain
+      visit: repair
+      default_urgency: P4
+      note: If another fixture is affected, treat it as the multiple-fixtures presentation and book an assessment.
+    source:
+      worksheet: Drains & Blockages — R. Chua, 2026-10-21
+      section: Part 1 §1; Part 4
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: multiple-fixtures-gurgling
+    name: Several drains slow, gurgling or bubbling
+    keywords:
+      - gurgling
+      - gurgle
+      - bubbling
+      - bubbles
+      - glugging
+      - strange noise draining
+      - several drains
+      - all the drains
+      - everything is slow
+      - toilet gurgles
+      - when i flush the shower
+      - when i flush the bath
+      - more than one
+      - soil stack
+    ask_first:
+      - Which sinks, toilets, baths or showers are affected?
+      - Does it happen when you flush the toilet, run a sink, or when the washing machine empties?
+      - Is water actually coming back up anywhere, or is it mainly the gurgling sound?
+    may_explain:
+      - when: two or more fixtures are slow or gurgling together
+        say: When several things are slow or gurgling at once, it can point to a problem further down the shared pipework rather than in one sink, so the engineer will look at the whole run.
+      - when: gurgling in one fixture when another is used, with no water coming back up
+        say: Gurgling when something else drains can sometimes mean the water is struggling to get away through the shared drain, or air isn't getting into the pipes as it should. The engineer will check which.
+    urgent_if:
+      - sign: water near sockets or other electrics
+        level: P1
+      - sign: dirty or sewage-type water coming up in a bath, shower, sink or toilet
+        level: P2
+      - sign: the only toilet can't be used because water rises and won't go down
+        level: P3
+      - sign: water is backing up into another fixture but not spilling over
+        level: P3
+    never:
+      - Never treat the first fixture mentioned as an isolated blockage without asking about the others.
+      - Never confirm a blockage, ventilation fault or undersized pipe, or blame previous installation work.
+      - Never suggest going on the roof, opening a manhole or inspection chamber, or taking pipes apart.
+      - Never suggest chemicals, a plunger or rods.
+    engineer_notes:
+      - Every fixture affected and which one triggers it
+      - Gurgling only, or water backing up (and where)
+      - When it started and whether it is getting worse
+      - Any recent new fixtures, extension or plumbing alterations
+      - Previous blockages or drain work
+      - Any product used and which drain it went down
+    booking:
+      job_type: blocked_drain
+      visit: assessment
+      default_urgency: P3
+      note: null
+    source:
+      worksheet: Drains & Blockages — R. Chua, 2026-10-21
+      section: Part 1 §2; Part 2 A; Part 5
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: sewage-backing-up-inside
+    name: Dirty or sewage water coming back up inside
+    keywords:
+      - sewage
+      - raw sewage
+      - dirty water coming up
+      - coming back up
+      - coming up the plughole
+      - coming up through the shower
+      - coming up the bath
+      - foul water
+      - brown water coming up
+      - toilet water in the bath
+      - backing up
+      - floor drain
+      - wet room drain
+      - overflowing
+    ask_first:
+      - Is it still coming up now, and is it spreading across the floor?
+      - Does it look like dirty water or sewage, and which drains is it coming up through?
+      - Are your neighbours having the same problem, as far as you know?
+    may_explain:
+      - when: dirty water is coming up through a bath, shower or downstairs toilet
+        say: Water coming back up can mean it can't get away further down the drain, so it rises at the lowest point in the house. The engineer will need to find where the problem is.
+      - when: neighbours are having the same problem
+        say: If neighbours are affected too, it can sometimes be the shared sewer rather than your own drain, which the water company usually looks after. The engineer can help work out which it is.
+    urgent_if:
+      - sign: water near sockets or other electrics
+        level: P1
+      - sign: sewage or dirty water coming up inside the property
+        level: P2
+      - sign: water still rising or spreading, or coming through a floor or ceiling
+        level: P2
+    never:
+      - Never suggest the caller opens a manhole, inspection chamber or septic tank, or handles the waste.
+      - Never suggest chemicals, a plunger, rods or flushing to clear it.
+      - Never confirm a blockage, collapsed pipe, tree roots or a full septic tank.
+      - Never say whether it is the homeowner's or the water company's responsibility as a fact.
+      - Never improvise electrical advice; use the water_on_electrics script.
+    engineer_notes:
+      - Where it is coming up and whether it is still rising
+      - Dirty water or sewage, and how far it has spread
+      - Every fixture affected
+      - Whether neighbours are affected
+      - Mains drainage, or septic tank or cesspit if the caller mentions one
+      - Any nearby digging, building work or trees close to the drain
+    booking:
+      job_type: sewage_backup
+      visit: assessment
+      default_urgency: P2
+      note: null
+    source:
+      worksheet: Drains & Blockages — R. Chua, 2026-10-21
+      section: Part 1 §3; Part 2 B; Part 3
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: outside-drain-overflowing
+    name: Outside drain, gully or manhole overflowing
+    keywords:
+      - outside drain
+      - drain outside
+      - gully
+      - grid
+      - drain cover
+      - manhole
+      - inspection chamber
+      - yard drain
+      - garden drain
+      - drive
+      - overflowing outside
+      - garage fills with water
+      - when it rains
+      - heavy rain
+      - smells awful
+      - septic tank
+      - cesspit
+    ask_first:
+      - Does it only overflow in heavy rain, or in dry weather as well?
+      - Are any drains inside the house slow or backing up too?
+      - Are the neighbours having the same problem, as far as you know?
+    may_explain:
+      - when: it only overflows during or after heavy rain
+        say: If it only happens in heavy rain, it can sometimes be that the drain or gully can't take the amount of rainwater, rather than a blockage. The engineer will check on the visit.
+      - when: it overflows in dry weather too, or smells of sewage
+        say: If it overflows in dry weather as well, one common reason is a blockage further along the drain. The engineer will need to see it to confirm.
+      - when: neighbours are having the same problem
+        say: If neighbours are affected too, it can sometimes be the shared sewer rather than your own drain, which the water company usually looks after. The engineer can help work out which it is.
+    urgent_if:
+      - sign: water near sockets, a garage consumer unit or other electrics
+        level: P1
+      - sign: sewage is coming into the house or a garage
+        level: P2
+      - sign: inside drains are backing up as well
+        level: P2
+      - sign: sewage is overflowing outside and spreading
+        level: P3
+    never:
+      - Never suggest lifting a manhole or drain cover, or going into flood water.
+      - Never confirm a damaged pipe, full septic tank or sewer overload.
+      - Never say whether it is the homeowner's or the water company's responsibility as a fact.
+      - Never suggest chemicals, rods or a jet wash.
+    engineer_notes:
+      - Which outside drain (gully, manhole, drive, garage) and where on the property
+      - Rain only, dry weather too, or both
+      - Clear water or sewage, and any smell
+      - Whether inside drains are affected
+      - Whether neighbours or the street are affected
+      - Septic tank or cesspit if the caller mentions one
+      - Access to the drain (side gate, shared drive, locked garage)
+    booking:
+      job_type: blocked_drain
+      visit: assessment
+      default_urgency: P3
+      note: If it is only rainwater flooding with no blockage signs, take details and say the owner will confirm whether it's a job the business covers.
+    source:
+      worksheet: Drains & Blockages — R. Chua, 2026-10-21
+      section: Part 1 §4; Part 3
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: washing-machine-backing-up
+    name: Washing machine or dishwasher backing up into the sink
+    keywords:
+      - washing machine
+      - washing machine water
+      - washing machine backing up
+      - dishwasher
+      - backing up into the sink
+      - comes up the sink
+      - when the machine empties
+      - when it drains
+      - washer
+      - standpipe
+      - kitchen sink fills up
+    ask_first:
+      - Does it happen every time the machine empties, or only sometimes?
+      - Is anything else slow or gurgling, like the toilet or the bath?
+      - Did it start after a new machine was fitted or any plumbing was changed?
+    may_explain:
+      - when: the machine's water comes up into the kitchen sink when it empties
+        say: The washing machine and kitchen sink often share the same waste pipe, so if that pipe is partly restricted, the machine emptying quickly can push water back up into the sink.
+      - when: it started after a new machine or plumbing changes
+        say: If it started after changes, one possibility is that the waste pipework isn't coping with how the machine empties. The engineer will check on the visit.
+    urgent_if:
+      - sign: water near sockets or the machine's plug and electrics
+        level: P1
+      - sign: water spilling onto the floor and still coming
+        level: P2
+      - sign: dirty or sewage water coming up inside, or the toilet is affected too
+        level: P2
+    never:
+      - Never suggest pulling the machine out, unplugging it, or disconnecting its hose.
+      - Never confirm undersized pipework, a ventilation fault or poor installation work.
+      - Never suggest chemicals, a plunger or taking the sink trap apart.
+    engineer_notes:
+      - Which appliance and which sink or fitting it backs up into
+      - Every time or only sometimes
+      - Any other fixture slow or gurgling
+      - New machine, or recent plumbing changes, and when
+      - Any product used down the sink
+    booking:
+      job_type: blocked_drain
+      visit: assessment
+      default_urgency: P4
+      note: Note the appliance make and model if the caller knows it.
+    source:
+      worksheet: Drains & Blockages — R. Chua, 2026-10-21
+      section: Part 1 §5; Part 2 A
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: recurring-blockage
+    name: Blockage keeps coming back or returned after recent work
+    keywords:
+      - keeps blocking
+      - blocked again
+      - keeps coming back
+      - came back
+      - same problem again
+      - had it cleared
+      - had it cleaned
+      - was unblocked
+      - recurring
+      - every few weeks
+      - clears then comes back
+      - jetted
+    ask_first:
+      - When was it last cleared, and who did the work?
+      - Is it about the same as before, or worse?
+      - Are any other drains affected, or the neighbours, as far as you know?
+    may_explain:
+      - when: a blockage has come back after being cleared
+        say: Clearing a blockage doesn't always fix what caused it, so when it keeps coming back it can sometimes be something further along the pipe catching waste, such as a dip, damage or roots.
+      - when: the drain has blocked several times
+        say: For repeat blockages, one common next step is a camera survey of the drain to see inside the pipe. The engineer can advise whether that's needed.
+    urgent_if:
+      - sign: water near sockets or other electrics
+        level: P1
+      - sign: dirty or sewage water coming up inside
+        level: P2
+      - sign: several fixtures affected or the only toilet can't be used
+        level: P3
+    never:
+      - Never confirm a sagging, cracked or root-damaged pipe, or a sewer problem.
+      - Never criticise or blame whoever did the previous work.
+      - Never promise that this visit will stop it coming back.
+      - Never suggest chemicals, a plunger or rods.
+    engineer_notes:
+      - Which drain, and how often it has blocked
+      - When it was last cleared, by whom, and what they did or said
+      - Same as before or worse
+      - Other drains or neighbours affected
+      - Products used since the last visit
+    booking:
+      job_type: blocked_drain
+      visit: assessment
+      default_urgency: P4
+      note: If this business did the previous work, note the date so the owner can treat it as a return visit. Mention a camera survey is possible; don't book drain_cctv unless asked.
+    source:
+      worksheet: Drains & Blockages — R. Chua, 2026-10-21
+      section: Part 1 §6; Part 2 C; Part 5; Part 6
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: object-or-chemical-down-drain
+    name: Something dropped down the drain or drain cleaner used
+    keywords:
+      - dropped
+      - dropped a ring
+      - ring
+      - earring
+      - jewellery
+      - lost down the sink
+      - fell down the plughole
+      - drain cleaner
+      - unblocker
+      - caustic soda
+      - chemical
+      - bleach
+      - poured
+      - still blocked
+      - wipes
+      - fat
+      - grease
+    ask_first:
+      - What went down the drain, and when?
+      - Have you used any drain cleaner or chemicals, and if so which product and when?
+      - Is it draining slowly, or not at all?
+    may_explain:
+      - when: an item such as a ring was dropped down a sink or basin
+        say: Small items can sometimes settle in the bend just under the sink rather than going further down. The engineer can check when they visit.
+      - when: a chemical product was used and it is still blocked
+        say: Chemical products can't always clear a blockage, especially if something solid is stuck, and the engineer will want to know exactly what was used so they can work safely.
+    urgent_if:
+      - sign: water near sockets or other electrics
+        level: P1
+      - sign: the caller has chemical on their skin or in their eyes, or someone swallowed it
+        level: P1
+      - sign: dirty or sewage water coming up inside
+        level: P2
+    never:
+      - Never suggest using more, or a different, product, or mixing products.
+      - Never suggest reaching in, taking the trap apart or fishing the item out.
+      - Never say the item is definitely recoverable or where it is.
+      - Never give first-aid or medical advice for chemical contact; a chemical injury is a 999/111 matter, not a plumbing one.
+    engineer_notes:
+      - What went down (item or substance) and when
+      - Every product used, its name, and when it was poured
+      - Whether there may still be chemical standing in the sink or trap
+      - Slow or completely blocked
+      - Whether the item is valuable and the caller wants it back
+    booking:
+      job_type: blocked_drain
+      visit: assessment
+      default_urgency: P4
+      note: Always record the drain cleaner product name; the engineer needs it before opening the trap.
+    source:
+      worksheet: Drains & Blockages — R. Chua, 2026-10-21
+      section: Part 1 §7; Part 2 A
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: drain-smell
+    name: Drain or sewage smell in the house
+    keywords:
+      - smell
+      - smells
+      - stinks
+      - drain smell
+      - sewage smell
+      - bad smell
+      - eggy smell
+      - smells like drains
+      - whiff
+      - odour
+      - pong
+      - plughole smells
+    ask_first:
+      - Does it smell like drains or sewage, or could it possibly be gas?
+      - Where is the smell strongest, and is it near a sink, shower, toilet or drain cover?
+      - Is that sink, shower or bath used regularly, or has it not been used for a while?
+    may_explain:
+      - when: smell from a sink, bath or shower that isn't used much
+        say: A drain smell from a fitting that's rarely used can sometimes be the water in the trap drying out, as that water is what normally keeps drain smells out. The engineer will confirm.
+      - when: smell near a waste pipe, the toilet or a drain cover
+        say: It can also come from a waste pipe joint that isn't sealed properly, or a drain cover that isn't sitting right. The engineer will need to find where it's coming from.
+    urgent_if:
+      - sign: the caller thinks it could be gas, or describes a rotten-egg smell they can't place
+        level: P1
+      - sign: anyone feels dizzy, sick or has a headache, or a CO alarm is sounding
+        level: P1
+      - sign: sewage or dirty water is coming up as well
+        level: P2
+    never:
+      - Never treat an unexplained smell as drains until gas has been ruled out; if gas is possible, use the gas script.
+      - Never confirm a failed seal, dry trap or sewer leak.
+      - Never suggest pouring anything down the drain, including water, bleach or chemicals.
+      - Never suggest lifting drain covers or taking pipes or boxing apart.
+    engineer_notes:
+      - Where the smell is strongest and which room
+      - Constant, or only at certain times or when something is used
+      - Whether nearby fittings are rarely used
+      - Any loose or missing drain or inspection-chamber cover
+      - Any other drainage symptoms (slow, gurgling, backing up)
+      - Any recent work in that area
+    booking:
+      job_type: blocked_drain
+      visit: assessment
+      default_urgency: P4
+      note: null
+    source:
+      worksheet: Drains & Blockages — R. Chua, 2026-10-21
+      section: Part 1 §8
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+flags:
+  - claim: '"Floor drain" used throughout §3 and §8 (e.g. "Water is coming up through the floor drain", "A dried-out floor drain trap").'
+    concern: Floor drains are a US/commercial feature; most UK homes do not have them. UK callers will say shower or wet-room drain, plughole, outside gully, drain cover or manhole.
+    severity: incorrect_uk
+  - claim: '§1 lists "A faulty or unpowered waste disposal unit" as a main cause and asks "is it operating as usual?" as a top-three question.'
+    concern: Waste disposal units are uncommon in UK kitchens, so this should not be a standard question. Asking about power also edges toward electrics; the AI should only note it if the caller mentions one.
+    severity: incorrect_uk
+  - claim: '§4 and §8 use "yard drain" and "service drain cover".'
+    concern: UK equivalents are outside gully, drain grid or cover, and manhole or inspection chamber. Used as keywords only, with UK terms preferred in speech.
+    severity: incorrect_uk
+  - claim: '§1 lists "A blocked or restricted drain vent" as a main cause of a single slow fixture.'
+    concern: Venting problems more usually show as gurgling or smells across several fittings than one slow sink. Not offered to callers for a single fixture.
+    severity: unsupported
+  - claim: '§5 gives the causes of a washing machine backing up into the sink as only increased drainage demand from modifications and inadequate ventilation.'
+    concern: It leaves out the most common cause, a partial blockage (grease, lint) in the shared kitchen waste or trap. It also implies a past installer's fault, which the AI must not suggest.
+    severity: unsupported
+  - claim: '§2 lists "Recent installation of additional fixtures that may have affected the drainage system''s capacity" as a main cause.'
+    concern: Possible but uncommon in homes, and it implies faulty earlier work. Kept as a question for the engineer's notes, never as an explanation to the caller.
+    severity: unsupported
+  - claim: '§4 groups "Whenever it rains, my garage fills with water" with foul-drain causes (damaged drain pipe, full septic tank, sewer surcharge).'
+    concern: Rainwater flooding is often surface-water drainage (gully, channel drain, downpipe, ground levels) and may not be a plumbing job. Separated in the explanations; the owner confirms whether the business covers it.
+    severity: unsupported
+  - claim: '§3 lists "A full septic tank" as one of three main causes of water coming back up inside, and asks about excavation and tree roots as a first question.'
+    concern: Septic tanks and cesspits only apply to off-mains properties, a minority in the UK. Excavation and tree-root history is engineer detail, low priority while sewage is actively coming up.
+    severity: unsupported
+  - claim: '§8 "Unexplained smell" gives only drain causes (vent seal, dry trap, open cover) and no step to rule out gas.'
+    concern: An unplaced smell in the house could be gas. The AI must ask first whether it could be gas and use the approved gas script if so, before treating it as drains.
+    severity: unsafe
+  - claim: 'Part 2 B and Part 3: "If water is near electrical equipment, keep away" / "do not enter the affected area or touch electrical switches."'
+    concern: Sensible advice, but it is improvised electrical safety wording. The AI must use only the approved water_on_electrics script; any extra wording needs adding to that script first.
+    severity: unsafe
+  - claim: 'Part 3 says whether "a public sewer or private drain is responsible" cannot be assessed, and §4 and §6 raise the public sewer without saying anything the AI can tell the caller.'
+    concern: It is standard UK knowledge that shared sewers beyond the boundary are usually the water company's responsibility (since 2011 in England and Wales; different in Northern Ireland). A tentative line helps when neighbours are affected; added with "usually" and "can sometimes".
+    severity: too_cautious
+  - claim: '§1 "What could the AI safely explain": only "Slow drainage can have several possible causes, including a blockage or an issue with the waste pipework."'
+    concern: Standard knowledge supports more. A single fixture slowing gradually is commonly a build-up in its own trap or waste. Added as a tentative explanation for when other fixtures are confirmed unaffected.
+    severity: too_cautious

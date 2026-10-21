@@ -1,0 +1,674 @@
+# Leaks and water damage — symptom guidance.
+# Source: "Leaks & Water Damage" UK plumber worksheet (Raymond Chua, received 2026-10-21), read
+# alongside the receptionist research (Document 1 — Leaks; Behaviour). Worksheet content is not
+# treated as verified fact: questionable claims are listed under `flags` and never served.
+# Water near electrics is handled only by the water_on_electrics safety script (L0) and P1.
+# No stopcock / isolation advice is given here: stopcock_advice is suspended pending client approval.
+family: leaks
+general_questions:
+  - Is water coming through right now, or is it more of a damp patch or a stain?
+  - Where exactly is the water showing, and what's directly above or behind it?
+  - Is any of the water near lights, sockets or anything electrical?
+presentations:
+  - id: ceiling-wall-damp-patch
+    name: Damp patch or stain on a ceiling or wall
+    keywords:
+      - damp patch
+      - wet patch
+      - water stain
+      - brown stain
+      - stain on the ceiling
+      - damp wall
+      - damp ceiling
+      - paint bubbling
+      - bubbling paint
+      - plaster damp
+      - wallpaper peeling
+      - mould on the wall
+      - watermark
+      - getting bigger
+    ask_first:
+      - Is it just damp or stained at the moment, or is water actually dripping through?
+      - What's directly above it or on the other side of the wall, like a bathroom, a tank or pipes?
+      - When did you first notice it, and has it been getting bigger?
+    may_explain:
+      - when: caller asks where it could be coming from
+        say: >-
+          Water can travel along pipes and joists before it shows, so the patch isn't always right
+          under the leak. The engineer will trace where it's actually coming from.
+      - when: patch is below a bathroom or near visible pipework
+        say: >-
+          With a bathroom or pipes nearby, one common reason is a joint or connection that's
+          started to weep. The engineer will confirm the source when they look.
+      - when: patch appeared after recent plumbing work in that area
+        say: >-
+          Sometimes a connection that was disturbed during recent work can start to leak. The
+          engineer will check that first, along with anything else nearby.
+      - when: patch is growing but nothing is dripping yet
+        say: >-
+          A patch that keeps growing can mean water is still getting in, and that can damage the
+          ceiling or wall over time, so it's worth getting it looked at soon.
+    urgent_if:
+      - sign: water is dripping or running through the ceiling
+        level: P2
+      - sign: ceiling is sagging, bulging or has started to crack around the wet area
+        level: P2
+      - sign: patch is spreading quickly while the caller watches
+        level: P2
+      - sign: water is near a light fitting, socket or other electrics (water_on_electrics script)
+        level: P1
+    never:
+      - Never say it is a roof leak, a pipe leak or any specific source.
+      - Never tell the caller to open up the ceiling or wall, touch hidden pipes or attempt a repair.
+      - Never tell the caller to turn the water off at the stopcock (isolation advice not approved).
+      - Never say the ceiling is safe or that it can wait.
+    engineer_notes:
+      - Damp/stain only, or actively dripping; how often it drips (constant or occasional)
+      - Exact location and what is above or behind it (bathroom, tank, cylinder, roof)
+      - When first noticed and whether it is growing
+      - Whether it changes after a shower, bath, toilet, heating use or rain
+      - Any recent plumbing or building work in that area
+      - Any sagging ceiling or water near light fittings
+    booking:
+      job_type: leak_repair
+      visit: assessment
+      default_urgency: P4
+      note: Source is rarely clear from the call; book as a visit to trace the leak.
+    source:
+      worksheet: Leaks & water damage — R. Chua, 2026-10-21
+      section: Part 1 §1; Part 4
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: water-through-ceiling
+    name: Water dripping or pouring through a ceiling
+    keywords:
+      - dripping through the ceiling
+      - coming through the ceiling
+      - water through the ceiling
+      - leaking through the ceiling
+      - pouring through the ceiling
+      - ceiling is leaking
+      - water from upstairs
+      - water dripping down the wall
+      - running down the wall
+      - ceiling dripping
+    ask_first:
+      - Is any of the water near a light fitting, a socket or anything electrical?
+      - Is it a steady drip, or is it running or pouring through?
+      - What's in the room directly above, like a bathroom or the loft?
+    may_explain:
+      - when: room above is a bathroom and it gets worse when that's used
+        say: >-
+          When it's worse after the bath, shower or toilet upstairs is used, one common reason is a
+          leak from that fitting or its waste. The engineer will confirm where it's coming from.
+      - when: water is coming through constantly, whether or not anything is used
+        say: >-
+          Water that keeps coming even when nothing's being used can often be from a supply pipe,
+          which is under pressure all the time. The engineer will find the exact source.
+    urgent_if:
+      - sign: water is near or coming through a light fitting, socket or electrics (water_on_electrics script)
+        level: P1
+      - sign: ceiling is sagging or bulging with water
+        level: P2
+      - sign: water is running or pouring and can't be stopped
+        level: P2
+      - sign: water is very hot or steaming (scald risk)
+        level: P2
+    never:
+      - Never give advice about electrics beyond the water_on_electrics script; never mention switching off at the consumer unit.
+      - Never tell the caller to turn the water off at the stopcock (isolation advice not approved).
+      - Never suggest pushing up, piercing or opening the ceiling, or placing anything under a sagging ceiling.
+      - Never confirm the source or promise an arrival time.
+    engineer_notes:
+      - Drip rate (steady, occasional, running) and whether it is getting worse
+      - Room above and whether it's linked to use of a bath, shower, toilet or appliance
+      - Whether the water has been turned off already and whether that stopped it
+      - Any light fittings, sockets or appliances affected
+      - Ceiling condition (stained, sagging, collapsed)
+      - Whether the water is hot or cold, clean or dirty
+    booking:
+      job_type: leak_repair
+      visit: assessment
+      default_urgency: P2
+      note: null
+    source:
+      worksheet: Leaks & water damage — R. Chua, 2026-10-21
+      section: Part 1 §1; Part 2 C; Part 3
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: water-near-electrics
+    name: Water near a light, socket or electrical equipment
+    keywords:
+      - water in the light
+      - light fitting
+      - ceiling light
+      - water near the electrics
+      - near the socket
+      - socket
+      - fuse box
+      - consumer unit
+      - electrics
+      - sparks
+      - sparking
+      - lights flickering
+      - trip switch
+      - power went off
+      - burning smell
+    ask_first:
+      - Is anyone hurt, or is there any sparking, smoke or a burning smell?
+      - Is the water still coming through now?
+      - Where's the water coming in, and what's in the room above?
+    may_explain: []
+    urgent_if:
+      - sign: water near or on any light fitting, socket, fuse box or appliance (water_on_electrics script first)
+        level: P1
+      - sign: sparks, smoke, a burning smell or someone hurt (script directs to 999)
+        level: P1
+    never:
+      - Say only the water_on_electrics script as safety advice; never add, reword or extend it.
+      - Never tell the caller to switch anything off at the consumer unit, fuse box or trip switch, or to unplug anything.
+      - Never tell the caller to go into the wet area, move appliances or turn off the water.
+      - Never speculate about the source of the leak before the safety script and escalation.
+    engineer_notes:
+      - Which electrical fittings or appliances are affected
+      - Whether there were sparks, smoke, a burning smell, flickering lights or a tripped supply
+      - Whether the water is still coming and how fast
+      - Room above and any recent plumbing work
+      - Whether an electrician has been called or is needed before plumbing work
+    booking:
+      job_type: leak_repair
+      visit: assessment
+      default_urgency: P1
+      note: Plumber asks that an electrician makes the electrics safe before plumbing work in the wet area; flag this to the owner.
+    source:
+      worksheet: Leaks & water damage — R. Chua, 2026-10-21
+      section: Part 1 §2; Part 2 C
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: burst-pipe
+    name: Burst pipe or water pouring out
+    keywords:
+      - burst pipe
+      - pipe has burst
+      - pipe burst
+      - pipe has split
+      - split pipe
+      - pouring out
+      - gushing
+      - spraying everywhere
+      - water everywhere
+      - frozen pipe
+      - can't stop the water
+      - shut off the main water
+      - turned off the stopcock
+      - stopcock
+    ask_first:
+      - Is the water still coming out now, or has it stopped?
+      - Is any of the water near lights, sockets or anything electrical?
+      - Where's the pipe, and have you managed to turn the water off already?
+    may_explain:
+      - when: caller asks why it happened
+        say: >-
+          Pipes can sometimes give way at a joint, where they've been knocked, or after a cold
+          snap. The engineer will see what caused it when they repair it.
+    urgent_if:
+      - sign: water near or on electrics (water_on_electrics script first)
+        level: P1
+      - sign: water still flowing and the caller can't stop it
+        level: P2
+      - sign: hot water spraying or pouring out (scald risk)
+        level: P2
+    never:
+      - Never tell the caller to turn the water off at the stopcock (isolation advice not approved); only record whether they have.
+      - Never suggest taping, clamping or patching the pipe.
+      - Never tell the caller to walk into standing water or touch anything electrical.
+      - Never confirm the cause or promise an arrival time.
+    engineer_notes:
+      - Whether the water is still flowing or has been turned off (and where it was turned off)
+      - Location of the burst and type of pipe if known (copper, plastic, lead)
+      - How far the water has spread and what it has reached
+      - Any electrics affected
+      - Any building work, digging, impact or freezing just before it happened
+    booking:
+      job_type: burst_pipe
+      visit: repair
+      default_urgency: P2
+      note: null
+    source:
+      worksheet: Leaks & water damage — R. Chua, 2026-10-21
+      section: Part 1 §3; Part 3
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: flooding-unknown-source
+    name: Room flooded, source unknown
+    keywords:
+      - flooded
+      - flooding
+      - floor is flooded
+      - kitchen is flooded
+      - living room is flooded
+      - water on the floor
+      - water spreading
+      - floor is soaking
+      - soggy floor
+      - carpet is soaking
+      - don't know where it's coming from
+      - water coming up through the floor
+    ask_first:
+      - Is any of the water near sockets, appliances or anything electrical?
+      - Is the water still rising or spreading right now?
+      - Does it look like it's coming from inside, like a pipe or appliance, or from outside after rain?
+    may_explain:
+      - when: flooding came in from outside during heavy rain
+        say: >-
+          If the water came in from outside during heavy rain, it might be a drainage or building
+          issue rather than the plumbing. I'll note that so the right person looks at it.
+    urgent_if:
+      - sign: water near or on electrics (water_on_electrics script first)
+        level: P1
+      - sign: water still rising or spreading
+        level: P2
+      - sign: dirty water or sewage coming up inside
+        level: P2
+    never:
+      - Never keep asking background questions while water is rising; establish electrics and whether it is still coming, then escalate.
+      - Never tell the caller to walk through standing water, move belongings or appliances, or switch anything off.
+      - Never tell the caller to turn the water off at the stopcock (isolation advice not approved).
+      - Never guess the source.
+    engineer_notes:
+      - Still rising or contained; how deep and which rooms
+      - Any electrics, sockets or appliances in the water
+      - Clean, dirty or sewage water
+      - Whether linked to rain, an appliance, or nothing obvious
+      - Whether the water supply has been turned off and whether that stopped it
+      - Whether the area will be safe and accessible for the engineer
+    booking:
+      job_type: leak_repair
+      visit: assessment
+      default_urgency: P2
+      note: Change job type to burst_pipe or sewage_backup once the caller's answers make that clear.
+    source:
+      worksheet: Leaks & water damage — R. Chua, 2026-10-21
+      section: Part 2 B; Part 3
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: leak-under-sink
+    name: Leak under a sink or around a tap
+    keywords:
+      - under the sink
+      - under the kitchen sink
+      - puddle under the sink
+      - cupboard under the sink
+      - leaking pipe under the sink
+      - spraying under the sink
+      - waste pipe leaking
+      - trap leaking
+      - u-bend leaking
+      - leaking tap
+      - tap leaking
+      - mixer tap
+      - flexi hose
+      - isolating valve
+      - basin leaking
+    ask_first:
+      - Does it leak only when the sink's being used or emptied, or even when nothing's running?
+      - Is it a slow drip or is water spraying out?
+      - When did you first notice it, and is it getting worse?
+    may_explain:
+      - when: leak only appears when the sink is used or draining
+        say: >-
+          When it only leaks while the sink's draining, it can often be the waste pipe or the trap
+          underneath, which is a common repair. The engineer will confirm when they see it.
+      - when: leak continues when nothing is being used
+        say: >-
+          If it's wet even when nothing's running, one common reason is one of the supply
+          connections or the flexible hoses to the tap. The engineer will check which one.
+      - when: caller asks what's under there
+        say: >-
+          Under a sink there are usually the water pipes feeding the tap and the waste pipe with a
+          trap, and a leak can come from any of those joints.
+    urgent_if:
+      - sign: water spraying and can't be stopped
+        level: P2
+      - sign: water has reached sockets or an appliance (water_on_electrics script)
+        level: P1
+    never:
+      - Never say which part has failed as fact.
+      - Never tell the caller to tighten, undo or replace any fitting or hose.
+      - Never tell the caller to turn off an isolating valve or the stopcock (isolation advice not approved).
+    engineer_notes:
+      - Kitchen or bathroom sink; which tap
+      - Only when used or draining, or constant
+      - Drip or spray; how much water and how long it's been happening
+      - Whether any isolating valve or the stopcock was turned off and whether that stopped it
+      - Tap make and age if known; any recent new tap or appliance under the sink
+    booking:
+      job_type: leak_repair
+      visit: repair
+      default_urgency: P4
+      note: If the caller wants a new tap fitted, ask whether they're supplying it and whether it has its fittings.
+    source:
+      worksheet: Leaks & water damage — R. Chua, 2026-10-21
+      section: Part 1 §4
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: bathroom-leak-unclear
+    name: Water around the toilet or bathroom floor, source unclear
+    keywords:
+      - water around the toilet
+      - toilet leaking
+      - leaking toilet
+      - water on the bathroom floor
+      - bathroom floor wet
+      - puddle by the toilet
+      - leaking from the base of the toilet
+      - cistern leaking
+      - toilet floor flooded
+      - bathroom leak
+      - not sure where it's coming from
+    ask_first:
+      - Does the water appear after the toilet's flushed, after the shower or bath, or all the time?
+      - Is the water clean, or does it look or smell dirty?
+      - Is it a small puddle, or is it spreading?
+    may_explain:
+      - when: water appears after flushing
+        say: >-
+          Water that shows after flushing can sometimes come from the toilet's connection to the
+          waste pipe or from the cistern. The engineer will confirm which when they look.
+      - when: water is there all the time, even when nothing is used
+        say: >-
+          If it's there all the time, one common reason is a supply pipe or valve that's weeping.
+          The engineer will find the exact source.
+      - when: water appears after the shower or bath
+        say: >-
+          When it shows after the shower or bath, it might be a seal or the waste connection on that
+          fitting rather than the toilet. The engineer will check both.
+    urgent_if:
+      - sign: dirty water or sewage on the floor
+        level: P2
+      - sign: water spreading and the caller can't stop it
+        level: P2
+      - sign: water reaching sockets, a shaver point or electric shower (water_on_electrics script)
+        level: P1
+    never:
+      - Never say which fitting is leaking as fact.
+      - Never tell the caller to dismantle, tighten or reseal anything, or to turn off any valve or the stopcock.
+      - Never say the toilet is fine to keep using.
+    engineer_notes:
+      - When it appears (after flushing, after shower or bath, constant)
+      - Clean or dirty water
+      - Where the water collects and how much
+      - Whether it's the only toilet in the property
+      - Any other fixtures, rooms or ceilings below affected
+      - Whether turning off the water stopped it, if the caller already did
+    booking:
+      job_type: leak_repair
+      visit: assessment
+      default_urgency: P4
+      note: Use sewage_backup if dirty water is coming up from the toilet or drain.
+    source:
+      worksheet: Leaks & water damage — R. Chua, 2026-10-21
+      section: Part 1 §5
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: appliance-leak
+    name: Leak from a washing machine or dishwasher
+    keywords:
+      - washing machine leaking
+      - washing machine leak
+      - dishwasher leaking
+      - water under the washing machine
+      - water behind the washing machine
+      - leaks when the washing machine runs
+      - appliance leaking
+      - washer leaking
+      - fridge leaking
+      - water around the appliance
+    ask_first:
+      - Does it leak while the machine is filling, while it's emptying, or all the time?
+      - Where does the water show, behind, underneath or in front of the machine?
+      - Is the water anywhere near the plug socket or the machine's electrics?
+    may_explain:
+      - when: leak happens while the machine is filling
+        say: >-
+          A leak while it's filling can often be the hose or connection bringing water into the
+          machine. The engineer will confirm when they look.
+      - when: leak happens while the machine is emptying
+        say: >-
+          If it leaks as it empties, one common reason is the waste hose or where it joins the
+          drain. The engineer will check that connection.
+      - when: water seems to come from inside the machine itself
+        say: >-
+          If it's coming from inside the machine, it might need an appliance engineer rather than a
+          plumber. Our engineer can check the plumbing connections first.
+    urgent_if:
+      - sign: water near the plug socket or the appliance's electrics (water_on_electrics script)
+        level: P1
+      - sign: water still running out and can't be stopped
+        level: P2
+    never:
+      - Never tell the caller to unplug, pull out or open the appliance, or to turn off its water valve.
+      - Never say whether the appliance is safe to keep using.
+      - Never promise the business repairs appliances themselves; say the engineer will confirm.
+    engineer_notes:
+      - Appliance type, make and age
+      - When it leaks (filling, emptying, constantly)
+      - Where the water appears
+      - Whether the appliance was recently moved or installed
+      - Any other sink or drain backing up when it empties
+    booking:
+      job_type: appliance_plumbing
+      visit: assessment
+      default_urgency: P4
+      note: If the leak sounds internal to the appliance, tell the owner it may need an appliance engineer.
+    source:
+      worksheet: Leaks & water damage — R. Chua, 2026-10-21
+      section: Part 1 §6
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: leak-when-used
+    name: Leak only when the shower, bath or another fitting is used
+    keywords:
+      - when i use the shower
+      - when someone has a shower
+      - after a shower
+      - after a bath
+      - only when the shower's on
+      - when the bath empties
+      - when the washing machine empties
+      - puddle every morning
+      - happens overnight
+      - shower leaking
+      - shower tray
+      - leaking shower
+      - comes and goes
+    ask_first:
+      - Which fitting is being used when it happens, like the shower, bath or washing machine?
+      - Where does the water show, at the fitting itself, on a ceiling below, or at another drain?
+      - Has anything been fitted or changed recently, like a new shower or appliance?
+    may_explain:
+      - when: leak appears only after the shower or bath is used
+        say: >-
+          When it only happens after the shower or bath, it can often be the seals, the tray or the
+          waste connection on that fitting rather than a pipe that leaks all the time.
+      - when: water comes back up another drain when something else empties
+        say: >-
+          Water coming up somewhere else when another fitting empties can sometimes mean the shared
+          waste pipe is partly blocked. The engineer will confirm when they look.
+      - when: leak seems to happen while the shower is running, around the controls
+        say: >-
+          If it shows around the shower controls while it's running, one possible reason is the
+          shower valve or its connections. The engineer will check it.
+    urgent_if:
+      - sign: dirty water or sewage backing up inside
+        level: P2
+      - sign: water coming through a ceiling below
+        level: P2
+      - sign: water reaching lights, an electric shower or sockets (water_on_electrics script)
+        level: P1
+    never:
+      - Never confirm a blockage, a failed seal or a faulty valve.
+      - Never suggest drain chemicals, resealing, or any DIY fix.
+      - Never tell the caller to stop using the fitting or that it is fine to keep using it.
+    engineer_notes:
+      - Which fitting triggers it and how soon after use it appears
+      - Where the water shows (at the fitting, ceiling below, another drain)
+      - Whether other drains are slow or gurgle at the same time
+      - Any new or changed fittings, appliances or waste pipework
+      - Whether it's getting worse or more frequent
+    booking:
+      job_type: leak_repair
+      visit: assessment
+      default_urgency: P4
+      note: null
+    source:
+      worksheet: Leaks & water damage — R. Chua, 2026-10-21
+      section: Part 1 §7
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: suspected-source
+    name: Caller thinks they know the source (roof, neighbour, underground)
+    keywords:
+      - roof is leaking
+      - roof leak
+      - coming from the roof
+      - neighbour above
+      - neighbour's flat
+      - flat above
+      - coming from next door
+      - neighbour says
+      - coming through their ceiling
+      - underground leak
+      - pipe burst underground
+      - leak outside
+      - wet patch in the garden
+      - water bill gone up
+    ask_first:
+      - What have you noticed that makes you think it's coming from there?
+      - Does it get worse after rain, or after a shower, bath or toilet is used?
+      - What's directly above the affected area, like a bathroom, the loft or another flat?
+    may_explain:
+      - when: stain or leak is below a bathroom and appears after it is used
+        say: >-
+          Stains below a bathroom can sometimes come from the bath, shower or toilet above rather
+          than the roof, so it's worth the engineer checking that first.
+      - when: it only appears or gets worse after rain
+        say: >-
+          If it only shows after rain, it might be coming from the roof or guttering rather than
+          the plumbing, which may need a roofer. I'll note that for the engineer.
+      - when: caller suspects a flat or neighbour above
+        say: >-
+          Water can travel quite a way before it shows, so it may come from the flat above or from
+          pipes nearby. The engineer will need to see it to tell.
+    urgent_if:
+      - sign: water actively coming through a ceiling
+        level: P2
+      - sign: water near light fittings or electrics (water_on_electrics script)
+        level: P1
+      - sign: water pouring out or a pipe burst outside that can't be stopped
+        level: P2
+    never:
+      - Never agree or disagree with the caller's theory about the source.
+      - Never tell the caller to go on the roof, into the loft near wet ceilings, dig, or open walls or ceilings.
+      - Never say who is responsible (neighbour, landlord, water company, insurer).
+    engineer_notes:
+      - The caller's suspected source and why they think so, in their words
+      - Whether linked to rain or to using a fixture above
+      - What is directly above or behind the affected area
+      - When it started, any changes, previous repairs
+      - Whether photos or videos are available
+      - For a neighbour above, whether they've been told and can give access
+    booking:
+      job_type: leak_repair
+      visit: assessment
+      default_urgency: P4
+      note: If it sounds like rainwater only, tell the owner it may be a roofing issue before booking.
+    source:
+      worksheet: Leaks & water damage — R. Chua, 2026-10-21
+      section: Part 1 §8; Part 2 A
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+flags:
+  - claim: >-
+      Water near electrics (Part 1 §2, Part 3): "If the electricity can be isolated from a dry,
+      safe location ... switch off the relevant supply"; "Switch off the electricity only if the
+      breaker can be reached from a dry, safe location"; otherwise "leave it to ... emergency
+      service".
+    concern: >-
+      Conflicts with the water_on_electrics script, which tells callers not to touch the fuse box. A
+      caller can't judge what is a "dry, safe location" in an emergency. UK wording is consumer unit
+      / fuse box / trip switch; 999 is for fire or injury, otherwise an electrician. Not served.
+    severity: unsafe
+  - claim: >-
+      Appliance leak (§6): "If safe, stop using the appliance and shut off its water supply."
+    concern: >-
+      Means reaching behind a wet, plugged-in machine to its valve and socket. Water-isolation advice
+      is not yet approved by the client. Not served; the agent only records what the caller did.
+    severity: unsafe
+  - claim: >-
+      Scenario A/B: "the customer may place a basin underneath if safe"; "advise moving belongings
+      only if safe".
+    concern: >-
+      Sensible in many cases, but standing under a wet or sagging ceiling or near a wet light
+      fitting can be dangerous, and these are instructions outside an approved script. Needs client
+      approval as an approved script with limits before use.
+    severity: unsafe
+  - claim: >-
+      Burst pipe causes (§3): "Excessive water pressure causing a pipe or connection to fail" listed
+      first; freezing is not mentioned.
+    concern: >-
+      In UK homes, frost is a classic cause of burst pipes in winter and should be among the
+      main causes. High mains pressure is a possible factor but not usually the leading one; we
+      don't mention pressure to callers.
+    severity: unsupported
+  - claim: >-
+      Use-linked leak (§7): "Poor or inadequate drainage venting affecting wastewater flow" and "an
+      overloaded or improperly connected shared drainage pipe" as main causes of a leak.
+    concern: >-
+      Venting problems usually show as gurgling, smells or traps emptying, not visible leaks; the
+      wording reads like US plumbing-code thinking. A partly blocked shared waste backing up is
+      plausible and is kept. Shower seals, tray and waste are the usual UK cause and are missing.
+    severity: unsupported
+  - claim: >-
+      US terms in §4 and §5: "kitchen faucet", "toilet tank", "P-trap", "disposer" (waste disposal
+      unit), "shut-off valve", "vent arrangement".
+    concern: >-
+      UK equivalents are tap, cistern, trap or U-bend, waste disposal unit (uncommon in UK homes),
+      isolating valve or stopcock, and soil and vent pipe. The agent uses the UK terms.
+    severity: incorrect_uk
+  - claim: >-
+      Under-sink leak (§4): the AI may only explain that there are supply pipes, waste pipes and a
+      P-trap under the sink and that a plumber can inspect them.
+    concern: >-
+      The worksheet's own reasoning (leaks only when draining point to the waste or trap; constant
+      leaks point to a supply connection or hose) is standard and safe to give tentatively, so the
+      agent offers it with the engineer confirming.
+    severity: too_cautious
+  - claim: >-
+      Ceiling/wall damp (§1) and suspected source (§8): the AI can only say "the source cannot be
+      confirmed" and "a plumber will need to inspect".
+    concern: >-
+      It is standard, safe and useful to explain that water can travel along pipes and joists before
+      it shows, and that stains below a bathroom often relate to the bathroom above (the research's
+      own real-world example). The agent says this tentatively.
+    severity: too_cautious

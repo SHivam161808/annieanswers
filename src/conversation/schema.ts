@@ -23,6 +23,7 @@ export const TRANSCRIPT_ACTIONS = [
   'send_sms',
   'update_contact',
   'lookup_fault_code',
+  'symptom_guidance',
 ] as const;
 
 const callerTurn = z

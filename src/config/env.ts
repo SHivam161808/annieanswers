@@ -21,6 +21,7 @@ const envSchema = z.object({
   METRICS_TOKEN: z.string().min(32),
   CLIENT_CONFIG_DIR: z.string().default('config/clients'),
   KNOWLEDGE_DIR: z.string().default('knowledge/boilers'),
+  SYMPTOMS_DIR: z.string().default('knowledge/symptoms'),
   ACTION_DEADLINE_MS: z.coerce.number().int().min(100).max(10_000).default(1800),
   /** Reschedule/cancel need a read, a GHL write (~1.3 s measured) and a read-back. */
   BOOKING_ACTION_DEADLINE_MS: z.coerce.number().int().min(500).max(10_000).default(4000),

@@ -265,6 +265,12 @@ const actions: Record<string, { actionType: string; actionParameters: unknown }>
     'Let me just check that code.',
     ['status', 'meaning', 'homeowner_guidance', 'instruction'],
   ),
+  symptom_guidance: customAction(
+    '/v1/actions/symptom-guidance',
+    'Once, after the caller has described the problem in their own words, before asking your own questions about it.',
+    'Right, let me just note that down.',
+    ['status', 'presentation', 'job_type', 'instruction'],
+  ),
   book_appointment: {
     actionType: 'APPOINTMENT_BOOKING',
     actionParameters: {

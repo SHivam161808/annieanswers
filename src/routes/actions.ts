@@ -11,6 +11,8 @@ import {
 } from '../actions/booking.js';
 import { callContext } from '../actions/call-context.js';
 import { lookupFaultCodeAction } from '../actions/knowledge.js';
+import { symptomGuidanceAction } from '../actions/symptoms.js';
+import type { SymptomLibrary } from '../knowledge/symptoms.js';
 import type { KnowledgeLibrary } from '../knowledge/library.js';
 import { escalation, needsOwnerAlert, withAlertResult } from '../actions/escalation.js';
 import type { OwnerAlerts } from '../alerts/owner-alerts.js';
@@ -36,6 +38,7 @@ export interface ActionDeps {
   ghl?: GhlClient | undefined;
   idempotency: IdempotencyStore;
   knowledge: KnowledgeLibrary;
+  symptoms: SymptomLibrary;
   alerts?: OwnerAlerts | undefined;
   templates?: ReadonlyMap<string, SmsTemplate> | undefined;
 }
@@ -176,5 +179,9 @@ export function registerActionRoutes(app: FastifyInstance, deps: ActionDeps): vo
 
   handle('lookup-fault-code', (client, params, ctx) =>
     lookupFaultCodeAction(client, params, deps.knowledge, ctx.log),
+  );
+
+  handle('symptom-guidance', (client, params, ctx) =>
+    symptomGuidanceAction(client, params, deps.symptoms, ctx.log),
   );
 }

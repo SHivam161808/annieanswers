@@ -14,6 +14,7 @@ import type { Env } from './config/env.js';
 import { AppError, ERROR_CODES, type ErrorCode } from './core/errors.js';
 import type { GhlClient } from './ghl/client.js';
 import type { KnowledgeLibrary } from './knowledge/library.js';
+import { EMPTY_SYMPTOM_LIBRARY, type SymptomLibrary } from './knowledge/symptoms.js';
 import type { OwnerAlerts } from './alerts/owner-alerts.js';
 import type { SmsTemplate } from './alerts/templates.js';
 import type { PostCallProcessor } from './jobs/post-call.js';
@@ -50,6 +51,8 @@ export interface AppDeps {
   ghl?: GhlClient;
   /** Technical knowledge library; empty when none is deployed. */
   knowledge?: KnowledgeLibrary;
+  /** Symptom guidance library; empty when none is deployed. */
+  symptoms?: SymptomLibrary;
   alerts?: OwnerAlerts;
   templates?: ReadonlyMap<string, SmsTemplate>;
   postCall?: PostCallProcessor;
@@ -229,6 +232,7 @@ export async function buildApp(deps: AppDeps): Promise<FastifyInstance> {
     ghl: deps.ghl,
     idempotency: new IdempotencyStore(deps.redis),
     knowledge: deps.knowledge ?? { manufacturers: new Map(), servedEntries: 0 },
+    symptoms: deps.symptoms ?? EMPTY_SYMPTOM_LIBRARY,
     alerts: deps.alerts,
     templates: deps.templates,
   });

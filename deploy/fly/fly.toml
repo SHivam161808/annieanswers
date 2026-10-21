@@ -10,6 +10,7 @@ primary_region = "lhr"
   PORT = "8080"
   LOG_LEVEL = "info"
   KNOWLEDGE_DIR = "knowledge/boilers"
+  SYMPTOMS_DIR = "knowledge/symptoms"
 
 [http_service]
   internal_port = 8080

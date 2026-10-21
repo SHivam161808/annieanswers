@@ -1,0 +1,645 @@
+# Toilet symptom guidance. Source: R. Chua toilet worksheet (2026-10-21) read alongside the
+# receptionist toilet research. Worksheet causes were checked, not copied; questionable claims
+# are in `flags` and are never served.
+family: toilets
+general_questions:
+  - What happens when you flush it?
+  - Is any water coming out onto the floor at the moment?
+  - Is it the only toilet in the property?
+
+presentations:
+  - id: toilet-wont-flush
+    name: Toilet won't flush or flushes weakly
+    keywords:
+      - won't flush
+      - wont flush
+      - not flushing
+      - doesn't flush
+      - flush button
+      - button doesn't do anything
+      - flush handle
+      - handle loose
+      - lever
+      - weak flush
+      - half flush
+      - dual flush
+      - flush not working
+      - broken flush
+      - cistern
+      - loo
+    ask_first:
+      - When you press the button or pull the handle, does anything happen at all, or does it flush weakly?
+      - Does the cistern fill back up with water after you've flushed?
+      - Is it the only toilet in the property?
+    may_explain:
+      - when: Button or handle does nothing, or feels loose, and the cistern is full
+        say: That can often be the link between the button or handle and the flush mechanism inside the cistern, which is a common repair. The engineer will confirm when they see it.
+      - when: Flushes but weakly, or only one side of a dual-flush button works
+        say: A weak flush, or only one button working, can sometimes come from the flush mechanism not lifting fully or a worn part. The engineer will confirm the cause on the visit.
+      - when: The cistern stays empty or barely refills after flushing
+        say: If the cistern isn't refilling, it may be the valve that lets water into the cistern rather than the flush itself. The engineer will find out which when they look at it.
+    urgent_if:
+      - sign: It is the only toilet and cannot be flushed at all
+        level: P3
+      - sign: Water escaping onto the floor that won't stop
+        level: P2
+    never:
+      - Tell the caller to lift the cistern lid, adjust the float, chain, button or any part.
+      - Confirm a specific failed part, limescale or water pressure as the cause.
+      - Say how long the repair will take or what it will cost.
+      - Use US terms (flapper, tank, faucet) to the caller.
+    engineer_notes:
+      - Push button (single or dual) or lever handle
+      - Nothing happens, weak flush, or one side of dual flush only
+      - Whether the cistern refills after a flush
+      - Any water running into the pan or from an overflow pipe
+      - Whether other taps have water normally
+      - Only toilet in the property, or others available
+    booking:
+      job_type: tap_toilet
+      visit: repair
+      default_urgency: P4
+      note: Ask the make of the toilet or cistern if the caller knows it.
+    source:
+      worksheet: Toilets — R. Chua, 2026-10-21
+      section: Part 1 §1
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: toilet-blocked
+    name: Toilet blocked or draining slowly
+    keywords:
+      - blocked
+      - blocked toilet
+      - blocked loo
+      - clogged
+      - won't go down
+      - water rises
+      - water rising in the bowl
+      - slow to drain
+      - flushes slowly
+      - struggling to flush
+      - wipes
+      - nappy
+      - something flushed
+      - toilet roll
+      - u-bend
+      - pan
+    ask_first:
+      - Is it completely blocked, or does the water go down slowly in the end?
+      - Is there any chance something like wipes or a toy has gone down it?
+      - Is it the only toilet in the property?
+    may_explain:
+      - when: Caller mentions wipes, sanitary products, kitchen roll or a child's toy
+        say: Wet wipes, sanitary products and kitchen roll don't break down like toilet paper, so they can often cause a blockage. The engineer will confirm what's causing it when they see it.
+      - when: A first-time blockage in the one toilet, nothing else affected
+        say: When only the one toilet is affected and nothing else is slow, the blockage is often in the toilet or close to it. The engineer will confirm that on the visit.
+    urgent_if:
+      - sign: Dirty water or sewage coming up into a shower, bath or sink inside
+        level: P2
+      - sign: Water spilling over the rim onto the floor and not stopping
+        level: P2
+      - sign: It is the only toilet in the property
+        level: P3
+    never:
+      - Suggest plungers, rods, wire hangers, chemicals, drain unblocker, bleach or boiling water.
+      - Encourage the caller to keep trying to clear it themselves.
+      - Say the blockage will be quick or easy to clear.
+      - Confirm a cause (venting, roots, collapse) from the call.
+    engineer_notes:
+      - Completely blocked or slow to drain
+      - Anything suspected of being flushed (item if known)
+      - What the caller has already tried, including any products used
+      - First time or happened before (how often)
+      - Any other toilet, sink, bath or shower slow or gurgling
+      - Only toilet in the property, or others available
+      - House or flat; ground floor or upstairs toilet
+    booking:
+      job_type: blocked_toilet
+      visit: repair
+      default_urgency: P4
+      note: If it keeps coming back or other drains are affected, use the recurring-blockage presentation instead.
+    source:
+      worksheet: Toilets — R. Chua, 2026-10-21
+      section: Part 1 §2
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: toilet-recurring-or-other-drains
+    name: Toilet keeps blocking, or other drains affected too
+    keywords:
+      - keeps blocking
+      - keeps getting blocked
+      - blocked again
+      - keeps coming back
+      - gurgling
+      - shower gurgling
+      - sink gurgling
+      - bubbling
+      - other drains slow
+      - shower draining slowly
+      - bath backing up
+      - water coming up the shower
+      - all the drains
+      - smells from the drains
+      - soil stack
+      - manhole
+      - neighbours too
+    ask_first:
+      - Is anything else slow or making a gurgling noise, like a shower, bath or sink?
+      - Does that happen when the toilet is flushed or when something else is being used?
+      - How often has the toilet blocked, and has anyone worked on it before?
+    may_explain:
+      - when: More than one fitting is slow, gurgling or backing up
+        say: When more than one fitting is affected, the problem can sometimes be further along the shared drain rather than in the toilet itself. The engineer will need to look at it to find out.
+      - when: Gurgling from a shower or sink when the toilet is flushed
+        say: Gurgling in another drain when the toilet is flushed can sometimes mean water and air aren't getting away freely down the pipe. The engineer will check the cause on the visit.
+      - when: The toilet keeps blocking after being cleared
+        say: A blockage that keeps coming back may mean something further down the pipe is catching waste, so the engineer will want to look beyond the toilet itself.
+    urgent_if:
+      - sign: Dirty water or sewage coming up into a shower, bath, sink or onto the floor inside
+        level: P2
+      - sign: Neighbours report the same problem or sewage is reaching their property
+        level: P2
+      - sign: The only toilet is now unusable
+        level: P3
+    never:
+      - Say the drains are shared, or that it is the water company's or a neighbour's responsibility.
+      - Confirm a vent, root, collapse or backflow problem.
+      - Suggest chemicals, rods, plungers or lifting a manhole or inspection chamber cover.
+      - Ask the caller to investigate the pipework layout.
+      - Assume what the caller means by gurgling without asking.
+    engineer_notes:
+      - Every fitting affected and how (slow, gurgling, backing up)
+      - Caller's own description of the noise
+      - When it happens (on flushing, when another fitting is used, all the time)
+      - How often the toilet blocks and what was tried each time
+      - Previous plumber or drain work and what they said
+      - House or flat; whether neighbours are affected, if known
+      - Ground-floor fittings affected, if any
+    booking:
+      job_type: blocked_drain
+      visit: assessment
+      default_urgency: P3
+      note: Note if the caller mentions a previous drain camera survey or wants one.
+    source:
+      worksheet: Toilets — R. Chua, 2026-10-21
+      section: Part 1 §8, Part 2 A
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: toilet-overflowing
+    name: Toilet overflowing now
+    keywords:
+      - overflowing
+      - overflowed
+      - flooding
+      - water everywhere
+      - water going everywhere
+      - water over the top
+      - spilling over
+      - toilet flooded
+      - bathroom flooding
+      - floor flooded
+      - water through the ceiling
+      - sewage on the floor
+      - dirty water on the floor
+    ask_first:
+      - Is water still coming out right now, or has it stopped?
+      - Is the water near any sockets, plugs or anything electrical?
+      - Has it gone through to a ceiling below or into a neighbour's property?
+    may_explain:
+      - when: Water rose and spilled over after a flush, then stopped
+        say: Water rising and spilling over after a flush can often mean the outlet or the pipe beyond it is blocked, so the water has nowhere to go. The engineer will confirm where on the visit.
+      - when: Clean water keeps pouring from the cistern into the pan or over the rim without flushing
+        say: Water coming in continuously without flushing can sometimes mean the valve that fills the cistern isn't shutting off. The engineer will confirm that when they see it.
+    urgent_if:
+      - sign: Water near sockets, plugs, the consumer unit or other electrics
+        level: P1
+      - sign: Water still coming out and the caller can't stop it
+        level: P2
+      - sign: Water coming through a ceiling or into a neighbour's property
+        level: P2
+      - sign: Sewage or dirty water spreading inside
+        level: P2
+      - sign: Overflow has stopped but it is the only toilet
+        level: P3
+    never:
+      - Give any valve, stopcock or isolation instruction outside an approved safety script.
+      - Suggest plunging, rods, chemicals, bleach or trying to clear it while it is overflowing.
+      - Collect background history before urgency and electrics are established.
+      - Say the water is clean, harmless or safe to touch.
+      - Diagnose venting, septic tank or sewer problems from the call.
+    engineer_notes:
+      - Still overflowing or stopped, and when it started
+      - How far the water has spread; rooms or ceilings below affected
+      - Clean water or dirty water or sewage
+      - Water near electrics (and whether the safety script was given)
+      - Number of flushes before it overflowed; other toilets in use at the time
+      - First time or repeated; neighbours affected
+      - On mains drainage or a septic tank or cesspit, if the caller says
+    booking:
+      job_type: blocked_toilet
+      visit: assessment
+      default_urgency: P3
+      note: If it is sewage coming up from a drain rather than the toilet, record as sewage_backup.
+    source:
+      worksheet: Toilets — R. Chua, 2026-10-21
+      section: Part 1 §3, Part 2 B, Part 3
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: toilet-keeps-running
+    name: Toilet keeps running or refilling
+    keywords:
+      - keeps running
+      - running toilet
+      - won't stop running
+      - water running
+      - running all night
+      - keeps filling
+      - keeps refilling
+      - keeps flushing
+      - trickling
+      - trickle into the bowl
+      - hissing
+      - cistern filling
+      - ballcock
+      - float
+      - overflow pipe
+      - overflow dripping
+      - water outside from the overflow
+      - dripping outside
+    ask_first:
+      - Is the water trickling into the pan, or coming out of an overflow pipe outside?
+      - Is it running all the time, or does it refill every so often on its own?
+      - Is any water escaping onto the floor?
+    may_explain:
+      - when: Water trickles into the pan or the cistern keeps refilling on its own
+        say: That can often be the flush valve or fill valve not sealing properly, which is a common and usually straightforward repair. The engineer will confirm when they see it.
+      - when: Water dripping or running from an overflow pipe outside
+        say: Water from the overflow pipe often means the cistern is filling past its normal level, which is commonly down to the fill valve or float. The engineer will confirm on the visit.
+      - when: Hissing or a long refill after each flush
+        say: A hissing sound or a slow, long refill can sometimes come from the fill valve that lets water into the cistern. The engineer will check it when they see it.
+    urgent_if:
+      - sign: Water escaping from the cistern onto the floor and not stopping
+        level: P2
+      - sign: Overflow pipe pouring onto a path or wall heavily rather than dripping
+        level: P3
+    never:
+      - Tell the caller to bend the float arm, lift the lid, jiggle the handle or adjust anything.
+      - Use US terms (flapper, tank) to the caller.
+      - Add a generic hazard warning where there is no hazard.
+      - Promise how long the repair takes or what parts it needs.
+    engineer_notes:
+      - Where water goes (into the pan, external overflow pipe, internal overflow, floor)
+      - Continuous or intermittent refilling
+      - Any noise (hissing, humming, banging)
+      - Push button or lever; make of cistern if known
+      - When it started; on a water meter if mentioned
+    booking:
+      job_type: tap_toilet
+      visit: repair
+      default_urgency: P4
+      note: Ask the make of the toilet or cistern if the caller knows it.
+    source:
+      worksheet: Toilets — R. Chua, 2026-10-21
+      section: Part 1 §4
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: toilet-leaking
+    name: Water around or behind the toilet
+    keywords:
+      - leaking
+      - toilet leaking
+      - leak
+      - water on the floor
+      - water around the base
+      - water behind the toilet
+      - puddle
+      - wet floor
+      - dripping
+      - damp floor
+      - leaking from the cistern
+      - leaking when flushed
+      - pan connector
+      - soil pipe
+      - stain on the ceiling below
+    ask_first:
+      - Where exactly is the water, around the base, behind the toilet, or by the wall or pipes?
+      - Is it just a few drips, or is water still coming out more heavily?
+      - Does it appear only when the toilet is flushed, or is it wet all the time?
+    may_explain:
+      - when: Water appears only after flushing
+        say: Water that shows up only after a flush can sometimes come from a seal between the cistern and pan or where the toilet joins the waste pipe. The engineer will need to see it to find the source.
+      - when: Wet all the time, not just after flushing
+        say: Water that's there all the time, even without flushing, can sometimes come from the pipe or connection feeding the cistern. The engineer will trace it on the visit.
+      - when: The source is unclear
+        say: Where water collects isn't always where it's coming from, so the engineer may need to trace it on the visit.
+    urgent_if:
+      - sign: Water near sockets, plugs or other electrics
+        level: P1
+      - sign: Water flowing steadily that the caller can't stop
+        level: P2
+      - sign: Water coming through a ceiling below or into a neighbour's property
+        level: P2
+      - sign: Dirty water or sewage around the base
+        level: P2
+      - sign: Leak contained (towel or bucket) but it is the only toilet
+        level: P3
+    never:
+      - Confirm the pan is cracked, or rule out a crack because none is visible.
+      - Name a failed part as confirmed.
+      - Give isolation, stopcock or valve instructions outside an approved safety script.
+      - Promise a repair or a replacement will be needed or will fix it.
+    engineer_notes:
+      - Exactly where the water shows (base, back, wall, pipework, ceiling below)
+      - Drips or flowing; ongoing or noticed once
+      - Only after flushing, or all the time
+      - Clean or dirty water
+      - Any visible crack or damage the caller has seen
+      - When first noticed; any damage to flooring or ceilings
+      - Upstairs or ground floor
+    booking:
+      job_type: leak_repair
+      visit: assessment
+      default_urgency: P4
+      note: If the toilet may need replacing, the engineer discusses and agrees it with the customer on site.
+    source:
+      worksheet: Toilets — R. Chua, 2026-10-21
+      section: Part 1 §5, Part 2 C
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: cistern-not-filling
+    name: Cistern not filling
+    keywords:
+      - not filling
+      - won't fill
+      - cistern empty
+      - cistern not filling
+      - no water in the cistern
+      - no water coming in
+      - fills slowly
+      - slow to refill
+      - takes ages to fill
+      - toilet tank
+      - ballcock stuck
+      - frozen
+    ask_first:
+      - Is water coming out of your other taps normally?
+      - Is the cistern staying completely empty, or just filling slowly?
+      - Has it been freezing overnight where you are recently?
+    may_explain:
+      - when: Other taps are fine; cistern empty or very slow to fill
+        say: When the other taps are working, it can often be the fill valve that lets water into the cistern, or the small valve on the pipe feeding it. The engineer will confirm when they see it.
+      - when: No water from any tap in the property
+        say: If there's no water at any tap, it may be a supply problem to the whole property rather than the toilet itself. We'll treat it as a loss of water.
+      - when: Freezing weather and the pipe runs through a loft, garage or outside wall
+        say: In freezing weather a pipe in a cold spot can sometimes freeze, but the engineer will confirm the cause on the visit.
+    urgent_if:
+      - sign: No water from any tap in the property
+        level: P2
+      - sign: It is the only toilet and the cistern stays empty
+        level: P3
+      - sign: A pipe has split or is leaking after freezing
+        level: P2
+    never:
+      - Tell the caller to open, turn or check any valve or stopcock.
+      - Give pipe-freezing advice such as leaving a tap running or warming pipes.
+      - Confirm a valve is closed or a pipe is frozen.
+      - Use US terms (faucet, angle valve, waterline, tank) to the caller.
+    engineer_notes:
+      - Other taps working normally or not
+      - Cistern empty or filling slowly
+      - When it started; any recent work in the bathroom
+      - Freezing weather; pipe routes through cold spaces, if known
+      - Only toilet in the property, or others available
+    booking:
+      job_type: tap_toilet
+      visit: assessment
+      default_urgency: P4
+      note: If no tap in the property has water, record as no_water instead.
+    source:
+      worksheet: Toilets — R. Chua, 2026-10-21
+      section: Part 1 §6
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: toilet-cracked-or-replacement
+    name: Cracked or broken toilet, or wants a replacement
+    keywords:
+      - cracked
+      - crack
+      - cracked toilet
+      - cracked pan
+      - cracked cistern
+      - broken toilet
+      - broken seat
+      - chipped
+      - new toilet
+      - replace toilet
+      - replacement toilet
+      - toilet replacement
+      - change the toilet
+      - close coupled
+      - back to wall
+      - wall hung
+    ask_first:
+      - Is the crack in the toilet pan or the cistern, and is any water coming out of it?
+      - Are you after a like-for-like replacement, or would you like the engineer to look at it first?
+      - Will you be supplying the new toilet yourself, or would you like us to?
+    may_explain:
+      - when: A crack in the pan or cistern that is leaking
+        say: Cracked ceramic often can't be repaired reliably, so replacing that part is a common outcome, but the engineer will confirm once they've seen it.
+    urgent_if:
+      - sign: Water leaking from the crack that the caller can't stop
+        level: P2
+      - sign: Water leaking from the crack, contained, and it is the only toilet
+        level: P3
+      - sign: The toilet is broken and unusable and it is the only toilet
+        level: P3
+    never:
+      - State how or when the damage happened.
+      - Confirm warranty, insurance or landlord responsibility.
+      - Say a replacement will fit or which toilet to buy.
+      - Quote a price or a time for the job.
+    engineer_notes:
+      - Where the crack is (pan, cistern, seat) and whether it is leaking
+      - When first noticed; how it happened if the caller knows
+      - Style of toilet if known (close coupled, back to wall, wall hung)
+      - Whether the customer is supplying the new toilet, with make and model
+      - Rented property, and whether the landlord knows, if mentioned
+      - Warranty if the customer mentions it
+    booking:
+      job_type: tap_toilet
+      visit: assessment
+      default_urgency: P4
+      note: Ask if the replacement toilet is supplied by the customer, and its make and model.
+    source:
+      worksheet: Toilets — R. Chua, 2026-10-21
+      section: Part 1 §7
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: toilet-smell
+    name: Smell from the toilet or bathroom
+    keywords:
+      - smell
+      - smells
+      - bad smell
+      - sewage smell
+      - drain smell
+      - stinks
+      - whiff
+      - odour
+      - smelly bathroom
+      - eggy smell
+    ask_first:
+      - Is the smell there all the time, or mainly after the toilet's been flushed or used?
+      - Is it only in the bathroom, or somewhere else in the house as well?
+      - Is there any water or damp around the base of the toilet?
+    may_explain:
+      - when: Smell plus water or damp around the base of the toilet
+        say: A smell with water round the base can sometimes come from the seal where the toilet joins the waste pipe, so the engineer will want to look at that.
+    urgent_if:
+      - sign: Caller is unsure whether it could be gas
+        level: P1
+      - sign: Sewage visible inside the property
+        level: P2
+    never:
+      - Say the smell is or isn't gas; if gas is possible, use the gas script.
+      - Suggest bleach, chemicals, air fresheners or pouring anything down.
+      - Diagnose a dry trap, vent or drain fault from the call.
+    engineer_notes:
+      - Where the smell is strongest and when it happens
+      - Any water, damp or staining around the toilet
+      - Other drains slow or gurgling
+      - Rooms not used often (unused toilets or showers)
+      - Any recent work in the bathroom
+    booking:
+      job_type: tap_toilet
+      visit: assessment
+      default_urgency: P4
+      note: null
+    source:
+      worksheet: Toilets — R. Chua, 2026-10-21
+      section: Not covered (research §2)
+      research_agrees: true
+    status: needs_review
+    reviewed_by: null
+
+  - id: macerator-toilet
+    name: Macerator (pump) toilet problem
+    keywords:
+      - macerator
+      - saniflo
+      - sanipro
+      - pump toilet
+      - toilet pump
+      - grinding noise
+      - pump keeps running
+      - pump keeps coming on
+      - pump not working
+      - downstairs toilet pump
+      - basement toilet
+    ask_first:
+      - Is the pump not running at all, running constantly, or making a noise it didn't before?
+      - Is water backing up into the toilet, or a shower or basin connected to it?
+      - Do you know the make of the pump unit?
+    may_explain:
+      - when: The pump starts on its own when nothing has been used
+        say: A pump that comes on by itself can sometimes mean water is getting into it from a running cistern or a dripping tap, but the engineer will need to see it.
+    urgent_if:
+      - sign: Water leaking around the pump unit or near its plug or wiring
+        level: P1
+      - sign: Waste water backing up into a shower, basin or onto the floor
+        level: P2
+      - sign: It is the only toilet in the property
+        level: P3
+    never:
+      - Tell the caller to unplug, reset, open or descale the unit.
+      - Suggest chemicals, bleach or descaler.
+      - Name a manufacturer support line or brand advice.
+    engineer_notes:
+      - Make and model of the unit if known
+      - What it serves (toilet only, or shower and basin too)
+      - Not running, running constantly, cycling on its own, or noisy
+      - Any backing up or leaking; anything flushed that shouldn't be
+      - Unit age and previous servicing, if known
+    booking:
+      job_type: tap_toilet
+      visit: assessment
+      default_urgency: P3
+      note: Ask the make and model of the unit.
+    source:
+      worksheet: Toilets — R. Chua, 2026-10-21
+      section: Not covered (added)
+      research_agrees: false
+    status: needs_review
+    reviewed_by: null
+
+flags:
+  - claim: '§1 question: "Is water flowing from your faucet, and is the water supply valve open?"'
+    concern: US wording (faucet) and it asks the caller to inspect a valve. Replaced with "Is water coming out of your other taps normally?" with no valve check.
+    severity: incorrect_uk
+  - claim: '§1 question: "Does the water tank feel half full or full?"'
+    concern: Asks the caller to lift the cistern lid and judge the level, and "tank" is US for cistern. We ask instead whether the cistern refills after a flush.
+    severity: incorrect_uk
+  - claim: '§1 and §4 causes: "broken flapper chain", "damaged flapper", "mineral buildup around the flapper", "flush lever may not have been set".'
+    concern: These describe US flapper cisterns. Most UK toilets use a siphon or a drop (flush) valve worked by a button or lever, so the fault is usually described as the flush valve, siphon or linkage.
+    severity: incorrect_uk
+  - claim: '§1 cause: "damaged or failed mechanism associated with high water pressure".'
+    concern: The worksheet itself says this needs assessment. Mains pressure is not a usual cause of a toilet not flushing, so we don't use it.
+    severity: unsupported
+  - claim: '§1–§8 and Part 4: "The receptionist must not disclose these possibilities", "must not provide probable diagnoses … for a customer''s specific problem".'
+    concern: Too cautious for common, well-understood faults. A running cistern, weak flush or slow refill can be explained tentatively (flush or fill valve), and the engineer still confirms. We explain these but give no diagnosis for leaks with an unclear source.
+    severity: too_cautious
+  - claim: '§2 cause: "a poorly installed or blocked vent pipe" is one of the two main causes of a blocked toilet.'
+    concern: Most single-toilet blockages are in the pan or the drain close to it, usually from wipes or similar. Venting problems tend to cause gurgling or slow draining rather than a blockage. Also, "vent pipe" in the UK is the soil and vent pipe or an air admittance valve.
+    severity: unsupported
+  - claim: '§2 question wording: "diapers, sanitary napkins".'
+    concern: US terms. In the UK these are nappies and sanitary towels or pads.
+    severity: incorrect_uk
+  - claim: '§3 causes: "an already-full septic vault", "shared pipe stack in a high-rise", "simultaneous use of water closets with a poor vent", "trees near the soil pipe".'
+    concern: Septic vault, water closet and high-rise stack are US framing. In the UK it is a septic tank or cesspit, and most homes are on mains drainage. The usual cause of an overflow is a blockage in the pan or drain. Tree roots affect underground drains, not the soil pipe.
+    severity: incorrect_uk
+  - claim: '§3 question: "Is your area prone to flooding?"'
+    concern: Low value for a toilet overflow. If sewage comes up from outside drains or the sewer, that is a different presentation, so we don't ask it.
+    severity: unsupported
+  - claim: 'Part 2 B: "ask whether the customer is currently using a hand pump and record the answer."'
+    concern: Asking about a hand pump (plunger) during an active overflow can sound like encouragement to keep plunging. We record it only if the caller mentions it.
+    severity: unsafe
+  - claim: '§4–§8: "Remind the customer in every such case to watch for hazards and stay away from unsafe areas or equipment."'
+    concern: A generic hazard warning on a running cistern, cracked seat or slow refill is unnecessary and may alarm callers. Hazard handling is triggered by real signs, such as water near electrics, which gets the approved script.
+    severity: too_cautious
+  - claim: '§5 causes: only "a cracked ceramic toilet bowl" or "a crack inside the bowl not visible externally".'
+    concern: Incomplete and could steer the caller. Commoner sources of water round a UK toilet are the pan connector, the cistern-to-pan seal or bolts, the supply connection or valve, and condensation. The worksheet itself says the source must be found on site.
+    severity: unsupported
+  - claim: '§6 causes and questions: "a closed angle valve", "a frozen waterline", "Is water flowing from your other faucets?"'
+    concern: US terms. The UK equivalents are isolating (service) valve, supply pipe and taps. Not served.
+    severity: incorrect_uk
+  - claim: '§6 note: "leaving a faucet slightly open to maintain a small flow may help prevent pipe freezing".'
+    concern: US-style advice. UK guidance is to lag pipes and keep some heating on. It is excluded either way because it is an instruction.
+    severity: incorrect_uk
+  - claim: '§7 causes: "exceeding the toilet''s load capacity" and "earth movement".'
+    concern: Speculative. Common UK causes include impact, overtightened fixings or seat bolts, and age. Not used, and the agent never states how damage happened.
+    severity: unsupported
+  - claim: 'Part 3: "If the customer can shut off the fixture''s water supply valve, the issue may be handled through normal scheduling", and "The receptionist can recommend shutting off the toilet''s water supply valve".'
+    concern: The client has not approved isolation advice. Small isolating valves can be seized or missing, and urgency should depend on what is happening, not on a DIY step. Held for client decision.
+    severity: unsupported
+  - claim: 'Part 3: "water flowing onto nearby electrical outlets or electrical panels".'
+    concern: US terms. In the UK these are sockets and the consumer unit or fuse box. The hazard itself is right and uses the water-on-electrics script.
+    severity: incorrect_uk
+  - claim: 'Throughout: "tank", "flush tank", "faucet", "apartment/unit", "water closets".'
+    concern: US terminology. The agent uses cistern, taps, flat and toilet.
+    severity: incorrect_uk

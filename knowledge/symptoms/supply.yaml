@@ -1,0 +1,692 @@
+family: supply
+general_questions:
+  - Is it one tap, one room, or the whole house?
+  - Is it the hot, the cold, or both?
+  - As far as you know, are your neighbours having the same problem?
+
+presentations:
+  - id: no-water-whole-house
+    name: No water at all
+    keywords:
+      - no water
+      - no water at all
+      - nothing coming out
+      - nothing out of the taps
+      - water's off
+      - water off
+      - lost water
+      - lost supply
+      - no supply
+      - water supply
+      - water's gone
+      - no water anywhere
+      - taps dry
+      - water company
+      - water board
+    ask_first:
+      - Is there no water at all from any tap, including the toilets and any outside tap?
+      - Do your neighbours have water, as far as you know?
+      - Have you noticed any water escaping, wet patches, or a hissing or running sound anywhere?
+    may_explain:
+      - when: neighbours have also lost water
+        say: >-
+          If the neighbours have lost water too, it can sometimes be a supply issue on the water
+          company's side. Your water supplier may be able to confirm whether there's work or a
+          problem in your area.
+      - when: only their home is affected and it's not freezing weather
+        say: >-
+          When only your home is affected, it can sometimes be something on your own supply pipe or
+          fittings, so it's worth an engineer taking a look.
+    urgent_if:
+      - sign: water escaping, flooding, or a burst pipe inside or outside the property
+        level: P2
+      - sign: water near sockets, lights, the consumer unit or electrical appliances
+        level: P1
+    never:
+      - Agree or disagree that it is the water company; record what they say about the neighbours.
+      - Tell the caller to look at the water meter, stopcock or any valve.
+      - Diagnose a burst, frozen or blocked pipe from the call.
+      - Give a time for when the water will come back.
+    engineer_notes:
+      - Every outlet dry, or some still running (hot, cold, toilets, outside tap)
+      - When the supply stopped and whether it went suddenly
+      - Whether neighbours have water
+      - Weather at the time (freezing or heatwave)
+      - Any water escaping, wet areas or hissing, inside or outside
+      - Any recent plumbing or street works the caller mentions
+    booking:
+      job_type: no_water
+      visit: assessment
+      default_urgency: P2
+      note: >-
+        If neighbours are also affected, still offer the visit; the caller may also want to
+        check with their water supplier.
+    source:
+      worksheet: Water supply & pressure — R. Chua, 2026-10-21
+      section: Part 1 §1; Part 2 A
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: frozen-pipe
+    name: Frozen pipe in cold weather
+    keywords:
+      - frozen
+      - frozen pipe
+      - pipes frozen
+      - pipe's frozen
+      - ice
+      - freezing
+      - cold snap
+      - no water since the frost
+      - frozen loft
+      - frozen outside tap
+    ask_first:
+      - Is it every tap with no water, or only some of them?
+      - Do you know roughly where the pipe runs that you think has frozen, like the loft, garage or an outside wall?
+      - Have you noticed any water dripping or escaping anywhere?
+    may_explain:
+      - when: cold weather, only their home affected, no water from some or all taps
+        say: >-
+          In very cold weather a pipe can sometimes freeze, often where it runs through a loft,
+          garage or an outside wall. The engineer will find where and sort it properly.
+      - when: caller asks why they need someone if it might thaw by itself
+        say: >-
+          A frozen pipe can sometimes split, and that may only show once it thaws, so it's worth
+          having the engineer look at it.
+    urgent_if:
+      - sign: no water at all in the property
+        level: P2
+      - sign: water escaping or dripping from a pipe as it thaws
+        level: P2
+      - sign: water near sockets, lights, the consumer unit or electrical appliances
+        level: P1
+    never:
+      - Tell the caller to thaw, heat or warm a pipe in any way (hairdryer, heater, hot water, flame).
+      - Give stopcock or valve instructions.
+      - Say the pipe has or has not burst.
+    engineer_notes:
+      - Which outlets have no water
+      - Where the caller thinks the pipe runs (loft, garage, outside wall, under floor)
+      - Any water escaping or staining
+      - Whether anything has been tried to thaw it
+    booking:
+      job_type: no_water
+      visit: assessment
+      default_urgency: P3
+      note: null
+    source:
+      worksheet: Water supply & pressure — R. Chua, 2026-10-21
+      section: Part 1 §1; Part 3
+      research_agrees: false
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: low-pressure-whole-house
+    name: Low pressure throughout the house
+    keywords:
+      - low pressure
+      - low water pressure
+      - poor pressure
+      - no pressure
+      - weak pressure
+      - pressure's terrible
+      - pressure is rubbish
+      - trickle
+      - shower's a trickle
+      - weak shower
+      - weak flow
+      - slow to fill
+      - water company
+    ask_first:
+      - Is it every tap and shower, or only some of them?
+      - Do your neighbours have the same problem, as far as you know?
+      - Have you noticed any damp patches, wet areas, or water running when nothing's on?
+    may_explain:
+      - when: neighbours have the same low pressure
+        say: >-
+          If the neighbours have it too, it can sometimes be a supply issue on the water
+          company's side. Your water supplier may be able to confirm whether there's work in the
+          area.
+      - when: pressure is worse at busy times like mornings and evenings
+        say: >-
+          Pressure can often drop at busy times of day when a lot of people in the area are using
+          water. The engineer can see whether anything in your own pipework is adding to it.
+      - when: neighbours are fine and the whole house is affected
+        say: >-
+          If the neighbours are fine, it may be something on your own supply rather than the
+          water company's, so it's worth the engineer taking a look.
+    urgent_if:
+      - sign: damp patch, wet area or water running when nothing is on, with water still escaping
+        level: P2
+      - sign: pressure so low the property effectively has no water
+        level: P2
+    never:
+      - Agree or disagree that it is the water company; record what they say about the neighbours.
+      - Diagnose a hidden leak from low pressure, a high bill or a damp patch.
+      - Tell the caller to check or turn the stopcock or any valve.
+    engineer_notes:
+      - Which taps and showers are affected; hot, cold or both
+      - Whether neighbours are affected
+      - Times of day it is worse; sudden or gradual; how long
+      - Any damp patches, wet areas, running sounds or higher water bill
+      - Any recent plumbing work
+    booking:
+      job_type: pipework
+      visit: assessment
+      default_urgency: P4
+      note: null
+    source:
+      worksheet: Water supply & pressure — R. Chua, 2026-10-21
+      section: Part 1 §2; Part 2 B; Part 4
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: low-pressure-one-outlet-or-area
+    name: Low pressure or no water at one tap or one area
+    keywords:
+      - one tap
+      - just the kitchen
+      - just the bathroom
+      - upstairs
+      - upstairs bathroom
+      - downstairs is fine
+      - no water in the kitchen
+      - few drops
+      - kitchen tap
+      - bathroom tap
+      - basin tap
+      - faucet
+      - shower only
+      - one shower
+    ask_first:
+      - Which taps or rooms are affected, and are the others working normally?
+      - Is it upstairs only, with downstairs fine?
+      - Do you have a water tank in the loft, a shower pump, or a pressurised hot-water cylinder, if you know?
+    may_explain:
+      - when: one tap or one shower affected, others normal
+        say: >-
+          When only one tap or shower is affected, it's often something at that outlet or its own
+          supply, such as a build-up of scale or a worn part. The engineer will confirm
+          when they see it.
+      - when: upstairs weaker than downstairs, especially with a loft tank
+        say: >-
+          Upstairs taps and showers can sometimes have lower pressure than downstairs, especially
+          in homes with a water tank in the loft. The engineer will look at how your system is set
+          up.
+    urgent_if:
+      - sign: water escaping from the pipework or under the tap or sink
+        level: P2
+      - sign: the only working toilet or the only kitchen supply has no water
+        level: P3
+    never:
+      - Tell the caller to open, turn or adjust any isolation valve or the stopcock.
+      - Tell the caller to remove or clean a tap aerator, filter or shower head.
+      - State the cause as confirmed.
+    engineer_notes:
+      - Affected taps, rooms and floors; pressure downstairs
+      - No water, or reduced flow
+      - Hot, cold or both at the affected outlet
+      - Loft tank, shower pump, booster pump or unvented cylinder, if known
+      - When it started; age or condition of the tap if mentioned
+    booking:
+      job_type: tap_toilet
+      visit: assessment
+      default_urgency: P4
+      note: Use pipework instead of tap_toilet if a whole floor or area is affected.
+    source:
+      worksheet: Water supply & pressure — R. Chua, 2026-10-21
+      section: Part 1 §3; Part 4
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: hot-pressure-low-cold-fine
+    name: Low hot-water pressure, cold normal
+    keywords:
+      - hot water pressure
+      - hot is weak
+      - hot water trickle
+      - cold is fine
+      - hot tap slow
+      - shower weak on hot
+      - goes weak on hot
+      - hot and cold
+      - shower goes hot and cold
+    ask_first:
+      - Is it just the shower, or are the other hot taps weak too?
+      - Does your hot water come from a combi boiler, or a hot-water cylinder in a cupboard?
+      - Has it always been like this, or did it change recently?
+    may_explain:
+      - when: only the shower is weak on hot, other hot taps fine
+        say: >-
+          If only the shower is affected, it can sometimes be something inside the shower valve, such as
+          scale or a worn part. The engineer will confirm when they see it.
+      - when: hot has always been weaker than cold and they have a cylinder fed from a loft tank
+        say: >-
+          In homes where the hot water comes from a cylinder fed by a loft tank, the hot can often
+          be weaker than the cold, which comes straight from the mains. The engineer can look at
+          options.
+    urgent_if:
+      - sign: no hot water at all
+        level: P3
+      - sign: water escaping from the cylinder, boiler or pipework
+        level: P2
+    never:
+      - Tell the caller to touch, open or adjust the boiler, cylinder, immersion or any valve.
+      - Use US terms like water heater or tank for a combi.
+      - Diagnose rust, scale or a faulty cartridge as the cause.
+    engineer_notes:
+      - Which hot outlets are affected; cold pressure normal or not
+      - Combi, system or regular boiler; cylinder; loft tank (if known)
+      - Boiler make if a gas boiler is involved
+      - Rusty or discoloured hot water noticed
+      - Always like this, or a recent change; constant or on and off
+    booking:
+      job_type: other
+      visit: assessment
+      default_urgency: P4
+      note: >-
+        If the hot water comes from a gas combi, the work may be on a gas boiler; only book as
+        gas_boiler if the business is Gas Safe registered.
+    source:
+      worksheet: Water supply & pressure — R. Chua, 2026-10-21
+      section: Part 1 §4
+      research_agrees: true
+    status: needs_review
+    reviewed_by: null
+
+  - id: pressure-drops-when-other-outlet-used
+    name: Pressure drops when another tap is used
+    keywords:
+      - when someone uses
+      - when the toilet flushes
+      - when someone flushes
+      - when the washing machine
+      - pressure drops
+      - shower goes weak
+      - shower goes cold
+      - shower goes hot
+      - two taps
+      - at the same time
+      - both taps
+    ask_first:
+      - Which tap or appliance being used makes the difference?
+      - Does it affect only one shower or tap, or everything?
+      - Has any new pipework or a new bathroom been fitted recently?
+    may_explain:
+      - when: pressure drops when another tap or appliance is running
+        say: >-
+          That can often happen when the supply or pipework can't keep up with more than one
+          outlet at once. The engineer can look at whether anything can be improved.
+      - when: shower temperature jumps when someone else uses water
+        say: >-
+          Some showers can change temperature when water is used elsewhere in the house, because
+          the hot and cold balance shifts. The engineer will look at what type you've got.
+    urgent_if:
+      - sign: water escaping from pipework, especially new pipework
+        level: P2
+    never:
+      - Tell the caller to adjust any valve, shower setting or pump.
+      - Say the new pipework or installer is at fault.
+      - Say anything is safe to keep using.
+    engineer_notes:
+      - Which outlet drops and what being used causes it
+      - Hot, cold or both; pressure or temperature change
+      - Combi, cylinder, loft tank or pump (if known)
+      - Any new pipework or bathroom recently, and who fitted it
+    booking:
+      job_type: pipework
+      visit: assessment
+      default_urgency: P4
+      note: null
+    source:
+      worksheet: Water supply & pressure — R. Chua, 2026-10-21
+      section: Part 1 §5
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: sudden-pressure-change
+    name: Sudden drop or rise in pressure
+    keywords:
+      - suddenly dropped
+      - pressure suddenly
+      - sudden drop
+      - much stronger
+      - stronger than usual
+      - too much pressure
+      - high pressure
+      - pressure's gone up
+      - blasting out
+      - pressure changed
+    ask_first:
+      - Has the pressure gone suddenly higher, or suddenly lower?
+      - Is it every tap and shower, or just one?
+      - Have you noticed any leaks, damp, or water running when nothing's on?
+    may_explain:
+      - when: whole house changed suddenly and neighbours have noticed it too
+        say: >-
+          A sudden change across the whole house can sometimes come from a change in the water
+          company's supply, especially if the neighbours have noticed it too.
+      - when: sudden drop, whole house, neighbours fine
+        say: >-
+          If the neighbours are fine, a sudden drop may be something on your own supply, so the
+          engineer will want to look at it.
+    urgent_if:
+      - sign: water escaping, a burst, or a new damp patch
+        level: P2
+      - sign: pressure dropped to no water at all
+        level: P2
+    never:
+      - Mention adjusting a pressure-reducing valve or any other valve.
+      - Say high pressure is causing a leak or damage.
+      - Agree or disagree that it is the water company.
+    engineer_notes:
+      - Higher or lower; when it changed; sudden or gradual
+      - Every outlet or one
+      - Whether it gets worse when several taps run
+      - Neighbours affected or not
+      - Any leaks, damp or banging
+    booking:
+      job_type: pipework
+      visit: assessment
+      default_urgency: P4
+      note: null
+    source:
+      worksheet: Water supply & pressure — R. Chua, 2026-10-21
+      section: Part 1 §6
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: discoloured-or-cloudy-water
+    name: Brown, discoloured or cloudy water
+    keywords:
+      - brown water
+      - discoloured
+      - discolored
+      - dirty water
+      - rusty water
+      - cloudy
+      - milky
+      - white water
+      - orange water
+      - yellow water
+      - bits in the water
+      - water doesn't look right
+    ask_first:
+      - Is it the cold taps, the hot taps, or both?
+      - When did it start, and is it every tap or just one?
+      - Do you know of any water works in your street, or are the neighbours seeing it too?
+    may_explain:
+      - when: brown or discoloured cold water, started suddenly, works nearby or neighbours affected
+        say: >-
+          Brown or discoloured cold water can sometimes come from work or a disturbance on the
+          water mains. Your water supplier may be able to tell you if there's been work nearby.
+      - when: cloudy or milky water that clears from the bottom of the glass upwards
+        say: >-
+          Cloudy or milky water that clears from the bottom up is often caused by tiny air
+          bubbles in the water.
+      - when: only the hot water is discoloured
+        say: >-
+          If only the hot water is affected, it may be coming from the hot-water cylinder or heating side
+          rather than the mains, which the engineer can look at.
+    urgent_if:
+      - sign: discoloured water together with no water or very low pressure
+        level: P3
+    never:
+      - Say whether the water is safe or unsafe to drink or use.
+      - Tell the caller to run, flush or drain the taps or system.
+      - Agree or disagree that it is the water company.
+    engineer_notes:
+      - Brown, orange, cloudy, or bits; hot, cold or both
+      - Which taps; when it started; constant or on and off
+      - Any announced water works; neighbours affected
+      - Recent plumbing work or supply restored after an outage
+    booking:
+      job_type: other
+      visit: assessment
+      default_urgency: P4
+      note: null
+    source:
+      worksheet: Water supply & pressure — R. Chua, 2026-10-21
+      section: Part 1 §7
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: spitting-or-banging-pipes
+    name: Taps spitting or pipes banging
+    keywords:
+      - spitting
+      - sputtering
+      - air in the pipes
+      - airlock
+      - banging
+      - bang
+      - knocking
+      - hammering
+      - water hammer
+      - pipes shake
+      - shuddering
+      - clunk when tap turned off
+      - noisy pipes
+    ask_first:
+      - Does it happen when you turn a tap on, or when you turn it off?
+      - Did it start recently, for example after the water was off, or has it been going on a while?
+      - Is it one tap, or several around the house?
+    may_explain:
+      - when: taps spitting after the water supply was off or after work on the pipes
+        say: >-
+          Spitting taps after the water has been off can often be air trapped in the pipes. The
+          engineer can check if it doesn't settle down.
+      - when: loud bang or shudder when a tap is turned off or an appliance stops filling
+        say: >-
+          A bang when a tap shuts off is often called water hammer, where the water stops suddenly
+          in the pipe. It can sometimes be made worse by loose pipework, which the engineer can
+          look at.
+    urgent_if:
+      - sign: water escaping from a pipe or joint near where the banging is
+        level: P2
+    never:
+      - Tell the caller to open taps to clear air, or to adjust any valve.
+      - Tell the caller to fix or pack loose pipes.
+      - Confirm air or water hammer as the cause.
+    engineer_notes:
+      - Spitting on opening or banging on closing
+      - Which taps, appliances or toilet fill trigger it
+      - New or long-standing; after a supply outage or recent work
+      - Where the noise seems loudest
+    booking:
+      job_type: pipework
+      visit: assessment
+      default_urgency: P4
+      note: null
+    source:
+      worksheet: Water supply & pressure — R. Chua, 2026-10-21
+      section: Part 1 §7
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: possible-hidden-leak
+    name: Water running or meter moving with nothing on
+    keywords:
+      - meter spinning
+      - meter moving
+      - meter going round
+      - water running
+      - hear water running
+      - hissing
+      - nothing's on
+      - high water bill
+      - bill gone up
+      - damp patch
+      - wet patch
+      - soggy
+      - water coming up
+      - wet ground
+    ask_first:
+      - Is there any water you can see, like flooding, wet areas, or a damp patch?
+      - Where is the damp or the running sound, inside or outside the house?
+      - Is your water pressure or supply normal at the moment?
+    may_explain:
+      - when: low pressure plus a damp patch or running sound, neighbours fine
+        say: >-
+          When low pressure and a damp patch or running sound turn up together, they can
+          sometimes be connected, so the engineer will want to look at both on the same visit.
+    urgent_if:
+      - sign: water visibly escaping, flooding, or wet ground spreading
+        level: P2
+      - sign: water near sockets, lights, the consumer unit or electrical appliances
+        level: P1
+      - sign: no water at all
+        level: P2
+    never:
+      - Confirm that a pipe has burst or that there is a leak.
+      - Tell the caller to read or check the meter, or to turn off the stopcock.
+      - Say high pressure is causing the leak or mention adjusting a pressure-reducing valve.
+      - Ask lots of background questions once flooding is reported.
+    engineer_notes:
+      - Meter moving or running sound with nothing on (if the caller has noticed)
+      - Location of damp, wet areas or running sound; inside or outside
+      - Pressure and supply now; neighbours normal or not
+      - Higher water bill, if mentioned
+      - Any recent plumbing work
+    booking:
+      job_type: leak_repair
+      visit: assessment
+      default_urgency: P3
+      note: null
+    source:
+      worksheet: Water supply & pressure — R. Chua, 2026-10-21
+      section: Part 1 §8; Part 2 B; Part 5
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+  - id: supply-problem-after-recent-work
+    name: Little or no water since recent plumbing work
+    keywords:
+      - since the plumber
+      - after the plumber
+      - since the work
+      - after the work
+      - since they fitted
+      - new bathroom
+      - new boiler
+      - new pipework
+      - since the job
+      - had work done
+      - since the install
+    ask_first:
+      - When was the work done, and what was done?
+      - Which parts of the house are affected, and is it no water or just low pressure?
+      - Is there any water escaping or any wet areas since the work?
+    may_explain:
+      - when: problem started straight after the work
+        say: >-
+          As it started after the work, it may be something to do with the installation, but I
+          can't confirm that over the phone, so the engineer will need to look at it.
+    urgent_if:
+      - sign: water escaping or flooding since the work
+        level: P2
+      - sign: no water at all in the property
+        level: P2
+      - sign: water near sockets, lights, the consumer unit or electrical appliances
+        level: P1
+    never:
+      - Say the previous plumber or installer did something wrong.
+      - Tell the caller to check or turn any valve or stopcock left by the installer.
+      - Diagnose the cause.
+    engineer_notes:
+      - Date of the work and what was done
+      - Who did it (this business or someone else)
+      - Which areas are affected; no water or low pressure; hot, cold or both
+      - Any leaks or wet areas since
+    booking:
+      job_type: pipework
+      visit: assessment
+      default_urgency: P3
+      note: >-
+        If this business did the work, note it as a possible return visit for the owner to
+        confirm; don't promise it is free of charge.
+    source:
+      worksheet: Water supply & pressure — R. Chua, 2026-10-21
+      section: Part 1 §8; Part 2 C; Part 4
+      research_agrees: true
+    status: plumber_supplied
+    reviewed_by: null
+
+flags:
+  - claim: '§1 question: "Is the water meter moving when no taps are being used?"'
+    concern: >-
+      As a question it effectively sends the caller to check the meter, which in the UK is often
+      in a pavement chamber or boundary box, and contradicts the worksheet's own rule not to guide
+      meter checks. We only ask whether they have already noticed it.
+    severity: unsafe
+  - claim: '§3 question: "Is a pump or pressure tank installed?"'
+    concern: >-
+      "Pressure tank" is a US (well-system) term. UK equivalents are a loft cold-water tank, a
+      shower or booster pump, an accumulator, or an unvented (pressurised) cylinder.
+    severity: incorrect_uk
+  - claim: >-
+      §4 causes: "rust build-up around the water-heater connections", "water-heater
+      connections or flexible supply hoses"; AI should tell the customer "not to touch or open
+      the water heater".
+    concern: >-
+      US terminology and equipment. UK homes have a combi boiler or a hot-water cylinder (with
+      immersion). The worksheet also omits the most common UK reason hot is weaker than cold: hot
+      fed from a cylinder and loft tank (gravity) while cold comes from the mains.
+    severity: incorrect_uk
+  - claim: '§4 customer example "The shower goes hot and then cold, then hot again" listed as low hot-water pressure.'
+    concern: >-
+      Temperature swings are a different symptom (shower valve, combi flow rate, demand elsewhere)
+      and should not be treated as a pressure problem. Handled under "pressure drops when another
+      tap is used".
+    severity: unsupported
+  - claim: 'Customer examples use "faucet" (§3) and the research uses "toilet tank".'
+    concern: >-
+      US terms. UK callers say tap and cistern; the agent should use UK wording (faucet kept only
+      as a recognition keyword).
+    severity: incorrect_uk
+  - claim: '§2 low pressure throughout the property — causes given only as "Regional Water Service Repair" and "Peak Hours Water Usage".'
+    concern: >-
+      Omits common property-side causes (partly closed or old stopcock, a leak on the supply pipe,
+      old narrow lead or galvanised supply pipe, gravity-fed system, scale). Listing only
+      water-company causes risks the AI steering callers to blame the water company, the exact
+      trap the receptionist research warns about.
+    severity: unsupported
+  - claim: '§6 "Sudden change / unusually high pressure" — causes include dirt at a tap outlet and limescale inside an older tap.'
+    concern: >-
+      Dirt or scale at one tap reduces flow at that tap and usually builds gradually; it does not
+      explain a sudden whole-house change or higher pressure. Only the supply-level explanation is
+      served.
+    severity: unsupported
+  - claim: '§8 "Excessive water pressure may contribute to leaks at pipe connections, and the pressure-reducing valve (PRV) may need adjustment."'
+    concern: >-
+      Many UK homes have no separate PRV (one is usually part of an unvented cylinder, or fitted in
+      high-pressure areas). Linking a damp patch to high pressure is overconfident, and PRV
+      adjustment must never be mentioned to a caller.
+    severity: unsupported
+  - claim: '§1 cause: "A burst pipe due to excessive pressure or an old pipe connection."'
+    concern: >-
+      Attributing a burst to excessive pressure is stated without basis; in the UK, freezing and
+      thaw, age and corrosion, or damage are at least as likely. Not served as a cause.
+    severity: unsupported
+  - claim: '§2, §3, §5, §6 "What could the AI safely explain": gather information only; leave checks to the plumber; no diagnosis.'
+    concern: >-
+      Too cautious, and inconsistent with the worksheet's own Part 4, which lists neighbours or
+      area supply, single-outlet problems and post-work problems as explainable. Standard tentative
+      explanations (area supply, busy times, one outlet, upstairs with a loft tank, several outlets
+      at once) are safe and useful, and are served.
+    severity: too_cautious
+  - claim: '§7 brown/cloudy water, spitting taps and banging pipes: AI may only "acknowledge the customer''s observations".'
+    concern: >-
+      Too cautious. Discoloured water after mains work, cloudy water from air that clears bottom
+      up, air in pipes after the supply was off, and water hammer when a tap shuts are standard
+      explanations UK water companies give themselves. Served tentatively, with no "safe to drink"
+      statement.
+    severity: too_cautious
