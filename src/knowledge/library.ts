@@ -99,6 +99,7 @@ export function buildLibrary(files: { name: string; content: unknown }[]): Knowl
 export async function loadLibrary(dir: string): Promise<KnowledgeLibrary> {
   let names: string[];
   try {
+    // Stryker disable next-line MethodExpression: Node's readdir (libuv scandir) already sorts; kept to be explicit.
     names = (await readdir(dir)).filter((f) => f.endsWith('.yaml')).sort();
   } catch {
     // No library deployed: lookups answer "not covered" and move to booking.
@@ -183,6 +184,7 @@ export function lookupFaultCode(
       : { status: 'not_covered', reason: 'not_for_model', manufacturer, range, code };
   }
   // Model not pinned down. A partial name ("ecoTEC plus") narrows to the ranges it is part of.
+  // Stryker disable next-line StringLiteral: the mutant text has spaces and punctuation, which simplified keys never contain, so it narrows nothing.
   const said = query.model ? simplify(query.model) : '';
   const family =
     said.length >= 4

@@ -187,6 +187,47 @@ describe('buildLibrary', () => {
   });
 });
 
+describe('lookupFaultCode with a partial model', () => {
+  const lib = () =>
+    buildLibrary([
+      {
+        name: 'v.yaml',
+        content: {
+          manufacturer: 'vaillant',
+          known_ranges: [
+            { name: 'Mini 24', aliases: ['M24'], coverage: 'covered' },
+            { name: 'Mini 30', coverage: 'covered' },
+            { name: 'System', coverage: 'covered' },
+            { name: 'Heat', coverage: 'covered' },
+          ],
+          entries: [
+            entry('vaillant', 'v-m24', ['Mini 24'], 'F1', 'Meaning mini.'),
+            entry('vaillant', 'v-m30', ['Mini 30', 'System'], 'F1', 'Meaning mini.'),
+            entry('vaillant', 'v-heat', ['Heat'], 'F1', 'Meaning heat.'),
+          ],
+        },
+      },
+    ]);
+
+  it('narrows to every range whose name contains what was said (4+ characters)', () => {
+    expect(lookupFaultCode(lib(), { make: 'Vaillant', model: 'mini', code: 'F1' })).toEqual({
+      status: 'found',
+      entry: expect.objectContaining({ id: 'v-m24' }),
+      ranges: ['Mini 24', 'Mini 30', 'System'],
+      manufacturer: 'vaillant',
+      range: null,
+      code: 'F1',
+    });
+  });
+
+  it('three characters are too few to narrow', () => {
+    expect(lookupFaultCode(lib(), { make: 'Vaillant', model: 'min', code: 'F1' })).toMatchObject({
+      status: 'needs_model',
+      candidates: ['Mini 24', 'Mini 30', 'System'],
+    });
+  });
+});
+
 describe('loadLibrary', () => {
   let dir: string | undefined;
   afterEach(() => {

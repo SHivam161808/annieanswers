@@ -340,6 +340,7 @@ export class PostCallProcessor {
       deadline,
       operation: 'post_call_field_ids',
     });
+    // Stryker disable next-line ArrayDeclaration: a nameless placeholder entry is never looked up or cached (JSON drops it).
     const map = new Map((res.customFields ?? []).map((f) => [f.name, f.id]));
     await this.o.redis.set(cacheKey, JSON.stringify(Object.fromEntries(map)), 'EX', 3600);
     return map;

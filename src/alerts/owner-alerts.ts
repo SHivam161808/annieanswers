@@ -63,6 +63,7 @@ export class OwnerAlerts {
         body: { type: 'SMS', contactId, message: text },
       });
       if (!res.messageId && !res.messageIds?.length)
+        // Stryker disable next-line StringLiteral: the message is caught below; only the failure code is logged.
         throw new GhlError('http_5xx', null, 'GHL did not return a message id');
       await this.o.redis.set(sentKey, 'sent', 'EX', SENT_TTL_S);
       return this.record('sent', key);
@@ -139,6 +140,7 @@ export function parseAlertOverrides(json: string | undefined): Map<string, strin
   }
   const out = new Map<string, string>();
   for (const [k, v] of Object.entries(parsed)) {
+    // Stryker disable next-line ConditionalExpression: normalisePhone already rejects non-strings; kept for the type guard.
     if (typeof v !== 'string' || !normalisePhone(v))
       throw new Error(`ALERT_SMS_OVERRIDES: invalid number for ${k}`);
     out.set(k, v);
