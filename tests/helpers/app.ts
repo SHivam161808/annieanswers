@@ -5,7 +5,7 @@ import type { FastifyInstance } from 'fastify';
 import type { DestinationStream } from 'pino';
 import { Redis } from 'ioredis';
 import { inject } from 'vitest';
-import { buildApp } from '../../src/app.js';
+import { buildApp, type AppDeps } from '../../src/app.js';
 import { loadConfigStore } from '../../src/clients/config-store.js';
 import { loadEnv, type Env } from '../../src/config/env.js';
 import { createLogger } from '../../src/observability/logger.js';
@@ -62,6 +62,8 @@ export async function startTestApp(
     now?: () => Date;
     logStream?: DestinationStream;
     ghl?: GhlClient;
+    /** Extra dependencies (alerts, templates, postCall, knowledge); may use the test Redis. */
+    deps?: (redis: Redis) => Partial<AppDeps>;
   } = {},
 ): Promise<TestApp> {
   const env = await testEnv(options.env);
@@ -84,6 +86,7 @@ export async function startTestApp(
     metrics: createMetrics(),
     now: options.now,
     ghl: options.ghl,
+    ...options.deps?.(redis),
   });
   await app.ready();
   return {

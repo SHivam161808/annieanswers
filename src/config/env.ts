@@ -20,6 +20,7 @@ const envSchema = z.object({
     .pipe(z.array(z.string().min(32)).min(1)),
   METRICS_TOKEN: z.string().min(32),
   CLIENT_CONFIG_DIR: z.string().default('config/clients'),
+  KNOWLEDGE_DIR: z.string().default('knowledge/boilers'),
   ACTION_DEADLINE_MS: z.coerce.number().int().min(100).max(10_000).default(1800),
   /** Reschedule/cancel need a read, a GHL write (~1.3 s measured) and a read-back. */
   BOOKING_ACTION_DEADLINE_MS: z.coerce.number().int().min(500).max(10_000).default(4000),
@@ -32,6 +33,10 @@ const envSchema = z.object({
   /** Single-location fallback (local development). */
   GHL_PRIVATE_TOKEN: z.string().optional(),
   GHL_LOCATION_ID: z.string().optional(),
+  /** Demo/testing only: JSON locationId -> phone that receives owner alerts instead of config. */
+  ALERT_SMS_OVERRIDES: z.string().optional(),
+  /** In-process post-call processing interval (ms); 0 disables (use the /v1/jobs endpoint). */
+  POST_CALL_INTERVAL_MS: z.coerce.number().int().min(0).default(60_000),
 });
 
 export type Env = z.infer<typeof envSchema>;

@@ -13,6 +13,7 @@ export interface ClientConfig {
 export interface ConfigStore {
   get(locationId: string): ClientConfig | undefined;
   size(): number;
+  locations(): string[];
 }
 
 export class ConfigValidationError extends Error {
@@ -65,5 +66,6 @@ export async function loadConfigStore(dir: string): Promise<ConfigStore> {
   return {
     get: (locationId) => byLocation.get(locationId),
     size: () => byLocation.size,
+    locations: () => [...byLocation.keys()],
   };
 }

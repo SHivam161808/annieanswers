@@ -36,3 +36,29 @@ export function escalation(
   }
   return { ...decision, instruction };
 }
+
+/** Decisions that promise the caller an urgent alert to the owner. */
+export function needsOwnerAlert(response: EscalationResponse): boolean {
+  return response.action === 'emergency_alert' || response.action === 'urgent_alert';
+}
+
+/**
+ * Adjusts the instruction to what actually happened with the owner alert, so the agent never
+ * claims an alert was sent when it wasn't.
+ */
+export function withAlertResult(
+  response: EscalationResponse,
+  client: ClientConfig,
+  result: 'sent' | 'duplicate' | 'failed' | 'no_number' | 'not_configured',
+): EscalationResponse & { owner_alerted: boolean } {
+  if (result === 'sent' || result === 'duplicate') return { ...response, owner_alerted: true };
+  const owner = client.config.owner_first_name;
+  const prefix = response.instruction.includes('Then: ')
+    ? response.instruction.slice(0, response.instruction.indexOf('Then: ') + 'Then: '.length)
+    : '';
+  return {
+    ...response,
+    owner_alerted: false,
+    instruction: `${prefix}Take their name and best number. Do not say ${owner} has been alerted; say the details are going to ${owner} straight away as urgent.`,
+  };
+}

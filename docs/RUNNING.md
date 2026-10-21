@@ -23,12 +23,12 @@ Caller ──► owner's phone (diverts when unanswered) ──► GHL UK number
                          Plumber's GHL login / mobile app, owner SMS alerts
 ```
 
-| Part                                                  | Where it runs                                                 | Who looks after it               |
-| ----------------------------------------------------- | ------------------------------------------------------------- | -------------------------------- |
-| Voice AI agent, number, calendar, contacts, workflows | GHL, one **sub-account per plumbing business**                | Set up by our tools + GHL screen |
-| Middleware (`src/`)                                   | This laptop (testing) → Google Cloud Run, London (production) | Us                               |
-| Redis                                                 | Local (testing) → managed Redis in London (production)        | Us                               |
-| Prompt, config, tests, docs                           | This Git repo                                                 | Us                               |
+| Part                                                  | Where it runs                                          | Who looks after it               |
+| ----------------------------------------------------- | ------------------------------------------------------ | -------------------------------- |
+| Voice AI agent, number, calendar, contacts, workflows | GHL, one **sub-account per plumbing business**         | Set up by our tools + GHL screen |
+| Middleware (`src/`)                                   | This laptop (testing) → Fly.io London (production)     | Us                               |
+| Redis                                                 | Local (testing) → Upstash Redis in London (production) | Us                               |
+| Prompt, config, tests, docs                           | This Git repo                                          | Us                               |
 
 ## 2. Running it today (testing, on this laptop)
 
@@ -47,16 +47,41 @@ postcode, escalation and booking-change actions fail mid-call. This is why produ
 `.env` must contain `GHL_PRIVATE_TOKEN`, `GHL_LOCATION_ID`, `WEBHOOK_SECRETS`, `METRICS_TOKEN`,
 `REDIS_URL` (see `.env.example`). It is never committed.
 
-## 3. Running it in production
+## 3. Running it in production (UK server, London)
 
-1. One-time GCP set-up and secrets: [deploy/cloud-run.md](deploy/cloud-run.md).
-2. `PROJECT=<gcp-project> ENVIRONMENT=production VERSION=v1.0.0 deploy/cloudrun/deploy.sh`
-3. Point each sub-account at it: `MIDDLEWARE_URL=<cloud-run-url> npx tsx tools/demo/provision.ts`
-   (with that sub-account's env file, see §4), then update the URL of `check_service_area` and
-   `escalation` in the GHL screen (they have UI-added parameters the API can't edit).
-4. `MIDDLEWARE_URL=<cloud-run-url> npx tsx tools/demo/verify.ts` — must say ALL CHECKS PASSED.
-5. Daily review and alerts run from GitHub Actions (`.github/workflows/call-review.yml`) once its
+1. One-time: `fly auth login` (browser; the Fly account needs a payment card), then
+   `fly redis create --region lhr` and note the `rediss://` URL.
+2. Put the secrets in `deploy/fly/secrets.production.env` (git-ignored), one `KEY=value` per line:
+   `WEBHOOK_SECRETS`, `METRICS_TOKEN`, `REDIS_URL`, `GHL_TOKENS` (JSON: location id → token).
+3. `git tag v1.1.0 && ENVIRONMENT=production VERSION=v1.1.0 deploy/fly/deploy.sh` — runs all checks,
+   deploys two machines in London and waits until `/readyz` is ready.
+4. Point each sub-account at it: `MIDDLEWARE_URL=https://annie-api-production.fly.dev npx tsx tools/demo/provision.ts`
+   (with that sub-account's env file, see §4), then update the URL of the actions that have
+   UI-added parameters in the GHL screen.
+5. `MIDDLEWARE_URL=… npx tsx tools/demo/verify.ts` — must say ALL CHECKS PASSED.
+6. Daily review and alerts run from GitHub Actions (`.github/workflows/call-review.yml`) once its
    secrets are set; run it by hand any time with `npm run ops:call-review -- --hours 24`.
+
+Google Cloud Run (London) works the same way: [deploy/cloud-run.md](deploy/cloud-run.md).
+
+### Owner SMS alerts and after-call processing
+
+The middleware does what workflows WF-01/05/06 would do, so nothing has to be built in the GHL screen:
+
+- **During the call:** P1/P2 escalations text the owner at once (`alert_sms_number` in the client
+  config). If the text fails, the agent is told not to say the owner was alerted.
+- **After the call (every minute):** each finished call gets tags (`ai-call`, `outcome-…`), AI fields,
+  a card in the "AI Receptionist Enquiries" pipeline (create the pipeline once in the GHL screen), and
+  the owner gets the outcome text (booked, callback, message, emergency, missing outcome).
+- Each text is sent once per call. Test with your own number: put
+  `ALERT_SMS_OVERRIDES='{"<location id>":"+44…"}'` in `.env` (never in Git).
+- Run it by hand: `curl -X POST -H "x-annie-secret: …" <server>/v1/jobs/post-call`.
+
+### Boiler fault-code library
+
+`knowledge/boilers/<manufacturer>.yaml`, from official manufacturer documents only. Check with
+`npm run validate:knowledge` (prints coverage per manufacturer). To withdraw an entry, set
+`status: withdrawn` and redeploy. Gaps callers ask about are logged as `knowledge_gap`.
 
 ## 4. Onboarding a plumbing business (target ≤ 4 hours, configuration only)
 

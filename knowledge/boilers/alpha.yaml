@@ -1,0 +1,841 @@
+# Alpha fault codes. Sources fetched on 2026-10-19 via alpha-innovation.co.uk (PDFs on its document store). See knowledge/schema.ts.
+manufacturer: alpha
+known_ranges:
+  - name: 'E-Tec NX'
+    aliases: ['E-Tec 28NX', 'E-Tec 33NX']
+    discontinued: false
+    coverage: partial
+    note: 'Current combi. 11 main codes from the installation manual; no homeowner guidance (no separate user manual).'
+  - name: 'E-Tec Plus NX'
+    aliases: ['E-Tec Plus 28NX', 'E-Tec Plus 33NX', 'E-Tec Plus 38NX']
+    discontinued: false
+    coverage: partial
+    note: 'Current combi. 11 main codes from the installation manual; no homeowner guidance (no separate user manual).'
+  - name: 'Evoke NX'
+    aliases: ['Evoke 28NX', 'Evoke 33NX']
+    discontinued: false
+    coverage: partial
+    note: 'Current combi. 11 main codes from the installation manual; no homeowner guidance (no separate user manual).'
+  - name: 'E-Tec NXS'
+    aliases: ['E-Tec 20NXS', 'E-Tec 30NXS', 'E-Tec 35NXS']
+    discontinued: false
+    coverage: partial
+    note: 'Current system boiler. 11 main codes from the installation manual; no homeowner guidance (no separate user manual).'
+  - name: 'E-Tec Regular'
+    aliases: ['E-Tec R', 'E-Tec 15R', 'E-Tec 20R', 'E-Tec 25R']
+    discontinued: false
+    coverage: none
+    note: 'Current heat-only. Manual published; not yet processed. Some codes differ from E-Tec NX (e.g. E06, E27, E44, E71).'
+  - name: 'E-Tec (pre-NX)'
+    aliases: ['E-Tec 28', 'E-Tec 33', 'E-Tec S', 'E-Tec Plus']
+    discontinued: true
+    coverage: none
+    note: 'Earlier E-Tec, E-Tec S and E-Tec Plus; manuals still published, not processed.'
+  - name: 'Evoke (pre-NX)'
+    aliases: []
+    discontinued: true
+    coverage: none
+    note: 'Earlier Evoke; manual still published, not processed.'
+  - name: 'InTec'
+    aliases: ['InTec C', 'InTec CS', 'InTec GS', 'InTec 40GS2']
+    discontinued: true
+    coverage: none
+    note: 'Not in current product list. Older InTec models signal faults with A/B lights; not processed.'
+  - name: 'ProTec NX'
+    aliases: []
+    discontinued: false
+    coverage: none
+    note: 'Large domestic/commercial; not processed.'
+entries:
+  - id: al-etec-nx-e01
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NX']
+    code: 'E01'
+    meaning: 'Ignition failure: no flame was detected while the boiler was trying to light.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121038/E-Tec-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'E-Tec 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.48'
+      checked: '2026-10-19'
+      quote: '01 Ignition failure Flame not detected during ignition sequence'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nx-e02
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NX']
+    code: 'E02'
+    meaning: "Overheat lockout: the boiler's overheat sensor has activated."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121038/E-Tec-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'E-Tec 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.48'
+      checked: '2026-10-19'
+      quote: '02 Overheat boiler lock Overheat sensor has activated'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nx-e03
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NX']
+    code: 'E03'
+    meaning: 'High flue temperature: the flue sensor has detected that the flue temperature is too high.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121038/E-Tec-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'E-Tec 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.48'
+      checked: '2026-10-19'
+      quote: '03 High flue temperature Flue sensor intervention (flue temperature too'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nx-e10
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NX']
+    code: 'E10'
+    meaning: 'Low system pressure: the primary pressure switch has operated.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121038/E-Tec-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'E-Tec 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.48'
+      checked: '2026-10-19'
+      quote: '10 Primary system Primary pressure switch has operated'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nx-e16
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NX']
+    code: 'E16'
+    meaning: 'Fan fault: a fan wiring fault or a faulty fan.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121038/E-Tec-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'E-Tec 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.48'
+      checked: '2026-10-19'
+      quote: '16 Fan fault Fan wiring fault or fan faulty'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nx-e20
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NX']
+    code: 'E20'
+    meaning: 'Flame sensing fault: a flame is being detected when the gas valve is not open.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121038/E-Tec-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'E-Tec 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.48'
+      checked: '2026-10-19'
+      quote: '20 Flame sensing fault False flame detection Flame detected but gas valve is not open'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nx-e37
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NX']
+    code: 'E37'
+    meaning: "Low supply voltage: there isn't enough mains voltage to run the boiler."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121038/E-Tec-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'E-Tec 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.49'
+      checked: '2026-10-19'
+      quote: '37 Low supply voltage Insufficient supply voltage to operate boiler'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nx-e38
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NX']
+    code: 'E38'
+    meaning: 'Loss of flame: the flame was detected but then lost; the boiler retries ignition after a fan purge.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121038/E-Tec-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'E-Tec 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.49'
+      checked: '2026-10-19'
+      quote: '38 Loss of flame Flame detected but signal lost. Ignition retries'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nx-e43
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NX']
+    code: 'E43'
+    meaning: 'Repeated loss of flame while the boiler was running. This can happen if the flue is exposed to high winds.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121038/E-Tec-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'E-Tec 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.49'
+      checked: '2026-10-19'
+      quote: '43 Loss of flame Repeated loss of flame signal during operation'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nx-e60
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NX']
+    code: 'E60'
+    meaning: 'Pump fault: the pump is stuck or has an electrical fault.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121038/E-Tec-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'E-Tec 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.49'
+      checked: '2026-10-19'
+      quote: '60 Pump fault The pump is stuck or there is an electrical pump'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nx-e61
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NX']
+    code: 'E61'
+    meaning: 'Air in the pump: heating flow is restricted by air or a restriction in the circuit.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121038/E-Tec-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'E-Tec 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.49'
+      checked: '2026-10-19'
+      quote: '61 Air in the pump Restricted CH flow due to air or a circuit restriction'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-evoke-nx-e01
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['Evoke NX']
+    code: 'E01'
+    meaning: 'Ignition failure: no flame was detected while the boiler was trying to light.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27120955/Evoke-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'Evoke 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.48'
+      checked: '2026-10-19'
+      quote: '01 Ignition failure Flame not detected during ignition sequence'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-evoke-nx-e02
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['Evoke NX']
+    code: 'E02'
+    meaning: "Overheat lockout: the boiler's overheat sensor has activated."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27120955/Evoke-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'Evoke 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.48'
+      checked: '2026-10-19'
+      quote: '02 Overheat boiler lock Overheat sensor has activated'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-evoke-nx-e03
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['Evoke NX']
+    code: 'E03'
+    meaning: 'High flue temperature: the flue sensor has detected that the flue temperature is too high.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27120955/Evoke-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'Evoke 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.48'
+      checked: '2026-10-19'
+      quote: '03 High flue temperature Flue sensor intervention (flue temperature too'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-evoke-nx-e10
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['Evoke NX']
+    code: 'E10'
+    meaning: 'Low system pressure: the primary pressure switch has operated.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27120955/Evoke-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'Evoke 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.48'
+      checked: '2026-10-19'
+      quote: '10 Primary system Primary pressure switch has operated'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-evoke-nx-e16
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['Evoke NX']
+    code: 'E16'
+    meaning: 'Fan fault: a fan wiring fault or a faulty fan.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27120955/Evoke-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'Evoke 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.48'
+      checked: '2026-10-19'
+      quote: '16 Fan fault Fan wiring fault or fan faulty'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-evoke-nx-e20
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['Evoke NX']
+    code: 'E20'
+    meaning: 'Flame sensing fault: a flame is being detected when the gas valve is not open.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27120955/Evoke-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'Evoke 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.48'
+      checked: '2026-10-19'
+      quote: '20 Flame sensing fault False flame detection Flame detected but gas valve is not open'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-evoke-nx-e37
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['Evoke NX']
+    code: 'E37'
+    meaning: "Low supply voltage: there isn't enough mains voltage to run the boiler."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27120955/Evoke-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'Evoke 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.49'
+      checked: '2026-10-19'
+      quote: '37 Low supply voltage Insufficient supply voltage to operate boiler'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-evoke-nx-e38
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['Evoke NX']
+    code: 'E38'
+    meaning: 'Loss of flame: the flame was detected but then lost; the boiler retries ignition after a fan purge.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27120955/Evoke-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'Evoke 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.49'
+      checked: '2026-10-19'
+      quote: '38 Loss of flame Flame detected but signal lost. Ignition retries'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-evoke-nx-e43
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['Evoke NX']
+    code: 'E43'
+    meaning: 'Repeated loss of flame while the boiler was running. This can happen if the flue is exposed to high winds.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27120955/Evoke-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'Evoke 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.49'
+      checked: '2026-10-19'
+      quote: '43 Loss of flame Repeated loss of flame signal during operation'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-evoke-nx-e60
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['Evoke NX']
+    code: 'E60'
+    meaning: 'Pump fault: the pump is stuck or has an electrical fault.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27120955/Evoke-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'Evoke 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.49'
+      checked: '2026-10-19'
+      quote: '60 Pump fault The pump is stuck or there is an electrical pump'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-evoke-nx-e61
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['Evoke NX']
+    code: 'E61'
+    meaning: 'Air in the pump: heating flow is restricted by air or a restriction in the circuit.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27120955/Evoke-28-33-NX-Instructions-Feb-23.pdf'
+      title: 'Evoke 28NX and 33NX installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.49'
+      checked: '2026-10-19'
+      quote: '61 Air in the pump Restricted CH flow due to air or a circuit restriction'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nxs-e01
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NXS']
+    code: 'E01'
+    meaning: 'Ignition failure: no flame was detected while the boiler was trying to light.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121016/E-Tec-NXS-Instructions-Feb-23.pdf'
+      title: 'E-Tec 20NXS, 30NXS and 35NXS installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.49'
+      checked: '2026-10-19'
+      quote: '01 Ignition failure Flame not detected during ignition sequence'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nxs-e02
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NXS']
+    code: 'E02'
+    meaning: "Overheat lockout: the boiler's overheat sensor has activated."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121016/E-Tec-NXS-Instructions-Feb-23.pdf'
+      title: 'E-Tec 20NXS, 30NXS and 35NXS installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.49'
+      checked: '2026-10-19'
+      quote: '02 Overheat boiler lock Overheat sensor has activated'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nxs-e03
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NXS']
+    code: 'E03'
+    meaning: 'High flue temperature: the flue sensor has detected that the flue temperature is too high.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121016/E-Tec-NXS-Instructions-Feb-23.pdf'
+      title: 'E-Tec 20NXS, 30NXS and 35NXS installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.49'
+      checked: '2026-10-19'
+      quote: '03 High flue temperature Flue sensor intervention (flue temperature too'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nxs-e10
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NXS']
+    code: 'E10'
+    meaning: 'Low system pressure: the primary pressure switch has operated.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121016/E-Tec-NXS-Instructions-Feb-23.pdf'
+      title: 'E-Tec 20NXS, 30NXS and 35NXS installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.49'
+      checked: '2026-10-19'
+      quote: '10 Primary system Primary pressure switch has operated'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nxs-e16
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NXS']
+    code: 'E16'
+    meaning: 'Fan fault: a fan wiring fault or a faulty fan.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121016/E-Tec-NXS-Instructions-Feb-23.pdf'
+      title: 'E-Tec 20NXS, 30NXS and 35NXS installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.49'
+      checked: '2026-10-19'
+      quote: '16 Fan fault Fan wiring fault or fan faulty'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nxs-e20
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NXS']
+    code: 'E20'
+    meaning: 'Flame sensing fault: a flame is being detected when the gas valve is not open.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121016/E-Tec-NXS-Instructions-Feb-23.pdf'
+      title: 'E-Tec 20NXS, 30NXS and 35NXS installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.49'
+      checked: '2026-10-19'
+      quote: '20 Flame sensing fault False flame detection Flame detected but gas valve is not open'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nxs-e37
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NXS']
+    code: 'E37'
+    meaning: "Low supply voltage: there isn't enough mains voltage to run the boiler."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121016/E-Tec-NXS-Instructions-Feb-23.pdf'
+      title: 'E-Tec 20NXS, 30NXS and 35NXS installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.50'
+      checked: '2026-10-19'
+      quote: '37 Low supply voltage Insufficient supply voltage to operate boiler'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nxs-e38
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NXS']
+    code: 'E38'
+    meaning: 'Loss of flame: the flame was detected but then lost; the boiler retries ignition after a fan purge.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121016/E-Tec-NXS-Instructions-Feb-23.pdf'
+      title: 'E-Tec 20NXS, 30NXS and 35NXS installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.50'
+      checked: '2026-10-19'
+      quote: '38 Loss of flame Flame detected but signal lost. Ignition retries'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nxs-e43
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NXS']
+    code: 'E43'
+    meaning: 'Repeated loss of flame while the boiler was running. This can happen if the flue is exposed to high winds.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121016/E-Tec-NXS-Instructions-Feb-23.pdf'
+      title: 'E-Tec 20NXS, 30NXS and 35NXS installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.50'
+      checked: '2026-10-19'
+      quote: '43 Loss of flame Repeated loss of flame signal during operation'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nxs-e60
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NXS']
+    code: 'E60'
+    meaning: 'Pump fault: the pump is stuck or has an electrical fault.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121016/E-Tec-NXS-Instructions-Feb-23.pdf'
+      title: 'E-Tec 20NXS, 30NXS and 35NXS installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.50'
+      checked: '2026-10-19'
+      quote: '60 Pump fault The pump is stuck or there is an electrical pump'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-nxs-e61
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec NXS']
+    code: 'E61'
+    meaning: 'Air in the pump: heating flow is restricted by air or a restriction in the circuit.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/09/27121016/E-Tec-NXS-Instructions-Feb-23.pdf'
+      title: 'E-Tec 20NXS, 30NXS and 35NXS installation and servicing instructions (Feb 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.50'
+      checked: '2026-10-19'
+      quote: '61 Air in the pump Restricted CH flow due to air or a circuit restriction'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-plus-nx-e01
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec Plus NX']
+    code: 'E01'
+    meaning: "Ignition failure: when there's a demand for heating or hot water, the boiler doesn't light within the set time."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/11/21142216/E-Tec-28-33-38-Plus-NX-Instructions-Sep-23.pdf'
+      title: 'E-Tec Plus 28NX, 33NX and 38NX installation and servicing instructions (Sep 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.61'
+      checked: '2026-10-19'
+      quote: '01 Ignition failure In the event of a demand for CH or DHW the boiler does not switch on within the preset time.'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-plus-nx-e02
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec Plus NX']
+    code: 'E02'
+    meaning: "Overheat lockout: the boiler's overheat sensor has activated."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/11/21142216/E-Tec-28-33-38-Plus-NX-Instructions-Sep-23.pdf'
+      title: 'E-Tec Plus 28NX, 33NX and 38NX installation and servicing instructions (Sep 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.61'
+      checked: '2026-10-19'
+      quote: '02 Overheat boiler lock Overheat sensor has activated'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-plus-nx-e03
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec Plus NX']
+    code: 'E03'
+    meaning: 'High flue temperature: the flue sensor has detected that the flue temperature is too high.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/11/21142216/E-Tec-28-33-38-Plus-NX-Instructions-Sep-23.pdf'
+      title: 'E-Tec Plus 28NX, 33NX and 38NX installation and servicing instructions (Sep 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.61'
+      checked: '2026-10-19'
+      quote: '03 High flue temperature Flue sensor intervention (flu'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-plus-nx-e10
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec Plus NX']
+    code: 'E10'
+    meaning: "Insufficient system pressure: the boiler isn't detecting enough water pressure in the heating circuit."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/11/21142216/E-Tec-28-33-38-Plus-NX-Instructions-Sep-23.pdf'
+      title: 'E-Tec Plus 28NX, 33NX and 38NX installation and servicing instructions (Sep 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.61'
+      checked: '2026-10-19'
+      quote: '10 Insufficient system Water pressure inside the central heating'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-plus-nx-e16
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec Plus NX']
+    code: 'E16'
+    meaning: 'Fan fault: the fan has a mechanical or electrical fault.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/11/21142216/E-Tec-28-33-38-Plus-NX-Instructions-Sep-23.pdf'
+      title: 'E-Tec Plus 28NX, 33NX and 38NX installation and servicing instructions (Sep 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.61'
+      checked: '2026-10-19'
+      quote: '16 Fan anomaly This occurs if the fan has a mechanical or'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-plus-nx-e20
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec Plus NX']
+    code: 'E20'
+    meaning: 'Parasite flame lockout: a fault on the flame detection circuit or in the flame control unit.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/11/21142216/E-Tec-28-33-38-Plus-NX-Instructions-Sep-23.pdf'
+      title: 'E-Tec Plus 28NX, 33NX and 38NX installation and servicing instructions (Sep 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.61'
+      checked: '2026-10-19'
+      quote: '20 Parasite flame block This occurs in the event of a leak on the detection'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-plus-nx-e37
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec Plus NX']
+    code: 'E37'
+    meaning: 'Low supply voltage: the mains voltage is below the limit needed for the boiler to work properly.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/11/21142216/E-Tec-28-33-38-Plus-NX-Instructions-Sep-23.pdf'
+      title: 'E-Tec Plus 28NX, 33NX and 38NX installation and servicing instructions (Sep 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.62'
+      checked: '2026-10-19'
+      quote: '37 Low power supply This occurs when the power supply volatage is'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-plus-nx-e38
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec Plus NX']
+    code: 'E38'
+    meaning: 'Loss of flame: the burner went out unexpectedly after lighting. The boiler tries to relight and no reset is needed if that works.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/11/21142216/E-Tec-28-33-38-Plus-NX-Instructions-Sep-23.pdf'
+      title: 'E-Tec Plus 28NX, 33NX and 38NX installation and servicing instructions (Sep 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.62'
+      checked: '2026-10-19'
+      quote: '38 Loss of flame signal This occurs when the boiler is ignited correctly'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-plus-nx-e43
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec Plus NX']
+    code: 'E43'
+    meaning: 'Lockout after the flame has been lost several times in a row within a set period.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/11/21142216/E-Tec-28-33-38-Plus-NX-Instructions-Sep-23.pdf'
+      title: 'E-Tec Plus 28NX, 33NX and 38NX installation and servicing instructions (Sep 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.62'
+      checked: '2026-10-19'
+      quote: "43 Block due to loss of This occurs if the 'Flame signal loss' error occurs"
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-plus-nx-e60
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec Plus NX']
+    code: 'E60'
+    meaning: 'Pump blocked: the pump has stopped because its impeller is blocked or there is an electrical fault.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/11/21142216/E-Tec-28-33-38-Plus-NX-Instructions-Sep-23.pdf'
+      title: 'E-Tec Plus 28NX, 33NX and 38NX installation and servicing instructions (Sep 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.63'
+      checked: '2026-10-19'
+      quote: '60 Anomaly pump The pump is stopped due to one of the following'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'
+  - id: al-etec-plus-nx-e61
+    kind: fault_code
+    manufacturer: alpha
+    ranges: ['E-Tec Plus NX']
+    code: 'E61'
+    meaning: "Air in the pump: air has been detected inside the pump so it can't work."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://alpha-heating.ams3.digitaloceanspaces.com/wp-content/uploads/2023/11/21142216/E-Tec-28-33-38-Plus-NX-Instructions-Sep-23.pdf'
+      title: 'E-Tec Plus 28NX, 33NX and 38NX installation and servicing instructions (Sep 2023)'
+      publisher: 'Alpha Heating Innovation'
+      page: 'PDF p.63'
+      checked: '2026-10-19'
+      quote: '61 Air in circulator Air is detected inside the pump, the pump cannot'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Source PDF hosted on the Alpha document store, linked from alpha-innovation.co.uk. Installer manual; codes shown with an E prefix (manual: "E03 will be displayed").'

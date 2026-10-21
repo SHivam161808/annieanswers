@@ -1,0 +1,92 @@
+# Test fixture only — not real knowledge content.
+manufacturer: vaillant
+known_ranges:
+  - { name: ecoTEC plus, aliases: [ecotec plus, eco tec plus], coverage: covered }
+  - { name: ecoTEC pro, aliases: [ecotec pro], coverage: partial }
+  - { name: turboMAX, discontinued: true, coverage: none, note: no official list found }
+entries:
+  - id: vaillant-ecotec-f28
+    kind: fault_code
+    manufacturer: vaillant
+    ranges: [ecoTEC plus, ecoTEC pro]
+    code: F.28
+    meaning: The boiler failed to light when it tried to start.
+    homeowner_guidance: Check other gas appliances are working, then press reset once.
+    engineer_needed: true
+    source:
+      {
+        url: 'https://www.vaillant.co.uk/fixture',
+        title: Fixture manual,
+        publisher: Vaillant,
+        checked: '2026-10-19',
+        quote: 'F.28 ignition failure',
+      }
+    status: source_verified
+  - id: vaillant-plus-f22
+    kind: fault_code
+    manufacturer: vaillant
+    ranges: [ecoTEC plus]
+    code: F.22
+    meaning: The water pressure in the system is too low.
+    homeowner_guidance: Top the pressure up to between 1 and 2 bar as shown in the user guide.
+    engineer_needed: false
+    source:
+      {
+        url: 'https://www.vaillant.co.uk/fixture',
+        title: Fixture manual,
+        publisher: Vaillant,
+        checked: '2026-10-19',
+        quote: 'F.22 low water pressure',
+      }
+    status: source_verified
+  - id: vaillant-pro-f22
+    kind: fault_code
+    manufacturer: vaillant
+    ranges: [ecoTEC pro]
+    code: F.22
+    meaning: A different fixture meaning for the pro range.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      {
+        url: 'https://www.vaillant.co.uk/fixture',
+        title: Fixture manual,
+        publisher: Vaillant,
+        checked: '2026-10-19',
+        quote: 'F.22 fixture pro',
+      }
+    status: source_verified
+  - id: vaillant-withdrawn-f75
+    kind: fault_code
+    manufacturer: vaillant
+    ranges: [ecoTEC plus]
+    code: F.75
+    meaning: Withdrawn fixture meaning that must never be served.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      {
+        url: 'https://www.vaillant.co.uk/fixture',
+        title: Fixture manual,
+        publisher: Vaillant,
+        checked: '2026-10-19',
+        quote: 'F.75 fixture',
+      }
+    status: withdrawn
+  - id: vaillant-unreviewed-f61
+    kind: fault_code
+    manufacturer: vaillant
+    ranges: [ecoTEC plus]
+    code: F.61
+    meaning: Unreviewed fixture meaning from a third-party site.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      {
+        url: 'https://boiler-blog.example.com/f61',
+        title: Blog,
+        publisher: Blog,
+        checked: '2026-10-19',
+        quote: 'F.61 blog',
+      }
+    status: needs_review

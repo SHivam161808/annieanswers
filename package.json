@@ -22,7 +22,7 @@
     "test:failure": "vitest run tests/failure",
     "test:security": "vitest run tests/security",
     "validate:config": "tsx tools/validate-config.ts",
-    "ci": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run validate:config && npm run prompt:build",
+    "ci": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run validate:config && npm run prompt:build && npm run validate:knowledge",
     "prompt:build": "tsx tools/compile-prompt.ts",
     "prompt:release-check": "tsx tools/compile-prompt.ts --release",
     "test:prompt": "vitest run tests/prompt",
@@ -32,7 +32,8 @@
     "test:mutation": "stryker run",
     "test:fuzz": "vitest run tests/fuzz",
     "test:load": "node load/actions-load.mjs",
-    "ops:call-review": "tsx tools/ops/call-review.ts"
+    "ops:call-review": "tsx tools/ops/call-review.ts",
+    "validate:knowledge": "tsx tools/validate-knowledge.ts"
   },
   "dependencies": {
     "@fastify/rate-limit": "^11.2.0",

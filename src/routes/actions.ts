@@ -10,7 +10,11 @@ import {
   type BookingContext,
 } from '../actions/booking.js';
 import { callContext } from '../actions/call-context.js';
-import { escalation } from '../actions/escalation.js';
+import { lookupFaultCodeAction } from '../actions/knowledge.js';
+import type { KnowledgeLibrary } from '../knowledge/library.js';
+import { escalation, needsOwnerAlert, withAlertResult } from '../actions/escalation.js';
+import type { OwnerAlerts } from '../alerts/owner-alerts.js';
+import { renderTemplate, type SmsTemplate } from '../alerts/templates.js';
 import { checkServiceArea } from '../actions/service-area.js';
 import type { ClientConfig, ConfigStore } from '../clients/config-store.js';
 import { AppError } from '../core/errors.js';
@@ -31,6 +35,9 @@ export interface ActionDeps {
   /** Absent when no GHL credentials are configured: booking actions then fall back to messages. */
   ghl?: GhlClient | undefined;
   idempotency: IdempotencyStore;
+  knowledge: KnowledgeLibrary;
+  alerts?: OwnerAlerts | undefined;
+  templates?: ReadonlyMap<string, SmsTemplate> | undefined;
 }
 
 interface RunContext {
@@ -104,16 +111,34 @@ export function registerActionRoutes(app: FastifyInstance, deps: ActionDeps): vo
 
   handle('call-context', (client) => callContext(client, deps.now()));
 
-  handle('escalation', (client, params) => {
-    const parsed = escalationParams.safeParse(params);
-    if (!parsed.success) {
-      throw new AppError(
-        'validation_failed',
-        `trigger must be one of: ${ESCALATION_TRIGGERS.join(', ')}`,
-      );
-    }
-    return escalation(client, parsed.data.trigger, deps.now());
-  });
+  handle(
+    'escalation',
+    async (client, params, ctx) => {
+      const parsed = escalationParams.safeParse(params);
+      if (!parsed.success) {
+        throw new AppError(
+          'validation_failed',
+          `trigger must be one of: ${ESCALATION_TRIGGERS.join(', ')}`,
+        );
+      }
+      const response = escalation(client, parsed.data.trigger, deps.now());
+      if (!needsOwnerAlert(response)) return response;
+      if (!deps.alerts || !deps.templates || !deps.ghl?.hasLocation(ctx.locationId)) {
+        return withAlertResult(response, client, 'not_configured');
+      }
+      // Alert the owner now, during the call; the post-call job follows up with the details.
+      const template = deps.templates.get('urgent_call_in_progress_owner');
+      const text = renderTemplate(template?.body ?? '', {
+        'custom_values.business_name': client.config.business_name,
+        'contact.ai_urgency': parsed.data.trigger,
+      });
+      const minute = Math.floor(deps.now().getTime() / 60_000);
+      const key = `${ctx.callId ?? `nocall-${minute}`}:urgent:${parsed.data.trigger}`;
+      const result = await deps.alerts.send(ctx.locationId, client.config, text, key, ctx.deadline);
+      return withAlertResult(response, client, result);
+    },
+    deps.bookingDeadlineMs,
+  );
 
   const bookingCtx = (ctx: RunContext): BookingContext | null => {
     if (!deps.ghl?.hasLocation(ctx.locationId)) return null;
@@ -148,4 +173,8 @@ export function registerActionRoutes(app: FastifyInstance, deps: ActionDeps): vo
       deadlineMs,
     );
   }
+
+  handle('lookup-fault-code', (client, params, ctx) =>
+    lookupFaultCodeAction(client, params, deps.knowledge, ctx.log),
+  );
 }

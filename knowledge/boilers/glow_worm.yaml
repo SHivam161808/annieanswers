@@ -1,0 +1,2200 @@
+# Glow-worm fault codes. Sources fetched from glow-worm.co.uk on 2026-10-19. See knowledge/schema.ts.
+manufacturer: glow_worm
+known_ranges:
+  - name: 'Energy7'
+    aliases: ['Energy', 'Energy combi', 'Energy system', 'Energy regular', 'Energy 7']
+    discontinued: false
+    coverage: covered
+    note: 'Current range. Full installer fault table (system boiler manual) plus user guidance for F.22/F.28 from the combi user manual.'
+  - name: 'Betacom 4'
+    aliases: ['Betacom4']
+    discontinued: false
+    coverage: covered
+    note: 'Installer fault table plus user guidance for F.22/F.28. Not shown in the current homeowner product list; manuals still published.'
+  - name: 'Easicom 3'
+    aliases: ['Easicom3', 'EasiCom 3']
+    discontinued: false
+    coverage: covered
+    note: 'Current range. Installer fault table (combi) plus user guidance for F.22/F.28 (system user manual).'
+  - name: 'Ultimate 3'
+    aliases: ['Ultimate3', 'Ultimate₃']
+    discontinued: false
+    coverage: partial
+    note: 'Current range. Only F.22/F.28 from the user manual; installer fault table not found on glow-worm.co.uk.'
+  - name: 'Compact'
+    aliases: ['Compact 24c-AS/2', 'Compact 28c-AS/2']
+    discontinued: false
+    coverage: partial
+    note: 'Current Compact combi (24c-AS/2, 28c-AS/2). Only F.22/F.28 from the user manual.'
+  - name: 'Betacom (earlier models)'
+    aliases: ['Betacom a', 'Betacom c']
+    discontinued: true
+    coverage: none
+    note: 'Earlier Betacom ranges; trade fault-code pages exist on glow-worm.co.uk, not processed.'
+  - name: 'Compact (earlier models)'
+    aliases: ['Compact e', 'Compact s']
+    discontinued: true
+    coverage: none
+    note: 'Earlier Compact e/s ranges; trade fault-code pages exist, not processed. Do not assume codes match the current Compact.'
+  - name: 'Energy 35 Store'
+    aliases: []
+    discontinued: false
+    coverage: none
+    note: 'Operating instructions published on glow-worm.co.uk; not yet processed.'
+  - name: 'Essential'
+    aliases: ['Essential combi']
+    discontinued: false
+    coverage: none
+    note: 'Manuals published on glow-worm.co.uk; not yet processed.'
+  - name: 'Ultimate 2'
+    aliases: ['Ultimate2']
+    discontinued: true
+    coverage: none
+    note: 'Legacy range; manuals on glow-worm.co.uk not processed.'
+  - name: 'Betacom 3'
+    aliases: ['Betacom3']
+    discontinued: true
+    coverage: none
+    note: 'Legacy range; manual on glow-worm.co.uk not processed.'
+  - name: 'Betacom 2'
+    aliases: ['Betacom2']
+    discontinued: true
+    coverage: none
+    note: 'Legacy range; manuals on glow-worm.co.uk not processed.'
+  - name: 'Easicom 2'
+    aliases: ['Easicom2']
+    discontinued: true
+    coverage: none
+    note: 'Legacy range; not processed.'
+  - name: 'Sustain'
+    aliases: []
+    discontinued: true
+    coverage: none
+    note: 'Legacy range; manuals on glow-worm.co.uk not processed.'
+  - name: 'Flexicom'
+    aliases: ['Flexicom cx', 'Flexicom hx', 'Flexicom sx']
+    discontinued: true
+    coverage: none
+    note: 'Legacy range; trade fault-code pages exist, not processed. Codes differ from current ranges (F22 has a different meaning on Flexicom cx).'
+  - name: 'Ultracom'
+    aliases: ['Ultracom2', 'Ultracom cxi', 'Ultracom sxi', 'Ultracom hxi']
+    discontinued: true
+    coverage: none
+    note: 'Legacy range; trade fault-code pages exist, not processed.'
+  - name: 'cxi / sxi / hxi'
+    aliases: ['cxi', 'sxi', 'hxi', 'Ultrapower sxi']
+    discontinued: true
+    coverage: none
+    note: 'Legacy ranges; older displays used different codes (e.g. F9 low pressure, F1 ignition). Not processed.'
+  - name: 'Xtrafast / Xtramax'
+    aliases: ['Xtrafast', 'Xtramax']
+    discontinued: true
+    coverage: none
+    note: 'Legacy ranges; not processed.'
+entries:
+  - id: gw-energy7-f00
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.00'
+    meaning: "There's a fault with the boiler's flow temperature sensor."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.50'
+      checked: '2026-10-19'
+      quote: 'F.00 Fault: Flow temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f01
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.01'
+    meaning: "There's a fault with the boiler's return temperature sensor."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.50'
+      checked: '2026-10-19'
+      quote: 'F.01 Fault: Return temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f10
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.10'
+    meaning: "The boiler's flow temperature sensor has short-circuited."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.50'
+      checked: '2026-10-19'
+      quote: 'F.10 Short circuit: Flow temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f11
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.11'
+    meaning: "The boiler's return temperature sensor has short-circuited."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.50'
+      checked: '2026-10-19'
+      quote: 'F.11 Short circuit: Return temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f12
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.12'
+    meaning: 'The hot water cylinder temperature sensor has short-circuited.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.12 and F.91 Short circuit: Cylinder temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f13
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.13'
+    meaning: 'The hot water cylinder temperature sensor has short-circuited.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.13 Short circuit: Temperature sensor for the domestic hot water cylinder'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f20
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.20'
+    meaning: 'Safety shutdown: the boiler has reached its overheating temperature limit.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.20 Safety shutdown: Overheating temperature reached'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f23
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.23'
+    meaning: 'Safety shutdown: the temperature difference between the flow and return water is too great.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.23 Safety shutdown: Temperature spread too great (NTC1/NTC2)'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f24
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.24'
+    meaning: 'Safety shutdown: the water temperature in the boiler is rising too quickly.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.24 Safety shutdown: Temperature rise too fast'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f25
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.25'
+    meaning: 'Safety shutdown: the flue gas temperature is too high.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.25 Safety shutdown: Flue gas temperature too high'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f27
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.27'
+    meaning: 'Safety shutdown: there is a fault in the flame detection.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.27 Safety shutdown: Fault in flame detection'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f29
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.29'
+    meaning: 'The flame has been lost while the boiler was running.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.29 Fault: Flame loss'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f32
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.32'
+    meaning: 'Fan fault: the fan speed is outside its permitted range, and the fan frost protection function is active.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.32 Fan frost protection function active: Fan speed outside the tolerance values'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f49
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.49'
+    meaning: 'Fault on the eBUS control connection: the voltage is too low.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.49 eBUS fault: Voltage too low'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f61
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.61'
+    meaning: "There's a fault with the gas valve control."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.61 Fault: Gas valve assembly control'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f62
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.62'
+    meaning: "There's a fault with the gas valve switch-off control."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.62 Fault: Gas valve switch-off control'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f63
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.63'
+    meaning: "There's a fault with the electronics' memory (EEPROM)."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.63 Fault: EEPROM'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f65
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.65'
+    meaning: "The boiler's electronics are too hot."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.65 Fault: Electronics temperature too high'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f67
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.67'
+    meaning: 'The electronics have received an incorrect flame signal value.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.67 Value sent back by ASIC is incorrect (flame signal)'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f68
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.68'
+    meaning: 'Fault: the flame is unstable.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.68 Fault: Unstable flame (analogue input)'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f70
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.70'
+    meaning: "Invalid product code: the boiler's device specific number (DSN) is wrong or missing."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.70 Invalid product code (DSN)'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f71
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.71'
+    meaning: 'Fault with the flow or return temperature sensor; the flow sensor is giving a constant reading.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.71 Fault: Flow/return temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f72
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.72'
+    meaning: 'Fault: a deviation has been detected in the water pressure sensor or return temperature sensor readings.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.72 Fault: Deviation in the water pressure sensor/return temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f73
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.73'
+    meaning: "The boiler's water pressure sensor is not connected or has short-circuited."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.73 Fault: Water pressure sensor not connected or has short-circuited'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f74
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.74'
+    meaning: "There's an electrical problem with the boiler's water pressure sensor."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.74 Fault: Electrical problem in the water pressure sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f75
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.75'
+    meaning: "There's a fault with the boiler's pressure sensor."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.75 Fault: Pressure sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f76
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.76'
+    meaning: 'The safety cut-out in the main heat exchanger is faulty.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.76 The safety cut-out in the primary heat exchanger is defective'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f77
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.77'
+    meaning: 'Fault reported for condensate or smoke, for example a faulty flue non-return flap.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.77 Fault: Condensate or smoke'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f78
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.78'
+    meaning: 'The hot water outlet sensor connection at the external control has been interrupted.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.52'
+      checked: '2026-10-19'
+      quote: 'F.78 Interruption to DHW outlet sensor at external control'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f83
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.83'
+    meaning: "Dry fire fault: when the burner started, little or no temperature rise was detected, for example because there isn't enough water in the boiler."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.52'
+      checked: '2026-10-19'
+      quote: 'F.83 Fault: Dry fire'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. The Energy7 combi user manual says to press reset; if it persists, a 45-minute anti-cycling time starts (S.54) and an engineer is needed.'
+  - id: gw-energy7-f84
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.84'
+    meaning: 'Fault: the flow and return temperature sensors are giving readings that are not consistent.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.52'
+      checked: '2026-10-19'
+      quote: 'F.84 Fault: Flow/return temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f85
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.85'
+    meaning: 'Temperature sensor fault: a sensor may be fitted on the wrong pipe, or not connected correctly.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.52'
+      checked: '2026-10-19'
+      quote: 'F.85 Fault: Temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f86
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.86'
+    meaning: "There's a fault with the underfloor heating contact."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.52'
+      checked: '2026-10-19'
+      quote: 'F.86 Fault: Underfloor heating contact'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f87
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.87'
+    meaning: "There's a fault with the electrodes, such as them not being connected correctly."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.52'
+      checked: '2026-10-19'
+      quote: 'F.87 Fault: Electrodes'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f88
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.88'
+    meaning: "There's a fault with the gas valve assembly, such as it not being connected correctly."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.52'
+      checked: '2026-10-19'
+      quote: 'F.88 Fault: Gas valve assembly'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f89
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.89'
+    meaning: "There's a fault with the pump, such as it not being connected correctly."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.52'
+      checked: '2026-10-19'
+      quote: 'F.89 Fault: Pump'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f91
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.91'
+    meaning: 'The hot water cylinder temperature sensor has short-circuited.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.51'
+      checked: '2026-10-19'
+      quote: 'F.12 and F.91 Short circuit: Cylinder temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-energy7-f97
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.97'
+    meaning: "The main circuit board's self-test has failed."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/system-5/energy7-system-installation-instructions-2339942.pdf'
+      title: 'Energy7 installation and maintenance instructions (system boilers), 0020300876_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.52'
+      checked: '2026-10-19'
+      quote: 'F.97 Fault: Main PCB self-test failed'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. Source is the system boiler manual; assumed the same on Energy7 combi and regular models.'
+  - id: gw-betacom4-f00
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.00'
+    meaning: "There's a fault with the boiler's flow temperature sensor."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.36'
+      checked: '2026-10-19'
+      quote: 'F.00 Fault: Flow temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f01
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.01'
+    meaning: "There's a fault with the boiler's return temperature sensor."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.36'
+      checked: '2026-10-19'
+      quote: 'F.01 Fault: Return temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f10
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.10'
+    meaning: "The boiler's flow temperature sensor has short-circuited."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.36'
+      checked: '2026-10-19'
+      quote: 'F.10 Short circuit: Flow temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f11
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.11'
+    meaning: "The boiler's return temperature sensor has short-circuited."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.36'
+      checked: '2026-10-19'
+      quote: 'F.11 Short circuit: Return temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f13
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.13'
+    meaning: 'The hot water cylinder temperature sensor has short-circuited.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.36'
+      checked: '2026-10-19'
+      quote: 'F.13 Short circuit: Domestic hot water cylinder temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f20
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.20'
+    meaning: 'Safety shutdown: the boiler has reached its overheating temperature limit.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.36'
+      checked: '2026-10-19'
+      quote: 'F.20 Safety shutdown: Overheating temperature reached'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f23
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.23'
+    meaning: 'Safety shutdown: the temperature difference between the flow and return water is too great.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.36'
+      checked: '2026-10-19'
+      quote: 'F.23 Safety shutdown: Temperature spread too great (NTC1/NTC2)'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f24
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.24'
+    meaning: 'Safety shutdown: the water temperature in the boiler is rising too quickly.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.36'
+      checked: '2026-10-19'
+      quote: 'F.24 Safety shutdown: Temperature rise too fast'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f25
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.25'
+    meaning: 'Safety shutdown: the flue gas temperature is too high.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.36'
+      checked: '2026-10-19'
+      quote: 'F.25 Safety shutdown: Flue gas temperature too high'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f27
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.27'
+    meaning: 'Safety shutdown: there is a fault in the flame detection.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.36'
+      checked: '2026-10-19'
+      quote: 'F.27 Safety shutdown: Fault in flame detection'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f29
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.29'
+    meaning: 'The flame has been lost while the boiler was running.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.36'
+      checked: '2026-10-19'
+      quote: 'F.29 Fault: Flame loss'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f32
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.32'
+    meaning: 'Fan fault: the fan speed is outside its permitted range, and the fan frost protection function is active.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.32 Fan frost protection function active: Fan speed outside the tolerance values'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f49
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.49'
+    meaning: 'Fault on the eBUS control connection: the voltage is too low.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.49 eBUS fault: Voltage too low'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f61
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.61'
+    meaning: "There's a fault with the gas valve control."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.61 Fault: Gas valve assembly control'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f62
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.62'
+    meaning: "There's a fault with the gas valve switch-off control."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.62 Fault: Gas valve switch-off control'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f63
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.63'
+    meaning: "There's a fault with the electronics' memory (EEPROM)."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.63 Fault: EEPROM'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f65
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.65'
+    meaning: "The boiler's electronics are too hot."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.65 Fault: Electronics temperature too high'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f67
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.67'
+    meaning: 'The electronics have received an incorrect flame signal value.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.67 Value sent back by ASIC is incorrect (flame signal)'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f68
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.68'
+    meaning: 'Fault: the flame is unstable.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.68 Fault: Unstable flame (analogue input)'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f70
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.70'
+    meaning: "Invalid product code: the boiler's device specific number (DSN) is wrong or missing."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.70 Invalid product code (DSN)'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f71
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.71'
+    meaning: 'Fault with the flow or return temperature sensor; the flow sensor is giving a constant reading.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.71 Fault: Flow/return temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f72
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.72'
+    meaning: 'Fault: a deviation has been detected in the water pressure sensor or return temperature sensor readings.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.72 Fault: Deviation in the water pressure sensor/return temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f73
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.73'
+    meaning: "The boiler's water pressure sensor is not connected or has short-circuited."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.73 Fault: Water pressure sensor not connected or has short-circuited'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f74
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.74'
+    meaning: "There's an electrical problem with the boiler's water pressure sensor."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.74 Fault: Electrical problem in the water pressure sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f75
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.75'
+    meaning: "There's a fault with the boiler's pressure sensor."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.75 Fault: Pressure sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f77
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.77'
+    meaning: 'Fault reported for condensate or smoke, for example a faulty flue non-return flap.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.77 Fault: Condensate or smoke'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f78
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.78'
+    meaning: 'The hot water outlet sensor connection at the external control has been interrupted.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.78 Interruption to DHW outlet sensor at the external control'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f83
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.83'
+    meaning: "Dry fire fault: when the burner started, little or no temperature rise was detected, for example because there isn't enough water in the boiler."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.83 Fault: Dry fire'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f84
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.84'
+    meaning: 'Fault: the flow and return temperature sensors are giving readings that are not consistent.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.84 Fault: Flow/return temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f85
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.85'
+    meaning: 'Temperature sensor fault: a sensor may be fitted on the wrong pipe, or not connected correctly.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.85 Fault: Temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f86
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.86'
+    meaning: "There's a fault with the underfloor heating contact."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.86 Fault: Underfloor heating contact'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f87
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.87'
+    meaning: "There's a fault with the ignition electrode, such as it not being connected properly."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.87 Fault: Ignition electrode'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f88
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.88'
+    meaning: "There's a fault with the gas valve assembly, such as it not being connected correctly."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.88 Fault: Gas valve assembly'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-betacom4-f89
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.89'
+    meaning: "There's a fault with the pump, such as it not being connected correctly."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-installation-and-maintenance-instructions-1948960.pdf'
+      title: 'Betacom 4 installation and maintenance instructions, 0020238424_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.37'
+      checked: '2026-10-19'
+      quote: 'F.89 Fault: Pump'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f00
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.00'
+    meaning: "There's a fault with the boiler's flow temperature sensor."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.44'
+      checked: '2026-10-19'
+      quote: 'F.00 Fault: Flow temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f01
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.01'
+    meaning: "There's a fault with the boiler's return temperature sensor."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.44'
+      checked: '2026-10-19'
+      quote: 'F.01 Fault: Return temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f10
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.10'
+    meaning: "The boiler's flow temperature sensor has short-circuited."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.44'
+      checked: '2026-10-19'
+      quote: 'F.10 Short circuit: Flow temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f11
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.11'
+    meaning: "The boiler's return temperature sensor has short-circuited."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.44'
+      checked: '2026-10-19'
+      quote: 'F.11 Short circuit: Return temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f13
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.13'
+    meaning: 'The hot water cylinder temperature sensor has short-circuited.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.44'
+      checked: '2026-10-19'
+      quote: 'F.13 Short circuit: Temperature sensor for the domestic hot water cylinder'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f20
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.20'
+    meaning: 'Safety shutdown: the boiler has reached its overheating temperature limit.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.44'
+      checked: '2026-10-19'
+      quote: 'F.20 Safety shutdown: Overheating temperature reached'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f23
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.23'
+    meaning: 'Safety shutdown: the temperature difference between the flow and return water is too great.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.23 Safety shutdown: Temperature spread too great (NTC1/NTC2)'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f24
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.24'
+    meaning: 'Safety shutdown: the water temperature in the boiler is rising too quickly.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.24 Safety shutdown: Temperature rise too fast'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f25
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.25'
+    meaning: 'Safety shutdown: the flue gas temperature is too high.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.25 Safety shutdown: Flue gas temperature too high'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f27
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.27'
+    meaning: 'Safety shutdown: there is a fault in the flame detection.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.27 Safety shutdown: Fault in flame detection'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f29
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.29'
+    meaning: 'The flame has been lost while the boiler was running.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.29 Fault: Flame loss'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f32
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.32'
+    meaning: 'Fan fault: the fan speed is outside its permitted range, and the fan frost protection function is active.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.32 Fan frost protection function active: Fan speed outside the tolerance values'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f49
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.49'
+    meaning: 'Fault on the eBUS control connection: the voltage is too low.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.49 eBUS fault: Voltage too low'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f61
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.61'
+    meaning: "There's a fault with the gas valve control."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.61 Fault: Gas valve assembly control'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f62
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.62'
+    meaning: "There's a fault with the gas valve switch-off control."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.62 Fault: Gas valve switch-off control'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f63
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.63'
+    meaning: "There's a fault with the electronics' memory (EEPROM)."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.63 Fault: EEPROM'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f65
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.65'
+    meaning: "The boiler's electronics are too hot."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.65 Fault: Electronics temperature too high'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f67
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.67'
+    meaning: 'The electronics have received an incorrect flame signal value.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.67 Value sent back by ASIC is incorrect (flame signal)'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f68
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.68'
+    meaning: 'Fault: the flame is unstable.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.68 Fault: Unstable flame (analogue input)'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f70
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.70'
+    meaning: "Invalid product code: the boiler's device specific number (DSN) is wrong or missing."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.70 Invalid product code (DSN)'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f71
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.71'
+    meaning: 'Fault with the flow or return temperature sensor; the flow sensor is giving a constant reading.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.71 Fault: Flow/return temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f72
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.72'
+    meaning: 'Fault: a deviation has been detected in the water pressure sensor or return temperature sensor readings.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.72 Fault: Deviation in the water pressure sensor/return temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f73
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.73'
+    meaning: "The boiler's water pressure sensor is not connected or has short-circuited."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.73 Fault: Water pressure sensor not connected or has short-circuited'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f74
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.74'
+    meaning: "There's an electrical problem with the boiler's water pressure sensor."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.74 Fault: Electrical problem in the water pressure sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f75
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.75'
+    meaning: "There's a fault with the boiler's pressure sensor."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.75 Fault: Pressure sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f77
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.77'
+    meaning: 'Fault reported for condensate or smoke, for example a faulty flue non-return flap.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.77 Fault: Condensate or smoke'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f78
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.78'
+    meaning: 'The hot water outlet sensor connection at the external control has been interrupted.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.78 Interruption to DHW outlet sensor at the external control'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f83
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.83'
+    meaning: "Dry fire fault: when the burner started, little or no temperature rise was detected, for example because there isn't enough water in the boiler."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.83 Fault: Dry fire'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f84
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.84'
+    meaning: 'Fault: the flow and return temperature sensors are giving readings that are not consistent.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.84 Fault: Flow/return temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f85
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.85'
+    meaning: 'Temperature sensor fault: a sensor may be fitted on the wrong pipe, or not connected correctly.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.85 Fault: Temperature sensor'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f86
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.86'
+    meaning: "There's a fault with the underfloor heating contact."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.86 Fault: Underfloor heating contact'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f87
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.87'
+    meaning: "There's a fault with the ignition electrode, such as it not being connected properly."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.45'
+      checked: '2026-10-19'
+      quote: 'F.87 Fault: Ignition electrode'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f88
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.88'
+    meaning: "There's a fault with the gas valve assembly, such as it not being connected correctly."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.46'
+      checked: '2026-10-19'
+      quote: 'F.88 Fault: Gas valve assembly'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f89
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.89'
+    meaning: "There's a fault with the pump, such as it not being connected correctly."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.46'
+      checked: '2026-10-19'
+      quote: 'F.89 Fault: Pump'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-easicom3-f97
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.97'
+    meaning: "The main circuit board's self-test has failed."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/combi-10/easicom3-combi-operating-instructions-1948965.pdf'
+      title: 'Easicom 3 combi installation and maintenance instructions, 0020239562_06'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.46'
+      checked: '2026-10-19'
+      quote: 'F.97 Fault: Main PCB self-test failed'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Taken from the installer fault code table, which Glow-worm says is shared across products, so some codes may not appear on this model. No homeowner action is given for this code.'
+  - id: gw-energy7-f22
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.22'
+    meaning: 'Low water pressure in the heating system. The boiler has stopped because there is not enough water in it.'
+    homeowner_guidance: 'You can top up the heating system using the filling loop, as your installer showed you. If the boiler still does not work, call a Gas Safe engineer.'
+    engineer_needed: false
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/combi-8/energy7-combi-operating-instructions-1948936.pdf'
+      title: 'Energy7 combi operating instructions, 0020300878_00'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.14'
+      checked: '2026-10-19'
+      quote: 'Water deficiency in the heating installation (fault message: F.22).'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Engineer needed if the pressure keeps dropping or the boiler still will not run.'
+  - id: gw-betacom4-f22
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.22'
+    meaning: 'Low water pressure in the heating system.'
+    homeowner_guidance: 'You can top up the system pressure to between 1 and 1.5 bar using the filling loop, as your installer showed you. If the pressure drops often, call a Gas Safe engineer.'
+    engineer_needed: false
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-operating-instructions-1948961.pdf'
+      title: 'Betacom 4 operating instructions, 0020238423_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.15'
+      checked: '2026-10-19'
+      quote: 'Low water pressure in the heating installation (fault code: F.22).'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Engineer needed if the pressure keeps dropping or the boiler still will not run.'
+  - id: gw-easicom3-f22
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.22'
+    meaning: 'Low water pressure in the heating system.'
+    homeowner_guidance: 'You can top up the system pressure to between 1 and 1.5 bar using the filling loop, as your installer showed you. If the pressure drops often, call a Gas Safe engineer.'
+    engineer_needed: false
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/system-7/easicom3-system-operating-instructions-1949005.pdf'
+      title: 'Easicom 3 system operating instructions, 0020238425_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.15'
+      checked: '2026-10-19'
+      quote: 'Low water pressure in the heating installation (fault code: F.22).'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Guidance from the Easicom 3 system boiler user manual; assumed the same for combi and regular models.'
+  - id: gw-ultimate3-f22
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Ultimate 3']
+    code: 'F.22'
+    meaning: 'Low water pressure in the heating system.'
+    homeowner_guidance: 'You can top up the system pressure to between 1 and 1.5 bar using the filling loop, as your installer showed you. If the pressure drops often, call a Gas Safe engineer.'
+    engineer_needed: false
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/ultimat/combi-9/ultimate3-combi-operating-instructions-1948952.pdf'
+      title: 'Ultimate 3 combi operating instructions, 0020239565_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.15'
+      checked: '2026-10-19'
+      quote: 'Low water pressure in the heating installation (fault code: F.22).'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Guidance from the Ultimate 3 combi user manual; assumed the same for system and regular models.'
+  - id: gw-compact-f22
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Compact']
+    code: 'F.22'
+    meaning: 'System pressure too low: there is not enough water in the heating system.'
+    homeowner_guidance: 'Check the pressure on the boiler display. If it is below 0.5 bar, you can top up the heating system as your installer showed you.'
+    engineer_needed: false
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/compact-2/compact-operating-instructions-2132359.pdf'
+      title: 'Compact 24c-AS/2 and 28c-AS/2 operating instructions, 8000043332_00'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.12'
+      checked: '2026-10-19'
+      quote: 'F.22 System pressure too low Water deficiency in the heating installation'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Engineer needed if the pressure keeps dropping or the boiler still will not run.'
+  - id: gw-energy7-f28
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Energy7']
+    code: 'F.28'
+    meaning: 'The boiler failed to light after three attempts and has locked out.'
+    homeowner_guidance: 'Press the reset button for one second to make another ignition attempt. If it still will not light after three resets, call a Gas Safe engineer.'
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/energy-3/combi-8/energy7-combi-operating-instructions-1948936.pdf'
+      title: 'Energy7 combi operating instructions, 0020300878_00'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.14'
+      checked: '2026-10-19'
+      quote: 'After three unsuccessful ignition attempts, the product switches to fault mode (fault message: F.28).'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Engineer needed if resetting does not clear it. Causes include gas supply problems, which callers should not investigate.'
+  - id: gw-betacom4-f28
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Betacom 4']
+    code: 'F.28'
+    meaning: 'The boiler failed to light after three attempts and has locked out.'
+    homeowner_guidance: 'Press the reset button to make another ignition attempt. If it still will not light after three resets, call a Gas Safe engineer.'
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/betacom/betacom4-combi-operating-instructions-1948961.pdf'
+      title: 'Betacom 4 operating instructions, 0020238423_02'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.16'
+      checked: '2026-10-19'
+      quote: 'After three successive failed ignition attempts, the system switches to fault mode (fault code: F.28).'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Engineer needed if resetting does not clear it. Causes include gas supply problems, which callers should not investigate.'
+  - id: gw-easicom3-f28
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Easicom 3']
+    code: 'F.28'
+    meaning: 'The boiler failed to light after three attempts and has locked out.'
+    homeowner_guidance: 'Press the reset button to make another ignition attempt. If it still will not light after three resets, call a Gas Safe engineer.'
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/easicom/system-7/easicom3-system-operating-instructions-1949005.pdf'
+      title: 'Easicom 3 system operating instructions, 0020238425_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.16'
+      checked: '2026-10-19'
+      quote: 'After three successive failed ignition attempts, the system switches to fault mode (fault code: F.28).'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Guidance from the Easicom 3 system boiler user manual; assumed the same for combi and regular models.'
+  - id: gw-ultimate3-f28
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Ultimate 3']
+    code: 'F.28'
+    meaning: 'The boiler failed to light after three attempts and has locked out.'
+    homeowner_guidance: 'Press the reset button to make another ignition attempt. If it still will not light after three resets, call a Gas Safe engineer.'
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/ultimat/combi-9/ultimate3-combi-operating-instructions-1948952.pdf'
+      title: 'Ultimate 3 combi operating instructions, 0020239565_01'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.16'
+      checked: '2026-10-19'
+      quote: 'After three successive failed ignition attempts, the system switches to fault mode (fault code: F.28).'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'Guidance from the Ultimate 3 combi user manual; assumed the same for system and regular models.'
+  - id: gw-compact-f28
+    kind: fault_code
+    manufacturer: glow_worm
+    ranges: ['Compact']
+    code: 'F.28'
+    meaning: 'The boiler failed to light after three attempts and has locked out.'
+    homeowner_guidance: 'Reset the boiler by holding the on/off button for more than three seconds. If it still will not light, call a Gas Safe engineer.'
+    engineer_needed: true
+    source:
+      url: 'https://www.glow-worm.co.uk/glow-worm/product-manuals/compact-2/compact-operating-instructions-2132359.pdf'
+      title: 'Compact 24c-AS/2 and 28c-AS/2 operating instructions, 8000043332_00'
+      publisher: 'Glow-worm (Vaillant Group UK)'
+      page: 'PDF p.12'
+      checked: '2026-10-19'
+      quote: 'F.28 Ignition unsuccessful After three unsuccessful ignition attempts, the product has switched to fault mode.'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'The manual also lists checking the gas isolation; that is not given to callers.'

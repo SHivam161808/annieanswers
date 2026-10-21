@@ -259,6 +259,12 @@ const actions: Record<string, { actionType: string; actionParameters: unknown }>
     'Bear with me while I cancel that.',
     ['status', 'instruction'],
   ),
+  lookup_fault_code: customAction(
+    '/v1/actions/lookup-fault-code',
+    'When the caller mentions a boiler fault or error code, once you know the make (and the model if it asks for it).',
+    'Let me just check that code.',
+    ['status', 'meaning', 'homeowner_guidance', 'instruction'],
+  ),
   book_appointment: {
     actionType: 'APPOINTMENT_BOOKING',
     actionParameters: {

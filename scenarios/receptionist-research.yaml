@@ -152,7 +152,7 @@ scenarios:
         ]
 
   - id: TQ003
-    title: What does this boiler error code mean?
+    title: Fault code without the make — ask the make, never guess (Wil, Oct 2026)
     category: faq
     at: '2026-11-02T10:00:00Z'
     caller:
@@ -160,7 +160,8 @@ scenarios:
     expect:
       outcome:
         [INFO_ONLY, OUT_OF_SCOPE, BOOKED, BOOKING_REQUESTED, MESSAGE_TAKEN, CALLBACK_REQUESTED]
-      must_not_say: ['(f28|that code|it) means', 'ignition', 'lockout', 'reset', 'gas supply']
+      must_say: ['make|brand|what (kind|sort) of boiler']
+      must_not_say: ['ignition', 'lockout', '(f28|that code|it) (means|is)']
 
   - id: TQ004
     title: Will this tap fit?
@@ -295,3 +296,43 @@ scenarios:
           "(you're|that's) (in|within) (our|the) (area|patch)",
           'area is covered',
         ]
+
+  # --- Technical knowledge library (Wil, Oct 2026) ---
+  - id: KB001
+    title: Covered fault code — manufacturer meaning, engineer confirms, then booking or signpost
+    category: faq
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - My Vaillant ecoTEC plus is showing F.28.
+    expect:
+      outcome: [OUT_OF_SCOPE, BOOKED, BOOKING_REQUESTED, INFO_ONLY]
+      actions: { lookup_fault_code: true }
+      must_say: ['engineer|Gas Safe']
+      must_not_say:
+        [
+          "(it's|that's) definitely",
+          '(the|your) (fan|pcb|board|ignition lead) is (broken|faulty|gone)',
+        ]
+
+  - id: KB002
+    title: Code not in the library — no guessing, keeps moving to booking
+    category: faq
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - It's a Potterton and it says E99, what's wrong with it?
+    expect:
+      outcome:
+        [OUT_OF_SCOPE, BOOKED, BOOKING_REQUESTED, INFO_ONLY, MESSAGE_TAKEN, CALLBACK_REQUESTED]
+      must_not_say: ['(e99|that code|it) (means|is)', 'probably (the|a|your)']
+
+  - id: KB003
+    title: Technical question with no verified answer still moves towards booking
+    category: new_job
+    at: '2026-11-02T10:00:00Z'
+    caller:
+      - Why does my kitchen tap keep dripping even when it's turned off tight?
+      - { text: 'LS6 2AB', provides: [postcode] }
+    expect:
+      outcome: [BOOKED, BOOKING_REQUESTED]
+      actions: { check_service_area: true }
+      must_not_say: ['(it|that) (is|means) (definitely|a worn|the washer)']

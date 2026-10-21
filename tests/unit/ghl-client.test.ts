@@ -296,7 +296,8 @@ describe('GhlClient request details and failure classification (mutation-pinned)
 
   it('does not retry when the backoff would not leave time for another attempt', async () => {
     pool().intercept({ path: '/thing', method: 'GET' }).reply(500, '');
-    const err = await get(client(), 300).catch((e: unknown) => e);
+    // 240 ms: enough for one attempt (>= 150), never for backoff (>= 100) plus another (150).
+    const err = await get(client(), 240).catch((e: unknown) => e);
     expect(err).toMatchObject({ failure: 'http_5xx' });
     expect(sleeps).toHaveLength(0);
   });

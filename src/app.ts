@@ -13,6 +13,11 @@ import type { ConfigStore } from './clients/config-store.js';
 import type { Env } from './config/env.js';
 import { AppError, ERROR_CODES, type ErrorCode } from './core/errors.js';
 import type { GhlClient } from './ghl/client.js';
+import type { KnowledgeLibrary } from './knowledge/library.js';
+import type { OwnerAlerts } from './alerts/owner-alerts.js';
+import type { SmsTemplate } from './alerts/templates.js';
+import type { PostCallProcessor } from './jobs/post-call.js';
+import { registerJobRoutes } from './routes/jobs.js';
 import type { Metrics } from './observability/metrics.js';
 import { IdempotencyStore } from './store/idempotency.js';
 import { registerActionRoutes } from './routes/actions.js';
@@ -43,6 +48,11 @@ export interface AppDeps {
   now?: () => Date;
   /** GHL API client; absent when no GHL credentials are configured. */
   ghl?: GhlClient;
+  /** Technical knowledge library; empty when none is deployed. */
+  knowledge?: KnowledgeLibrary;
+  alerts?: OwnerAlerts;
+  templates?: ReadonlyMap<string, SmsTemplate>;
+  postCall?: PostCallProcessor;
 }
 
 const CORRELATION_HEADER = 'x-correlation-id';
@@ -218,7 +228,12 @@ export async function buildApp(deps: AppDeps): Promise<FastifyInstance> {
     bookingDeadlineMs: env.BOOKING_ACTION_DEADLINE_MS,
     ghl: deps.ghl,
     idempotency: new IdempotencyStore(deps.redis),
+    knowledge: deps.knowledge ?? { manufacturers: new Map(), servedEntries: 0 },
+    alerts: deps.alerts,
+    templates: deps.templates,
   });
+
+  registerJobRoutes(app, { configStore: deps.configStore, postCall: deps.postCall, ghl: deps.ghl });
 
   return app;
 }

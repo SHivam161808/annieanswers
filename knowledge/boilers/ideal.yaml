@@ -1,0 +1,2273 @@
+# Ideal (Ideal Heating / Ideal Boilers) fault codes. Curated 2026-10-19 from idealheating.com literature;
+# needs_review entries come from archived copies of former official PDFs and are never served.
+manufacturer: ideal
+known_ranges:
+  - name: Logic Combi2
+    aliases:
+      - Logic Combi 2
+      - Logic2 Combi
+      - Logic Combi2 C24
+      - Logic Combi2 C30
+      - Logic Combi2 C35
+    discontinued: false
+    coverage: covered
+    note: User guide 10/2023 and I&S 08/2026 on idealheating.com.
+  - name: Logic System2
+    aliases:
+      - Logic System 2
+      - Logic2 System
+    discontinued: false
+    coverage: covered
+    note: User guide 10/2023 and I&S 07/2025 on idealheating.com.
+  - name: Logic Heat2
+    aliases:
+      - Logic Heat 2
+      - Logic2 Heat
+    discontinued: false
+    coverage: covered
+    note: User guide 07/2023 and I&S 11/2025 on idealheating.com.
+  - name: i-mini2 C
+    aliases:
+      - i-mini2
+      - i-mini 2
+      - imini2
+      - i mini 2
+    discontinued: false
+    coverage: covered
+    note: Combined I&S and user guide 04/2026 (UIN 252221) on idealheating.com; same codes as Logic Combi2.
+  - name: Logic Combi ESP1
+    aliases:
+      - Logic ESP1
+      - Logic Combi ESP 1
+    discontinued: false
+    coverage: covered
+    note: User guide 03/2023 on idealheating.com.
+  - name: Logic Code Combi ESP1
+    aliases:
+      - Logic Code Combi
+      - Logic Code ESP1
+    discontinued: false
+    coverage: covered
+    note: User guide 10/2023 (some code images blank) and I&S 08/2026 on idealheating.com.
+  - name: Mexico HE
+    aliases:
+      - Mexico
+    discontinued: false
+    coverage: partial
+    note: Floor-standing heat only. Only L-A and L-F have published meanings; H:A meaning not stated.
+  - name: Logic+ Combi2
+    aliases:
+      - Logic Plus Combi 2
+      - Logic+ Combi 2
+    discontinued: false
+    coverage: none
+    note: Shows plain-text fault messages rather than codes (user guide checked), so no code entries.
+  - name: Logic+ System2
+    aliases:
+      - Logic Plus System 2
+      - Logic+ System 2
+    discontinued: false
+    coverage: none
+    note: Shows plain-text fault messages rather than codes (user guide checked), so no code entries.
+  - name: Logic+ Heat2
+    aliases:
+      - Logic Plus Heat 2
+      - Logic+ Heat 2
+    discontinued: false
+    coverage: none
+    note: Shows plain-text fault messages rather than codes (user guide checked), so no code entries.
+  - name: Logic Max Combi2
+    aliases:
+      - Logic Max Combi 2
+      - Logic MAX Combi2
+    discontinued: false
+    coverage: none
+    note: Shows plain-text fault messages rather than codes (user guide checked), so no code entries.
+  - name: Logic Max System2
+    aliases:
+      - Logic Max System 2
+      - Logic MAX System2
+    discontinued: false
+    coverage: none
+    note: Shows plain-text fault messages rather than codes (user guide checked), so no code entries.
+  - name: Logic Max Heat2
+    aliases:
+      - Logic Max Heat 2
+      - Logic MAX Heat2
+    discontinued: false
+    coverage: none
+    note: Shows plain-text fault messages rather than codes (user guide checked), so no code entries.
+  - name: Vogue Max Combi
+    aliases:
+      - Vogue MAX Combi
+      - Vogue Max C26
+      - Vogue Max C32
+      - Vogue Max C40
+    discontinued: false
+    coverage: none
+    note: Shows plain-text fault messages rather than codes (user guide checked), so no code entries.
+  - name: Vogue Max System
+    aliases:
+      - Vogue MAX System
+    discontinued: false
+    coverage: none
+    note: Shows plain-text fault messages rather than codes (user guide checked), so no code entries.
+  - name: Vogue Gen2 Combi
+    aliases:
+      - Vogue Combi Gen2
+      - Vogue Combi Gen 2
+    discontinued: false
+    coverage: none
+    note: Shows plain-text fault messages rather than codes (user guide checked), so no code entries.
+  - name: Vogue Gen2 System
+    aliases:
+      - Vogue System Gen2
+      - Vogue System Gen 2
+    discontinued: false
+    coverage: none
+    note: Shows plain-text fault messages rather than codes (user guide checked), so no code entries.
+  - name: Logic Combi
+    aliases:
+      - Logic Combi C24
+      - Logic Combi C30
+      - Logic Combi C35
+    discontinued: true
+    coverage: none
+    note: 'First-generation C24/C30/C35. 2019 user guide only via archive copy: entries are needs_review.'
+  - name: Logic System
+    aliases:
+      - Logic System S15
+      - Logic System S18
+      - Logic System S24
+      - Logic System S30
+    discontinued: true
+    coverage: none
+    note: 'First generation. 2019 user guide only via archive copy: entries needs_review.'
+  - name: Logic Heat
+    aliases:
+      - Logic Heat H12
+      - Logic Heat H15
+      - Logic Heat H18
+      - Logic Heat H24
+      - Logic Heat H30
+    discontinued: true
+    coverage: none
+    note: 'First generation. 2019 user guide only via archive copy: entries needs_review.'
+  - name: Logic+ Combi
+    aliases:
+      - Logic Plus Combi
+    discontinued: true
+    coverage: none
+    note: First generation. Archived 2018 user guide shows text messages, not codes.
+  - name: Logic+ System
+    aliases:
+      - Logic Plus System
+    discontinued: true
+    coverage: none
+    note: 'First generation. 2019 user guide only via archive copy: entries needs_review.'
+  - name: Logic+ Heat
+    aliases:
+      - Logic Plus Heat
+    discontinued: true
+    coverage: none
+    note: 'First generation. 2019 user guide only via archive copy: entries needs_review.'
+  - name: Logic Max Combi
+    aliases:
+      - Logic Max
+    discontinued: true
+    coverage: none
+    note:
+      First generation. Idealheating.com help page shows text messages; archived user guide copy was
+      truncated.
+  - name: Logic Max System
+    aliases: []
+    discontinued: true
+    coverage: none
+    note: First generation. Archived user guide copy was truncated; not reviewed.
+  - name: Logic Max Heat
+    aliases: []
+    discontinued: true
+    coverage: none
+    note: First generation. Archived user guide copy was truncated; not reviewed.
+  - name: Independent Combi
+    aliases:
+      - Independent C24
+      - Independent C30
+      - Independent C35
+    discontinued: true
+    coverage: none
+    note: '2019 user guide only via archive copy: entries needs_review.'
+  - name: Independent+ Combi
+    aliases:
+      - Independent Plus Combi
+    discontinued: true
+    coverage: none
+    note: Archived user guide copy was truncated; not reviewed.
+  - name: Independent System
+    aliases: []
+    discontinued: true
+    coverage: none
+    note: '2019 user guide only via archive copy: entries needs_review.'
+  - name: i-mini C
+    aliases:
+      - i-mini
+      - imini
+      - i mini
+    discontinued: true
+    coverage: none
+    note: 'First-generation i-mini C24/C30. 2019 user guide only via archive copy: entries needs_review.'
+  - name: I Combi
+    aliases: []
+    discontinued: true
+    coverage: none
+    note: Named in archived Ideal literature list; archived user guide copy was truncated.
+  - name: Instinct
+    aliases:
+      - Ideal Instinct
+    discontinued: true
+    coverage: none
+    note: 'User guide only via archive copy: entries needs_review.'
+  - name: Esprit Eco
+    aliases:
+      - Esprit
+    discontinued: true
+    coverage: none
+    note: 'User guide (UIN 212133 A05) only via archive copy: entries needs_review.'
+  - name: Vogue Combi
+    aliases:
+      - Vogue C26
+      - Vogue C32
+      - Vogue C40
+    discontinued: true
+    coverage: none
+    note:
+      First-generation Vogue (C26/C32/C40), implied by Gen2 naming and archived ERP labels. No user
+      guide retrieved.
+  - name: Vogue System
+    aliases: []
+    discontinued: true
+    coverage: none
+    note: First-generation Vogue system, implied by Gen2 naming and archived ERP labels. No user guide retrieved.
+  - name: Isar HE
+    aliases:
+      - Isar
+    discontinued: true
+    coverage: none
+    note:
+      HE24/HE30/HE35. Archived user guide shows codes as symbols (e.g. L:F, H:A) without clear meanings;
+      not entered.
+  - name: Istor HE
+    aliases:
+      - Istor
+    discontinued: true
+    coverage: none
+    note: Combination storage boiler (HE260/HE325). Archived user guide not retrievable.
+  - name: Icos
+    aliases:
+      - Icos HE
+      - Icos System
+    discontinued: true
+    coverage: none
+    note: Only an archived installation manual name (Icos M3080) found; no user guide retrieved.
+  - name: Exclusive
+    aliases:
+      - Ideal Exclusive
+    discontinued: true
+    coverage: none
+    note: Named in archived Ideal literature list; archived user guide not retrievable.
+  - name: Classic
+    aliases:
+      - Ideal Classic
+    discontinued: true
+    coverage: none
+    note: Named in archived Ideal literature list; archived user guide not retrievable.
+entries:
+  - id: ideal-logic2-f01
+    kind: fault_code
+    manufacturer: ideal
+    ranges: &id001
+      - Logic Combi2
+      - Logic System2
+      - Logic Heat2
+      - i-mini2 C
+    code: F01
+    meaning: Low water pressure in the central heating system.
+    homeowner_guidance:
+      Check the pressure gauge reads between 1 and 1.5 bar. If it is low, top it up as
+      the user guide shows, then restart. If it still fails, call Ideal or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F 01 | Low Water Pressure | Check system water pressure is between 1 & 1.5bar on the system
+        pressure gauge.
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Shown on the display as e.g. 'F 01'; callers may say F1. Same table in the Logic System2
+      (UIN 237665), Logic Heat2 (UIN 228298) and i-mini2 C (UIN 252221) user guides. Topping-up steps differ
+      by range; follow the boiler's own user guide.
+  - id: ideal-logic2-f02
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: F02
+    meaning: 'Flame loss: the boiler has lost its flame.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F 02 | Flame Loss | 1. Check other gas appliances in the house are working to confirm a supply
+        is present in the property.
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Ideal's own checks for this code involve the gas supply and meter, which the agent must
+      not advise on; refer to an engineer. Display shows 'F 02'.
+  - id: ideal-logic2-f03
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: F03
+    meaning: Fan fault.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F 03 | Fan Fault | Restart the appliance - if the boiler fails to operate then please contact
+        Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Shown on the display as e.g. 'F 01'; callers may say F1. Same table in the Logic System2
+      (UIN 237665), Logic Heat2 (UIN 228298) and i-mini2 C (UIN 252221) user guides.
+  - id: ideal-logic2-f04
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: F04
+    meaning: Flow thermistor fault, a temperature sensor in the boiler.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F 04 L 04 | Flow Thermistor | Restart the appliance - if the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Shown on the display as e.g. 'F 01'; callers may say F1. Same table in the Logic System2
+      (UIN 237665), Logic Heat2 (UIN 228298) and i-mini2 C (UIN 252221) user guides.
+  - id: ideal-logic2-l04
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: L04
+    meaning: Flow thermistor fault, a temperature sensor in the boiler. The boiler has locked out.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F 04 L 04 | Flow Thermistor | Restart the appliance - if the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Shown on the display as e.g. 'F 01'; callers may say F1. Same table in the Logic System2
+      (UIN 237665), Logic Heat2 (UIN 228298) and i-mini2 C (UIN 252221) user guides.
+  - id: ideal-logic2-f05
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: F05
+    meaning: Return thermistor fault, a temperature sensor in the boiler.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F 05 L 05 | Return Thermistor | Restart the appliance - if the boiler fails to operate then
+        please contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Shown on the display as e.g. 'F 01'; callers may say F1. Same table in the Logic System2
+      (UIN 237665), Logic Heat2 (UIN 228298) and i-mini2 C (UIN 252221) user guides.
+  - id: ideal-logic2-l05
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: L05
+    meaning: Return thermistor fault, a temperature sensor in the boiler. The boiler has locked out.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F 05 L 05 | Return Thermistor | Restart the appliance - if the boiler fails to operate then
+        please contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Shown on the display as e.g. 'F 01'; callers may say F1. Same table in the Logic System2
+      (UIN 237665), Logic Heat2 (UIN 228298) and i-mini2 C (UIN 252221) user guides.
+  - id: ideal-logic2-f06
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: F06
+    meaning: Outside temperature sensor failure.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F 06 | Outside Sensor Failure | Restart the appliance - if the boiler fails to operate then
+        please contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Shown on the display as e.g. 'F 01'; callers may say F1. Same table in the Logic System2
+      (UIN 237665), Logic Heat2 (UIN 228298) and i-mini2 C (UIN 252221) user guides.
+  - id: ideal-logic2-f07
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: F07
+    meaning: 'Low mains voltage: the electricity supply to the boiler is too low.'
+    homeowner_guidance:
+      'This is about the mains electricity supply: contact a qualified electrician or
+      your electricity supplier.'
+    engineer_needed: false
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote: F 07 | Low Mains Voltage | Contact a qualified electrician or your electricity provider.
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Shown on the display as e.g. 'F 01'; callers may say F1. Same table in the Logic System2
+      (UIN 237665), Logic Heat2 (UIN 228298) and i-mini2 C (UIN 252221) user guides.
+  - id: ideal-logic2-f09
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: F09
+    meaning: Unconfigured or faulty circuit board, or a short circuit at the gas valve.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F 09 L 09 | Unconfigured PCB | Unconfigured/faulty PCB or gas valve short circuit. Please contact
+        Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Shown on the display as e.g. 'F 01'; callers may say F1. Same table in the Logic System2
+      (UIN 237665), Logic Heat2 (UIN 228298) and i-mini2 C (UIN 252221) user guides.
+  - id: ideal-logic2-l09
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: L09
+    meaning:
+      Unconfigured or faulty circuit board, or a short circuit at the gas valve. The boiler has locked
+      out.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F 09 L 09 | Unconfigured PCB | Unconfigured/faulty PCB or gas valve short circuit. Please contact
+        Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Shown on the display as e.g. 'F 01'; callers may say F1. Same table in the Logic System2
+      (UIN 237665), Logic Heat2 (UIN 228298) and i-mini2 C (UIN 252221) user guides.
+  - id: ideal-logic2-l01
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: L01
+    meaning: Lockout for flow temperature overheat or no water flow.
+    homeowner_guidance:
+      Check the pressure gauge reads between 1 and 1.5 bar. If it is low, top it up as
+      the user guide shows, then restart. If it still fails, call Ideal or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote:
+        L 01 | Flow Temperature Overheat or No Water Flow | Check system water pressure is between
+        1 & 1.5 bar on the system pressure gauge.
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Shown on the display as e.g. 'F 01'; callers may say F1. Same table in the Logic System2
+      (UIN 237665), Logic Heat2 (UIN 228298) and i-mini2 C (UIN 252221) user guides.
+  - id: ideal-logic2-l02
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: L02
+    meaning:
+      'Ignition lockout: the boiler failed to light. A blocked or frozen condensate pipe can cause
+      it.'
+    homeowner_guidance:
+      If the plastic condensate pipe outside is frozen and at ground level, thaw it with
+      a hot water bottle or warm, not boiling, water, then restart. If unsure, call a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote: L 02 | Ignition Lockout | 1. Check condensate Pipe for blockages
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Shown on the display as e.g. 'F 01'; callers may say F1. Same table in the Logic System2
+      (UIN 237665), Logic Heat2 (UIN 228298) and i-mini2 C (UIN 252221) user guides. Ideal's other checks
+      for L02 involve the gas supply and meter; do not advise on those.
+  - id: ideal-logic2-l06
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: L06
+    meaning: False flame lockout.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote:
+        L06 | False Flame Lockout | Restart the appliance - if the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Shown on the display as e.g. 'F 01'; callers may say F1. Same table in the Logic System2
+      (UIN 237665), Logic Heat2 (UIN 228298) and i-mini2 C (UIN 252221) user guides.
+  - id: ideal-logic2-l0c
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: L0C
+    meaning: The boiler has been reset five times within 15 minutes.
+    homeowner_guidance:
+      Switch the boiler's electricity supply off and back on. If it still won't work,
+      call Ideal (if under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote: L0C | 5 Boiler Resets in 15 minutes | 1. Turn electrical supply to boiler off and on.
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Shown on the display as e.g. 'F 01'; callers may say F1. Same table in the Logic System2
+      (UIN 237665), Logic Heat2 (UIN 228298) and i-mini2 C (UIN 252221) user guides.
+  - id: ideal-logic2-l0d
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: L0d
+    meaning: Lockout for a blocked flue or blocked condensate pipe.
+    homeowner_guidance:
+      If the plastic condensate pipe outside is frozen and at ground level, thaw it with
+      a hot water bottle or warm, not boiling, water, then restart. If unsure, call a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote: L0d | Blocked Flue/Condensate | 1. Check condensate Pipe for blockages
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Display shows 'L0d'; callers may say L D. Same entry in the Logic System2, Logic Heat2
+      and i-mini2 C user guides. Gas supply checks also listed; do not advise on those.
+  - id: ideal-logic2-f0u
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: F0U
+    meaning: The temperature difference between the flow and return pipes is more than 50 degrees.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F0U | Flow/Return Differential > 50°C | If the boiler fails to operate then please contact
+        Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations: Callers may say FU. Same table in the Logic System2, Logic Heat2 and i-mini2 C user guides.
+  - id: ideal-logic2-du
+    kind: fault_code
+    manufacturer: ideal
+    ranges: &id002
+      - Logic Combi2
+      - i-mini2 C
+    code: dU
+    meaning: The diverter valve has been left in its mid-position for servicing.
+    homeowner_guidance:
+      Turn all the boiler's knobs fully clockwise, switch the boiler's power off and on,
+      then press restart.
+    engineer_needed: false
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote:
+        Diverter Valve in mid-position for service | Rotate all knobs fully clockwise, turn boiler
+        power off and on then press restart.
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Code from the installation manual fault chart; user-guide display image is unclear. Logic
+      Heat2 user guide also lists it but that is a heat-only boiler, so not applied there.
+  - id: ideal-logic2-f0c
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id002
+    code: F0C
+    meaning: Hot water thermistor fault, the hot water temperature sensor.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/3c34c60c8c9d3f21277198c7ca028e95/Logic%20Combi2%20User%20Guide%20-%2010.2023%20UIN%20237664%20A01.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F2NTsKih0WeBUO8G6DrtHtX%2Faec8d34d466e8723d12516aeee4c17cf%2FLogic_Combi2_User_Guide_-_10.2023_UIN_237664_A01.pdf
+      title: Logic Combi2 C24 C30 C35 User Guide (10/2023, UIN 237664 A01)
+      publisher: Ideal Heating
+      page: p. 9, 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F 0C | DHW Thermistor Fault | If the boiler fails to operate please contact Ideal (if under
+        warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations: Combi only. Callers may say FC. Same entry in the i-mini2 C user guide.
+  - id: ideal-logic2-l16
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id002
+    code: L16
+    meaning: Gas valve fault.
+    homeowner_guidance:
+      Press the boiler's reset button for 1 to 3 seconds. If it still won't work, call
+      Ideal (if under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/d2901e87cba1bc48e4a506dc5beb53e6/237664_A08_WEB.pdf?u=https%3A%2F%2Fdownloads.ctfassets.net%2Fsj902orc9wh4%2FyIa5KQMAmZzmkAzu1Tixk%2F4212c61d681b4202db959a9a69bc75d3%2F237664_A08_WEB.pdf
+      title: Logic Combi2 C24 C30 C35 Installation & Servicing (08/2026, UIN 237664 A08)
+      publisher: Ideal Heating
+      page: p. 83, user guide 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote: L 16 | Gas Valve Fault | Press the reset button of the boiler for 1-3 seconds.
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Appears in the 2026 editions of the Logic Combi2 and i-mini2 C user guides, not the 10/2023
+      Logic Combi2 guide. Not confirmed for System2 or Heat2.
+  - id: ideal-logic2-l08
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id002
+    code: L08
+    meaning: The reset button has been held in for more than 10 seconds.
+    homeowner_guidance:
+      Check the reset button isn't stuck or damaged, then press it for 1 to 3 seconds
+      to clear the fault. If it still fails, call Ideal or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/d2901e87cba1bc48e4a506dc5beb53e6/237664_A08_WEB.pdf?u=https%3A%2F%2Fdownloads.ctfassets.net%2Fsj902orc9wh4%2FyIa5KQMAmZzmkAzu1Tixk%2F4212c61d681b4202db959a9a69bc75d3%2F237664_A08_WEB.pdf
+      title: Logic Combi2 C24 C30 C35 Installation & Servicing (08/2026, UIN 237664 A08)
+      publisher: Ideal Heating
+      page: p. 83, user guide 1.9 Fault Codes
+      checked: '2026-10-19'
+      quote:
+        L 08 | Reset button pressed for more than 10s | Check that the reset button is not damaged.
+        To clear the fault, press the button for 1-3 seconds.
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Appears in the 2026 editions of the Logic Combi2 and i-mini2 C user guides only. Not confirmed
+      for System2 or Heat2.
+  - id: ideal-logic2-f0t
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: F0t
+    meaning: Room thermostat fault.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/d2901e87cba1bc48e4a506dc5beb53e6/237664_A08_WEB.pdf?u=https%3A%2F%2Fdownloads.ctfassets.net%2Fsj902orc9wh4%2FyIa5KQMAmZzmkAzu1Tixk%2F4212c61d681b4202db959a9a69bc75d3%2F237664_A08_WEB.pdf
+      title: Logic Combi2 C24 C30 C35 Installation & Servicing (08/2026, UIN 237664 A08)
+      publisher: Ideal Heating
+      page: p. 55, 4.1 Fault finding main menu
+      checked: '2026-10-19'
+      quote: '‘F 0t’ Room Thermostat Fault: Check Room Stat & connections'
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      From the installer fault-finding chart; no user action is published. Callers may drop the
+      zero. Also listed in the Logic Heat2 chart.
+  - id: ideal-logic2-f10
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id001
+    code: F10
+    meaning: Spark generator fault, the part that makes the ignition spark.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/d2901e87cba1bc48e4a506dc5beb53e6/237664_A08_WEB.pdf?u=https%3A%2F%2Fdownloads.ctfassets.net%2Fsj902orc9wh4%2FyIa5KQMAmZzmkAzu1Tixk%2F4212c61d681b4202db959a9a69bc75d3%2F237664_A08_WEB.pdf
+      title: Logic Combi2 C24 C30 C35 Installation & Servicing (08/2026, UIN 237664 A08)
+      publisher: Ideal Heating
+      page: p. 55, 4.1 Fault finding main menu
+      checked: '2026-10-19'
+      quote: '‘F 10’ Spark Generator Fault: Check wiring, if OK replace spark generator'
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      From the installer fault-finding chart; no user action is published. Also in the Logic
+      System2, Logic Heat2 and i-mini2 C charts.
+  - id: ideal-logic2-f12
+    kind: fault_code
+    manufacturer: ideal
+    ranges:
+      - Logic Combi2
+      - Logic System2
+      - i-mini2 C
+    code: F12
+    meaning: The boiler pump rotor is blocked.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/d2901e87cba1bc48e4a506dc5beb53e6/237664_A08_WEB.pdf?u=https%3A%2F%2Fdownloads.ctfassets.net%2Fsj902orc9wh4%2FyIa5KQMAmZzmkAzu1Tixk%2F4212c61d681b4202db959a9a69bc75d3%2F237664_A08_WEB.pdf
+      title: Logic Combi2 C24 C30 C35 Installation & Servicing (08/2026, UIN 237664 A08)
+      publisher: Ideal Heating
+      page: p. 55, 4.1 Fault finding main menu
+      checked: '2026-10-19'
+      quote: '‘F 12’ Pump Rotor Blocked: Clear blockage'
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      From the installer fault-finding chart; no user action is published. Callers may drop the
+      zero. Confirmed in the Logic Combi2, Logic System2 and i-mini2 C manuals; Logic Heat2 chart does not
+      list it.
+  - id: ideal-logic2-f13
+    kind: fault_code
+    manufacturer: ideal
+    ranges:
+      - Logic Combi2
+      - Logic System2
+      - i-mini2 C
+    code: F13
+    meaning: Boiler pump fault.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/d2901e87cba1bc48e4a506dc5beb53e6/237664_A08_WEB.pdf?u=https%3A%2F%2Fdownloads.ctfassets.net%2Fsj902orc9wh4%2FyIa5KQMAmZzmkAzu1Tixk%2F4212c61d681b4202db959a9a69bc75d3%2F237664_A08_WEB.pdf
+      title: Logic Combi2 C24 C30 C35 Installation & Servicing (08/2026, UIN 237664 A08)
+      publisher: Ideal Heating
+      page: p. 55, 4.1 Fault finding main menu
+      checked: '2026-10-19'
+      quote: '‘F 13’ or ‘F 15’ or ‘F 17’ Pump Fault: Check pump wiring, if OK replace pump'
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      From the installer fault-finding chart; no user action is published. Callers may drop the
+      zero. Confirmed in the Logic Combi2, Logic System2 and i-mini2 C manuals; Logic Heat2 chart does not
+      list it.
+  - id: ideal-logic2-f15
+    kind: fault_code
+    manufacturer: ideal
+    ranges:
+      - Logic Combi2
+      - Logic System2
+      - i-mini2 C
+    code: F15
+    meaning: Boiler pump fault.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/d2901e87cba1bc48e4a506dc5beb53e6/237664_A08_WEB.pdf?u=https%3A%2F%2Fdownloads.ctfassets.net%2Fsj902orc9wh4%2FyIa5KQMAmZzmkAzu1Tixk%2F4212c61d681b4202db959a9a69bc75d3%2F237664_A08_WEB.pdf
+      title: Logic Combi2 C24 C30 C35 Installation & Servicing (08/2026, UIN 237664 A08)
+      publisher: Ideal Heating
+      page: p. 55, 4.1 Fault finding main menu
+      checked: '2026-10-19'
+      quote: '‘F 13’ or ‘F 15’ or ‘F 17’ Pump Fault: Check pump wiring, if OK replace pump'
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      From the installer fault-finding chart; no user action is published. Callers may drop the
+      zero. Confirmed in the Logic Combi2, Logic System2 and i-mini2 C manuals; Logic Heat2 chart does not
+      list it.
+  - id: ideal-logic2-f17
+    kind: fault_code
+    manufacturer: ideal
+    ranges:
+      - Logic Combi2
+      - Logic System2
+      - i-mini2 C
+    code: F17
+    meaning: Boiler pump fault.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/d2901e87cba1bc48e4a506dc5beb53e6/237664_A08_WEB.pdf?u=https%3A%2F%2Fdownloads.ctfassets.net%2Fsj902orc9wh4%2FyIa5KQMAmZzmkAzu1Tixk%2F4212c61d681b4202db959a9a69bc75d3%2F237664_A08_WEB.pdf
+      title: Logic Combi2 C24 C30 C35 Installation & Servicing (08/2026, UIN 237664 A08)
+      publisher: Ideal Heating
+      page: p. 55, 4.1 Fault finding main menu
+      checked: '2026-10-19'
+      quote: '‘F 13’ or ‘F 15’ or ‘F 17’ Pump Fault: Check pump wiring, if OK replace pump'
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      From the installer fault-finding chart; no user action is published. Callers may drop the
+      zero. Confirmed in the Logic Combi2, Logic System2 and i-mini2 C manuals; Logic Heat2 chart does not
+      list it.
+  - id: ideal-logic2-f14
+    kind: fault_code
+    manufacturer: ideal
+    ranges:
+      - Logic Combi2
+      - Logic System2
+      - i-mini2 C
+    code: F14
+    meaning: 'High mains voltage: the electricity supply to the boiler is too high.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/d2901e87cba1bc48e4a506dc5beb53e6/237664_A08_WEB.pdf?u=https%3A%2F%2Fdownloads.ctfassets.net%2Fsj902orc9wh4%2FyIa5KQMAmZzmkAzu1Tixk%2F4212c61d681b4202db959a9a69bc75d3%2F237664_A08_WEB.pdf
+      title: Logic Combi2 C24 C30 C35 Installation & Servicing (08/2026, UIN 237664 A08)
+      publisher: Ideal Heating
+      page: p. 55, 4.1 Fault finding main menu
+      checked: '2026-10-19'
+      quote: '‘F 14’ High Mains Voltage: Contact electricity provider'
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      From the installer fault-finding chart; no user action is published. Callers may drop the
+      zero. Confirmed in the Logic Combi2, Logic System2 and i-mini2 C manuals; Logic Heat2 chart does not
+      list it. Installer chart says contact the electricity provider.
+  - id: ideal-logic2-f16
+    kind: fault_code
+    manufacturer: ideal
+    ranges:
+      - Logic Combi2
+      - Logic System2
+      - i-mini2 C
+    code: F16
+    meaning: Gas valve fault.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/d2901e87cba1bc48e4a506dc5beb53e6/237664_A08_WEB.pdf?u=https%3A%2F%2Fdownloads.ctfassets.net%2Fsj902orc9wh4%2FyIa5KQMAmZzmkAzu1Tixk%2F4212c61d681b4202db959a9a69bc75d3%2F237664_A08_WEB.pdf
+      title: Logic Combi2 C24 C30 C35 Installation & Servicing (08/2026, UIN 237664 A08)
+      publisher: Ideal Heating
+      page: p. 55, 4.1 Fault finding main menu
+      checked: '2026-10-19'
+      quote: '‘F 16’ Gas Valve Fault: Check gas valve wiring, if OK replace gas valve'
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      From the installer fault-finding chart; no user action is published. Callers may drop the
+      zero. Confirmed in the Logic Combi2, Logic System2 and i-mini2 C manuals; Logic Heat2 chart does not
+      list it.
+  - id: ideal-logic-heat2-f0a
+    kind: fault_code
+    manufacturer: ideal
+    ranges:
+      - Logic Heat2
+    code: F0A
+    meaning: The flow and return pipes are reversed.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/60caa924e0bb2920fe12e140103707e8/Logic%20Heat%20Installation%20&%20Servicing%20-%20November%202025%20UIN%20228298%20A10.pdf?u=https%3A%2F%2Fdownloads.ctfassets.net%2Fsj902orc9wh4%2F7Ke2Y3XaTdSKYiZUuhcO5t%2Fcdb11acaf00ea51d4ec5609a543986d6%2FLogic_Heat_Installation___Servicing_-_November_2025_UIN_228298_A10.pdf
+      title: Logic Heat2 H12-H30 Installation & Servicing (11/2025, UIN 228298 A10)
+      publisher: Ideal Heating
+      page: p. 51, 4.1 Fault finding main menu
+      checked: '2026-10-19'
+      quote: '‘F 0A’ Go to Section 4.8: Flow/Return Reversed'
+    status: source_verified
+    reviewed_by: null
+    limitations: Logic Heat2 installer chart only; not in the Heat2 user guide. Callers may say FA.
+  - id: ideal-logic-heat2-f0d
+    kind: fault_code
+    manufacturer: ideal
+    ranges:
+      - Logic Heat2
+    code: F0d
+    meaning: No water flow through the boiler.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/60caa924e0bb2920fe12e140103707e8/Logic%20Heat%20Installation%20&%20Servicing%20-%20November%202025%20UIN%20228298%20A10.pdf?u=https%3A%2F%2Fdownloads.ctfassets.net%2Fsj902orc9wh4%2F7Ke2Y3XaTdSKYiZUuhcO5t%2Fcdb11acaf00ea51d4ec5609a543986d6%2FLogic_Heat_Installation___Servicing_-_November_2025_UIN_228298_A10.pdf
+      title: Logic Heat2 H12-H30 Installation & Servicing (11/2025, UIN 228298 A10)
+      publisher: Ideal Heating
+      page: p. 51, 4.1 Fault finding main menu
+      checked: '2026-10-19'
+      quote: '‘F 0d’ Go to Section 4.15: No Water Flow'
+    status: source_verified
+    reviewed_by: null
+    limitations: Logic Heat2 installer chart only; not in the Heat2 user guide. Callers may say FD.
+  - id: ideal-esp1-f1
+    kind: fault_code
+    manufacturer: ideal
+    ranges: &id003
+      - Logic Combi ESP1
+      - Logic Code Combi ESP1
+    code: F1
+    meaning: Low water pressure in the central heating system.
+    homeowner_guidance:
+      Check the pressure gauge reads between 1 and 1.5 bar. If it is low, top it up as
+      the user guide shows, then restart. If it still fails, call Ideal or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F1 | Low Water Pressure | Check system water pressure is between 1 & 1.5bar on the system pressure
+        gauge.
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Same table in the Logic Code Combi ESP1 user guide (UIN 222364), whose code images are
+      partly blank; codes there confirmed from its installation manual (UIN 222364 A06).
+  - id: ideal-esp1-f2
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: F2
+    meaning: 'Flame loss: the boiler has lost its flame.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F2 | Flame Loss | 1. Check other gas appliances in the house are working to confirm a supply
+        is present in the property.
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Ideal's own checks for this code involve the gas supply and meter, which the agent must
+      not advise on; refer to an engineer.
+  - id: ideal-esp1-f3
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: F3
+    meaning: Fan fault.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F3 | Fan Fault | Restart the appliance - if the boiler fails to operate then please contact
+        Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Same table in the Logic Code Combi ESP1 user guide (UIN 222364), whose code images are
+      partly blank; codes there confirmed from its installation manual (UIN 222364 A06).
+  - id: ideal-esp1-f4
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: F4
+    meaning: Flow thermistor fault, a temperature sensor in the boiler.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F4 L4 | Flow Thermistor | Restart the appliance - if the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Same table in the Logic Code Combi ESP1 user guide (UIN 222364), whose code images are
+      partly blank; codes there confirmed from its installation manual (UIN 222364 A06).
+  - id: ideal-esp1-l4
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: L4
+    meaning: Flow thermistor fault, a temperature sensor in the boiler. The boiler has locked out.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F4 L4 | Flow Thermistor | Restart the appliance - if the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Same table in the Logic Code Combi ESP1 user guide (UIN 222364), whose code images are
+      partly blank; codes there confirmed from its installation manual (UIN 222364 A06).
+  - id: ideal-esp1-f5
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: F5
+    meaning: Return thermistor fault, a temperature sensor in the boiler.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F5 L5 | Return Thermistor | Restart the appliance - if the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Same table in the Logic Code Combi ESP1 user guide (UIN 222364), whose code images are
+      partly blank; codes there confirmed from its installation manual (UIN 222364 A06).
+  - id: ideal-esp1-l5
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: L5
+    meaning: Return thermistor fault, a temperature sensor in the boiler. The boiler has locked out.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F5 L5 | Return Thermistor | Restart the appliance - if the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Same table in the Logic Code Combi ESP1 user guide (UIN 222364), whose code images are
+      partly blank; codes there confirmed from its installation manual (UIN 222364 A06).
+  - id: ideal-esp1-f6
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: F6
+    meaning: Outside temperature sensor failure.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F6 | Outside Sensor Failure | Restart the appliance - if the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Same table in the Logic Code Combi ESP1 user guide (UIN 222364), whose code images are
+      partly blank; codes there confirmed from its installation manual (UIN 222364 A06).
+  - id: ideal-esp1-f7
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: F7
+    meaning: 'Low mains voltage: the electricity supply to the boiler is too low.'
+    homeowner_guidance:
+      'This is about the mains electricity supply: contact a qualified electrician or
+      your electricity supplier.'
+    engineer_needed: false
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote: F7 | Low Mains Voltage | Contact a qualified electrician or your electricity provider.
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Same table in the Logic Code Combi ESP1 user guide (UIN 222364), whose code images are
+      partly blank; codes there confirmed from its installation manual (UIN 222364 A06).
+  - id: ideal-esp1-f9
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: F9
+    meaning: Unconfigured circuit board.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F9 L9 | Unconfigured PCB | Unconfigured PCB. Please contact Ideal (if under warranty) or alternatively
+        a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Same table in the Logic Code Combi ESP1 user guide (UIN 222364), whose code images are
+      partly blank; codes there confirmed from its installation manual (UIN 222364 A06).
+  - id: ideal-esp1-l9
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: L9
+    meaning: Unconfigured circuit board. The boiler has locked out.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F9 L9 | Unconfigured PCB | Unconfigured PCB. Please contact Ideal (if under warranty) or alternatively
+        a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Same table in the Logic Code Combi ESP1 user guide (UIN 222364), whose code images are
+      partly blank; codes there confirmed from its installation manual (UIN 222364 A06).
+  - id: ideal-esp1-l1
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: L1
+    meaning: Lockout for flow temperature overheat or no water flow.
+    homeowner_guidance:
+      Check the pressure gauge reads between 1 and 1.5 bar. If it is low, top it up as
+      the user guide shows, then restart. If it still fails, call Ideal or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        L1 | Flow Temperature Overheat or No Water Flow | Check system water pressure is between 1
+        & 1.5bar on the system pressure gauge.
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Same table in the Logic Code Combi ESP1 user guide (UIN 222364), whose code images are
+      partly blank; codes there confirmed from its installation manual (UIN 222364 A06).
+  - id: ideal-esp1-l2
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: L2
+    meaning:
+      'Ignition lockout: the boiler failed to light. A blocked or frozen condensate pipe can cause
+      it.'
+    homeowner_guidance:
+      If the plastic condensate pipe outside is frozen and at ground level, thaw it with
+      a hot water bottle or warm, not boiling, water, then restart. If unsure, call a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote: L2 | Ignition Lockout | 1. Check condensate Pipe for blockages (refer to Section 4)
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Ideal's other checks for L2 involve the gas supply and meter; do not advise on those. Same
+      in the Logic Code Combi ESP1 user guide.
+  - id: ideal-esp1-l6
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: L6
+    meaning: False flame lockout.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        L6 | False Flame Lockout | Restart the appliance - if the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Same table in the Logic Code Combi ESP1 user guide (UIN 222364), whose code images are
+      partly blank; codes there confirmed from its installation manual (UIN 222364 A06).
+  - id: ideal-esp1-lc
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: LC
+    meaning: The boiler has been reset five times within 15 minutes.
+    homeowner_guidance:
+      Switch the boiler's electricity supply off and back on. If it still won't work,
+      call Ideal (if under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote: LC | 5 Boiler Resets in 15 minutes | 1. Turn electrical supply to boiler off and on.
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Same table in the Logic Code Combi ESP1 user guide (UIN 222364), whose code images are
+      partly blank; codes there confirmed from its installation manual (UIN 222364 A06).
+  - id: ideal-esp1-fa
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: FA
+    meaning:
+      Negative temperature difference between the flow and return sensors, a flow or return thermistor
+      fault.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        FA | Negative Differential Flow/Return Thermistor | If the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Same table in the Logic Code Combi ESP1 user guide (UIN 222364), whose code images are
+      partly blank; codes there confirmed from its installation manual (UIN 222364 A06).
+  - id: ideal-esp1-fu
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: FU
+    meaning: The temperature difference between the flow and return pipes is more than 50 degrees.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        FU | Flow/Return Differential > 50°C | If the boiler fails to operate then please contact Ideal
+        (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Same table in the Logic Code Combi ESP1 user guide (UIN 222364), whose code images are
+      partly blank; codes there confirmed from its installation manual (UIN 222364 A06).
+  - id: ideal-esp1-du
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id003
+    code: dU
+    meaning: The diverter valve has been left in its mid-position for servicing.
+    homeowner_guidance:
+      Turn all the boiler's knobs fully clockwise, switch the boiler's power off and on,
+      then press restart.
+    engineer_needed: false
+    source:
+      url: https://idealheating.com/_gatsby/file/eb8005cce3c61a0def687aa51bf05040/Logic%20Combi%20ESP1%20User%20Guide%20-%20March%202023%20%20UIN%20222353%20A04.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F5onpAeJ4jXflEXzhtICKd2%2Fe1d5ff454f70c7a44177463085aedee6%2FLogic_Combi_ESP1_User_Guide_-_March_2023__UIN_222353_A04.pdf
+      title: Logic Combi ESP1 24 30 35 User Guide (03/2023, UIN 222353 A04)
+      publisher: Ideal Heating
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        dU | Diverter Valve in mid-position for service | Rotate all knobs fully clockwise, turn boiler
+        power off and on then press restart
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Same table in the Logic Code Combi ESP1 user guide (UIN 222364), whose code images are
+      partly blank; codes there confirmed from its installation manual (UIN 222364 A06).
+  - id: ideal-mexico-he-la
+    kind: fault_code
+    manufacturer: ideal
+    ranges: &id004
+      - Mexico HE
+    code: LA
+    meaning: The overheat thermostat has shut the boiler down because it overheated.
+    homeowner_guidance:
+      Press the reset button and the boiler should relight. If the fault comes back, turn
+      the boiler off and call a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/100dbdc7a37987a5dd62f0dd43837e4f/Mexico%20HE%20User%20Guide%20-%20October%202021%20UIN%20201787%20A17.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F4GFD53XoiqTmCgwexk12Gp%2Fc0afedc2ebd3cb224a1598597b7e5641%2FMexico_HE_User_Guide_-_October_2021_UIN_201787_A17.pdf
+      title: Mexico HE 15-36 User Guide (10/2021, UIN 201787 A17)
+      publisher: Ideal Heating
+      page: p. 3
+      checked: '2026-10-19'
+      quote:
+        Should this occur a fault code ‘L-A’ will be displayed. Press the reset button (C) and the
+        boiler will relight. If the fault recurs turn off the boiler and consult a Gas Safe Registered Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Shown as 'L-A' or flashing 'L:A'. Ideal also advises calling the installer if every radiator
+      has a thermostatic valve.
+  - id: ideal-mexico-he-lf
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id004
+    code: LF
+    meaning: 'Flame failure: the boiler failed to light or lost its flame.'
+    homeowner_guidance:
+      Hold the reset button for 2 seconds to relight. If the outside condensate pipe is
+      frozen, thaw it with warm, not boiling, water. If it recurs, call a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://idealheating.com/_gatsby/file/100dbdc7a37987a5dd62f0dd43837e4f/Mexico%20HE%20User%20Guide%20-%20October%202021%20UIN%20201787%20A17.pdf?u=https%3A%2F%2Fassets.ctfassets.net%2Fsj902orc9wh4%2F4GFD53XoiqTmCgwexk12Gp%2Fc0afedc2ebd3cb224a1598597b7e5641%2FMexico_HE_User_Guide_-_October_2021_UIN_201787_A17.pdf
+      title: Mexico HE 15-36 User Guide (10/2021, UIN 201787 A17)
+      publisher: Ideal Heating
+      page: p. 3
+      checked: '2026-10-19'
+      quote:
+        Flame failure | Should this occur a fault code ‘L-F’ will be displayed. Press the reset button
+        and the boiler will relight. If the fault recurs, turn off the boiler and consult a Gas Safe Registered
+        Engineer
+    status: source_verified
+    reviewed_by: null
+    limitations:
+      Shown as 'L-F' or flashing 'L:F'. The same guide's condensate section calls a condensate
+      lockout 'L2'; the H:A code is listed without a stated meaning and is not covered.
+  - id: ideal-legacy-logic-f2
+    kind: fault_code
+    manufacturer: ideal
+    ranges: &id005
+      - Logic Combi
+      - Independent Combi
+      - i-mini C
+      - Logic System
+      - Logic Heat
+      - Logic+ System
+      - Logic+ Heat
+      - Independent System
+    code: F2
+    meaning: 'Flame loss: the boiler has lost its flame.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F2 | Flame Loss | 1. Check other gas appliances in the house are working to confirm a supply
+        is present in the property.
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking against an official source. Same
+      table in the 2019 Independent Combi, i-mini C, Logic/Logic+/Independent System and Logic/Logic+ Heat
+      user guides.
+  - id: ideal-legacy-logic-f3
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id005
+    code: F3
+    meaning: Fan fault.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F3 | Fan Fault | Restart the appliance - if the boiler fails to operate then please contact
+        Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking against an official source. Same
+      table in the 2019 Independent Combi, i-mini C, Logic/Logic+/Independent System and Logic/Logic+ Heat
+      user guides.
+  - id: ideal-legacy-logic-f4
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id005
+    code: F4
+    meaning: Flow thermistor fault, a temperature sensor in the boiler.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F4 L4 | Flow Thermistor | Restart the appliance - if the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking against an official source. Same
+      table in the 2019 Independent Combi, i-mini C, Logic/Logic+/Independent System and Logic/Logic+ Heat
+      user guides.
+  - id: ideal-legacy-logic-l4
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id005
+    code: L4
+    meaning: Flow thermistor fault, a temperature sensor in the boiler. The boiler has locked out.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F4 L4 | Flow Thermistor | Restart the appliance - if the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking against an official source. Same
+      table in the 2019 Independent Combi, i-mini C, Logic/Logic+/Independent System and Logic/Logic+ Heat
+      user guides.
+  - id: ideal-legacy-logic-f5
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id005
+    code: F5
+    meaning: Return thermistor fault, a temperature sensor in the boiler.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F5 L5 | Return Thermistor | Restart the appliance - if the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking against an official source. Same
+      table in the 2019 Independent Combi, i-mini C, Logic/Logic+/Independent System and Logic/Logic+ Heat
+      user guides.
+  - id: ideal-legacy-logic-l5
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id005
+    code: L5
+    meaning: Return thermistor fault, a temperature sensor in the boiler. The boiler has locked out.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F5 L5 | Return Thermistor | Restart the appliance - if the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking against an official source. Same
+      table in the 2019 Independent Combi, i-mini C, Logic/Logic+/Independent System and Logic/Logic+ Heat
+      user guides.
+  - id: ideal-legacy-logic-f6
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id005
+    code: F6
+    meaning: Outside temperature sensor failure.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F6 | Outside Sensor Failure | Restart the appliance - if the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking against an official source. Same
+      table in the 2019 Independent Combi, i-mini C, Logic/Logic+/Independent System and Logic/Logic+ Heat
+      user guides.
+  - id: ideal-legacy-logic-f7
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id005
+    code: F7
+    meaning: 'Low mains voltage: the electricity supply to the boiler is too low.'
+    homeowner_guidance:
+      'This is about the mains electricity supply: contact a qualified electrician or
+      your electricity supplier.'
+    engineer_needed: false
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote: F7 | Low Mains Voltage | Contact a qualified electrician or your electricity provider.
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking against an official source. Same
+      table in the 2019 Independent Combi, i-mini C, Logic/Logic+/Independent System and Logic/Logic+ Heat
+      user guides.
+  - id: ideal-legacy-logic-f9
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id005
+    code: F9
+    meaning: Unconfigured or faulty circuit board, or a short circuit at the gas valve.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote: F9 L9 | Unconfigured PCB | Unconfigured/faulty PCB or gas valve short circuit.
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking against an official source. Same
+      table in the 2019 Independent Combi, i-mini C, Logic/Logic+/Independent System and Logic/Logic+ Heat
+      user guides.
+  - id: ideal-legacy-logic-l9
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id005
+    code: L9
+    meaning:
+      Unconfigured or faulty circuit board, or a short circuit at the gas valve. The boiler has locked
+      out.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote: F9 L9 | Unconfigured PCB | Unconfigured/faulty PCB or gas valve short circuit.
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking against an official source. Same
+      table in the 2019 Independent Combi, i-mini C, Logic/Logic+/Independent System and Logic/Logic+ Heat
+      user guides.
+  - id: ideal-legacy-logic-l1
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id005
+    code: L1
+    meaning: Lockout for flow temperature overheat or no water flow.
+    homeowner_guidance:
+      Check the pressure gauge reads between 1 and 1.5 bar. If it is low, top it up as
+      the user guide shows, then restart. If it still fails, call Ideal or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        L1 | Flow Temperature Overheat or No Water Flow | Check system water pressure is between 1
+        & 1.5bar on the system pressure gauge.
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking against an official source. Same
+      table in the 2019 Independent Combi, i-mini C, Logic/Logic+/Independent System and Logic/Logic+ Heat
+      user guides.
+  - id: ideal-legacy-logic-l2
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id005
+    code: L2
+    meaning:
+      'Ignition lockout: the boiler failed to light. A blocked or frozen condensate pipe can cause
+      it.'
+    homeowner_guidance:
+      If the plastic condensate pipe outside is frozen and at ground level, thaw it with
+      a hot water bottle or warm, not boiling, water, then restart. If unsure, call a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote: L2 | Ignition Lockout | 1. Check condensate Pipe for blockages (refer to Section 4)
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking against an official source. Same
+      table in the 2019 Independent Combi, i-mini C, Logic/Logic+/Independent System and Logic/Logic+ Heat
+      user guides.
+  - id: ideal-legacy-logic-l6
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id005
+    code: L6
+    meaning: False flame lockout.
+    homeowner_guidance:
+      Press the restart button once. If the code comes back, the boiler needs Ideal (if
+      under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        L6 | False Flame Lockout | Restart the appliance - if the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking against an official source. Same
+      table in the 2019 Independent Combi, i-mini C, Logic/Logic+/Independent System and Logic/Logic+ Heat
+      user guides.
+  - id: ideal-legacy-logic-lc
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id005
+    code: LC
+    meaning: The boiler has been reset five times within 15 minutes.
+    homeowner_guidance:
+      Switch the boiler's electricity supply off and back on. If it still won't work,
+      call Ideal (if under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote: LC | 5 Boiler Resets in 15 minutes | 1. Turn electrical supply to boiler off and on.
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking against an official source. Same
+      table in the 2019 Independent Combi, i-mini C, Logic/Logic+/Independent System and Logic/Logic+ Heat
+      user guides.
+  - id: ideal-legacy-logic-fu
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id005
+    code: FU
+    meaning: The temperature difference between the flow and return pipes is more than 50 degrees.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        FU | Flow/Return Differential > 50°C | If the boiler fails to operate then please contact Ideal
+        (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking against an official source. Same
+      table in the 2019 Independent Combi, i-mini C, Logic/Logic+/Independent System and Logic/Logic+ Heat
+      user guides.
+  - id: ideal-legacy-logic-f1
+    kind: fault_code
+    manufacturer: ideal
+    ranges:
+      - Logic Combi
+      - Independent Combi
+      - i-mini C
+      - Logic+ System
+      - Independent System
+    code: F1
+    meaning: Low water pressure in the central heating system.
+    homeowner_guidance:
+      Check the pressure gauge reads between 1 and 1.5 bar. If it is low, top it up as
+      the user guide shows, then restart. If it still fails, call Ideal or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        F1 | Low Water Pressure | Check system water pressure is between 1 & 1.5bar on the system pressure
+        gauge.
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking. Also in the 2019 Independent Combi,
+      i-mini C, Logic+ System and Independent System guides; the 2019 Logic System guide shows Fd instead.
+  - id: ideal-legacy-logic-fa-combi
+    kind: fault_code
+    manufacturer: ideal
+    ranges:
+      - Logic Combi
+      - Independent Combi
+      - i-mini C
+    code: FA
+    meaning:
+      Negative temperature difference between the flow and return sensors, a flow or return thermistor
+      fault.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/Logic-Combi-User-Guide-222351-1_users.pdf
+      title: Logic Combi C24 C30 C35 User Guide (04/2019, UIN 222351 A01), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 8. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        FA | Negative Differential Flow/Return Thermistor | If the boiler fails to operate then please
+        contact Ideal (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking against an official source. Same
+      entry in the 2019 Independent Combi and i-mini C user guides.
+  - id: ideal-legacy-logic-fd
+    kind: fault_code
+    manufacturer: ideal
+    ranges:
+      - Logic System
+      - Logic Heat
+      - Logic+ Heat
+    code: Fd
+    meaning: No water flow through the boiler.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/215354-10-logic-heat-user-guide.pdf
+      title: Logic Heat H12-H30 User Guide (02/2019, UIN 215354 A10), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 7, 7. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        Fd | No Water Flow | Please contact Ideal (if under warranty) or alternatively a Gas Safe Registered
+        Engineer if outside of the warranty period.
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking. Also in the 2019 Logic System and
+      Logic+ Heat user guides. Text extraction renders Fd as F8; confirmed from the page image.
+  - id: ideal-legacy-logic-heat-fa
+    kind: fault_code
+    manufacturer: ideal
+    ranges:
+      - Logic Heat
+      - Logic+ Heat
+    code: FA
+    meaning: The flow and return pipes are reversed.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/215354-10-logic-heat-user-guide.pdf
+      title: Logic Heat H12-H30 User Guide (02/2019, UIN 215354 A10), archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 7, 7. Fault Codes
+      checked: '2026-10-19'
+      quote: FA | Flow / Return Reversed | Please contact a Gas Safe Registered Engineer.
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking. Same in the 2019 Logic+ Heat user
+      guide. Different meaning from FA on the combis.
+  - id: ideal-instinct-c0
+    kind: fault_code
+    manufacturer: ideal
+    ranges: &id006
+      - Instinct
+      - Esprit Eco
+    code: C0
+    meaning: BCC activation fault, the boiler's configuration chip.
+    homeowner_guidance:
+      Reset the boiler by turning the mode knob to reset and straight back. If the code
+      returns, call Ideal (if under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/instinct-userguide.pdf
+      title: Ideal Instinct 24 30 35 User Guide, archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 9. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        BCC Activation Fault | Reset the appliance - if the boiler fails to operate then please contact
+        Ideal Boilers (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking. Same table in the Esprit Eco user
+      guide (UIN 212133 A05). Codes appear across two display digits, e.g. 'L' then '5'.
+  - id: ideal-instinct-c2
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id006
+    code: C2
+    meaning: BCC fault, the boiler's configuration chip.
+    homeowner_guidance:
+      Reset the boiler by turning the mode knob to reset and straight back. If the code
+      returns, call Ideal (if under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/instinct-userguide.pdf
+      title: Ideal Instinct 24 30 35 User Guide, archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 9. Fault Codes
+      checked: '2026-10-19'
+      quote: BCC Fault
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking. Same table in the Esprit Eco user
+      guide (UIN 212133 A05). Codes appear across two display digits, e.g. 'L' then '5'. C2 shares the C0
+      action row in the table.
+  - id: ideal-instinct-f1
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id006
+    code: F1
+    meaning: Low water pressure in the central heating system.
+    homeowner_guidance:
+      Check the pressure gauge reads between 1 and 1.5 bar. If it is low, top it up as
+      the user guide shows, then restart. If it still fails, call Ideal or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/instinct-userguide.pdf
+      title: Ideal Instinct 24 30 35 User Guide, archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 9. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        Low Water Pressure | Check system water pressure is between 1 & 1.5bar on the system pressure
+        gauge (G).
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking. Same table in the Esprit Eco user
+      guide (UIN 212133 A05). Codes appear across two display digits, e.g. 'L' then '5'.
+  - id: ideal-instinct-f2
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id006
+    code: F2
+    meaning: 'Flame loss: the boiler has lost its flame.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/instinct-userguide.pdf
+      title: Ideal Instinct 24 30 35 User Guide, archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 9. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        Flame Loss | 1. Check other gas appliances in the house are working to confirm a supply is
+        present in the property.
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking. Same table in the Esprit Eco user
+      guide (UIN 212133 A05). Codes appear across two display digits, e.g. 'L' then '5'.
+  - id: ideal-instinct-f3
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id006
+    code: F3
+    meaning: Fan fault.
+    homeowner_guidance:
+      Reset the boiler by turning the mode knob to reset and straight back. If the code
+      returns, call Ideal (if under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/instinct-userguide.pdf
+      title: Ideal Instinct 24 30 35 User Guide, archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 9. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        Fan Fault | Reset the appliance - if the boiler fails to operate then please contact Ideal
+        Boilers (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking. Same table in the Esprit Eco user
+      guide (UIN 212133 A05). Codes appear across two display digits, e.g. 'L' then '5'.
+  - id: ideal-instinct-f4
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id006
+    code: F4
+    meaning: Flow thermistor fault, a temperature sensor in the boiler.
+    homeowner_guidance:
+      Reset the boiler by turning the mode knob to reset and straight back. If the code
+      returns, call Ideal (if under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/instinct-userguide.pdf
+      title: Ideal Instinct 24 30 35 User Guide, archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 9. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        Flow Thermistor | Reset the appliance - if the boiler fails to operate then please contact
+        Ideal Boilers (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking. Same table in the Esprit Eco user
+      guide (UIN 212133 A05). Codes appear across two display digits, e.g. 'L' then '5'.
+  - id: ideal-instinct-f5
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id006
+    code: F5
+    meaning: Return thermistor fault, a temperature sensor in the boiler.
+    homeowner_guidance:
+      Reset the boiler by turning the mode knob to reset and straight back. If the code
+      returns, call Ideal (if under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/instinct-userguide.pdf
+      title: Ideal Instinct 24 30 35 User Guide, archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 9. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        Return Thermistor | Reset the appliance - if the boiler fails to operate then please contact
+        Ideal Boilers (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking. Same table in the Esprit Eco user
+      guide (UIN 212133 A05). Codes appear across two display digits, e.g. 'L' then '5'.
+  - id: ideal-instinct-f6
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id006
+    code: F6
+    meaning: Outside temperature sensor failure.
+    homeowner_guidance:
+      Reset the boiler by turning the mode knob to reset and straight back. If the code
+      returns, call Ideal (if under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/instinct-userguide.pdf
+      title: Ideal Instinct 24 30 35 User Guide, archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 9. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        Outside Sensor Failure | Reset the appliance - if the boiler fails to operate then please contact
+        Ideal Boilers (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking. Same table in the Esprit Eco user
+      guide (UIN 212133 A05). Codes appear across two display digits, e.g. 'L' then '5'.
+  - id: ideal-instinct-f7
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id006
+    code: F7
+    meaning: 'Low mains voltage: the electricity supply to the boiler is too low.'
+    homeowner_guidance:
+      'This is about the mains electricity supply: contact a qualified electrician or
+      your electricity supplier.'
+    engineer_needed: false
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/instinct-userguide.pdf
+      title: Ideal Instinct 24 30 35 User Guide, archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 9. Fault Codes
+      checked: '2026-10-19'
+      quote: Low Mains Voltage | Contact a qualified electrician or your electricity provider.
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking. Same table in the Esprit Eco user
+      guide (UIN 212133 A05). Codes appear across two display digits, e.g. 'L' then '5'.
+  - id: ideal-instinct-f9
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id006
+    code: F9
+    meaning: Unconfigured circuit board.
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/instinct-userguide.pdf
+      title: Ideal Instinct 24 30 35 User Guide, archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 9. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        Unconfigured PCB | Unconfigured PCB. Please contact Ideal Boilers (if under warranty) or alternatively
+        a Gas Safe Registered Engineer
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking. Same table in the Esprit Eco user
+      guide (UIN 212133 A05). Codes appear across two display digits, e.g. 'L' then '5'.
+  - id: ideal-instinct-l1
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id006
+    code: L1
+    meaning: Lockout for flow temperature overheat or no water flow.
+    homeowner_guidance:
+      Check the pressure gauge reads between 1 and 1.5 bar. If it is low, top it up as
+      the user guide shows, then restart. If it still fails, call Ideal or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/instinct-userguide.pdf
+      title: Ideal Instinct 24 30 35 User Guide, archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 9. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        Flow Temperature Overheat or No Water Flow | Check system water pressure is between 1 & 1.5bar
+        on the system pressure gauge (G).
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking. Same table in the Esprit Eco user
+      guide (UIN 212133 A05). Codes appear across two display digits, e.g. 'L' then '5'.
+  - id: ideal-instinct-l2
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id006
+    code: L2
+    meaning:
+      'Flame loss lockout: the boiler failed to light or lost its flame. A blocked or frozen condensate
+      pipe can cause it.'
+    homeowner_guidance:
+      If the plastic condensate pipe outside is frozen and at ground level, thaw it with
+      a hot water bottle or warm, not boiling, water, then restart. If unsure, call a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/instinct-userguide.pdf
+      title: Ideal Instinct 24 30 35 User Guide, archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 9. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        Flame Loss | 1. Check other gas appliances in the house are working to confirm a supply is
+        present in the property.
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived; needs checking. Table says Flame Loss; the guide's condensate section says a
+      blocked condensate pipe locks out on L2. Gas checks must not be advised. Same in Esprit Eco guide.
+  - id: ideal-instinct-l5
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id006
+    code: L5
+    meaning: The boiler has been reset five times within 15 minutes.
+    homeowner_guidance:
+      Switch the boiler's electricity supply off and back on. If it still won't work,
+      call Ideal (if under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/instinct-userguide.pdf
+      title: Ideal Instinct 24 30 35 User Guide, archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 9. Fault Codes
+      checked: '2026-10-19'
+      quote: 5 Boiler Resets in 15 minutes | 1. Turn electrical supply to boiler off and on.
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived; needs checking. On Instinct and Esprit Eco L5 means five resets, unlike L5 on
+      Logic boilers. Same in the Esprit Eco guide.
+  - id: ideal-instinct-l6
+    kind: fault_code
+    manufacturer: ideal
+    ranges: *id006
+    code: L6
+    meaning: False flame lockout.
+    homeowner_guidance:
+      Reset the boiler by turning the mode knob to reset and straight back. If the code
+      returns, call Ideal (if under warranty) or a Gas Safe engineer.
+    engineer_needed: true
+    source:
+      url: https://web.archive.org/web/2024/https://idealheating.com/uploads/documents/instinct-userguide.pdf
+      title: Ideal Instinct 24 30 35 User Guide, archived copy
+      publisher: Ideal Boilers (via Internet Archive)
+      page: p. 8, 9. Fault Codes
+      checked: '2026-10-19'
+      quote:
+        False Flame Lockout | Reset the appliance - if the boiler fails to operate then please contact
+        Ideal Boilers (if under warranty) or alternatively a Gas Safe Registered Engineer
+    status: needs_review
+    reviewed_by: null
+    limitations:
+      Archived copy of a former official PDF; needs checking. Same table in the Esprit Eco user
+      guide (UIN 212133 A05). Codes appear across two display digits, e.g. 'L' then '5'.

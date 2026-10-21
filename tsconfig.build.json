@@ -1,5 +1,5 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": { "noEmit": false },
-  "include": ["src", "config/schema"]
+  "include": ["src", "config/schema", "knowledge/schema.ts"]
 }

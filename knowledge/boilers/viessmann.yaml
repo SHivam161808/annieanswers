@@ -1,0 +1,1129 @@
+# Viessmann fault codes. Sources fetched from viessmann.co.uk on 2026-10-19. See knowledge/schema.ts.
+manufacturer: viessmann
+known_ranges:
+  - name: 'Vitodens 050-W'
+    aliases: ['B0HA', 'B0KA']
+    discontinued: false
+    coverage: partial
+    note: 'Current range (type B0HA/B0KA). Selected common codes from the installer fault table; full table has about 100 codes.'
+  - name: 'Vitodens 100-W'
+    aliases: ['B1HF', 'B1KF']
+    discontinued: false
+    coverage: partial
+    note: 'Current range (type B1HF/B1KF). Selected common codes only. Older 100-W types (e.g. B1HC/B1KC, B1HE/B1KE) use different codes.'
+  - name: 'Vitodens 111-W'
+    aliases: ['B1LF']
+    discontinued: false
+    coverage: partial
+    note: 'Current range (type B1LF). Selected common codes only.'
+  - name: 'Vitodens 200-W'
+    aliases: ['B2HF', 'B2KF']
+    discontinued: false
+    coverage: partial
+    note: 'Current range (type B2HF/B2KF, colour touchscreen; codes shown as F.xxx). Selected common codes only. Older 200-W types use different codes.'
+  - name: 'Vitodens 100-W heat only'
+    aliases: ['B1GA']
+    discontinued: false
+    coverage: none
+    note: 'Current (type B1GA). Installer manual published on viessmann.co.uk; not yet processed.'
+  - name: 'Vitodens 222-F'
+    aliases: ['B2TF']
+    discontinued: false
+    coverage: none
+    note: 'Current storage combi (type B2TF). Installer manual on viessmann.co.uk; not yet processed.'
+  - name: 'Vitodens 025-W'
+    aliases: ['Vitodens 025']
+    discontinued: false
+    coverage: none
+    note: 'Listed on viessmann.co.uk; no manual found there.'
+  - name: 'Vitodens 100-W (older types)'
+    aliases: ['B1HC', 'B1KC', 'B1HE', 'B1KE', 'WB1']
+    discontinued: true
+    coverage: none
+    note: 'Earlier generations with different fault codes (e.g. F2, F4). Not processed.'
+  - name: 'Vitodens 200-W (older types)'
+    aliases: ['B2HA', 'B2HB', 'B2HE', 'WB2']
+    discontinued: true
+    coverage: none
+    note: 'Earlier generations with different fault codes. Not processed.'
+entries:
+  - id: vm-050w-59
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 050-W']
+    code: '59'
+    meaning: "The mains power supply voltage is too low. The burner is locked out, so there's no heating or hot water."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20050%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20050%20installation%20instructions.pdf'
+      title: 'Vitodens 050-W type B0HA, B0KA installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.63'
+      checked: '2026-10-19'
+      quote: '59 Burner locked out, boiler circuit pump off. No central heating, no DHW heating Power supply, undervoltage'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-050w-62
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 050-W']
+    code: '62'
+    meaning: 'The high limit safety cut-out has responded to overheating, and the burner has gone into a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20050%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20050%20installation%20instructions.pdf'
+      title: 'Vitodens 050-W type B0HA, B0KA installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.64'
+      checked: '2026-10-19'
+      quote: '62 Burner in a fault state High limit safety cut-out has responded.'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-050w-63
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 050-W']
+    code: '63'
+    meaning: 'The flue gas temperature limiter has responded, and the burner has gone into a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20050%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20050%20installation%20instructions.pdf'
+      title: 'Vitodens 050-W type B0HA, B0KA installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.64'
+      checked: '2026-10-19'
+      quote: '63 Burner in a fault state Flue gas temperature limiter has responded.'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-050w-64
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 050-W']
+    code: '64'
+    meaning: 'The flame was lost while the burner was starting up or running. The boiler carries on and the burner restarts.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20050%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20050%20installation%20instructions.pdf'
+      title: 'Vitodens 050-W type B0HA, B0KA installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.64'
+      checked: '2026-10-19'
+      quote: '64 Normal operation; burner restarts. Flame loss in the stabilisation or operating phase'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-050w-71
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 050-W']
+    code: '71'
+    meaning: 'The fan speed is too low. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20050%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20050%20installation%20instructions.pdf'
+      title: 'Vitodens 050-W type B0HA, B0KA installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.65'
+      checked: '2026-10-19'
+      quote: '71 Burner in a fault state Fan speed too low'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-050w-74
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 050-W']
+    code: '74'
+    meaning: "System pressure is too low. The burner is locked out, so there's no heating or hot water."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20050%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20050%20installation%20instructions.pdf'
+      title: 'Vitodens 050-W type B0HA, B0KA installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.65'
+      checked: '2026-10-19'
+      quote: '74 Burner locked out. Internal circulation pump off. No central heating and no DHW heating System pressure too low'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-050w-75
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 050-W']
+    code: '75'
+    meaning: 'No water flow is being detected through the boiler, so it has gone into a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20050%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20050%20installation%20instructions.pdf'
+      title: 'Vitodens 050-W type B0HA, B0KA installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.65'
+      checked: '2026-10-19'
+      quote: '75 Burner in a fault state No flow rate'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-050w-87
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 050-W']
+    code: '87'
+    meaning: "System pressure is too high. The burner is locked out, so there's no heating or hot water."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20050%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20050%20installation%20instructions.pdf'
+      title: 'Vitodens 050-W type B0HA, B0KA installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.66'
+      checked: '2026-10-19'
+      quote: '87 Burner locked out. Internal pump off. No central heating and no DHW heating. System pressure too high'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-050w-89
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 050-W']
+    code: '89'
+    meaning: "The boiler's internal circulation pump is blocked, so there's no heating or hot water."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20050%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20050%20installation%20instructions.pdf'
+      title: 'Vitodens 050-W type B0HA, B0KA installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.66'
+      checked: '2026-10-19'
+      quote: '89 No central heating and no DHW heating Internal circulation pump blocked'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-050w-353
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 050-W']
+    code: '353'
+    meaning: 'The gas supply is insufficient, so burner output is reduced. The burner shuts down and restarts if there is still demand.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20050%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20050%20installation%20instructions.pdf'
+      title: 'Vitodens 050-W type B0HA, B0KA installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.68'
+      checked: '2026-10-19'
+      quote: '353 Shutdown with restart if demand exists Insufficient gas supply, burner output reduced'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-050w-359
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 050-W']
+    code: '359'
+    meaning: 'There is no ignition spark. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20050%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20050%20installation%20instructions.pdf'
+      title: 'Vitodens 050-W type B0HA, B0KA installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.68'
+      checked: '2026-10-19'
+      quote: '359 Burner in a fault state No ignition spark'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-050w-361
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 050-W']
+    code: '361'
+    meaning: 'There was no flame signal, or too weak a signal, when the burner started. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20050%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20050%20installation%20instructions.pdf'
+      title: 'Vitodens 050-W type B0HA, B0KA installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.68'
+      checked: '2026-10-19'
+      quote: '361 Burner in a fault state Flame signal is not present or insufficient at burner start'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-050w-540
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 050-W']
+    code: '540'
+    meaning: 'Condensate has backed up inside the boiler (heat cell). The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20050%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20050%20installation%20instructions.pdf'
+      title: 'Vitodens 050-W type B0HA, B0KA installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.77'
+      checked: '2026-10-19'
+      quote: '540 Burner in a fault state Condensate backup in the heat cell'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-100w-59
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 100-W']
+    code: '59'
+    meaning: "The mains power supply voltage is too low. The burner is locked out, so there's no heating or hot water."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20100-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20100-W%20installation%20instructions.pdf'
+      title: 'Vitodens 100-W type B1HF, B1KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.69'
+      checked: '2026-10-19'
+      quote: '59 Burner locked out, boiler circuit pump off. No central heating, no DHW heating. Power supply, undervoltage'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-100w-62
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 100-W']
+    code: '62'
+    meaning: 'The high limit safety cut-out has responded to overheating, and the burner has gone into a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20100-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20100-W%20installation%20instructions.pdf'
+      title: 'Vitodens 100-W type B1HF, B1KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.69'
+      checked: '2026-10-19'
+      quote: '62 Burner in a fault state High limit safety cut-out has responded.'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-100w-63
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 100-W']
+    code: '63'
+    meaning: 'The flue gas temperature limiter has responded, and the burner has gone into a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20100-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20100-W%20installation%20instructions.pdf'
+      title: 'Vitodens 100-W type B1HF, B1KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.70'
+      checked: '2026-10-19'
+      quote: '63 Burner in a fault state Flue gas temperature limiter has responded.'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-100w-64
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 100-W']
+    code: '64'
+    meaning: 'The flame was lost while the burner was starting up or running. The boiler carries on and the burner restarts.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20100-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20100-W%20installation%20instructions.pdf'
+      title: 'Vitodens 100-W type B1HF, B1KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.70'
+      checked: '2026-10-19'
+      quote: '64 Normal operation; burner restarts. Flame loss during stabilisation or operating phase'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-100w-65
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 100-W']
+    code: '65'
+    meaning: 'There was no flame signal, or too weak a signal, when the burner started. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20100-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20100-W%20installation%20instructions.pdf'
+      title: 'Vitodens 100-W type B1HF, B1KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.70'
+      checked: '2026-10-19'
+      quote: '65 Burner in a fault state Flame signal not present or insufficient at burner start'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-100w-71
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 100-W']
+    code: '71'
+    meaning: 'The fan speed is too low. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20100-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20100-W%20installation%20instructions.pdf'
+      title: 'Vitodens 100-W type B1HF, B1KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.71'
+      checked: '2026-10-19'
+      quote: '71 Burner in a fault state Fan speed too low'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-100w-74
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 100-W']
+    code: '74'
+    meaning: "System pressure is too low. The burner is locked out, so there's no heating or hot water."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20100-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20100-W%20installation%20instructions.pdf'
+      title: 'Vitodens 100-W type B1HF, B1KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.71'
+      checked: '2026-10-19'
+      quote: '74 Burner locked out. Internal circulation pump off. No central heating and no DHW heating. System pressure too low'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-100w-75
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 100-W']
+    code: '75'
+    meaning: 'No water flow is being detected through the boiler, so it has gone into a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20100-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20100-W%20installation%20instructions.pdf'
+      title: 'Vitodens 100-W type B1HF, B1KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.72'
+      checked: '2026-10-19'
+      quote: '75 System in a fault state No flow rate'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-100w-87
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 100-W']
+    code: '87'
+    meaning: "System pressure is too high. The burner is locked out, so there's no heating or hot water."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20100-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20100-W%20installation%20instructions.pdf'
+      title: 'Vitodens 100-W type B1HF, B1KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.72'
+      checked: '2026-10-19'
+      quote: '87 Burner locked out. Internal pump off. No central heating and no DHW heating. System pressure too high'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-100w-89
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 100-W']
+    code: '89'
+    meaning: "The boiler's internal circulation pump is blocked, so there's no heating or hot water."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20100-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20100-W%20installation%20instructions.pdf'
+      title: 'Vitodens 100-W type B1HF, B1KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.72'
+      checked: '2026-10-19'
+      quote: '89 No central heating and no DHW heating Internal circulation pump blocked'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-100w-176
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 100-W']
+    code: '176'
+    meaning: 'Condensate has backed up inside the boiler (heat cell). The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20100-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20100-W%20installation%20instructions.pdf'
+      title: 'Vitodens 100-W type B1HF, B1KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.73'
+      checked: '2026-10-19'
+      quote: '176 Burner in a fault state Condensate backup in the heat cell'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-100w-353
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 100-W']
+    code: '353'
+    meaning: 'The gas supply is insufficient, so burner output is reduced. The burner shuts down and restarts if there is still demand.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20100-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20100-W%20installation%20instructions.pdf'
+      title: 'Vitodens 100-W type B1HF, B1KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.75'
+      checked: '2026-10-19'
+      quote: '353 Shutdown with restart if demand exists Insufficient gas supply, burner output reduced'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-100w-357
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 100-W']
+    code: '357'
+    meaning: 'The gas supply to the boiler is insufficient. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20100-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20100-W%20installation%20instructions.pdf'
+      title: 'Vitodens 100-W type B1HF, B1KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.75'
+      checked: '2026-10-19'
+      quote: '357 Burner in a fault state Insufficient gas supply'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-100w-359
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 100-W']
+    code: '359'
+    meaning: 'There is no ignition spark. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20100-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20100-W%20installation%20instructions.pdf'
+      title: 'Vitodens 100-W type B1HF, B1KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.76'
+      checked: '2026-10-19'
+      quote: '359 Burner in a fault state No ignition spark'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-100w-361
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 100-W']
+    code: '361'
+    meaning: 'There was no flame signal, or too weak a signal, when the burner started. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20100-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20100-W%20installation%20instructions.pdf'
+      title: 'Vitodens 100-W type B1HF, B1KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.76'
+      checked: '2026-10-19'
+      quote: '361 Burner in a fault state Flame signal is not present or insufficient at burner start'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-100w-540
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 100-W']
+    code: '540'
+    meaning: 'Condensate has backed up inside the boiler (heat cell). The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20100-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20100-W%20installation%20instructions.pdf'
+      title: 'Vitodens 100-W type B1HF, B1KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.86'
+      checked: '2026-10-19'
+      quote: '540 Burner in a fault state Condensate backup in the heat cell'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-111w-59
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 111-W']
+    code: '59'
+    meaning: "The mains power supply voltage is too low. The burner is locked out, so there's no heating or hot water."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20111-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20111-W%20installation%20instructions.pdf'
+      title: 'Vitodens 111-W type B1LF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.71'
+      checked: '2026-10-19'
+      quote: '59 Burner locked out, boiler circuit pump off. No central heating, no DHW heating. Power supply, undervoltage'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-111w-62
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 111-W']
+    code: '62'
+    meaning: 'The high limit safety cut-out has responded to overheating, and the burner has gone into a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20111-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20111-W%20installation%20instructions.pdf'
+      title: 'Vitodens 111-W type B1LF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.71'
+      checked: '2026-10-19'
+      quote: '62 Burner in a fault state High limit safety cut-out has responded.'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-111w-63
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 111-W']
+    code: '63'
+    meaning: 'The flue gas temperature limiter has responded, and the burner has gone into a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20111-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20111-W%20installation%20instructions.pdf'
+      title: 'Vitodens 111-W type B1LF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.72'
+      checked: '2026-10-19'
+      quote: '63 Burner in a fault state Flue gas temperature limiter has responded.'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-111w-64
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 111-W']
+    code: '64'
+    meaning: 'The flame was lost while the burner was starting up or running. The boiler carries on and the burner restarts.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20111-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20111-W%20installation%20instructions.pdf'
+      title: 'Vitodens 111-W type B1LF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.72'
+      checked: '2026-10-19'
+      quote: '64 Normal operation; burner restarts. Flame loss during stabilisation or operating phase'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-111w-65
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 111-W']
+    code: '65'
+    meaning: 'There was no flame signal, or too weak a signal, when the burner started. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20111-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20111-W%20installation%20instructions.pdf'
+      title: 'Vitodens 111-W type B1LF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.72'
+      checked: '2026-10-19'
+      quote: '65 Burner in a fault state Flame signal not present or insufficient at burner start'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-111w-71
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 111-W']
+    code: '71'
+    meaning: 'The fan speed is too low. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20111-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20111-W%20installation%20instructions.pdf'
+      title: 'Vitodens 111-W type B1LF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.73'
+      checked: '2026-10-19'
+      quote: '71 Burner in a fault state Fan speed too low'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-111w-74
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 111-W']
+    code: '74'
+    meaning: "System pressure is too low. The burner is locked out, so there's no heating or hot water."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20111-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20111-W%20installation%20instructions.pdf'
+      title: 'Vitodens 111-W type B1LF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.73'
+      checked: '2026-10-19'
+      quote: '74 Burner locked out. Internal circulation pump off. No central heating and no DHW heating. System pressure too low'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-111w-75
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 111-W']
+    code: '75'
+    meaning: 'No water flow is being detected through the boiler, so it has gone into a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20111-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20111-W%20installation%20instructions.pdf'
+      title: 'Vitodens 111-W type B1LF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.74'
+      checked: '2026-10-19'
+      quote: '75 System in a fault state No flow rate'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-111w-87
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 111-W']
+    code: '87'
+    meaning: "System pressure is too high. The burner is locked out, so there's no heating or hot water."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20111-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20111-W%20installation%20instructions.pdf'
+      title: 'Vitodens 111-W type B1LF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.74'
+      checked: '2026-10-19'
+      quote: '87 Burner locked out. Internal pump off. No central heating and no DHW heating. System pressure too high'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-111w-89
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 111-W']
+    code: '89'
+    meaning: "The boiler's internal circulation pump is blocked, so there's no heating or hot water."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20111-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20111-W%20installation%20instructions.pdf'
+      title: 'Vitodens 111-W type B1LF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.74'
+      checked: '2026-10-19'
+      quote: '89 No central heating and no DHW heating Internal circulation pump blocked'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-111w-176
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 111-W']
+    code: '176'
+    meaning: 'Condensate has backed up inside the boiler (heat cell). The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20111-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20111-W%20installation%20instructions.pdf'
+      title: 'Vitodens 111-W type B1LF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.75'
+      checked: '2026-10-19'
+      quote: '176 Burner in a fault state Condensate backup in the heat cell'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-111w-353
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 111-W']
+    code: '353'
+    meaning: 'The gas supply is insufficient, so burner output is reduced. The burner shuts down and restarts if there is still demand.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20111-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20111-W%20installation%20instructions.pdf'
+      title: 'Vitodens 111-W type B1LF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.77'
+      checked: '2026-10-19'
+      quote: '353 Shutdown with restart if demand exists Insufficient gas supply, burner output reduced'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-111w-357
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 111-W']
+    code: '357'
+    meaning: 'The gas supply to the boiler is insufficient. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20111-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20111-W%20installation%20instructions.pdf'
+      title: 'Vitodens 111-W type B1LF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.77'
+      checked: '2026-10-19'
+      quote: '357 Burner in a fault state Insufficient gas supply'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-111w-359
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 111-W']
+    code: '359'
+    meaning: 'There is no ignition spark. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20111-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20111-W%20installation%20instructions.pdf'
+      title: 'Vitodens 111-W type B1LF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.78'
+      checked: '2026-10-19'
+      quote: '359 Burner in a fault state No ignition spark'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-111w-361
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 111-W']
+    code: '361'
+    meaning: 'There was no flame signal, or too weak a signal, when the burner started. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20111-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20111-W%20installation%20instructions.pdf'
+      title: 'Vitodens 111-W type B1LF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.78'
+      checked: '2026-10-19'
+      quote: '361 Burner in a fault state Flame signal is not present or insufficient at burner start'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-111w-540
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 111-W']
+    code: '540'
+    meaning: 'Condensate has backed up inside the boiler (heat cell). The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20111-W%20installation%20instructions.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/Vitodens%20111-W%20installation%20instructions.pdf'
+      title: 'Vitodens 111-W type B1LF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.88'
+      checked: '2026-10-19'
+      quote: '540 Burner in a fault state Condensate backup in the heat cell'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given. The display shows a fault symbol with the number; 3-digit codes may show the first two digits, then the last.'
+  - id: vm-200w-59
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 200-W']
+    code: 'F.59'
+    meaning: "The mains power supply voltage is too low. The burner is locked out, so there's no heating or hot water."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20200-W%20installation%20instructions.pdf/_jcr_content/renditions/original./Vitodens%20200-W%20installation%20instructions.pdf'
+      title: 'Vitodens 200-W type B2HF, B2KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.92'
+      checked: '2026-10-19'
+      quote: 'F.59 Burner locked out. Internal circulation pump off. No central heating, no DHW heating. Power supply, low voltage'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given.'
+  - id: vm-200w-62
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 200-W']
+    code: 'F.62'
+    meaning: 'The high limit safety cut-out has responded to overheating, and the burner has gone into a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20200-W%20installation%20instructions.pdf/_jcr_content/renditions/original./Vitodens%20200-W%20installation%20instructions.pdf'
+      title: 'Vitodens 200-W type B2HF, B2KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.92'
+      checked: '2026-10-19'
+      quote: 'F.62 Burner in a fault state. High limit safety cut-out has responded.'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given.'
+  - id: vm-200w-63
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 200-W']
+    code: 'F.63'
+    meaning: 'The flue gas temperature limiter has responded, and the burner has gone into a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20200-W%20installation%20instructions.pdf/_jcr_content/renditions/original./Vitodens%20200-W%20installation%20instructions.pdf'
+      title: 'Vitodens 200-W type B2HF, B2KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.92'
+      checked: '2026-10-19'
+      quote: 'F.63 Burner in a fault state. Flue gas temperature limiter has responded.'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given.'
+  - id: vm-200w-64
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 200-W']
+    code: 'F.64'
+    meaning: 'The flame was lost while the burner was starting up or running. The boiler carries on and the burner restarts.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20200-W%20installation%20instructions.pdf/_jcr_content/renditions/original./Vitodens%20200-W%20installation%20instructions.pdf'
+      title: 'Vitodens 200-W type B2HF, B2KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.92'
+      checked: '2026-10-19'
+      quote: 'F.64 Normal operation Burner restarts. Flame loss during stabilisation or operating phase'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given.'
+  - id: vm-200w-65
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 200-W']
+    code: 'F.65'
+    meaning: 'There was no flame signal, or too weak a signal, when the burner started. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20200-W%20installation%20instructions.pdf/_jcr_content/renditions/original./Vitodens%20200-W%20installation%20instructions.pdf'
+      title: 'Vitodens 200-W type B2HF, B2KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.93'
+      checked: '2026-10-19'
+      quote: 'F.65 Burner in a fault state. Flame signal is not present or insufficient at burner start'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given.'
+  - id: vm-200w-71
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 200-W']
+    code: 'F.71'
+    meaning: 'The fan speed is too low. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20200-W%20installation%20instructions.pdf/_jcr_content/renditions/original./Vitodens%20200-W%20installation%20instructions.pdf'
+      title: 'Vitodens 200-W type B2HF, B2KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.94'
+      checked: '2026-10-19'
+      quote: 'F.71 Burner in a fault state. Fan speed too low'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given.'
+  - id: vm-200w-74
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 200-W']
+    code: 'F.74'
+    meaning: "System pressure is too low. The burner is locked out, so there's no heating or hot water."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20200-W%20installation%20instructions.pdf/_jcr_content/renditions/original./Vitodens%20200-W%20installation%20instructions.pdf'
+      title: 'Vitodens 200-W type B2HF, B2KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.94'
+      checked: '2026-10-19'
+      quote: 'F.74 Burner locked out. Internal circulation pump off. No central heating and no DHW heating. System pressure too low'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given.'
+  - id: vm-200w-75
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 200-W']
+    code: 'F.75'
+    meaning: 'No water flow is being detected through the boiler, so it has gone into a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20200-W%20installation%20instructions.pdf/_jcr_content/renditions/original./Vitodens%20200-W%20installation%20instructions.pdf'
+      title: 'Vitodens 200-W type B2HF, B2KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.94'
+      checked: '2026-10-19'
+      quote: 'F.75 Burner in a fault state. Internal circulation pump off. No central heating and no DHW heating. No flow rate'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given.'
+  - id: vm-200w-87
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 200-W']
+    code: 'F.87'
+    meaning: 'The water pressure is too high, and the burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20200-W%20installation%20instructions.pdf/_jcr_content/renditions/original./Vitodens%20200-W%20installation%20instructions.pdf'
+      title: 'Vitodens 200-W type B2HF, B2KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.95'
+      checked: '2026-10-19'
+      quote: 'F.87 Burner in a fault state. Water pressure too high'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given.'
+  - id: vm-200w-89
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 200-W']
+    code: 'F.89'
+    meaning: "The boiler's internal circulation pump is blocked, so there's no heating or hot water."
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20200-W%20installation%20instructions.pdf/_jcr_content/renditions/original./Vitodens%20200-W%20installation%20instructions.pdf'
+      title: 'Vitodens 200-W type B2HF, B2KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.95'
+      checked: '2026-10-19'
+      quote: 'F.89 No central heating and no DHW heating. Internal pump not functioning. Internal circulation pump blocked'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given.'
+  - id: vm-200w-353
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 200-W']
+    code: 'F.353'
+    meaning: 'The gas supply is insufficient, so burner output is reduced. The burner shuts down and restarts if there is still demand.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20200-W%20installation%20instructions.pdf/_jcr_content/renditions/original./Vitodens%20200-W%20installation%20instructions.pdf'
+      title: 'Vitodens 200-W type B2HF, B2KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.98'
+      checked: '2026-10-19'
+      quote: 'F.353 Burner shutdown with restart if demand exists. Insufficient gas supply, burner output reduced'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given.'
+  - id: vm-200w-357
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 200-W']
+    code: 'F.357'
+    meaning: 'The gas supply to the boiler is insufficient. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20200-W%20installation%20instructions.pdf/_jcr_content/renditions/original./Vitodens%20200-W%20installation%20instructions.pdf'
+      title: 'Vitodens 200-W type B2HF, B2KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.99'
+      checked: '2026-10-19'
+      quote: 'F.357 Burner in a fault state. Insufficient gas supply'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given.'
+  - id: vm-200w-359
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 200-W']
+    code: 'F.359'
+    meaning: 'There is no ignition spark. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20200-W%20installation%20instructions.pdf/_jcr_content/renditions/original./Vitodens%20200-W%20installation%20instructions.pdf'
+      title: 'Vitodens 200-W type B2HF, B2KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.99'
+      checked: '2026-10-19'
+      quote: 'F.359 Burner in a fault state. No ignition spark'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given.'
+  - id: vm-200w-361
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 200-W']
+    code: 'F.361'
+    meaning: 'There was no flame signal, or too weak a signal, when the burner started. The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20200-W%20installation%20instructions.pdf/_jcr_content/renditions/original./Vitodens%20200-W%20installation%20instructions.pdf'
+      title: 'Vitodens 200-W type B2HF, B2KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.99'
+      checked: '2026-10-19'
+      quote: 'F.361 Burner in a fault state. Flame signal is not present or insufficient at burner start'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given.'
+  - id: vm-200w-540
+    kind: fault_code
+    manufacturer: viessmann
+    ranges: ['Vitodens 200-W']
+    code: 'F.540'
+    meaning: 'Condensate has backed up inside the boiler (heat cell). The burner is in a fault state.'
+    homeowner_guidance: null
+    engineer_needed: true
+    source:
+      url: 'https://www.viessmann.co.uk/content/dam/public-brands/gb/pdf/instructions/Vitodens%20200-W%20installation%20instructions.pdf/_jcr_content/renditions/original./Vitodens%20200-W%20installation%20instructions.pdf'
+      title: 'Vitodens 200-W type B2HF, B2KF installation and service instructions for contractors'
+      publisher: 'Viessmann Climate Solutions'
+      page: 'PDF p.107'
+      checked: '2026-10-19'
+      quote: 'F.540 Burner in a fault state. Condensate backup in the heat cell'
+    status: source_verified
+    reviewed_by: null
+    limitations: 'From the contractor installation and service instructions; homeowner operating instructions not checked, so no caller action is given.'

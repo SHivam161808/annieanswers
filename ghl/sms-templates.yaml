@@ -57,6 +57,12 @@ templates:
     status: draft
     body: '{{custom_values.business_name}} URGENT {{contact.ai_urgency}}: {{contact.ai_issue_summary}} {{contact.job_postcode}}. Call {{contact.phone}} now.'
 
+  - id: urgent_call_in_progress_owner
+    workflow: WF-06
+    to: owner
+    status: draft
+    body: '{{custom_values.business_name}} URGENT {{contact.ai_urgency}}: an urgent call is in progress now. Check the AI receptionist calls and ring the customer back.'
+
   - id: request_mode_owner
     workflow: WF-07
     to: owner

@@ -15,3 +15,6 @@ build/
 /*.docx
 .stryker-tmp/
 /build/exports/
+
+# Deployment secrets (never committed)
+/deploy/fly/secrets.*.env

@@ -14,7 +14,10 @@
     "src/actions/**/*.ts",
     "src/booking/**/*.ts",
     "src/ghl/**/*.ts",
-    "src/monitoring/**/*.ts"
+    "src/monitoring/**/*.ts",
+    "src/knowledge/**/*.ts",
+    "src/alerts/**/*.ts",
+    "src/jobs/**/*.ts"
   ],
   "coverageAnalysis": "perTest",
   "concurrency": 4,

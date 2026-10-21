@@ -1,0 +1,38 @@
+# Fly.io (London) — middleware for the AI receptionist. One app per environment:
+#   annie-api-dev, annie-api-qa, annie-api-production (set with --app / FLY_APP).
+# Secrets (never here): fly secrets set via deploy/fly/deploy.sh from a git-ignored file.
+primary_region = "lhr"
+
+[build]
+  dockerfile = "../../Dockerfile"
+
+[env]
+  PORT = "8080"
+  LOG_LEVEL = "info"
+  KNOWLEDGE_DIR = "knowledge/boilers"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "off"     # never cold-start on the call path
+  auto_start_machines = true
+  min_machines_running = 2       # two machines in London: no single point of failure
+
+  [http_service.concurrency]
+    type = "requests"
+    soft_limit = 150
+    hard_limit = 200
+
+  [[http_service.checks]]
+    grace_period = "10s"
+    interval = "15s"
+    method = "GET"
+    path = "/readyz"
+    timeout = "3s"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"
+
+[deploy]
+  strategy = "rolling"

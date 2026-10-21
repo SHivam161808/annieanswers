@@ -42,6 +42,12 @@ export function createMetrics() {
       labelNames: ['result'] as const,
       registers: [registry],
     }),
+    ownerAlerts: new Counter({
+      name: 'annie_owner_alerts_total',
+      help: 'Owner SMS alerts by result (sent, duplicate, failed, no_number)',
+      labelNames: ['result'] as const,
+      registers: [registry],
+    }),
     rejected: new Counter({
       name: 'annie_requests_rejected_total',
       help: 'Requests rejected before reaching a handler',

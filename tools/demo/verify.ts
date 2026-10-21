@@ -76,6 +76,7 @@ for (const name of [
   'available_slots',
   'reschedule_booking',
   'cancel_booking',
+  'lookup_fault_code',
 ]) {
   check(`action ${name} present`, names.has(name));
 }
