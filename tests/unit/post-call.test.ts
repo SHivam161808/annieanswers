@@ -60,7 +60,7 @@ type Req = Omit<GhlRequest, 'deadline'>;
 /** A GHL stand-in that answers by method + path and records every request (without deadline). */
 class World {
   requests: Req[] = [];
-  pages: { callLogs?: CallLog[]; total?: number }[] = [];
+  pages: { callLogs?: CallLog[]; totalRecords?: number; total?: number }[] = [];
   fields: unknown = { customFields: FIELDS };
   pipelines: unknown = { pipelines: [{ id: 'p0', name: 'Other', stages: [] }, PIPELINE] };
   contacts = new Map<string, Record<string, unknown>>();
@@ -480,8 +480,8 @@ describe('PostCallProcessor timing and selection', () => {
   it('pages through call logs until the total is reached', async () => {
     const log = (id: string): CallLog => ({ id, createdAt: ago(5 * MIN), trialCall: true });
     world.pages = [
-      { callLogs: [log('1'), log('2')], total: 3 },
-      { callLogs: [log('3')], total: 3 },
+      { callLogs: [log('1'), log('2')], totalRecords: 3 },
+      { callLogs: [log('3')], totalRecords: 3 },
     ];
     expect(await proc().run(LOC, cfg)).toMatchObject({ scanned: 3 });
     expect(world.paths().filter((p) => p.includes('call-logs'))).toHaveLength(2);

@@ -314,7 +314,11 @@ export class PostCallProcessor {
   ): Promise<CallLog[]> {
     const logs: CallLog[] = [];
     for (let page = 1; page <= 20; page++) {
-      const res = await this.o.ghl.request<{ callLogs?: CallLog[]; total?: number }>({
+      const res = await this.o.ghl.request<{
+        callLogs?: CallLog[];
+        totalRecords?: number;
+        total?: number;
+      }>({
         method: 'GET',
         path: `/voice-ai/dashboard/call-logs?locationId=${encodeURIComponent(locationId)}&startDate=${from}&endDate=${to}&page=${page}&pageSize=50`,
         version: 'v3',
@@ -323,7 +327,9 @@ export class PostCallProcessor {
         operation: 'post_call_logs',
       });
       logs.push(...(res.callLogs ?? []));
-      if (!res.callLogs?.length || logs.length >= (res.total ?? 0)) break;
+      // GHL returns `totalRecords` (live API, Oct 2026); `total` kept as a fallback.
+      const total = res.totalRecords ?? res.total ?? 0;
+      if (!res.callLogs?.length || logs.length >= total) break;
     }
     return logs.sort((a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt));
   }
